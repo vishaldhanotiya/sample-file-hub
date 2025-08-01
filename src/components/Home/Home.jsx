@@ -14,6 +14,9 @@ const Home = () => {
     { label: "JPG",type: "jpg", icon: require("../../assets/icon-jpg.png") },
     { label: "SVG",type: "svg", icon: require("../../assets/icon-svg.png") },
     { label: "GIF", type: "gif",icon: require("../../assets/icon-gif.png") },
+    { label: "WEBP", type: "webp",icon: require("../../assets/icon-webp.png") },
+    { label: "BMP", type: "bmp",icon: require("../../assets/icon-bmp.png") },
+
   ];
 
   const videoType = [
@@ -21,6 +24,8 @@ const Home = () => {
     { label: "MKV",type: "mkv",  icon: require("../../assets/icon-mkv.png") },
     { label: "AVI",type: "avi",  icon: require("../../assets/icon-avi.png") },
     { label: "FLV",type: "flv",  icon: require("../../assets/icon-flv.png") },
+    { label: "MOV",type: "mov",  icon: require("../../assets/icon-mov.png") },
+    { label: "WEBM",type: "webm",  icon: require("../../assets/icon-webm.png") },
   ];
 
   return (

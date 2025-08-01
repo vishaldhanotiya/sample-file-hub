@@ -16,6 +16,7 @@ import {
 import { db } from "../../App";
 import { useLocation } from "react-router-dom";
 import Header from "../Header/Header";
+import VideoThumbnailFromURL from "../VideoThumbnailFromURL/VideoThumbnailFromURL";
 
 const FileListing = () => {
   // Sample data for the table
@@ -60,6 +61,7 @@ const FileListing = () => {
     return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
   }
 
+  const upperCaseType = fileType.toUpperCase();
   return (
     <div style={{ fontFamily: '"Work Sans", "Noto Sans", sans-serif' }}>
       <Header />
@@ -69,7 +71,7 @@ const FileListing = () => {
         {/* Title and Filters */}
         <Row className="mb-4">
           <Col>
-            <h2 className="fw-bold">PNG Images</h2>
+            <h2 className="fw-bold">{upperCaseType} Images</h2>
           </Col>
           <Col className="d-flex justify-content-end gap-2">
             <Button variant="light" className="d-flex align-items-center">
@@ -104,6 +106,11 @@ const FileListing = () => {
                   style={{ verticalAlign: "middle" }}
                 >
                   <td className="text-center">
+                  {file.resource_type === "video"?  
+
+                  <VideoThumbnailFromURL  videoUrl={file.url} />
+
+                  :
                     <img
                       src={file.url}
                       alt="thumb"
@@ -111,7 +118,7 @@ const FileListing = () => {
                       width="60"
                       height="60"
                       style={{ objectFit: "cover" }}
-                    />
+                    />}
                   </td>
                   <td className="fw-normal">{file.display_name}</td>
                   <td className="text-muted text-capitalize">{file.format}</td>
