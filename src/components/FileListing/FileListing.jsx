@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import VideoThumbnailFromURL from "../VideoThumbnailFromURL/VideoThumbnailFromURL";
 
+// Placeholder icons
 import PdfIcon from "../../assets/pdf.png";
 import PptIcon from "../../assets/ppt.png";
 import OdtIcon from "../../assets/odt.png";
@@ -25,6 +26,7 @@ import WavIcon from "../../assets/wav.png";
 import OggIcon from "../../assets/ogg.png";
 import AviIcon from "../../assets/avi.png";
 import FlvIcon from "../../assets/flv.png";
+
 const placeholderMap = {
   pdf: PdfIcon,
   pptx: PptIcon,
@@ -39,9 +41,8 @@ const placeholderMap = {
   avi: AviIcon,
   flv: FlvIcon,
 };
-const FileListing = () => {
-  // Sample data for the table
 
+const FileListing = () => {
   const [files, setFiles] = useState([]);
   const location = useLocation();
   const fileType = location?.state?.fileType;
@@ -77,34 +78,38 @@ const FileListing = () => {
 
   function formatBytes(bytes) {
     const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-    if (bytes === 0) {
-      return "0 Bytes";
-    }
+    if (bytes === 0) return "0 Bytes";
     const i = parseInt(Math.floor(Math.log(Math.abs(bytes)) / Math.log(1024)));
     return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
   }
 
-  const upperCaseType = fileType.toUpperCase();
+  const upperCaseType = fileType?.toUpperCase() || "All";
+
   return (
     <div style={{ fontFamily: '"Work Sans", "Noto Sans", sans-serif' }}>
       <Header />
 
-      {/* Main Content */}
-      <Container className="py-4">
+      <Container fluid className="py-4 px-3 px-md-5">
         {/* Title and Filters */}
-        <Row className="mb-4">
-          <Col>
-            <h2 className="fw-bold">{upperCaseType} Images</h2>
+        <Row className="align-items-center mb-4">
+          <Col xs={12} md={6}>
+            <h4 className="fw-bold mb-3 mb-md-0 text-center text-md-start">
+              {upperCaseType} Files
+            </h4>
           </Col>
-          <Col className="d-flex justify-content-end gap-2">
-            <Button variant="light" className="d-flex align-items-center">
-              Size <i className="bi bi-caret-down ms-2"></i>
+          <Col
+            xs={12}
+            md={6}
+            className="d-flex flex-column flex-md-row justify-content-md-end gap-2"
+          >
+            <Button variant="light" className="w-100 w-md-auto">
+              Size <i className="bi bi-caret-down ms-1"></i>
             </Button>
-            <Button variant="light" className="d-flex align-items-center">
-              Color <i className="bi bi-caret-down ms-2"></i>
+            <Button variant="light" className="w-100 w-md-auto">
+              Color <i className="bi bi-caret-down ms-1"></i>
             </Button>
-            <Button variant="light" className="d-flex align-items-center">
-              Sort <i className="bi bi-caret-down ms-2"></i>
+            <Button variant="light" className="w-100 w-md-auto">
+              Sort <i className="bi bi-caret-down ms-1"></i>
             </Button>
           </Col>
         </Row>
@@ -114,11 +119,11 @@ const FileListing = () => {
           <table className="table align-middle mb-0">
             <thead className="table-light">
               <tr>
-                <th className="text-center py-4">Thumbnail</th>
-                <th className="py-4">File Name</th>
-                <th className="py-4">Type</th>
-                <th className="py-4">Size</th>
-                <th className="text-center py-4">Actions</th>
+                <th className="text-center py-3">Image</th>
+                <th className="py-3"> Name</th>
+                {/* <th className="py-3">Type</th> */}
+                <th className="py-3">Size</th>
+                <th className="text-center py-3">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -142,48 +147,39 @@ const FileListing = () => {
                         style={{ objectFit: "cover" }}
                       />
                     )}
-
-                    {/* {file.resource_type === "video"?  
-
-                  <VideoThumbnailFromURL  videoUrl={file.url} />
-
-                  :
-                    <img
-                      src={file.url}
-                      alt="thumb"
-                      className="rounded-circle shadow-sm"
-                      width="60"
-                      height="60"
-                      style={{ objectFit: "cover" }}
-                    />} */}
                   </td>
                   <td className="fw-normal">{file.display_name}</td>
-                  <td className="text-muted text-capitalize">{file.format}</td>
+                  {/* <td className="text-muted text-capitalize">{file.format}</td> */}
                   <td>{formatBytes(file.bytes)}</td>
                   <td className="text-center">
-                    <button
-                      onClick={() => window.open(file.url, "_blank")}
-                      className="btn btn-outline-primary btn-sm me-2"
-                    >
-                      View
-                    </button>
-                    <button
-                      className="btn btn-outline-secondary btn-sm"
-                      onClick={() => navigator.clipboard.writeText(file.url)}
-                    >
-                      Copy URL
-                    </button>
+                    <div className="d-flex justify-content-center gap-2 flex-wrap">
+                      <button
+                        onClick={() => window.open(file.url, "_blank")}
+                        className="btn btn-outline-primary btn-sm"
+                      >
+                        View
+                      </button>
+                      <button
+                        className="btn btn-outline-secondary btn-sm"
+                        onClick={() =>
+                          navigator.clipboard.writeText(file.url)
+                        }
+                      >
+                        Copy
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+
         {/* Pagination */}
         <div className="d-flex align-items-center justify-content-center p-4">
           <nav>
-            <ul className="pagination justify-content-center">
-              <li className={`page-item ${currentPage === 1 && "disabled"}`}>
+            <ul className="pagination justify-content-center mb-0">
+              <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
                 <button
                   className="page-link"
                   onClick={() =>
@@ -200,7 +196,7 @@ const FileListing = () => {
               </li>
               <li
                 className={`page-item ${
-                  currentPage === totalPages && "disabled"
+                  currentPage === totalPages ? "disabled" : ""
                 }`}
               >
                 <button

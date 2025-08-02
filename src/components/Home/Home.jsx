@@ -73,6 +73,7 @@ const documentArray = [
 const Home = () => {
   const navigate = useNavigate();
   const [query, setQuery] = React.useState(documentArray);
+  
   const goToFileListing = (type) => {
     navigate("/fileListing", { state: { fileType: type } });
   };
