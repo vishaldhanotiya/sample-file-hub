@@ -4,9 +4,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    onSearch(value); // Trigger on every keystroke
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(query);
+    onSearch(query); // Optional: also trigger on form submit
   };
 
   return (
@@ -35,21 +41,20 @@ const SearchBar = ({ onSearch }) => {
             placeholder="Search for images or videos..."
             aria-label="Search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={handleChange} // 💡 Use onChange, not onChangeCapture
             style={{
-              borderRadius: "40px", // Slightly larger border radius
-              paddingLeft: "50px", // More padding to accommodate icon
-              paddingTop: "12px", // Increased vertical padding
-              paddingBottom: "12px", // Increased vertical padding
+              borderRadius: "40px",
+              paddingLeft: "50px",
+              paddingTop: "12px",
+              paddingBottom: "12px",
               border: "1px solid #dee2e6",
               boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-              fontSize: "1.3rem", // Slightly larger font
+              fontSize: "1.3rem",
               height: "70px",
               marginBottom: "50px",
             }}
             onFocus={(e) => {
               e.target.style.boxShadow = "0 2px 8px rgba(0,0,0,0.1)";
-              // e.target.style.borderColor = '#86b7fe';
             }}
             onBlur={(e) => {
               e.target.style.boxShadow = "0 2px 4px rgba(0,0,0,0.05)";

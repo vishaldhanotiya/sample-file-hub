@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-} from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   collection,
@@ -18,18 +13,44 @@ import { useLocation } from "react-router-dom";
 import Header from "../Header/Header";
 import VideoThumbnailFromURL from "../VideoThumbnailFromURL/VideoThumbnailFromURL";
 
+import PdfIcon from "../../assets/pdf.png";
+import PptIcon from "../../assets/ppt.png";
+import OdtIcon from "../../assets/odt.png";
+import RtfIcon from "../../assets/rtf.png";
+import Mp3Icon from "../../assets/mp3.png";
+import DocxIcon from "../../assets/docx.png";
+import TextIcon from "../../assets/text.png";
+import AacIcon from "../../assets/aac.png";
+import WavIcon from "../../assets/wav.png";
+import OggIcon from "../../assets/ogg.png";
+import AviIcon from "../../assets/avi.png";
+import FlvIcon from "../../assets/flv.png";
+const placeholderMap = {
+  pdf: PdfIcon,
+  pptx: PptIcon,
+  odt: OdtIcon,
+  rtf: RtfIcon,
+  mp3: Mp3Icon,
+  docx: DocxIcon,
+  txt: TextIcon,
+  aac: AacIcon,
+  wav: WavIcon,
+  ogg: OggIcon,
+  avi: AviIcon,
+  flv: FlvIcon,
+};
 const FileListing = () => {
   // Sample data for the table
 
   const [files, setFiles] = useState([]);
   const location = useLocation();
-  const fileType = location.state.fileType;
+  const fileType = location?.state?.fileType;
   const [currentPage, setCurrentPage] = useState(1);
   const filesPerPage = 25;
 
   useEffect(() => {
     fetchFiles(fileType);
-  }, []);
+  }, [fileType]);
 
   const fetchFiles = async (type) => {
     let q = collection(db, "files");
@@ -106,7 +127,21 @@ const FileListing = () => {
                   style={{ verticalAlign: "middle" }}
                 >
                   <td className="text-center">
-                  {file.resource_type === "video"?  
+                    {file.resource_type === "video" &&
+                    !placeholderMap[file.format] ? (
+                      <VideoThumbnailFromURL videoUrl={file.url} />
+                    ) : (
+                      <img
+                        src={placeholderMap[file.format] || file.url}
+                        alt="thumb"
+                        className="rounded-circle shadow-sm"
+                        width="60"
+                        height="60"
+                        style={{ objectFit: "cover" }}
+                      />
+                    )}
+
+                    {/* {file.resource_type === "video"?  
 
                   <VideoThumbnailFromURL  videoUrl={file.url} />
 
@@ -118,7 +153,7 @@ const FileListing = () => {
                       width="60"
                       height="60"
                       style={{ objectFit: "cover" }}
-                    />}
+                    />} */}
                   </td>
                   <td className="fw-normal">{file.display_name}</td>
                   <td className="text-muted text-capitalize">{file.format}</td>
