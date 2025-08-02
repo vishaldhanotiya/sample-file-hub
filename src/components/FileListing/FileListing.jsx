@@ -49,8 +49,10 @@ const FileListing = () => {
   const filesPerPage = 25;
 
   useEffect(() => {
-    fetchFiles(fileType);
-  }, [fileType]);
+    if (fileType) {
+      fetchFiles(fileType);
+    }
+  }, []);
 
   const fetchFiles = async (type) => {
     let q = collection(db, "files");
