@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   collection,
@@ -83,37 +83,11 @@ const FileListing = () => {
     return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
   }
 
-  const upperCaseType = fileType?.toUpperCase() || "All";
-
   return (
     <div style={{ fontFamily: '"Work Sans", "Noto Sans", sans-serif' }}>
       <Header />
 
       <Container fluid className="py-4 px-3 px-md-5">
-        {/* Title and Filters */}
-        <Row className="align-items-center mb-4">
-          <Col xs={12} md={6}>
-            <h4 className="fw-bold mb-3 mb-md-0 text-center text-md-start">
-              {upperCaseType} Files
-            </h4>
-          </Col>
-          <Col
-            xs={12}
-            md={6}
-            className="d-flex flex-column flex-md-row justify-content-md-end gap-2"
-          >
-            <Button variant="light" className="w-100 w-md-auto">
-              Size <i className="bi bi-caret-down ms-1"></i>
-            </Button>
-            <Button variant="light" className="w-100 w-md-auto">
-              Color <i className="bi bi-caret-down ms-1"></i>
-            </Button>
-            <Button variant="light" className="w-100 w-md-auto">
-              Sort <i className="bi bi-caret-down ms-1"></i>
-            </Button>
-          </Col>
-        </Row>
-
         {/* Table */}
         <div className="table-responsive rounded shadow-sm border">
           <table className="table align-middle mb-0">
@@ -161,9 +135,7 @@ const FileListing = () => {
                       </button>
                       <button
                         className="btn btn-outline-secondary btn-sm"
-                        onClick={() =>
-                          navigator.clipboard.writeText(file.url)
-                        }
+                        onClick={() => navigator.clipboard.writeText(file.url)}
                       >
                         Copy
                       </button>
@@ -179,7 +151,9 @@ const FileListing = () => {
         <div className="d-flex align-items-center justify-content-center p-4">
           <nav>
             <ul className="pagination justify-content-center mb-0">
-              <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+              <li
+                className={`page-item ${currentPage === 1 ? "disabled" : ""}`}
+              >
                 <button
                   className="page-link"
                   onClick={() =>

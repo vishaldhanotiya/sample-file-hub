@@ -124,7 +124,7 @@ const Home = () => {
         />
         <section className="mb-4">
           {query.map((item, index) => (
-            <>
+            <div className="mb-5" key={index}>
               <h4 className="fw-bold mb-3">{item.header}</h4>
               <div className="row g-3">
                 {item.documentType.map((item, index) => (
@@ -142,7 +142,7 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-            </>
+            </div>
           ))}
         </section>
 
