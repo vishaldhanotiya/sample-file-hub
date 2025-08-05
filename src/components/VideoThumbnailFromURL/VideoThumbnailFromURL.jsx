@@ -38,7 +38,7 @@ function VideoThumbnailFromURL({ videoUrl }) {
   }, [videoUrl]);
 
   return (
-    <div>
+    <div className="bg-primary">
       <video
         ref={videoRef}
         src={videoUrl}
@@ -48,13 +48,11 @@ function VideoThumbnailFromURL({ videoUrl }) {
       <canvas ref={canvasRef} style={{ display: "none" }} />
 
       {thumbnail && (
-        <div>
+        <div >
           <img
             src={thumbnail}
             alt="Video Thumbnail"
-            className="rounded-circle shadow-sm"
-            width="60"
-            height="60"
+            className="image-wrapper"
             style={{ objectFit: "cover" }}
           />
         </div>

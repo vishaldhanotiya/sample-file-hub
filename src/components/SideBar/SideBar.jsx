@@ -1,0 +1,68 @@
+import React from "react";
+import {
+  ImageIcon,
+  VideoIcon,
+  AudioIcon,
+  DocumentIcon,
+} from "../../assets/index";
+import SvgIconWrapper from "../SvgIconWrapper/SvgIconWrapper";
+
+const SideBar = ({onMenuClick}) => {
+  const menuItems = [
+    {  key:'image', name: "Images", icon: ImageIcon },
+    { key:'video', name: "Videos", icon: VideoIcon },
+    { key:'audio', name: "Audio", icon: AudioIcon },
+    { key:'document', name: "Documents", icon: DocumentIcon },
+  ];
+
+  const [activeItem, setActiveItem] = React.useState("Images");
+  const handleMenuClick = (item) => {
+    setActiveItem(item.name);
+    onMenuClick(item.key)
+  };
+
+  return (
+    <div className="w-64 p-4">
+      <nav className="space-y-4">
+        {menuItems.map((item) => {
+          const IconComponent = item.icon;
+          const isActive = activeItem === item.name;
+          console.log("Clicked on:", isActive, item);
+
+          return (
+            <div style={{width:288,marginInline:10, borderRadius:30, backgroundColor:  isActive
+                      ? "#F0F2F5"
+                      : "#ffffff"}}  onClick={() => handleMenuClick(item)} key={item.name}>
+              <div
+                className={`
+                  flex items-center gap-4 w-full p-3 cursor-pointer
+                  transition-colors duration-200
+                  ${
+                    isActive
+                      ? "bg-gray-100 text-blue-600 rounded-lg"
+                      : "text-gray-600 hover:text-gray-800"
+                  }
+                `}
+              >
+                <SvgIconWrapper
+                  Icon={IconComponent}
+                  width={24}
+                  height={24}
+                  color={"#2563eb" }
+                />
+                {/* <IconComponent
+                  width={34}
+                  height={34}
+                  color={isActive ? "#2563eb" : "#4b5563"}
+                /> */}
+                <span className="font-medium ps-4 fs-5">{item.name}</span>
+              </div>
+            </div>
+          );
+        })}
+      </nav>
+    </div>
+  );
+};
+
+export default SideBar;

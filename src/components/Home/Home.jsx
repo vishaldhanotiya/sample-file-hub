@@ -1,8 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
 import Header from "../Header/Header";
+import SideBar from "../SideBar/SideBar";
+import TabBar from "../TabBar/TabBar";
 
 const documentArray = [
   {
@@ -71,20 +72,48 @@ const documentArray = [
 ];
 
 const Home = () => {
+  const imageTabData = [
+    { key: "jpg", title: "JPG" },
+    { key: "png", title: "PNG" },
+    { key: "gif", title: "GIF" },
+    { key: "svg", title: "SVG" },
+  ];
+
+  const videoTabData = [
+    { key: "mp4", title: "MP4" },
+    { key: "mkv", title: "MKV" },
+    { key: "avi", title: "AVI" },
+    { key: "flv", title: "FLV" },
+    { key: "mov", title: "MOV" },
+  ];
+
+  const audioTabData = [
+    { key: "mp3", title: "MP3" },
+    { key: "aac", title: "AAC" },
+    { key: "wav", title: "WAV" },
+    { key: "ogg", title: "OGG" },
+  ];
+
+  const documentTabData = [
+    { key: "pdf", title: "PDF" },
+    { key: "odt", title: "ODT" },
+    { key: "rtf", title: "RTF" },
+    { key: "pptx", title: "PPTX" },
+    { key: "docx", title: "DOCX" },
+    { key: "txt", title: "TXT" },
+  ];
+
   const navigate = useNavigate();
   const [query, setQuery] = React.useState(documentArray);
-  
+  const [selectMenu, setSelectMenu] = React.useState("image");
+  const [fileArray, setFileArray] = React.useState(imageTabData);
+
   const goToFileListing = (type) => {
     navigate("/fileListing", { state: { fileType: type } });
   };
 
   const searchDocumentTypes = (originalArray, searchQuery) => {
     if (!searchQuery) {
-      console.log(
-        "Search cleared, resetting to original data",
-        documentArray.length
-      );
-      // Reset to original data when search is cleared
       setQuery(documentArray);
       return;
     }
@@ -99,7 +128,6 @@ const Home = () => {
             doc.type.toLowerCase().includes(lowerQuery)
         );
 
-        // Return category only if it has matching document types
         if (filteredTypes.length > 0) {
           return {
             ...category,
@@ -112,68 +140,70 @@ const Home = () => {
     setQuery(result);
   };
 
+  const handleMenuClick = (menuName) => {
+    if (menuName === "image") {
+      setFileArray(imageTabData);
+    } else if (menuName === "video") {
+      setFileArray(videoTabData);
+    } else if (menuName === "audio") {
+      setFileArray(audioTabData);
+    } else if (menuName === "document") {
+      setFileArray(documentTabData);
+    }
+    setSelectMenu(menuName);
+  };
+
   return (
-    <div className="d-flex flex-column min-vh-100 bg-white">
+    <div className="d-flex flex-column min-vh-100">
       <Header />
 
-      <main className="container py-4 flex-grow-1">
-        <SearchBar
-          onSearch={(value) => {
-            searchDocumentTypes(query, value);
-          }}
-        />
-        <section className="mb-4">
-          {query.map((item, index) => (
-            <div className="mb-5" key={index}>
-              <h4 className="fw-bold mb-3">{item.header}</h4>
-              <div className="row g-3">
-                {item.documentType.map((item, index) => (
-                  <div
-                    className="col-6 col-md-3"
-                    key={index}
-                    onClick={() => goToFileListing(item.type)}
-                  >
-                    <img
-                      alt="file-icon"
-                      className="ratio ratio-1x1 rounded bg-light"
-                      src={item.icon}
-                    />
-                    <p className="mt-2 fw-medium text-dark">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </section>
+      <div className="d-flex flex-grow-1">
+      {/* Sidebar */}
+      <aside className="pt-4 pb-4 ps-4 pe-2 ">
+      <SideBar
+            onMenuClick={(value) => {
+              handleMenuClick(value);
+            }}
+          />
+        </aside>
 
-        <section>
-          <h4 className="fw-bold mb-3">Featured Resources</h4>
-          <div className="row g-3">
-            {[
-              "Landscape",
-              "Abstract Art",
-              "Presentation Template",
-              "Marketing Video",
-            ].map((title, idx) => (
-              <div className="col-12 col-md-6" key={title}>
-                <div
-                  className="ratio ratio-16x9 rounded bg-light"
-                  style={{
-                    backgroundImage: `url('featured${idx}.jpg')`,
-                    backgroundSize: "cover",
-                  }}
-                />
-                <div>
-                  <p className="fw-medium text-dark mt-2">{title}</p>
-                  <p className="text-muted">
-                    {idx % 2 === 0 ? "Download" : "Copy"}
-                  </p>
+        {/* Main content */}
+        <main className="">
+        {/* <SearchBar onSearch={(value) => searchDocumentTypes(query, value)} /> */}
+
+          <section className="mb-4">
+            <TabBar tabData={fileArray} selectedMenu={selectMenu} />
+          </section>
+
+          <section>
+            <h4 className="fw-bold mb-3">Featured Resources</h4>
+            <div className="row g-3">
+              {[
+                "Landscape",
+                "Abstract Art",
+                "Presentation Template",
+                "Marketing Video",
+              ].map((title, idx) => (
+                <div className="col-12 col-md-6" key={title}>
+                  <div
+                    className="ratio ratio-16x9 rounded bg-light"
+                    style={{
+                      backgroundImage: `url('featured${idx}.jpg')`,
+                      backgroundSize: "cover",
+                    }}
+                  />
+                  <div>
+                    <p className="fw-medium text-dark mt-2">{title}</p>
+                    <p className="text-muted">
+                      {idx % 2 === 0 ? "Download" : "Copy"}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </main>
+              ))}
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
   );
 };
