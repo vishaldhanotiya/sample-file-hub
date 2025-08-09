@@ -22,7 +22,7 @@ const SideBar = ({onMenuClick}) => {
   };
 
   return (
-    <div className="w-64 p-4">
+    <div className="w-64 p-3">
       <nav className="space-y-4">
         {menuItems.map((item) => {
           const IconComponent = item.icon;
@@ -30,7 +30,7 @@ const SideBar = ({onMenuClick}) => {
           console.log("Clicked on:", isActive, item);
 
           return (
-            <div style={{width:288,marginInline:10, borderRadius:30, backgroundColor:  isActive
+            <div style={{width:208,marginInline:10, borderRadius:30, backgroundColor:  isActive
                       ? "#F0F2F5"
                       : "#ffffff"}}  onClick={() => handleMenuClick(item)} key={item.name}>
               <div
@@ -55,7 +55,7 @@ const SideBar = ({onMenuClick}) => {
                   height={34}
                   color={isActive ? "#2563eb" : "#4b5563"}
                 /> */}
-                <span className="font-medium ps-4 fs-5">{item.name}</span>
+                <span className="font-medium ps-4 fs-6">{item.name}</span>
               </div>
             </div>
           );

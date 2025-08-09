@@ -1,31 +1,107 @@
+/* Tabs styling */
 .custom-nav .custom-nav-link {
-    position: relative;
-    padding: 12px 24px;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: #333;
-    text-align: center;
-    transition: color 0.3s ease;
-    background: transparent;
-    border: none;
+  position: relative;
+  padding: 6px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  transition: color 0.3s ease;
+  background: transparent;
+  border: none;
+}
+
+.custom-nav .custom-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 4px;
+  background-color: #0d6efd;
+  transition: width 0.4s ease;
+}
+
+.custom-nav .custom-nav-link.active::after {
+  width: 100%;
+}
+
+.custom-nav .custom-nav-link:hover {
+  color: #0a58ca;
+}
+
+/* Fix spacing between grid items */
+.custom-grid {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
+}
+
+/* 5 columns on large screens */
+.col-5-per-row {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .col-5-per-row {
+    flex: 0 0 25%;
+    max-width: 25%;
   }
-  
-  .custom-nav .custom-nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0%;
-    height: 4px; /* Underline thickness */
-    background-color: #0d6efd;
-    transition: width 0.4s ease;
+}
+
+@media (max-width: 992px) {
+  .col-5-per-row {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
   }
-  
-  .custom-nav .custom-nav-link.active::after {
-    width: 100%;
+}
+
+@media (max-width: 768px) {
+  .col-5-per-row {
+    flex: 0 0 50%;
+    max-width: 50%;
   }
-  
-  .custom-nav .custom-nav-link:hover {
-    color: #0a58ca;
+}
+
+@media (max-width: 576px) {
+  .col-5-per-row {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
-  
+}
+
+
+/* Custom class to make 5 items per row */
+.col-5-per-row {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+/* Custom grid vertical spacing */
+.custom-grid {
+  --bs-gutter-y: 0.5rem; /* Reduce vertical spacing */
+  --bs-gutter-x: 0.75rem; /* Adjust horizontal spacing */
+}
+
+/* Styling for the Ad section */
+.ad-box {
+  background-color: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  height: 100%;
+  box-sizing: border-box;
+  margin-top: 0; /* align top with content */
+}
+
+.ad-placeholder {
+  height: 300px; /* Adjust height as needed */
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  font-weight: 600;
+  border-radius: 4px;
+}
+

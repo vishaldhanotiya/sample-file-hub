@@ -30,15 +30,7 @@ const placeholderMap = {
   flv: FlvIcon,
 };
 
-const Card = ({
-  file,
-  imageSrc,
-  title,
-  size,
-  dimensions,
-  downloadLink,
-  detailsLink,
-}) => {
+const Card = ({ file, imageSrc, title, size, dimensions, downloadLink }) => {
   return (
     <div className="card-container">
       <div className="image-wrapper bg-primary">

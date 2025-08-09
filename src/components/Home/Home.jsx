@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import SideBar from "../SideBar/SideBar";
 import TabBar from "../TabBar/TabBar";
 
+// Document categories
 const documentArray = [
   {
     header: "Image Files",
@@ -59,7 +60,6 @@ const documentArray = [
       },
     ],
   },
-
   {
     header: "Audio Files",
     documentType: [
@@ -71,38 +71,40 @@ const documentArray = [
   },
 ];
 
+// Tab data for each category
+const imageTabData = [
+  { key: "jpg", title: "JPG" },
+  { key: "png", title: "PNG" },
+  { key: "gif", title: "GIF" },
+  { key: "svg", title: "SVG" },
+  { key: "bmp", title: "BMP" },
+];
+
+const videoTabData = [
+  { key: "mp4", title: "MP4" },
+  { key: "mkv", title: "MKV" },
+  { key: "avi", title: "AVI" },
+  { key: "flv", title: "FLV" },
+  { key: "mov", title: "MOV" },
+];
+
+const audioTabData = [
+  { key: "mp3", title: "MP3" },
+  { key: "aac", title: "AAC" },
+  { key: "wav", title: "WAV" },
+  { key: "ogg", title: "OGG" },
+];
+
+const documentTabData = [
+  { key: "pdf", title: "PDF" },
+  { key: "odt", title: "ODT" },
+  { key: "rtf", title: "RTF" },
+  { key: "pptx", title: "PPTX" },
+  { key: "docx", title: "DOCX" },
+  { key: "txt", title: "TXT" },
+];
+
 const Home = () => {
-  const imageTabData = [
-    { key: "jpg", title: "JPG" },
-    { key: "png", title: "PNG" },
-    { key: "gif", title: "GIF" },
-    { key: "svg", title: "SVG" },
-  ];
-
-  const videoTabData = [
-    { key: "mp4", title: "MP4" },
-    { key: "mkv", title: "MKV" },
-    { key: "avi", title: "AVI" },
-    { key: "flv", title: "FLV" },
-    { key: "mov", title: "MOV" },
-  ];
-
-  const audioTabData = [
-    { key: "mp3", title: "MP3" },
-    { key: "aac", title: "AAC" },
-    { key: "wav", title: "WAV" },
-    { key: "ogg", title: "OGG" },
-  ];
-
-  const documentTabData = [
-    { key: "pdf", title: "PDF" },
-    { key: "odt", title: "ODT" },
-    { key: "rtf", title: "RTF" },
-    { key: "pptx", title: "PPTX" },
-    { key: "docx", title: "DOCX" },
-    { key: "txt", title: "TXT" },
-  ];
-
   const navigate = useNavigate();
   const [query, setQuery] = React.useState(documentArray);
   const [selectMenu, setSelectMenu] = React.useState("image");
@@ -117,9 +119,7 @@ const Home = () => {
       setQuery(documentArray);
       return;
     }
-
     const lowerQuery = searchQuery.toLowerCase();
-
     const result = originalArray
       .map((category) => {
         const filteredTypes = category.documentType.filter(
@@ -127,12 +127,8 @@ const Home = () => {
             doc.label.toLowerCase().includes(lowerQuery) ||
             doc.type.toLowerCase().includes(lowerQuery)
         );
-
         if (filteredTypes.length > 0) {
-          return {
-            ...category,
-            documentType: filteredTypes,
-          };
+          return { ...category, documentType: filteredTypes };
         }
         return null;
       })
@@ -141,68 +137,64 @@ const Home = () => {
   };
 
   const handleMenuClick = (menuName) => {
-    if (menuName === "image") {
-      setFileArray(imageTabData);
-    } else if (menuName === "video") {
-      setFileArray(videoTabData);
-    } else if (menuName === "audio") {
-      setFileArray(audioTabData);
-    } else if (menuName === "document") {
-      setFileArray(documentTabData);
-    }
+    if (menuName === "image") setFileArray(imageTabData);
+    else if (menuName === "video") setFileArray(videoTabData);
+    else if (menuName === "audio") setFileArray(audioTabData);
+    else if (menuName === "document") setFileArray(documentTabData);
     setSelectMenu(menuName);
   };
 
   return (
     <div className="d-flex flex-column min-vh-100">
       <Header />
+      <div className="container-fluid flex-grow-1">
+        <div className="row">
+          {/* Sidebar */}
+          <aside className="col-12 col-md-3 col-lg-2 pb-4">
+            <SideBar
+              onMenuClick={(value) => {
+                handleMenuClick(value);
+              }}
+            />
+          </aside>
 
-      <div className="d-flex flex-grow-1">
-      {/* Sidebar */}
-      <aside className="pt-4 pb-4 ps-4 pe-2 ">
-      <SideBar
-            onMenuClick={(value) => {
-              handleMenuClick(value);
-            }}
-          />
-        </aside>
+          {/* Main content */}
+          <main className="col-12 col-md-9 col-lg-10">
+            {/* <SearchBar onSearch={(value) => searchDocumentTypes(query, value)} /> */}
 
-        {/* Main content */}
-        <main className="">
-        {/* <SearchBar onSearch={(value) => searchDocumentTypes(query, value)} /> */}
+            <section className="mb-4">
+              <TabBar tabData={fileArray} selectedMenu={selectMenu} />
+            </section>
 
-          <section className="mb-4">
-            <TabBar tabData={fileArray} selectedMenu={selectMenu} />
-          </section>
-
-          <section>
-            <h4 className="fw-bold mb-3">Featured Resources</h4>
-            <div className="row g-3">
-              {[
-                "Landscape",
-                "Abstract Art",
-                "Presentation Template",
-                "Marketing Video",
-              ].map((title, idx) => (
-                <div className="col-12 col-md-6" key={title}>
-                  <div
-                    className="ratio ratio-16x9 rounded bg-light"
-                    style={{
-                      backgroundImage: `url('featured${idx}.jpg')`,
-                      backgroundSize: "cover",
-                    }}
-                  />
-                  <div>
-                    <p className="fw-medium text-dark mt-2">{title}</p>
-                    <p className="text-muted">
-                      {idx % 2 === 0 ? "Download" : "Copy"}
-                    </p>
+            <section>
+              <h4 className="fw-bold mb-3">Featured Resources</h4>
+              <div className="row g-3">
+                {[
+                  "Landscape",
+                  "Abstract Art",
+                  "Presentation Template",
+                  "Marketing Video",
+                ].map((title, idx) => (
+                  <div className="col-12 col-sm-6 col-lg-3" key={title}>
+                    <div
+                      className="ratio ratio-16x9 rounded bg-light"
+                      style={{
+                        backgroundImage: `url('featured${idx}.jpg')`,
+                        backgroundSize: "cover",
+                      }}
+                    />
+                    <div>
+                      <p className="fw-medium text-dark mt-2">{title}</p>
+                      <p className="text-muted">
+                        {idx % 2 === 0 ? "Download" : "Copy"}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </main>
+                ))}
+              </div>
+            </section>
+          </main>
+        </div>
       </div>
     </div>
   );
