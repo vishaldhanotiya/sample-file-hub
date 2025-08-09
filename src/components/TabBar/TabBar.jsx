@@ -140,13 +140,12 @@ const TabBar = ({ tabData, selectedMenu }) => {
 
         {/* Right - Ad space */}
         <div className="col-lg-2 col-md-4">
-          <div className="ad-box">
+          {/* <div className="ad-box">
             <h5 className="text-center">Advertisement</h5>
             <div className="ad-placeholder">
-              {/* Replace this div with your ad code */}
               Ad Content Here
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

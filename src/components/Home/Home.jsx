@@ -166,7 +166,7 @@ const Home = () => {
               <TabBar tabData={fileArray} selectedMenu={selectMenu} />
             </section>
 
-            <section>
+            {/* <section>
               <h4 className="fw-bold mb-3">Featured Resources</h4>
               <div className="row g-3">
                 {[
@@ -192,7 +192,7 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> */}
           </main>
         </div>
       </div>

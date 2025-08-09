@@ -38,7 +38,7 @@ function VideoThumbnailFromURL({ videoUrl }) {
   }, [videoUrl]);
 
   return (
-    <div className="bg-primary">
+    <div className="bg-secondary-subtle">
       <video
         ref={videoRef}
         src={videoUrl}

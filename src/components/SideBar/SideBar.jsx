@@ -48,13 +48,8 @@ const SideBar = ({onMenuClick}) => {
                   Icon={IconComponent}
                   width={24}
                   height={24}
-                  color={"#2563eb" }
+                  color={"#f8f9fa"}
                 />
-                {/* <IconComponent
-                  width={34}
-                  height={34}
-                  color={isActive ? "#2563eb" : "#4b5563"}
-                /> */}
                 <span className="font-medium ps-4 fs-6">{item.name}</span>
               </div>
             </div>
