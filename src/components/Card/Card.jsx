@@ -35,6 +35,8 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink }) => {
 
 // Function to trigger download
 const handleDownload = async (url, filename) => {
+
+  console.log(url)
   try {
     const response = await fetch(url, { mode: "cors" });
     if (!response.ok) throw new Error("Network response was not ok");
@@ -57,7 +59,7 @@ const handleDownload = async (url, filename) => {
 
   return (
     <div >
-      <div className="image-wrapper bg-secondary-subtle">
+      <div className="image-wrapper bg-secondary-subtle"  onClick={() => window.open(file.url, "_blank")}>
         {file.resource_type === "video" && !placeholderMap[file.format] ? (
           <VideoThumbnailFromURL videoUrl={file.url} />
         ) : (

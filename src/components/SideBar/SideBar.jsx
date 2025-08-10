@@ -22,7 +22,7 @@ const SideBar = ({onMenuClick}) => {
   };
 
   return (
-    <div className="w-64 p-3">
+    <div className="w-64 pt-3">
       <nav className="space-y-4">
         {menuItems.map((item) => {
           const IconComponent = item.icon;

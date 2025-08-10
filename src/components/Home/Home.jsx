@@ -75,8 +75,9 @@ const documentArray = [
 const imageTabData = [
   { key: "jpg", title: "JPG" },
   { key: "png", title: "PNG" },
-  { key: "gif", title: "GIF" },
+  { key: "webp", title: "WEBP" },
   { key: "svg", title: "SVG" },
+  { key: "gif", title: "GIF" },
   { key: "bmp", title: "BMP" },
 ];
 
@@ -109,10 +110,6 @@ const Home = () => {
   const [query, setQuery] = React.useState(documentArray);
   const [selectMenu, setSelectMenu] = React.useState("image");
   const [fileArray, setFileArray] = React.useState(imageTabData);
-
-  const goToFileListing = (type) => {
-    navigate("/fileListing", { state: { fileType: type } });
-  };
 
   const searchDocumentTypes = (originalArray, searchQuery) => {
     if (!searchQuery) {
