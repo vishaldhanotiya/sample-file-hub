@@ -5,7 +5,8 @@ import AppRoutes from "./routes/AppRoutes";
 import { BrowserRouter } from "react-router-dom";
 import { getFirestore } from "@firebase/firestore";
 import { initializeApp } from "@firebase/app";
-import { initGoogleAnalytics } from "./utils/Analytics";
+import { initGoogleAnalytics, trackPageView } from "./utils/Analytics";
+import { useLocation } from 'react-router-dom';
 
 
 const firebaseConfig = {
@@ -22,10 +23,17 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 const App = () => {
+  const location = useLocation();
+
   useEffect(() => {
     const measurementId = process.env.REACT_APP_FIREBASE_MEASUREMENT_ID;
     initGoogleAnalytics(measurementId);
   }, []);
+
+
+  useEffect(() => {
+    trackPageView(location.pathname);
+  }, [location]);
   return (
     <div className="d-flex flex-column min-vh-100 bg-white">
       <BrowserRouter>
