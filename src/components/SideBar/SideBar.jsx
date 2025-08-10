@@ -7,18 +7,18 @@ import {
 } from "../../assets/index";
 import SvgIconWrapper from "../SvgIconWrapper/SvgIconWrapper";
 
-const SideBar = ({onMenuClick}) => {
+const SideBar = ({ onMenuClick }) => {
   const menuItems = [
-    {  key:'image', name: "Images", icon: ImageIcon },
-    { key:'video', name: "Videos", icon: VideoIcon },
-    { key:'audio', name: "Audio", icon: AudioIcon },
-    { key:'document', name: "Documents", icon: DocumentIcon },
+    { key: "image", name: "Images", icon: ImageIcon },
+    { key: "video", name: "Videos", icon: VideoIcon },
+    { key: "audio", name: "Audio", icon: AudioIcon },
+    { key: "document", name: "Documents", icon: DocumentIcon },
   ];
 
   const [activeItem, setActiveItem] = React.useState("Images");
   const handleMenuClick = (item) => {
     setActiveItem(item.name);
-    onMenuClick(item.key)
+    onMenuClick(item.key);
   };
 
   return (
@@ -27,12 +27,17 @@ const SideBar = ({onMenuClick}) => {
         {menuItems.map((item) => {
           const IconComponent = item.icon;
           const isActive = activeItem === item.name;
-          console.log("Clicked on:", isActive, item);
-
           return (
-            <div style={{width:208,marginInline:10, borderRadius:30, backgroundColor:  isActive
-                      ? "#F0F2F5"
-                      : "#ffffff"}}  onClick={() => handleMenuClick(item)} key={item.name}>
+            <div
+              style={{
+                width: 208,
+                marginInline: 10,
+                borderRadius: 30,
+                backgroundColor: isActive ? "#F0F2F5" : "#ffffff",
+              }}
+              onClick={() => handleMenuClick(item)}
+              key={item.name}
+            >
               <div
                 className={`
                   flex items-center gap-4 w-full p-3 cursor-pointer

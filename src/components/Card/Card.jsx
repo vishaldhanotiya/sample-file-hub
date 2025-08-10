@@ -14,7 +14,11 @@ import WavIcon from "../../assets/wav.png";
 import OggIcon from "../../assets/ogg.png";
 import AviIcon from "../../assets/avi.png";
 import FlvIcon from "../../assets/flv.png";
-import { trackDownload, trackDownloadError, trackMediaView } from "../../utils/Analytics";
+import {
+  trackDownload,
+  trackDownloadError,
+  trackMediaView,
+} from "../../utils/Analytics";
 
 const placeholderMap = {
   pdf: PdfIcon,
@@ -36,7 +40,6 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink }) => {
   const handleDownload = async (url, filename) => {
     trackDownload(file.type, file.name, file.format, file.size);
 
-    console.log(url);
     try {
       const response = await fetch(url, { mode: "cors" });
       if (!response.ok) throw new Error("Network response was not ok");
@@ -54,7 +57,7 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink }) => {
       window.URL.revokeObjectURL(blobUrl);
     } catch (error) {
       console.error("Download failed", error);
-      trackDownloadError(file.type,error)
+      trackDownloadError(file.type, error);
     }
   };
 
