@@ -25,7 +25,6 @@ const Header = () => {
           <i className="bi bi-list" style={{ fontSize: "1.5rem" }}></i>
         </button>
 
-        {/* Right side: Icons */}
         <div className="d-none d-md-flex align-items-center gap-3">
 
           <div
