@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
-import { BrowserRouter } from "react-router-dom";
-import { getFirestore } from "@firebase/firestore";
+import { getFirestore,persistentLocalCache } from "@firebase/firestore";
 import { initializeApp } from "@firebase/app";
 import { initGoogleAnalytics, trackPageView } from "./utils/Analytics";
 import { useLocation } from "react-router-dom";
@@ -16,6 +15,8 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  localCache: persistentLocalCache(),
+
 };
 
 const app = initializeApp(firebaseConfig);

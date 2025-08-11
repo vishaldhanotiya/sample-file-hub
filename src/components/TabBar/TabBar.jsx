@@ -32,21 +32,67 @@ const TabBar = ({ tabData, selectedMenu }) => {
     }
   }, [activeTab]);
 
+
   const fetchFiles = async (type) => {
     let q = collection(db, "files");
-
+  
     if (type && type !== "All") {
       q = query(q, where("format", "==", type));
     } else {
       q = query(q, orderBy("createdAt", "desc"));
     }
-
-    const snapshot = await getDocs(q);
-    const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    const sortedDocs = docs.sort((a, b) => a.bytes - b.bytes);
-    setFiles(sortedDocs);
-    setCurrentPage(1); // Reset page on new fetch
+  
+    // Generate a cache key per tab type
+    const cacheKey = `filesCache_${type || "All"}`;
+  
+    // 1. Load from localStorage first (fastest)
+    const localData = localStorage.getItem(cacheKey);
+    if (localData) {
+      setFiles(JSON.parse(localData));
+    }
+  
+    try {
+      // 2. Load from Firestore cache (offline persistence)
+      const cacheSnap = await getDocs(q, { source: "cache" });
+      if (!cacheSnap.empty) {
+        const cachedDocs = cacheSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const sortedCache = cachedDocs.sort((a, b) => a.bytes - b.bytes);
+        setFiles(sortedCache);
+        localStorage.setItem(cacheKey, JSON.stringify(sortedCache));
+      }
+  
+      // 3. Load from Firestore server (fresh data)
+      const serverSnap = await getDocs(q, { source: "server" });
+      if (!serverSnap.empty) {
+        const serverDocs = serverSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const sortedServer = serverDocs.sort((a, b) => a.bytes - b.bytes);
+        setFiles(sortedServer);
+        localStorage.setItem(cacheKey, JSON.stringify(sortedServer));
+      }
+  
+    } catch (error) {
+      console.error("Error fetching files:", error);
+    }
+  
+    setCurrentPage(1);
   };
+  
+
+  // const fetchFiles = async (type) => {
+  //   let q = collection(db, "files");
+
+  //   if (type && type !== "All") {
+  //     q = query(q, where("format", "==", type));
+  //   } else {
+  //     q = query(q, orderBy("createdAt", "desc"));
+  //   }
+
+  //   const snapshot = await getDocs(q);
+  //   const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  //   const sortedDocs = docs.sort((a, b) => a.bytes - b.bytes);
+  //   setFiles(sortedDocs);
+  //   setCurrentPage(1); // Reset page on new fetch
+  // };
 
   const indexOfLastFile = currentPage * filesPerPage;
   const indexOfFirstFile = indexOfLastFile - filesPerPage;
