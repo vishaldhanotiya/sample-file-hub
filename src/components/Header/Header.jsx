@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`px-3 py-3 ${isScrolled ? "scrolled" : ""}    ${isHomePage ? "" : "border-bottom"}`}
+      className={`px-3 py-2 ${isScrolled ? "scrolled" : ""}    ${isHomePage ? "" : "border-bottom"}`}
       style={{
         position: getHeaderPosition(),
         top: 0,
