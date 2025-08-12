@@ -36,7 +36,7 @@
 
 .card-metadata {
   font-family: sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #666;
   margin: 0 0px 0px 4px;
 }
@@ -45,7 +45,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  padding: 0px 16px 16px 4px;
+  padding: 5px 0px 16px 0px;
 }
 
 .card-link {
@@ -63,4 +63,10 @@
   .image-wrapper {
     height: 160px;
   }
+}
+
+.side-by-side {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

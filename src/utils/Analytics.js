@@ -1,6 +1,9 @@
 import ReactGA from "react-ga4";
 
 export const initGoogleAnalytics = (measurementId) => {
+  const isEnableGA=   process.env.NODE_ENV !== 'production';
+
+  console.log(isEnableGA)
   ReactGA.initialize(
     [
       {
@@ -9,7 +12,7 @@ export const initGoogleAnalytics = (measurementId) => {
     ],
     {
       gaOptions: { anonymizeIp: true },
-      testMode: !process.env.NODE_ENV, // ✅ true = prevent data from sending
+      testMode: isEnableGA, // ✅ true = prevent data from sending
     }
   );
 };

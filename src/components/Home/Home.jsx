@@ -1,200 +1,190 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+"use client";
+
+import { useState } from "react";
+import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
+import backgroundImage from "../../assets/img-back.png";
 import Header from "../Header/Header";
-import SideBar from "../SideBar/SideBar";
-import TabBar from "../TabBar/TabBar";
 
-// Document categories
-const documentArray = [
-  {
-    header: "Image Files",
-    documentType: [
-      { label: "PNG", type: "png", icon: require("../../assets/icon-png.png") },
-      { label: "JPG", type: "jpg", icon: require("../../assets/icon-jpg.png") },
-      { label: "SVG", type: "svg", icon: require("../../assets/icon-svg.png") },
-      { label: "GIF", type: "gif", icon: require("../../assets/icon-gif.png") },
-      {
-        label: "WEBP",
-        type: "webp",
-        icon: require("../../assets/icon-webp.png"),
-      },
-      { label: "BMP", type: "bmp", icon: require("../../assets/icon-bmp.png") },
-    ],
-  },
-  {
-    header: "Video Files",
-    documentType: [
-      { label: "MP4", type: "mp4", icon: require("../../assets/icon-mp4.png") },
-      { label: "MKV", type: "mkv", icon: require("../../assets/icon-mkv.png") },
-      { label: "AVI", type: "avi", icon: require("../../assets/icon-avi.png") },
-      { label: "FLV", type: "flv", icon: require("../../assets/icon-flv.png") },
-      { label: "MOV", type: "mov", icon: require("../../assets/icon-mov.png") },
-      {
-        label: "WEBM",
-        type: "webm",
-        icon: require("../../assets/icon-webm.png"),
-      },
-    ],
-  },
-  {
-    header: "Document Files",
-    documentType: [
-      { label: "PDF", type: "pdf", icon: require("../../assets/icon-pdf.png") },
-      { label: "ODT", type: "odt", icon: require("../../assets/icon-odt.png") },
-      { label: "RTF", type: "rtf", icon: require("../../assets/icon-rtf.png") },
-      {
-        label: "PPT",
-        type: "pptx",
-        icon: require("../../assets/icon-ppt.png"),
-      },
-      {
-        label: "DOCX",
-        type: "docx",
-        icon: require("../../assets/icon-docx.png"),
-      },
-      {
-        label: "TEXT",
-        type: "txt",
-        icon: require("../../assets/icon-text.png"),
-      },
-    ],
-  },
-  {
-    header: "Audio Files",
-    documentType: [
-      { label: "MP3", type: "mp3", icon: require("../../assets/icon-mp3.png") },
-      { label: "AAC", type: "aac", icon: require("../../assets/icon-aac.png") },
-      { label: "WAV", type: "wav", icon: require("../../assets/icon-wav.png") },
-      { label: "OGG", type: "ogg", icon: require("../../assets/icon-ogg.png") },
-    ],
-  },
-];
+import AboutUs from '../AboutUs/AboutUs'
 
-// Tab data for each category
-const imageTabData = [
-  { key: "jpg", title: "JPG" },
-  { key: "png", title: "PNG" },
-  { key: "webp", title: "WEBP" },
-  { key: "svg", title: "SVG" },
-  { key: "gif", title: "GIF" },
-  { key: "bmp", title: "BMP" },
-];
-
-const videoTabData = [
-  { key: "mp4", title: "MP4" },
-  { key: "mkv", title: "MKV" },
-  { key: "avi", title: "AVI" },
-  { key: "flv", title: "FLV" },
-  { key: "mov", title: "MOV" },
-];
-
-const audioTabData = [
-  { key: "mp3", title: "MP3" },
-  { key: "aac", title: "AAC" },
-  { key: "wav", title: "WAV" },
-  { key: "ogg", title: "OGG" },
-];
-
-const documentTabData = [
-  { key: "pdf", title: "PDF" },
-  { key: "odt", title: "ODT" },
-  { key: "rtf", title: "RTF" },
-  { key: "pptx", title: "PPTX" },
-  { key: "docx", title: "DOCX" },
-  { key: "txt", title: "TXT" },
-];
-
-const Home = () => {
+export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
-  const [query, setQuery] = React.useState(documentArray);
-  const [selectMenu, setSelectMenu] = React.useState("image");
-  const [fileArray, setFileArray] = React.useState(imageTabData);
 
-  const searchDocumentTypes = (originalArray, searchQuery) => {
-    if (!searchQuery) {
-      setQuery(documentArray);
-      return;
-    }
-    const lowerQuery = searchQuery.toLowerCase();
-    const result = originalArray
-      .map((category) => {
-        const filteredTypes = category.documentType.filter(
-          (doc) =>
-            doc.label.toLowerCase().includes(lowerQuery) ||
-            doc.type.toLowerCase().includes(lowerQuery)
-        );
-        if (filteredTypes.length > 0) {
-          return { ...category, documentType: filteredTypes };
-        }
-        return null;
-      })
-      .filter(Boolean);
-    setQuery(result);
-  };
+  const fileTypes = [
+    {
+      key: "image",
+      name: "Images",
+      subtitle: "PNG, JPG, SVG, GIF",
+      backgroundColor: "#FF6F61",
+      icon: require("../../assets/image.png"),
+    },
+    {
+      key: "video",
+      name: "Videos",
+      subtitle: "MP4, AVI, MKV, MOV",
+      backgroundColor: "#42A5F5",
 
-  const handleMenuClick = (menuName) => {
-    if (menuName === "image") setFileArray(imageTabData);
-    else if (menuName === "video") setFileArray(videoTabData);
-    else if (menuName === "audio") setFileArray(audioTabData);
-    else if (menuName === "document") setFileArray(documentTabData);
-    setSelectMenu(menuName);
-  };
+      icon: require("../../assets/videography.png"),
+    },
+    {
+      key: "audio",
+      name: "Audios",
+      subtitle: "MP3, WAV, AAC, OGG",
+      backgroundColor: "#66BB6A",
+
+      icon: require("../../assets/mic.png"),
+    },
+    {
+      key: "document",
+      name: "Document",
+      subtitle: "PDF, DOCX, TXT, PPT",
+      backgroundColor: "#AB47BC",
+      icon: require("../../assets/file.png"),
+    },
+  ];
 
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Header />
-      <div className="container-fluid flex-grow-1">
-        <div className="row">
-          {/* Sidebar */}
-          <aside className="col-12 col-md-3 col-lg-2 pb-4">
-            <SideBar
-              onMenuClick={(value) => {
-                handleMenuClick(value);
-              }}
-            />
-          </aside>
+    <>
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover", // Ensures the image covers the entire div
+        backgroundPosition: "center", // Centers the image
+        backgroundRepeat: "no-repeat", // Prevents tiling
+        backgroundAttachment: "fixed", // Optional: Makes the background fixed on scroll
+      }}
+      className={
+        darkMode ? "bg-dark text-white min-vh-100" : " text-dark min-vh-100 py-5"
+      }
+    >
+      <main    className={
+      "py-2"
+      }>
+        <div>
+          <div className="text-center m-4 py-5">
+            <h3 className="text-white display-7 fw-bold mb-4">
+              Download Free Sample Files Instantly
+            </h3>
+            <h4 className="text-white display-8 lead ">
+              Explore a vast collection of sample files across various media
+              types.
+            </h4>
+            <h4 className="text-white display-8 lead mb-4">
+              Perfect for testing, development, and learning.
+            </h4>
+            <div className="p-2">
+              <SearchBar onSearch={(value) => {}} />
+            </div>
+          </div>
 
-          {/* Main content */}
-          <main className="col-12 col-md-9 col-lg-10">
-            {/* <SearchBar onSearch={(value) => searchDocumentTypes(query, value)} /> */}
-
-            <section className="mb-4">
-              <TabBar tabData={fileArray} selectedMenu={selectMenu} />
-            </section>
-
-            {/* <section>
-              <h4 className="fw-bold mb-3">Featured Resources</h4>
-              <div className="row g-3">
-                {[
-                  "Landscape",
-                  "Abstract Art",
-                  "Presentation Template",
-                  "Marketing Video",
-                ].map((title, idx) => (
-                  <div className="col-12 col-sm-6 col-lg-3" key={title}>
+          <div className="row g-3 m-5 ps-5 pe-5 justify-content-center">
+            {fileTypes.map((type, index) => (
+              <div key={index} className="col-12 col-sm-6 col-lg-3">
+                <div
+                  className={`p-4 rounded-4 position-relative h-100 d-flex flex-column justify-content-between`}
+                  style={{
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    backdropFilter: "blur(16px)",
+                    backgroundColor: darkMode
+                      ? "rgba(30, 30, 30, 0.4)"
+                      : "#d1d7ff",
+                  }}
+                  onClick={() => navigate(`sample-${type.key}`)}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-5px)";
+                    e.currentTarget.style.boxShadow = darkMode
+                      ? "0 15px 30px rgba(0, 0, 0, 0.2)"
+                      : "0 15px 30px rgba(0, 0, 0, 0.15)";
+                    e.currentTarget.style.backgroundColor = darkMode
+                      ? "rgba(40, 40, 40, 0.6)"
+                      : "rgba(255, 255, 255, 0.6)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = darkMode
+                      ? "0 4px 30px rgba(0, 0, 0, 0.1)"
+                      : "0 4px 30px rgba(0, 0, 0, 0.1)";
+                  
+                  }}
+                >
+                  <div
+                    className="fs-1 mb-3"
+                    style={{
+                      lineHeight: 0,
+                      color: darkMode ? "white" : undefined,
+                    }}
+                  >
                     <div
-                      className="ratio ratio-16x9 rounded bg-light"
+                      className="mb-3 d-flex align-items-center justify-content-center"
                       style={{
-                        backgroundImage: `url('featured${idx}.jpg')`,
-                        backgroundSize: "cover",
+                        backgroundColor: `${type.backgroundColor}`,
+                        color: "#fff",
+                        borderRadius: "12px",
+                        width: "54px",
+                        height: "54px",
+                        backdropFilter: "blur(10px)",
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                       }}
-                    />
-                    <div>
-                      <p className="fw-medium text-dark mt-2">{title}</p>
-                      <p className="text-muted">
-                        {idx % 2 === 0 ? "Download" : "Copy"}
-                      </p>
+                    >
+                      <img
+                        alt="image-icon"
+                        src={type.icon}
+                        width={35}
+                        height={35}
+                      />
                     </div>
                   </div>
-                ))}
+                  <div>
+                    <h5
+                      className="fw-bold mb-1"
+                      style={{ color: darkMode ? "white" : "inherit" }}
+                    >
+                      {type.name}
+                    </h5>
+                    <p
+                      className={`mb-3`}
+                      style={{
+                        fontSize: "0.9rem",
+                        color: darkMode
+                          ? "rgba(255, 255, 255, 0.7)"
+                          : "rgba(0, 0, 0, 0.6)",
+                      }}
+                    >
+                      {type.subtitle}
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      alignSelf: "flex-end",
+                      fontSize: "1.5rem",
+                      fontWeight: "bold",
+                      color: darkMode
+                        ? "rgba(255, 255, 255, 0.8)"
+                        : "rgba(0, 0, 0, 0.8)",
+                      userSelect: "none",
+                      transition: "transform 0.3s ease",
+                    }}
+                    aria-label={`Go to ${type.name}`}
+                    className="hover-arrow"
+                  >
+                    →
+                  </div>
+                </div>
               </div>
-            </section> */}
-          </main>
-        </div>
-      </div>
-    </div>
-  );
-};
+            ))}
 
-export default Home;
+
+          </div>
+
+          
+        </div>
+      </main>
+    </div>
+    <AboutUs/>
+
+    </>
+  );
+}

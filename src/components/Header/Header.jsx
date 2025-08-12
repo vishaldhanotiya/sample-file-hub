@@ -1,45 +1,168 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => setShowMenu(!showMenu);
+  const isHomePage = location.pathname === "/";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Determine header position based on page and scroll state
+  const getHeaderPosition = () => {
+    if (!isHomePage) return "fixed"; // Fixed on all non-home pages
+    return isScrolled ? "fixed" : "absolute"; // Absolute only on homepage when not scrolled
+  };
 
   return (
-    <header className="border-bottom px-2 py-2">
-      <div className="d-flex justify-content-between align-items-center">
-        {/* Left side: Logo and Title */}
-        <div className="d-flex align-items-center gap-2">
-          <svg width="32" height="32" viewBox="0 0 48 48" fill="currentColor">
-            {/* SVG path content */}
-          </svg>
-          <h2 className="mb-0 fw-bold fs-4">Sample Files</h2>
-        </div>
+    <header 
+      className={`px-3 py-3 ${isScrolled ? "scrolled" : ""}`}
+      style={{
+        position: getHeaderPosition(),
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        transition: "all 0.3s ease",
+        backgroundColor: isHomePage && !isScrolled 
+          ? "transparent" 
+          : "rgba(0, 0, 0, 0.2)",
+        backdropFilter: isHomePage && !isScrolled 
+          ? "none" 
+          : "blur(12px)",
+        borderBottom: isHomePage && !isScrolled 
+          ? "none" 
+          : "1px solid rgba(255, 255, 255, 0.1)"
+      }}
+    >
+      <div className="container">
+        <div className="d-flex justify-content-between align-items-center">
+          {/* Left side: Logo and Title */}
+          <div className="d-flex align-items-center gap-2">
+     
+            <h2
+              onClick={() => navigate("/")}
+              className="mb-0 fw-bold fs-4 text-white"
+              style={{ 
+                cursor: "pointer",
+                textShadow: "0 2px 4px rgba(0,0,0,0.2)"
+              }}
+            >
+              Sample Files
+            </h2>
+          </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="d-md-none btn btn-link text-dark"
-          onClick={toggleMenu}
-          aria-label="Toggle navigation"
-        >
-          <i className="bi bi-list" style={{ fontSize: "1.5rem" }}></i>
-        </button>
-
-        <div className="d-none d-md-flex align-items-center gap-3">
-
-          <div
-            className="rounded-circle bg-cover bg-center"
+          {/* Mobile Hamburger */}
+          <button
+            className="d-md-none btn btn-link text-white p-0"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
             style={{
-              width: "40px",
-              height: "40px",
-              backgroundImage:
-                "url(https://lh3.googleusercontent.com/aida-public/AB6AXuBE6NB7cNtyGuyFYxYOtw2XBSDHfINQKNBRHpwhadktjccUI-4zSGHDx9_yQWMFrCe_ZPQsZsdN8ouweKwuSUNL9R3XnQtG4wmg2-S2f4TmHbiSNpmR1jDPIFtqIpy4z5EFO-BgQ0Gl2s8irHo7KwXEekZNay0Z55Q0DnZXMxL8F9CrOl9xfS6lYIJUX_BH41rqYMIdwS6FFtk25Wk0jI8q-Z2BEaJtGJBgVeBjRzKT2Syt6uhCjcdBJd6k2yKhB4PmEKADH3qa-A)",
+              transition: "transform 0.2s ease",
+              transform: showMenu ? "rotate(90deg)" : "none"
             }}
-          />
-        </div>
-      </div>
+          >
+            <i className="bi bi-list" style={{ fontSize: "1.8rem" }}></i>
+          </button>
 
-    
+          {/* Desktop Navigation */}
+          <div className="d-none d-md-flex align-items-center gap-3">
+            <nav className="d-flex gap-4 me-3">
+              {[
+                { path: "/", name: "Home" },
+                { path: "sample-image", name: "Images" },
+                { path: "sample-video", name: "Videos" },
+                { path: "sample-audio", name: "Audio" },
+                { path: "sample-document", name: "Document" }
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  onClick={() => navigate(item.path)}
+                  className="text-white text-decoration-none fw-medium position-relative"
+                  style={{ 
+                    cursor: "pointer",
+                    padding: "0.5rem 0",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = "0.8";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = "1";
+                  }}
+                >
+                  {item.name}
+                  <span 
+                    className="position-absolute bottom-0 start-0 bg-white"
+                    style={{
+                      height: "2px",
+                      width: "0%",
+                      transition: "width 0.3s ease",
+                    }}
+                  />
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {showMenu && (
+          <div 
+            className="d-md-none mt-3 pb-3"
+            style={{
+              animation: "fadeIn 0.3s ease-out"
+            }}
+          >
+            <nav className="d-flex flex-column gap-3">
+              {[
+                { path: "/", name: "Home" },
+                { path: "sample-image", name: "Images" },
+                { path: "sample-video", name: "Videos" },
+                { path: "sample-audio", name: "Audio" },
+                { path: "sample-document", name: "Document" }
+              ].map((item) => (
+                <a
+                  key={item.name}
+                  onClick={() => {
+                    navigate(item.path);
+                    setShowMenu(false);
+                  }}
+                  className="text-white text-decoration-none fw-medium py-2 px-3 rounded"
+                  style={{ 
+                    cursor: "pointer",
+                    backgroundColor: "rgba(255,255,255,0.1)",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.1)";
+                  }}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
   );
 };

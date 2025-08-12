@@ -1,0 +1,202 @@
+/* Modal dimensions */
+.modal-80w {
+    width: 80%;
+    max-width: none !important;
+  }
+  
+  .modal-80h .modal-content {
+    height: 80vh;
+    margin: 2rem auto; /* Added margin around modal */
+  }
+  
+  /* Close button */
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    z-index: 10;
+    padding: 8px 12px;
+    border-radius: 50%;
+  }
+  
+  .close-button:hover {
+    color: #333;
+    background-color: #f1f1f1;
+  }
+  
+  /* Split layout */
+  .split-layout-container {
+    display: flex;
+    height: 100%;
+  }
+  
+  .image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    overflow: hidden;
+    margin: 1rem;
+    border-radius: 8px;
+  }
+  
+  .file-image {
+    max-width: 100%;
+    max-height: 80%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .details-container {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  /* File header */
+  .file-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .file-header h2 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+    font-size: 1.8rem;
+  }
+  
+  .file-id {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  /* File details */
+  .file-details {
+    margin: 1.5rem 0;
+  }
+  
+  .detail-row {
+    display: flex;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .detail-label {
+    font-weight: bold;
+    width: 140px;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .detail-value {
+    color: #333;
+    flex: 1;
+    font-size: 0.95rem;
+  }
+  
+  /* Action buttons */
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .action-buttons button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    flex: 1;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .download-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .download-btn:hover {
+    background-color: #3e8e41;
+    transform: translateY(-1px);
+  }
+  
+  .copy-btn {
+    background-color: #2196F3;
+    color: white;
+  }
+  
+  .copy-btn:hover {
+    background-color: #0b7dda;
+    transform: translateY(-1px);
+  }
+  
+  /* Social sharing */
+  .social-sharing {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+  }
+  
+  .share-label {
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .social-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s ease;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .facebook:hover {
+    background-color: #344e86;
+    transform: translateY(-1px);
+  }
+  
+  .twitter {
+    background-color: #1DA1F2;
+  }
+  
+  .twitter:hover {
+    background-color: #0d95e8;
+    transform: translateY(-1px);
+  }
+  
+  .linkedin {
+    background-color: #0077B5;
+  }
+  
+  .linkedin:hover {
+    background-color: #00669b;
+    transform: translateY(-1px);
+  }
