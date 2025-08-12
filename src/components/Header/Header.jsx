@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { trackHeaderNavigation } from "../../utils/Analytics";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -30,8 +31,10 @@ const Header = () => {
   };
 
   return (
-    <header 
-      className={`px-3 py-2 ${isScrolled ? "scrolled" : ""}    ${isHomePage ? "" : "border-bottom"}`}
+    <header
+      className={`px-3 py-2 ${isScrolled ? "scrolled" : ""}    ${
+        isHomePage ? "" : "border-bottom"
+      }`}
       style={{
         position: getHeaderPosition(),
         top: 0,
@@ -39,29 +42,29 @@ const Header = () => {
         right: 0,
         zIndex: 1000,
         transition: "all 0.3s ease",
-        backgroundColor:  !isScrolled 
-          ? "transparent" 
-          : isHomePage?"none": "white",
-        backdropFilter: isHomePage && !isScrolled 
-          ? "none" 
-          : "blur(12px)",
-        borderBottom: isHomePage && !isScrolled 
-          ? "none" 
-          : "1px solid rgba(255, 255, 255, 0.1)"
+        backgroundColor: !isScrolled
+          ? "transparent"
+          : isHomePage
+          ? "none"
+          : "white",
+        backdropFilter: isHomePage && !isScrolled ? "none" : "blur(12px)",
+        borderBottom:
+          isHomePage && !isScrolled
+            ? "none"
+            : "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
       <div className="container ">
         <div className="d-flex justify-content-between align-items-center">
           {/* Left side: Logo and Title */}
           <div className="d-flex align-items-center gap-2">
-     
             <h2
               onClick={() => navigate("/")}
               className="mb-0 fw-bold fs-4"
-              style={{ 
-                color:isHomePage?'white':'black',
+              style={{
+                color: isHomePage ? "white" : "black",
                 cursor: "pointer",
-                textShadow: "0 2px 4px rgba(0,0,0,0.2)"
+                textShadow: "0 2px 4px rgba(0,0,0,0.2)",
               }}
             >
               Sample Files
@@ -70,12 +73,14 @@ const Header = () => {
 
           {/* Mobile Hamburger */}
           <button
-            className={`d-md-none btn btn-link ${isHomePage ? "text-white" : "text-black"} p-0`}
+            className={`d-md-none btn btn-link ${
+              isHomePage ? "text-white" : "text-black"
+            } p-0`}
             onClick={toggleMenu}
             aria-label="Toggle navigation"
             style={{
               transition: "transform 0.2s ease",
-              transform: showMenu ? "rotate(90deg)" : "none"
+              transform: showMenu ? "rotate(90deg)" : "none",
             }}
           >
             <i className="bi bi-list" style={{ fontSize: "1.8rem" }}></i>
@@ -89,13 +94,18 @@ const Header = () => {
                 { path: "sample-image", name: "Images" },
                 { path: "sample-video", name: "Videos" },
                 { path: "sample-audio", name: "Audio" },
-                { path: "sample-document", name: "Document" }
+                { path: "sample-document", name: "Document" },
               ].map((item) => (
                 <a
                   key={item.name}
-                  onClick={() => navigate(item.path)}
-                  className={`${isHomePage ? "text-white" : "text-black"} text-decoration-none fw-medium position-relative`}
-                  style={{ 
+                  onClick={() => {
+                    trackHeaderNavigation(item.path);
+                    navigate(item.path);
+                  }}
+                  className={`${
+                    isHomePage ? "text-white" : "text-black"
+                  } text-decoration-none fw-medium position-relative`}
+                  style={{
                     cursor: "pointer",
                     padding: "0.5rem 0",
                     transition: "all 0.2s ease",
@@ -108,7 +118,7 @@ const Header = () => {
                   }}
                 >
                   {item.name}
-                  <span 
+                  <span
                     className="position-absolute bottom-0 start-0 bg-white"
                     style={{
                       height: "2px",
@@ -124,10 +134,10 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {showMenu && (
-          <div 
+          <div
             className="d-md-none mt-3 pb-3"
             style={{
-              animation: "fadeIn 0.3s ease-out"
+              animation: "fadeIn 0.3s ease-out",
             }}
           >
             <nav className="d-flex flex-column gap-3">
@@ -136,7 +146,7 @@ const Header = () => {
                 { path: "sample-image", name: "Images" },
                 { path: "sample-video", name: "Videos" },
                 { path: "sample-audio", name: "Audio" },
-                { path: "sample-document", name: "Document" }
+                { path: "sample-document", name: "Document" },
               ].map((item) => (
                 <a
                   key={item.name}
@@ -145,16 +155,18 @@ const Header = () => {
                     setShowMenu(false);
                   }}
                   className="text-white text-decoration-none fw-medium py-2 px-3 rounded"
-                  style={{ 
+                  style={{
                     cursor: "pointer",
                     backgroundColor: "rgba(255,255,255,0.1)",
                     transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.2)";
+                    e.currentTarget.style.backgroundColor =
+                      "rgba(255,255,255,0.2)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.1)";
+                    e.currentTarget.style.backgroundColor =
+                      "rgba(255,255,255,0.1)";
                   }}
                 >
                   {item.name}

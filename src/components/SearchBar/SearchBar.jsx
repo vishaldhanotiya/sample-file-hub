@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import { trackUserSearchMetaData } from "../../utils/Analytics";
 
 const documentArray = [
   {
@@ -165,6 +166,7 @@ const SearchBar = ({ onSearch }) => {
     setQuery(item.label);
     onSearch(item.label);
     setShowSuggestions(false);
+    trackUserSearchMetaData(item.type)
     navigate(`sample-${item.key}`,{state:{fileType:item.type}});
   };
 

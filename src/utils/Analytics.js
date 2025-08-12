@@ -28,6 +28,23 @@ export const trackPageView = (path) => {
   ReactGA.send({ hitType: "pageview", page: path });
 };
 
+export const trackUserSearchMetaData = (searchQuery) => {
+  ReactGA.event("search_metadata", {
+    search_query: searchQuery,
+  });
+};
+export const trackHeaderNavigation = (navPath) => {
+  ReactGA.event("header_navigation", {
+    header_nav: navPath,
+  });
+};
+
+export const trackCardClick = (navPath) => {
+  ReactGA.event("card_click", {
+    card_click: navPath,
+  });
+};
+
 export const trackDownload = (fileType, fileName, fileFormat, fileSize) => {
   ReactGA.event("file_download", {
     file_type: fileType,
