@@ -97,8 +97,10 @@ const Header = () => {
                 { path: "sample-document", name: "Document" },
               ].map((item) => (
                 <a
+                  href={item.path}
                   key={item.name}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
                     trackHeaderNavigation(item.path);
                     navigate(item.path);
                   }}
@@ -106,9 +108,7 @@ const Header = () => {
                     isHomePage ? "text-white" : "text-black"
                   } text-decoration-none fw-medium position-relative`}
                   style={{
-                    cursor: "pointer",
                     padding: "0.5rem 0",
-                    transition: "all 0.2s ease",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.opacity = "0.8";

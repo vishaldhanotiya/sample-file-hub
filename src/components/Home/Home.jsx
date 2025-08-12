@@ -65,13 +65,13 @@ export default function Home() {
         <main className={"py-2"}>
           <div>
             <div className="text-center m-4 py-5">
-              <h3 className="text-white display-7 fw-bold mb-4">
+              <h2 className="text-white display-7 fw-bold mb-4">
                 Download Free Sample Files Instantly
-              </h3>
-              <h4 className="text-white display-8 lead ">
+              </h2>
+              <h3 className="text-white display-8 lead ">
                 Explore a vast collection of sample files across various media
                 types.
-              </h4>
+              </h3>
               <h4 className="text-white display-8 lead mb-4">
                 Perfect for testing, development, and learning.
               </h4>
