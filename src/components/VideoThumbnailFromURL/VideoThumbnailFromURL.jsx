@@ -194,7 +194,7 @@ function VideoThumbnailFromURL({ videoUrl }) {
               <div
                 style={{
                   position: "absolute",
-                  bottom: "8px",
+                  top: "8px",
                   right: "8px",
                   backgroundColor: "rgba(0,0,0,0.7)",
                   color: "white",
@@ -217,7 +217,7 @@ function VideoThumbnailFromURL({ videoUrl }) {
             justifyContent: "center",
             color: "#666"
           }}>
-            Loading thumbnail...
+            Loading...
           </div>
         )}
       </div>

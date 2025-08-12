@@ -67,8 +67,8 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
 
   const handlePreviewClick = () => {
     trackMediaView(file.type, file.name);
-    onClick(file);
-   // window.open(file.url, "_blank");
+    //onClick(file);
+    window.open(file.url, "_blank");
   };
 
   return (
