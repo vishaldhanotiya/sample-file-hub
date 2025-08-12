@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`px-3 py-3 ${isScrolled ? "scrolled" : ""}`}
+      className={`px-3 py-3 ${isScrolled ? "scrolled" : ""}    ${isHomePage ? "" : "border-bottom"}`}
       style={{
         position: getHeaderPosition(),
         top: 0,
@@ -39,9 +39,9 @@ const Header = () => {
         right: 0,
         zIndex: 1000,
         transition: "all 0.3s ease",
-        backgroundColor: isHomePage && !isScrolled 
+        backgroundColor:  !isScrolled 
           ? "transparent" 
-          : "rgba(0, 0, 0, 0.2)",
+          : isHomePage?"none": "white",
         backdropFilter: isHomePage && !isScrolled 
           ? "none" 
           : "blur(12px)",
@@ -50,15 +50,16 @@ const Header = () => {
           : "1px solid rgba(255, 255, 255, 0.1)"
       }}
     >
-      <div className="container">
+      <div className="container ">
         <div className="d-flex justify-content-between align-items-center">
           {/* Left side: Logo and Title */}
           <div className="d-flex align-items-center gap-2">
      
             <h2
               onClick={() => navigate("/")}
-              className="mb-0 fw-bold fs-4 text-white"
+              className="mb-0 fw-bold fs-4"
               style={{ 
+                color:isHomePage?'white':'black',
                 cursor: "pointer",
                 textShadow: "0 2px 4px rgba(0,0,0,0.2)"
               }}
@@ -69,7 +70,7 @@ const Header = () => {
 
           {/* Mobile Hamburger */}
           <button
-            className="d-md-none btn btn-link text-white p-0"
+            className={`d-md-none btn btn-link ${isHomePage ? "text-white" : "text-black"} p-0`}
             onClick={toggleMenu}
             aria-label="Toggle navigation"
             style={{
@@ -93,7 +94,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   onClick={() => navigate(item.path)}
-                  className="text-white text-decoration-none fw-medium position-relative"
+                  className={`${isHomePage ? "text-white" : "text-black"} text-decoration-none fw-medium position-relative`}
                   style={{ 
                     cursor: "pointer",
                     padding: "0.5rem 0",
