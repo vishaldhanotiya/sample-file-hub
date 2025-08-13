@@ -207,7 +207,7 @@ const SearchBar = ({ onSearch }) => {
               }}
             />
             <img
-              src={require("../../assets/icon-search.png")}
+              src={require("../../assets/search.png")}
               alt="Search"
               style={{
                 position: "absolute",

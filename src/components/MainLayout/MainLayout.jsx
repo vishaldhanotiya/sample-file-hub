@@ -11,7 +11,7 @@ export default function MainLayout({ children }) {
 
       <Outlet />
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

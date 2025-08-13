@@ -4,8 +4,6 @@ import { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import backgroundImage from "../../assets/img-back.png";
-import Header from "../Header/Header";
-
 import AboutUs from "../AboutUs/AboutUs";
 import { trackCardClick } from "../../utils/Analytics";
 
@@ -17,14 +15,14 @@ export default function Home() {
     {
       key: "image",
       name: "Images",
-      subtitle: "PNG, JPG, SVG, GIF",
+      subtitle: "JPG, PNG, SVG, GIF, WEBP, BMP",
       backgroundColor: "#FF6F61",
       icon: require("../../assets/image.png"),
     },
     {
       key: "video",
       name: "Videos",
-      subtitle: "MP4, AVI, MKV, MOV",
+      subtitle: "MP4, AVI, MKV, FLV, MOV",
       backgroundColor: "#42A5F5",
 
       icon: require("../../assets/videography.png"),
@@ -34,13 +32,13 @@ export default function Home() {
       name: "Audios",
       subtitle: "MP3, WAV, AAC, OGG",
       backgroundColor: "#66BB6A",
-
+      
       icon: require("../../assets/mic.png"),
     },
     {
       key: "document",
       name: "Document",
-      subtitle: "PDF, DOCX, TXT, PPT",
+      subtitle: "PDF, DOCX, TXT, PPT, ODT, RTF",
       backgroundColor: "#AB47BC",
       icon: require("../../assets/file.png"),
     },
@@ -51,40 +49,52 @@ export default function Home() {
       <div
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover", // Ensures the image covers the entire div
-          backgroundPosition: "center", // Centers the image
-          backgroundRepeat: "no-repeat", // Prevents tiling
-          backgroundAttachment: "fixed", // Optional: Makes the background fixed on scroll
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
         }}
         className={
           darkMode
             ? "bg-dark text-white min-vh-100"
-            : " text-dark min-vh-100 py-5"
+            : "text-dark min-vh-100 py-5"
         }
       >
-        <main className={"py-2"}>
+        <main className="py-2">
           <div>
-            <div className="text-center m-4 py-5">
-              <h2 className="text-white display-7 fw-bold mb-4">
-                Download Free Sample Files Instantly
+            {/* Hero Section with SEO-friendly headings */}
+            <div className="text-center m-3 py-5">
+              <h1 className="text-white display-7 fw-bold mb-4">
+                Download Free Sample & Dummy Files Instantly
+              </h1>
+              <h2 className="text-white display-8 lead">
+              Explore a vast collection of sample files across various media
+              types.
               </h2>
-              <h3 className="text-white display-8 lead ">
-                Explore a vast collection of sample files across various media
-                types.
+              <h3 className="text-white display-8 lead mb-4">
+              Perfect for testing, development, and learning.
               </h3>
-              <h4 className="text-white display-8 lead mb-4">
-                Perfect for testing, development, and learning.
-              </h4>
-              <div className="p-2">
+              <div className="p-1">
                 <SearchBar onSearch={(value) => {}} />
               </div>
             </div>
 
+            {/* Benefits Section */}
+            <h2 className="text-center text-white display-8 lead">
+              Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
+            </h2>
+            <h3 className="text-center text-white display-8 lead">
+              All files are 100% safe, virus-free, and free for personal or
+              commercial use. Perfect for developers, testers, educators, and
+              presentations.
+            </h3>
+
+            {/* File Type Cards */}
             <div className="row g-3 m-5 ps-5 pe-5 justify-content-center">
               {fileTypes.map((type, index) => (
                 <div key={index} className="col-12 col-sm-6 col-lg-3">
                   <div
-                    className={`p-4 rounded-4 position-relative h-100 d-flex flex-column justify-content-between`}
+                    className="p-4 rounded-4 position-relative h-100 d-flex flex-column justify-content-between"
                     style={{
                       cursor: "pointer",
                       transition: "all 0.3s ease",
@@ -133,7 +143,7 @@ export default function Home() {
                         }}
                       >
                         <img
-                          alt="image-icon"
+                          alt={`${type.name} icon`}
                           src={type.icon}
                           width={35}
                           height={35}
@@ -141,14 +151,14 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h5
+                      <h4
                         className="fw-bold mb-1"
                         style={{ color: darkMode ? "white" : "inherit" }}
                       >
                         {type.name}
-                      </h5>
+                      </h4>
                       <p
-                        className={`mb-3`}
+                        className="mb-3"
                         style={{
                           fontSize: "0.9rem",
                           color: darkMode
