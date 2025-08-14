@@ -90,11 +90,10 @@ const Header = () => {
           <div className="d-none d-md-flex align-items-center gap-3">
             <nav className="d-flex gap-4 me-3">
               {[
-                { path: "/", name: "Home" },
-                { path: "sample-image", name: "Images" },
-                { path: "sample-video", name: "Videos" },
-                { path: "sample-audio", name: "Audio" },
-                { path: "sample-document", name: "Document" },
+                { path: "sample-image", name: "Sample Images" },
+                { path: "sample-video", name: "Sample Videos" },
+                { path: "sample-audio", name: "Sample Audio" },
+                { path: "sample-document", name: "Sample Document" },
               ].map((item) => (
                 <a
                   href={item.path}
@@ -142,13 +141,13 @@ const Header = () => {
           >
             <nav className="d-flex flex-column gap-3">
               {[
-                { path: "/", name: "Home" },
-                { path: "sample-image", name: "Images" },
-                { path: "sample-video", name: "Videos" },
-                { path: "sample-audio", name: "Audio" },
-                { path: "sample-document", name: "Document" },
+                { path: "sample-image", name: "Sample Images" },
+                { path: "sample-video", name: "Sample Videos" },
+                { path: "sample-audio", name: "Sample Audio" },
+                { path: "sample-document", name: "Sample Document" },
               ].map((item) => (
                 <a
+                  href={item.path}
                   key={item.name}
                   onClick={() => {
                     navigate(item.path);
