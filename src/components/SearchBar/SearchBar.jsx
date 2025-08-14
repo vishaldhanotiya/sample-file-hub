@@ -196,7 +196,6 @@ const SearchBar = ({ onSearch }) => {
               }
               style={{
                 borderRadius: showSuggestions ? "15px 15px 0 0" : "30px",
-
                 border: "1px solid #ddd",
                 boxShadow: "0 1px 6px rgba(32,33,36,0.28)",
                 fontSize: "1rem",

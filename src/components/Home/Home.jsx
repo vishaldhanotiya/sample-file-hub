@@ -1,6 +1,4 @@
 "use client";
-
-import { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import backgroundImage from "../../assets/img-back.png";
@@ -8,19 +6,18 @@ import AboutUs from "../AboutUs/AboutUs";
 import { trackCardClick } from "../../utils/Analytics";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
   const fileTypes = [
     {
-      key: "image",
+      key: "images",
       name: "Images",
       subtitle: "JPG, PNG, SVG, GIF, WEBP, BMP",
       backgroundColor: "#FF6F61",
       icon: require("../../assets/image.png"),
     },
     {
-      key: "video",
+      key: "videos",
       name: "Videos",
       subtitle: "MP4, AVI, MKV, FLV, MOV",
       backgroundColor: "#42A5F5",
@@ -28,15 +25,15 @@ export default function Home() {
       icon: require("../../assets/videography.png"),
     },
     {
-      key: "audio",
+      key: "audios",
       name: "Audios",
       subtitle: "MP3, WAV, AAC, OGG",
       backgroundColor: "#66BB6A",
-      
+
       icon: require("../../assets/mic.png"),
     },
     {
-      key: "document",
+      key: "documents",
       name: "Document",
       subtitle: "PDF, DOCX, TXT, PPT, ODT, RTF",
       backgroundColor: "#AB47BC",
@@ -54,43 +51,44 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
         }}
-        className={
-          darkMode
-            ? "bg-dark text-white min-vh-100"
-            : "text-dark min-vh-100 py-5"
-        }
+        className={"text-dark py-5"}
       >
         <main className="py-2">
           <div>
             {/* Hero Section with SEO-friendly headings */}
-            <div className="text-center m-3 py-5">
-              <h1 className="text-white display-7 fw-bold mb-4">
-                Download Free Sample & Dummy Files Instantly
-              </h1>
-              <h2 className="text-white display-8 lead">
-              Explore a vast collection of sample files across various media
-              types.
-              </h2>
-              <h3 className="text-white display-8 lead mb-4">
-              Perfect for testing, development, and learning.
-              </h3>
-              <div className="p-1">
+            <div className="text-center m-2 pt-5 pb-5">
+              <div className="text-center m-2 pt-2 pb-3">
+                <h1 className="text-white fw-bold mb-3 fs-2 fs-md-1">
+                  Download Free Sample & Dummy Files Instantly
+                </h1>
+                <h2 className="text-white fw-semibold mb-2 fs-5 fs-md-4">
+                  Explore a Vast Collection of Sample Files Across Various Media
+                  Types
+                </h2>
+                <h3 className="text-white fw-normal fs-6 fs-md-5">
+                  Perfect for Testing, Development, and Learning
+                </h3>
+              </div>
+
+              <div className="pt-1">
                 <SearchBar onSearch={(value) => {}} />
               </div>
             </div>
 
             {/* Benefits Section */}
-            <h2 className="text-center text-white display-8 lead">
-              Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
-            </h2>
-            <h3 className="text-center text-white display-8 lead">
-              All files are 100% safe, virus-free, and free for personal or
-              commercial use. Perfect for developers, testers, educators, and
-              presentations.
-            </h3>
+            <div className="text-center text-white my-3 px-3 px-md-5">
+              <h2 className="fs-4 fs-md-3 fw-semibold mb-2">
+                Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
+              </h2>
+              <h3 className="fs-6 fs-md-5 fw-normal mb-3">
+                All files are 100% safe, virus-free, and free for personal or
+                commercial use. Perfect for developers, testers, educators, and
+                presentations.
+              </h3>
+            </div>
 
             {/* File Type Cards */}
-            <div className="row g-3 m-5 ps-5 pe-5 justify-content-center">
+            <div className="row g-3 justify-content-center mx-2 mx-sm-3 mx-md-4 mx-lg-5 px-2 px-sm-3 px-md-4 px-lg-5 my-4 my-md-4">
               {fileTypes.map((type, index) => (
                 <div key={index} className="col-12 col-sm-6 col-lg-3">
                   <div
@@ -99,9 +97,7 @@ export default function Home() {
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       backdropFilter: "blur(16px)",
-                      backgroundColor: darkMode
-                        ? "rgba(30, 30, 30, 0.4)"
-                        : "#d1d7ff",
+                      backgroundColor: "#d1d7ff",
                     }}
                     onClick={() => {
                       trackCardClick(type.key);
@@ -109,25 +105,21 @@ export default function Home() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-5px)";
-                      e.currentTarget.style.boxShadow = darkMode
-                        ? "0 15px 30px rgba(0, 0, 0, 0.2)"
-                        : "0 15px 30px rgba(0, 0, 0, 0.15)";
-                      e.currentTarget.style.backgroundColor = darkMode
-                        ? "rgba(40, 40, 40, 0.6)"
-                        : "rgba(255, 255, 255, 0.6)";
+                      e.currentTarget.style.boxShadow =
+                        "0 15px 30px rgba(0, 0, 0, 0.15)";
+                      e.currentTarget.style.backgroundColor =
+                        "rgba(255, 255, 255, 0.6)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = darkMode
-                        ? "0 4px 30px rgba(0, 0, 0, 0.1)"
-                        : "0 4px 30px rgba(0, 0, 0, 0.1)";
+                      e.currentTarget.style.boxShadow =
+                        "0 4px 30px rgba(0, 0, 0, 0.1)";
                     }}
                   >
                     <div
                       className="fs-1 mb-3"
                       style={{
                         lineHeight: 0,
-                        color: darkMode ? "white" : undefined,
                       }}
                     >
                       <div
@@ -151,19 +143,14 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <h4
-                        className="fw-bold mb-1"
-                        style={{ color: darkMode ? "white" : "inherit" }}
-                      >
+                      <h4 className="fw-bold mb-1" style={{ color: "inherit" }}>
                         {type.name}
                       </h4>
                       <p
                         className="mb-3"
                         style={{
                           fontSize: "0.9rem",
-                          color: darkMode
-                            ? "rgba(255, 255, 255, 0.7)"
-                            : "rgba(0, 0, 0, 0.6)",
+                          color: "rgba(0, 0, 0, 0.6)",
                         }}
                       >
                         {type.subtitle}
@@ -174,9 +161,7 @@ export default function Home() {
                         alignSelf: "flex-end",
                         fontSize: "1.5rem",
                         fontWeight: "bold",
-                        color: darkMode
-                          ? "rgba(255, 255, 255, 0.8)"
-                          : "rgba(0, 0, 0, 0.8)",
+                        color: "rgba(0, 0, 0, 0.8)",
                         userSelect: "none",
                         transition: "transform 0.3s ease",
                       }}

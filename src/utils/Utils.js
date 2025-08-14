@@ -1,3 +1,5 @@
+import { fileTypeToBasePath } from "./Constant";
+
 export const generateThumbnailFromVideoUrl = (videoUrl, seekTo = 3) => {
     return new Promise((resolve, reject) => {
       const video = document.createElement('video');
@@ -34,5 +36,10 @@ export const generateThumbnailFromVideoUrl = (videoUrl, seekTo = 3) => {
     const i = parseInt(Math.floor(Math.log(Math.abs(bytes)) / Math.log(1024)));
     return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
   }
+
+
+   // Determine the base path based on file type category
+   export const getBasePath = (type) => fileTypeToBasePath[type] || null;
+
 
   
