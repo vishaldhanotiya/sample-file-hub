@@ -5,133 +5,133 @@ import { trackUserSearchMetaData } from "../../utils/Analytics";
 
 const documentArray = [
   {
-    key: "image",
+    key: "images",
     label: "PNG",
     type: "png",
     icon: require("../../assets/icon-png.png"),
   },
   {
-    key: "image",
+    key: "images",
     label: "JPG",
     type: "jpg",
     icon: require("../../assets/icon-jpg.png"),
   },
   {
-    key: "image",
+    key: "images",
     label: "SVG",
     type: "svg",
     icon: require("../../assets/icon-svg.png"),
   },
   {
-    key: "image",
+    key: "images",
     label: "GIF",
     type: "gif",
     icon: require("../../assets/icon-gif.png"),
   },
   {
-    key: "image",
+    key: "images",
     label: "BMP",
     type: "bmp",
     icon: require("../../assets/icon-bmp.png"),
   },
   {
-    key: "image",
+    key: "images",
     label: "WEBP",
     type: "webp",
     icon: require("../../assets/icon-webp.png"),
   },
   {
-    key: "video",
+    key: "videos",
     label: "MP4",
     type: "mp4",
     icon: require("../../assets/icon-mp4.png"),
   },
   {
-    key: "video",
+    key: "videos",
     label: "MKV",
     type: "mkv",
     icon: require("../../assets/icon-mkv.png"),
   },
   {
-    key: "video",
+    key: "videos",
     label: "AVI",
     type: "avi",
     icon: require("../../assets/icon-avi.png"),
   },
   {
-    key: "video",
+    key: "videos",
     label: "FLV",
     type: "flv",
     icon: require("../../assets/icon-flv.png"),
   },
   {
-    key: "video",
+    key: "videos",
     label: "MOV",
     type: "mov",
     icon: require("../../assets/icon-mov.png"),
   },
   {
-    key: "video",
+    key: "videos",
     label: "WEBM",
     type: "webm",
     icon: require("../../assets/icon-webm.png"),
   },
   {
-    key: "audio",
+    key: "audios",
     label: "MP3",
     type: "mp3",
     icon: require("../../assets/icon-mp3.png"),
   },
   {
-    key: "audio",
+    key: "audios",
     label: "AAC",
     type: "aac",
     icon: require("../../assets/icon-aac.png"),
   },
   {
-    key: "audio",
+    key: "audios",
     label: "WAV",
     type: "wav",
     icon: require("../../assets/icon-wav.png"),
   },
   {
-    key: "audio",
+    key: "audios",
     label: "OGG",
     type: "ogg",
     icon: require("../../assets/icon-ogg.png"),
   },
   {
-    key: "document",
+    key: "documents",
     label: "PPT",
     type: "pptx",
     icon: require("../../assets/icon-ppt.png"),
   },
   {
-    key: "document",
+    key: "documents",
     label: "DOCX",
     type: "docx",
     icon: require("../../assets/icon-docx.png"),
   },
   {
-    key: "document",
+    key: "documents",
     label: "TEXT",
     type: "txt",
     icon: require("../../assets/icon-text.png"),
   },
   {
-    key: "document",
+    key: "documents",
     label: "PDF",
     type: "pdf",
     icon: require("../../assets/icon-pdf.png"),
   },
   {
-    key: "document",
+    key: "documents",
     label: "ODT",
     type: "odt",
     icon: require("../../assets/icon-odt.png"),
   },
   {
-    key: "document",
+    key: "documents",
     label: "RTF",
     type: "rtf",
     icon: require("../../assets/icon-rtf.png"),
@@ -167,7 +167,7 @@ const SearchBar = ({ onSearch }) => {
     onSearch(item.label);
     setShowSuggestions(false);
     trackUserSearchMetaData(item.type)
-    navigate(`sample-${item.key}`,{state:{fileType:item.type}});
+    navigate(`sample-${item.key}/${item.type}`);
   };
 
   const handleSearch = (e) => {
