@@ -70,7 +70,7 @@ const Footer = () => {
         {/* Copyright text - full width below all columns */}
         <div className="row mt-4">
           <div className="col-12">
-            <p className="text-center text-secondary mb-0">
+            <p className="text-center text-white mb-0">
               ©2025 Sample Files. All rights reserved.
             </p>
           </div>

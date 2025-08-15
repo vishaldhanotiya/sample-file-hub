@@ -12,7 +12,7 @@ const Column = ({ title, items }) => {
 
   return (
     <div className="col-6 col-md-2 ps-4 pe-4">
-      <h6 className="fw-bold fs-19 text-white mb-3">{title}</h6>
+      <div className="fw-bold fs-19 text-white mb-3">{title}</div>
       <ul className="list-unstyled small">
         {items.map((item, index) => (
           <li key={`${item.title}-${index}`} className="pb-1">
