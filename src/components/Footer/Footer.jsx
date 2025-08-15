@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="col-12 col-lg-3">
             {/* 20% width */}
             <div className="bg-light p-3 rounded border">
-              <h5 className="mb-3">Contact Us</h5>
+              <div className="mb-3 fs-5 fw-medium">Contact Us</div>
               <ContactForm />
             </div>
           </div>
