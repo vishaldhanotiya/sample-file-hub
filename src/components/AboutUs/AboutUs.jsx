@@ -33,8 +33,11 @@ export default function AboutUs() {
 
   {/* About Section */}
 
-  <div className="container my-5">
-    <h1 className="fw-bold fs-2 text-center text-black mb-5">Why Choose Us?</h1>
+  <div className="container my-5 py-4">
+
+
+  <h3 className="text-center mb-5 fw-bold py-4">Why Choose Us?</h3>
+
     <div className="row g-4">
       {/* Card 1 */}
       <div className="col-md-4">

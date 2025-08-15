@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import backgroundImage from "../../assets/img-back.png";
 import AboutUs from "../AboutUs/AboutUs";
 import { trackCardClick } from "../../utils/Analytics";
+import FAQAccordion from "../FAQAccordion/FAQAccordion";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ export default function Home() {
         <main className="py-2">
           <div>
             {/* Hero Section with SEO-friendly headings */}
-            <div className="text-center m-2 pt-5 pb-5">
+            <div className="text-center m-2 pt-4 pb-5">
               <div className="text-center m-2 pt-2 pb-3">
                 <h1 className="text-white fw-bold mb-3 fs-2 fs-md-1">
                   Download Free Sample & Dummy Files Instantly
@@ -66,7 +67,7 @@ export default function Home() {
                   Types
                 </h2>
                 <h3 className="text-white fw-normal fs-6 fs-md-5">
-                  Perfect for Testing, Development, and Learning
+                  No login, no tracking, just instant access.
                 </h3>
               </div>
 
@@ -76,7 +77,7 @@ export default function Home() {
             </div>
 
             {/* Benefits Section */}
-            <div className="text-center text-white my-3 px-3 px-md-5">
+            <div className="text-center text-white my-2 px-3 px-md-5">
               <h2 className="fs-4 fs-md-3 fw-semibold mb-2">
                 Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
               </h2>
@@ -176,8 +177,10 @@ export default function Home() {
             </div>
           </div>
         </main>
+        
       </div>
       <AboutUs />
+      <FAQAccordion/>      
     </>
   );
 }

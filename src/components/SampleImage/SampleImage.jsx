@@ -96,6 +96,15 @@ const SampleImage = () => {
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
       {/* Tab Bar */}
+
+      <p className="pt-2 pb-2 text-black">
+        Download a variety of high-quality sample images in formats like JPG,
+        PNG, GIF, WEBP, and more. These images are perfect for testing website
+        layouts, app designs, image optimization, or responsive galleries. All
+        files are quick to download, easy to use, and completely free. Ideal for
+        developers, testers, and educators.
+      </p>
+
       <Nav
         activeKey={activeTab}
         onSelect={setActiveTab}

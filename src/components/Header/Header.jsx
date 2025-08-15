@@ -93,7 +93,7 @@ const Header = () => {
                 { path: "sample-images", name: "Sample Images" },
                 { path: "sample-videos", name: "Sample Videos" },
                 { path: "sample-audios", name: "Sample Audio" },
-                { path: "sample-documents", name: "Sample Document" },
+                { path: "sample-documents", name: "Sample Documents" },
               ].map((item) => (
                 <a
                   href={item.path}
@@ -141,10 +141,10 @@ const Header = () => {
           >
             <nav className="d-flex flex-column gap-3">
               {[
-                { path: "sample-image", name: "Sample Images" },
-                { path: "sample-video", name: "Sample Videos" },
-                { path: "sample-audio", name: "Sample Audio" },
-                { path: "sample-document", name: "Sample Document" },
+                { path: "sample-images", name: "Sample Images" },
+                { path: "sample-videos", name: "Sample Videos" },
+                { path: "sample-audios", name: "Sample Audio" },
+                { path: "sample-documents", name: "Sample Documents" },
               ].map((item) => (
                 <a
                   href={item.path}

@@ -95,6 +95,12 @@ const SampleDocument = () => {
 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
+      <p className="pt-2 pb-2 text-black">
+        Browse and download sample documents in PDF, DOCX, PPTX, TXT, and more
+        formats. Perfect for testing document uploads, preview features, file
+        conversions, or printing settings. All files are free, instantly
+        available, and suitable for demos, experiments, and educational use.
+      </p>
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

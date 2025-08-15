@@ -18,7 +18,7 @@
   bottom: -2px;
   width: 0%;
   height: 4px;
-  background-color: #0d6efd;
+  background-color:  #5c7fff;
   transition: width 0.4s ease;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .custom-nav .custom-nav-link:hover {
-  color: #0a58ca;
+  color: #5c7fff;
 }
 
 .custom-grid {

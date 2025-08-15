@@ -96,6 +96,14 @@ const SampleVideo = () => {
 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
+      <p className="pt-2 pb-2 text-black">
+      Access free sample videos in popular formats such as MP4, MOV, AVI, and
+        MKV. Use them to test video players, streaming speed, resolution
+        settings, and media integrations. Our sample videos are instantly
+        downloadable, making them perfect for demos, experiments, and learning
+        projects.
+      </p>
+
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

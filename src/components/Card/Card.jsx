@@ -14,14 +14,12 @@ import WavIcon from "../../assets/wav.png";
 import OggIcon from "../../assets/ogg.png";
 import AviIcon from "../../assets/avi.png";
 import FlvIcon from "../../assets/flv.png";
+import ZipIcon from "../../assets/icon-zipped.png";
 import {
   trackDownload,
   trackDownloadError,
   trackMediaView,
 } from "../../utils/Analytics";
-import { Modal } from "react-bootstrap";
-import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
-import { formatBytes } from "../../utils/Utils";
 
 const placeholderMap = {
   pdf: PdfIcon,
@@ -36,6 +34,7 @@ const placeholderMap = {
   ogg: OggIcon,
   avi: AviIcon,
   flv: FlvIcon,
+  zip: ZipIcon,
 };
 
 const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }) => {
@@ -138,7 +137,7 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
           <button
             className="btn btn-sm d-flex align-items-center justify-content-center gap-1 text-white rounded-pill px-1 py-1"
             style={{
-              background: "linear-gradient(90deg, #00b4db 0%, #0083b0 100%)",
+              background: "linear-gradient(90deg, #8d85ff 0%, #5c7fff 100%)",
               fontSize: "0.7rem",
               minWidth: 0,
               flex: 1,
@@ -150,15 +149,15 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="14px"
-              height="14px"
+              width="16px"
+              height="16px"
               fill="currentColor"
               viewBox="0 0 256 256"
               style={{ display: "block" }}
             >
               <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,132.69V40a8,8,0,0,0-16,0v92.69L93.66,106.34a8,8,0,0,0-11.32,11.32Z"></path>
             </svg>
-            <span>Download</span>
+            <span className="fw-medium">Download</span>
           </button>
         )}
       </div>

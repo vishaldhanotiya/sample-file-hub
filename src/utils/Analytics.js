@@ -3,7 +3,6 @@ import ReactGA from "react-ga4";
 export const initGoogleAnalytics = (measurementId) => {
   const isEnableGA=   process.env.NODE_ENV !== 'production';
 
-  console.log(isEnableGA)
   ReactGA.initialize(
     [
       {

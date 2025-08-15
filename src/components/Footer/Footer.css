@@ -1,0 +1,50 @@
+.share-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .social-icons-circle {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .social-btn-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+  
+  .social-btn-circle:hover {
+    transform: scale(1.1);
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .twitter {
+    background-color: #1da1f2;
+  }
+  
+  .linkedin {
+    background-color: #0077b5;
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }

@@ -93,6 +93,13 @@ const SampleAudio = () => {
 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
+      <p className="pt-2 pb-2 text-black">
+      Get free sample audio files in formats like MP3, WAV, and AAC. These
+        audio tracks are great for testing audio playback, background music,
+        sound quality, or volume controls. Download instantly and use them for
+        app testing, media player demos, or audio-based learning projects.
+      </p>
+
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}
