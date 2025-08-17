@@ -99,6 +99,7 @@ const Header = () => {
                   href={item.path}
                   key={item.name}
                   onClick={(e) => {
+                    if (e.ctrlKey || e.metaKey) return; // allow new tab
                     e.preventDefault();
                     trackHeaderNavigation(item.path);
                     navigate(item.path);

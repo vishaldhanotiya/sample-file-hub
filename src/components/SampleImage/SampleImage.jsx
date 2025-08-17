@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useMemo,useState, useCallback } from "react";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -12,14 +12,14 @@ import { db } from "../../App";
 import Card from "../Card/Card";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
-import { imageTabData as tabData } from "../../utils/Constant";
+import { imageTabData as tabData, getMetaData } from "../../utils/Constant";
 
 const filesPerPage = 25;
-
 const SampleImage = () => {
-  const { fileType } = useParams();
+  const { filePath } = useParams();
+  const fileType = filePath?.split("-").pop() || tabData[0]?.key;
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,42 +68,50 @@ const SampleImage = () => {
     setCurrentPage(1);
   }, []);
 
+  const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
+
+
   // Update activeTab if fileType param changes
   useEffect(() => {
     if (!fileType) return;
-
     setActiveTab(fileType);
-
-    const basePath = getBasePath(fileType);
-    if (basePath) {
-      navigate(basePath, { replace: true });
-    } else {
-      navigate("/sample-images/jpg");
-    }
   }, [fileType, navigate]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
-    if (activeTab) fetchFiles(activeTab);
+    if (activeTab) fetchFiles(activeTab)
+
+      const basePath = getBasePath(activeTab);
+      if (basePath) {
+        navigate(basePath, { replace: true });
+      } else {
+        navigate("/sample-images/sample-jpg");
+      }
+      document.title = metaData.title;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = metaData.description; 
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
-  const indexOfLastFile = currentPage * filesPerPage;
-  const indexOfFirstFile = indexOfLastFile - filesPerPage;
-  const currentFiles = files.slice(indexOfFirstFile, indexOfLastFile);
-  const totalPages = Math.ceil(files.length / filesPerPage);
-
+  const { currentFiles, totalPages } = useMemo(() => {
+    const indexOfLastFile = currentPage * filesPerPage;
+    const indexOfFirstFile = indexOfLastFile - filesPerPage;
+    return {
+      currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
+      totalPages: Math.ceil(files.length / filesPerPage)
+    };
+  }, [files, currentPage]);
+ 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
       {/* Tab Bar */}
-
-      <p className="pt-2 pb-2 text-black">
-        Download a variety of high-quality sample images in formats like JPG,
-        PNG, GIF, WEBP, and more. These images are perfect for testing website
-        layouts, app designs, image optimization, or responsive galleries. All
-        files are quick to download, easy to use, and completely free. Ideal for
-        developers, testers, and educators.
-      </p>
+      <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
+      </div>
 
       <Nav
         activeKey={activeTab}

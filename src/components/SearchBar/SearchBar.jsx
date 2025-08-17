@@ -171,8 +171,9 @@ const SearchBar = ({ onSearch }) => {
   };
 
   const handleSearch = (e) => {
+    if (e.ctrlKey || e.metaKey) return; // allow new tab
     e.preventDefault();
-    onSearch(query);
+        onSearch(query);
     setShowSuggestions(false);
   };
 

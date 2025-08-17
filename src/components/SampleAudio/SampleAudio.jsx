@@ -9,17 +9,18 @@ import {
 import { db } from "../../App";
 import Card from "../Card/Card";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect,useMemo, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
-import { audioTabData as tabData } from "../../utils/Constant";
+import { getMetaData, audioTabData as tabData } from "../../utils/Constant";
 
 const filesPerPage = 25;
 
 const SampleAudio = () => {
-  const { fileType } = useParams();
-  const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
+  const { filePath } = useParams();
+  const fileType = filePath?.split("-").pop() || tabData[0]?.key;
+  const [activeTab, setActiveTab] = useState(fileType);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [modalOpen, setModalOpen] = useState(false);
@@ -67,38 +68,50 @@ const SampleAudio = () => {
     setCurrentPage(1);
   }, []);
 
+    const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
+  
   // Update activeTab if fileType param changes
   useEffect(() => {
     if (!fileType) return;
 
     setActiveTab(fileType);
-    const basePath = getBasePath(fileType);
-    if (basePath) {
-      navigate(basePath, { replace: true });
-    } else {
-      navigate("/sample-audios/mp3");
-    }
-  }, [fileType, navigate]);
+
+  }, [fileType]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
-    if (activeTab) fetchFiles(activeTab);
+    if (activeTab) fetchFiles(activeTab)
+   
+      const basePath = getBasePath(fileType);    
+      if (basePath) {
+        navigate(basePath, { replace: true });
+      } else {
+        navigate("/sample-audios/sample-mp3");
+      }
+      document.title = metaData.title;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = metaData.description; // Use .content instead of setAttribute
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
-  const indexOfLastFile = currentPage * filesPerPage;
-  const indexOfFirstFile = indexOfLastFile - filesPerPage;
-  const currentFiles = files.slice(indexOfFirstFile, indexOfLastFile);
-  const totalPages = Math.ceil(files.length / filesPerPage);
+  const { currentFiles, totalPages } = useMemo(() => {
+    const indexOfLastFile = currentPage * filesPerPage;
+    const indexOfFirstFile = indexOfLastFile - filesPerPage;
+    return {
+      currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
+      totalPages: Math.ceil(files.length / filesPerPage)
+    };
+  }, [files, currentPage]);
 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
-      <p className="pt-2 pb-2 text-black">
-      Get free sample audio files in formats like MP3, WAV, and AAC. These
-        audio tracks are great for testing audio playback, background music,
-        sound quality, or volume controls. Download instantly and use them for
-        app testing, media player demos, or audio-based learning projects.
-      </p>
+        <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
+        </div>
 
       {/* Tab Bar */}
       <Nav

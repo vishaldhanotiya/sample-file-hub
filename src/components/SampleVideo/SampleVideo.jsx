@@ -11,17 +11,21 @@ import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect,useMemo, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
-import { videoTabData as tabData } from "../../utils/Constant";
+import {
+  getMetaData,
+  videoTabData as tabData,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 
 const SampleVideo = () => {
-  const { fileType } = useParams();
+  const { filePath } = useParams();
+  const fileType = filePath?.split("-").pop() || tabData[0]?.key;
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -70,6 +74,8 @@ const SampleVideo = () => {
     setCurrentPage(1);
   }, []);
 
+  const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
+
   // Update activeTab if fileType param changes
   useEffect(() => {
     if (!fileType) return;
@@ -79,31 +85,45 @@ const SampleVideo = () => {
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
-      navigate("/sample-videos/mp4");
+      navigate("/sample-videos/sample-mp4");
     }
   }, [fileType, navigate]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
     if (activeTab) fetchFiles(activeTab);
+
+   const basePath = getBasePath(activeTab);
+    if (basePath) {
+      navigate(basePath, { replace: true });
+    } else {
+      navigate("/sample-images/sample-mp4");
+    }
+
+    document.title = metaData.title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = metaData.description; 
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
-  const indexOfLastFile = currentPage * filesPerPage;
-  const indexOfFirstFile = indexOfLastFile - filesPerPage;
-  const currentFiles = files.slice(indexOfFirstFile, indexOfLastFile);
-  const totalPages = Math.ceil(files.length / filesPerPage);
+  const { currentFiles, totalPages } = useMemo(() => {
+    const indexOfLastFile = currentPage * filesPerPage;
+    const indexOfFirstFile = indexOfLastFile - filesPerPage;
+    return {
+      currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
+      totalPages: Math.ceil(files.length / filesPerPage)
+    };
+  }, [files, currentPage]);
 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
-      <p className="pt-2 pb-2 text-black">
-      Access free sample videos in popular formats such as MP4, MOV, AVI, and
-        MKV. Use them to test video players, streaming speed, resolution
-        settings, and media integrations. Our sample videos are instantly
-        downloadable, making them perfect for demos, experiments, and learning
-        projects.
-      </p>
-
+       <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
+       </div>
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

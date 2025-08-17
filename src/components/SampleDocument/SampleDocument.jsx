@@ -11,15 +11,19 @@ import { db } from "../../App";
 import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
-import { documentTabData as tabData } from "../../utils/Constant";
+import {
+  getMetaData,
+  documentTabData as tabData,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 
 const SampleDocument = () => {
-  const { fileType } = useParams();
+  const { filePath } = useParams();
+  const fileType = filePath?.split("-").pop() || tabData[0]?.key;
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,39 +72,51 @@ const SampleDocument = () => {
     setCurrentPage(1);
   }, []);
 
+  const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
+
   // Update activeTab if fileType param changes
   useEffect(() => {
     if (!fileType) return;
-
     setActiveTab(fileType);
-
-    const basePath = getBasePath(fileType);
-    if (basePath) {
-      navigate(basePath, { replace: true });
-    } else {
-      navigate("/sample-documents/pdf");
-    }
-  }, [fileType, navigate]);
+  }, [fileType]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
     if (activeTab) fetchFiles(activeTab);
+
+    const basePath = getBasePath(activeTab);
+    if (basePath) {
+      navigate(basePath, { replace: true });
+    } else {
+      navigate("/sample-images/sample-pdf");
+    }
+
+    document.title = metaData.title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = metaData.description; 
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
-  const indexOfLastFile = currentPage * filesPerPage;
-  const indexOfFirstFile = indexOfLastFile - filesPerPage;
-  const currentFiles = files.slice(indexOfFirstFile, indexOfLastFile);
-  const totalPages = Math.ceil(files.length / filesPerPage);
+  const { currentFiles, totalPages } = useMemo(() => {
+    const indexOfLastFile = currentPage * filesPerPage;
+    const indexOfFirstFile = indexOfLastFile - filesPerPage;
+    return {
+      currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
+      totalPages: Math.ceil(files.length / filesPerPage)
+    };
+  }, [files, currentPage]);
 
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
-      <p className="pt-2 pb-2 text-black">
-        Browse and download sample documents in PDF, DOCX, PPTX, TXT, and more
-        formats. Perfect for testing document uploads, preview features, file
-        conversions, or printing settings. All files are free, instantly
-        available, and suitable for demos, experiments, and educational use.
-      </p>
+      <div
+        className="pt-2 pb-2 text-black"
+        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
+      ></div>
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

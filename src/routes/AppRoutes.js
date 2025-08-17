@@ -13,13 +13,13 @@ const AppRoutes = () => {
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="sample-images" element={<SampleImage />} />
-        <Route path="/sample-images/:fileType" element={<SampleImage />} />
+        <Route path="/sample-images/:filePath" element={<SampleImage />} />
         <Route path="sample-videos" element={<SampleVideo />} />
-        <Route path="sample-videos/:fileType" element={<SampleVideo />} />
+        <Route path="sample-videos/:filePath" element={<SampleVideo />} />
         <Route path="sample-audios" element={<SampleAudio />} />
-        <Route path="sample-audios/:fileType" element={<SampleAudio />} />
+        <Route path="sample-audios/:filePath" element={<SampleAudio />} />
         <Route path="sample-documents" element={<SampleDocument />} />
-        <Route path="sample-documents/:fileType" element={<SampleDocument />} />
+        <Route path="sample-documents/:filePath" element={<SampleDocument />} />
         {/* Add other routes here */}
       </Route>
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />
