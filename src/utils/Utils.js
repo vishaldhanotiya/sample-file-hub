@@ -30,16 +30,17 @@ export const generateThumbnailFromVideoUrl = (videoUrl, seekTo = 3) => {
   };
 
 
-  export const formatBytes=(bytes)=> {
-    const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-    if (bytes === 0) return "0 Bytes";
-    const i = parseInt(Math.floor(Math.log(Math.abs(bytes)) / Math.log(1024)));
-    return `${(bytes / Math.pow(1024, i)).toFixed(2)} ${sizes[i]}`;
-  }
+export const formatBytes=(bytes, decimalMode = true)=> {
+  const unit = decimalMode ? 1000 : 1024;
+  if (bytes < unit) return `${bytes} B`;
+  const exp = Math.floor(Math.log(bytes) / Math.log(unit));
+  const size = (bytes / Math.pow(unit, exp)).toFixed(1);
+  const prefix = (decimalMode ? "kMGTPE" : "KMGTPE")[exp - 1];
+  const unitSuffix = decimalMode ? "B" : "iB";
+  return `${size} ${prefix}${unitSuffix}`;
+}
 
-
-   // Determine the base path based on file type category
-   export const getBasePath = (type) => fileTypeToBasePath[type] || null;
+export const getBasePath = (type) => fileTypeToBasePath[type] || null;
 
 
   

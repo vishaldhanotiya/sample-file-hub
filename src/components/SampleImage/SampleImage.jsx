@@ -142,7 +142,7 @@ const SampleImage = () => {
             <Card
               file={file}
               imageSrc={file.url}
-              title={file.name || `File ${index + 1}`}
+              title={file.name || `Image ${index + 1}`}
               size={file.bytes ? formatBytes(file.bytes) : "N/A"}
               dimensions={file.width ? `${file.width}x${file.height}` : null}
               downloadLink="#"
