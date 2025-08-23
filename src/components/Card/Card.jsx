@@ -1,20 +1,23 @@
-import React from "react";
 import "./Card.css";
 import VideoThumbnailFromURL from "../VideoThumbnailFromURL/VideoThumbnailFromURL";
 
 import PdfIcon from "../../assets/pdf.png";
 import PptIcon from "../../assets/ppt.png";
+import PptxIcon from "../../assets/pptx.png";
 import OdtIcon from "../../assets/odt.png";
 import RtfIcon from "../../assets/rtf.png";
 import Mp3Icon from "../../assets/mp3.png";
+import DocIcon from "../../assets/doc.png";
 import DocxIcon from "../../assets/docx.png";
-import TextIcon from "../../assets/text.png";
+import XlsIcon from "../../assets/xls.png";
+import XlsxIcon from "../../assets/xlsx.png";
+import TextIcon from "../../assets/txt.png";
 import AacIcon from "../../assets/aac.png";
 import WavIcon from "../../assets/wav.png";
 import OggIcon from "../../assets/ogg.png";
 import AviIcon from "../../assets/avi.png";
 import FlvIcon from "../../assets/flv.png";
-import ZipIcon from "../../assets/icon-zipped.png";
+import ZipIcon from "../../assets/zip.png";
 import {
   trackDownload,
   trackDownloadError,
@@ -23,11 +26,15 @@ import {
 
 const placeholderMap = {
   pdf: PdfIcon,
-  pptx: PptIcon,
+  ppt: PptIcon,
+  pptx: PptxIcon,
   odt: OdtIcon,
   rtf: RtfIcon,
   mp3: Mp3Icon,
+  doc: DocIcon,
   docx: DocxIcon,
+  xls: XlsIcon,
+  xlsx: XlsxIcon,
   txt: TextIcon,
   aac: AacIcon,
   wav: WavIcon,
@@ -73,9 +80,9 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
   return (
     <div>
       <div
-        className="image-wrapper bg-secondary-subtle"
+        className="image-wrapper"
         onClick={handlePreviewClick} // fix: actually call the function, not just a reference
-        style={{ position: "relative", cursor: "pointer" }}
+        style={{ position: "relative", backgroundColor: "#ebf4ff", cursor: "pointer" }}
       >
         {file.resource_type === "video" && !placeholderMap[file.format] ? (
           <VideoThumbnailFromURL videoUrl={file.url} />

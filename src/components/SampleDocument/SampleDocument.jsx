@@ -14,10 +14,7 @@ import { formatBytes, getBasePath } from "../../utils/Utils";
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  getMetaData,
-  documentTabData as tabData,
-} from "../../utils/Constant";
+import { getMetaData, documentTabData as tabData } from "../../utils/Constant";
 
 const filesPerPage = 25;
 
@@ -76,12 +73,16 @@ const SampleDocument = () => {
 
   // Update activeTab if fileType param changes
   useEffect(() => {
+
+    console.log('fileType===', fileType)
     if (!fileType) return;
     setActiveTab(fileType);
   }, [fileType]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
+
+    console.log('active===', activeTab)
     if (activeTab) fetchFiles(activeTab);
 
     const basePath = getBasePath(activeTab);
@@ -98,7 +99,7 @@ const SampleDocument = () => {
       metaDesc.name = "description";
       document.head.appendChild(metaDesc);
     }
-    metaDesc.content = metaData.description; 
+    metaDesc.content = metaData.description;
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
@@ -107,10 +108,11 @@ const SampleDocument = () => {
     const indexOfFirstFile = indexOfLastFile - filesPerPage;
     return {
       currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
-      totalPages: Math.ceil(files.length / filesPerPage)
+      totalPages: Math.ceil(files.length / filesPerPage),
     };
   }, [files, currentPage]);
 
+  console.log('====',currentFiles)
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
       <div

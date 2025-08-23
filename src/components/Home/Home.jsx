@@ -5,7 +5,7 @@ import backgroundImage from "../../assets/img-back.png";
 import AboutUs from "../AboutUs/AboutUs";
 import { trackCardClick } from "../../utils/Analytics";
 import FAQAccordion from "../FAQAccordion/FAQAccordion";
-
+import './Home.css'
 export default function Home() {
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ export default function Home() {
     {
       key: "images",
       name: "Images",
-      subtitle: "JPG, PNG, SVG, GIF, WEBP, BMP",
+      subtitle: "JPG, PNG, WEBP, SVG, GIF, BMP",
       backgroundColor: "#FF6F61",
       icon: require("../../assets/image.png"),
     },
@@ -22,7 +22,6 @@ export default function Home() {
       name: "Videos",
       subtitle: "MP4, AVI, MKV, FLV, MOV",
       backgroundColor: "#42A5F5",
-
       icon: require("../../assets/videography.png"),
     },
     {
@@ -36,7 +35,7 @@ export default function Home() {
     {
       key: "documents",
       name: "Document",
-      subtitle: "PDF, DOCX, TXT, PPT, ODT, RTF",
+      subtitle: "PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, ZIP",
       backgroundColor: "#AB47BC",
       icon: require("../../assets/file.png"),
     },
@@ -169,7 +168,8 @@ export default function Home() {
                       aria-label={`Go to ${type.name}`}
                       className="hover-arrow"
                     >
-                      →
+          <div class="btn browse-btn">Browse →</div>
+
                     </div>
                   </div>
                 </div>

@@ -18,10 +18,14 @@ export const videoTabData = [
 
 export const documentTabData = [
   { key: "pdf", title: "PDF", path: "/sample-documents/pdf" },
+  { key: "doc", title: "DOC", path: "/sample-documents/doc" },
+  { key: "docx", title: "DOCX", path: "/sample-documents/docx" },
+  { key: "xls", title: "XLS", path: "/sample-documents/xls" },
+  { key: "xlsx", title: "XLSX", path: "/sample-documents/xlsx" },
   { key: "odt", title: "ODT", path: "/sample-documents/odt" },
   { key: "rtf", title: "RTF", path: "/sample-documents/rtf" },
+  { key: "ppt", title: "PPT", path: "/sample-documents/ppt" },
   { key: "pptx", title: "PPTX", path: "/sample-documents/pptx" },
-  { key: "docx", title: "DOCX", path: "/sample-documents/docx" },
   { key: "txt", title: "TXT", path: "/sample-documents/txt" },
   { key: "zip", title: "ZIP", path: "/sample-documents/zip" },
 ];
@@ -58,14 +62,17 @@ export const fileTypeToBasePath = {
 
   // Documents
   pdf: "/sample-documents/sample-pdf",
+  doc: "/sample-documents/sample-doc",
   docx: "/sample-documents/sample-docx",
+  xls: "/sample-documents/sample-xls",
+  xlsx: "/sample-documents/sample-xlsx",
   odt: "/sample-documents/sample-odt",
   rtf: "/sample-documents/sample-rtf",
+  ppt: "/sample-documents/sample-ppt",
   pptx: "/sample-documents/sample-pptx",
   txt: "/sample-documents/sample-txt",
   zip: "/sample-documents/sample-zip",
 };
-
 
 export const getMetaData = (fileType) => {
   switch (fileType) {
@@ -88,10 +95,6 @@ export const getMetaData = (fileType) => {
       </p>
 
       <p>
-        Another benefit of <strong>JPEGs</strong> is their <strong>broad compatibility</strong>. Nearly all <strong>web browsers</strong>, <strong>editing software</strong>, and <strong>devices</strong> support this format, making it a reliable choice for <strong>photographers</strong>, <strong>designers</strong>, and <strong>marketers</strong>.
-      </p>
-
-      <p>
         <strong>JPEG</strong> remains the top <strong>image format</strong> for <strong>digital photos</strong> and <strong>web use</strong> due to its balance of <strong>quality</strong>, <strong>compression efficiency</strong>, and <strong>universal support</strong>. Whether you're <strong>optimizing a website</strong>, <strong>sharing on social media</strong>, or <strong>storing memories</strong>, <strong>JPEG</strong> delivers the perfect mix of <strong>performance</strong> and <strong>visual appeal</strong>.
       </p>
     </article>
@@ -107,8 +110,6 @@ export const getMetaData = (fileType) => {
         bodyText: `<p>A <strong>PNG (Portable Network Graphics)</strong> file is a widely used <strong>image format</strong> known for its <strong>lossless compression</strong> and ability to preserve <strong>image quality</strong>. Developed in the mid-1990s as an improved alternative to GIF, <strong>PNG</strong> quickly became a favorite for <strong>web graphics</strong>, <strong>design projects</strong>, and images requiring <strong>transparency</strong>.</p>
 
 <p>Unlike <strong>JPEG</strong>, which uses lossy compression, <strong>PNG</strong> keeps every detail intact without <strong>quality loss</strong>, making it ideal for <strong>logos</strong>, <strong>icons</strong>, and graphics with <strong>sharp edges</strong> or <strong>text</strong>. Its support for <strong>transparent backgrounds</strong> is especially useful in <strong>modern web design</strong>, <strong>branding</strong>, and <strong>UI/UX projects</strong>.</p>
-
-<p>One of the biggest advantages of <strong>PNG files</strong> is their ability to handle <strong>high-quality graphics with millions of colors</strong>. However, because of its <strong>lossless nature</strong>, <strong>PNG file sizes</strong> are typically larger than JPEGs, which can affect <strong>page load speed</strong> if not optimized properly.</p>
 
 <p><strong>Why PNG is Popular:</strong></p>
 <ul>
@@ -136,7 +137,7 @@ export const getMetaData = (fileType) => {
     <li><strong>Fast loading</strong> for better user experience</li>
     <li><strong>Cross-browser compatibility</strong> for all users</li>
   </ul>
-Whether building a blog, e-commerce platform, or complex <strong>web application</strong>, <strong>WEB files</strong> provide the foundation for a strong <strong>digital presence</strong>. You can <strong>download WEB files free from our website</strong>, offering developers, designers, and learners the resources to create, test, and optimize <strong>web projects</strong> efficiently. <strong>WEB files</strong> remain indispensable for delivering fully functional, fast-loading, and visually appealing <strong>web pages</strong>.</p>
+Whether building a blog, e-commerce platform, or complex <strong>web application</strong>, <strong>WEB files</strong> provide the foundation for a strong <strong>digital presence</strong>. You can <strong>download WEB files free from our website</strong>, offering developers, designers, and learners the resources to create, test, and optimize <strong>web projects</strong> efficiently.</p>
 `,
       };
     case "svg":
@@ -289,7 +290,7 @@ You can <strong>download WEBM files free from our website</strong>, making them 
     // ----------------- Audio -----------------
     case "mp3":
       return {
-        title: "Sample mp3 Audio Download - Free Sample Files",
+        title: "Sample mp3 file Download - Free Sample Files",
         description:
           "Download a sample MP3 audio file for playback and audio testing. Free MP3 sample provided.",
         keywords:
@@ -304,7 +305,7 @@ You can <strong>download MP3 files free from our website</strong>, making them a
       };
     case "aac":
       return {
-        title: "Sample aac Audio Download - Free Sample Files",
+        title: "Sample aac file Download - Free Sample Files",
         description:
           "Free sample AAC audio file for testing playback on different devices.",
         keywords: "sample aac, aac audio download, aac file example, free aac",
@@ -318,7 +319,7 @@ You can <strong>download AAC files free from our website</strong>, making them a
       };
     case "wav":
       return {
-        title: "Sample wav Audio Download - Free Sample Files",
+        title: "Sample wav file Download - Free Sample Files",
         description:
           "Download a sample WAV audio file for testing uncompressed audio. Free WAV file available.",
         keywords:
@@ -349,7 +350,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
     // ----------------- Documents -----------------
     case "pdf":
       return {
-        title: "Sample pdf Download - Free Sample Files",
+        title: "Sample pdf file Download - Free Sample Files",
         description:
           "Download a sample PDF document for testing. Free sample PDF file provided instantly.",
         keywords:
@@ -379,7 +380,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
       };
     case "odt":
       return {
-        title: "Sample odt Download - Free Sample Files",
+        title: "Sample odt file Download - Free Sample Files",
         description:
           "Free sample ODT (OpenDocument Text) file for testing word processors.",
         keywords: "sample odt, odt file download, odt file example, free odt",
@@ -393,7 +394,7 @@ You can <strong>download ODT files free from our website</strong>, making them a
       };
     case "rtf":
       return {
-        title: "Sample rtf Download - Free Sample Files",
+        title: "Sample rtf fileDownload - Free Sample Files",
         description:
           "Download a free sample RTF document for testing text editors.",
         keywords: "sample rtf, rtf download, rtf file example, free rtf",
@@ -406,9 +407,23 @@ You can <strong>download RTF files free from our website</strong>, making them a
 
 `,
       };
+    case "ppt":
+      return {
+        title: "Sample ppt file Download - Free Sample Files",
+        description:
+          "Free sample PPT presentation file for testing slides and office software.",
+        keywords: "sample ppt, ppt download, ppt file example, free ppt",
+        bodyText: `<p><strong>PPT file</strong> is a PowerPoint presentation format. Introduced in 2007 Office Open XML, it has become a standard in its category for <strong>quality, compatibility, and efficiency</strong>. PPT files are widely used across <strong>professional, educational, and personal projects</strong>.</p>
+<p>The main advantages of <strong>PPT files</strong> include:
+<ul>
+<li><strong>Supports animations and multimedia</strong></li><li><strong>Editable slides</strong></li><li><strong>Professional presentation use</strong></li><li><strong>Compatible with modern PowerPoint software</strong></li>
+</ul>
+You can <strong>download PPT files free from our website</strong>, making them accessible for <strong>testing, learning, and creative projects</strong>. <strong>PPTX remains a widely trusted format</strong> in its category.</p>
+`,
+      };
     case "pptx":
       return {
-        title: "Sample pptx Download - Free Sample Files",
+        title: "Sample pptx file Download - Free Sample Files",
         description:
           "Free sample PPTX presentation file for testing slides and office software.",
         keywords: "sample pptx, pptx download, pptx file example, free ppt",
@@ -420,9 +435,33 @@ You can <strong>download RTF files free from our website</strong>, making them a
 You can <strong>download PPTX files free from our website</strong>, making them accessible for <strong>testing, learning, and creative projects</strong>. <strong>PPTX remains a widely trusted format</strong> in its category.</p>
 `,
       };
+    case "doc":
+      return {
+        title: "Sample doc fileDownload - Free Sample Files",
+        description:
+          "Download a sample DOC Word file for testing. Free DOC file available.",
+        keywords: "sample docx, docx download, docx file example, free docx",
+        bodyText: `
+  <p>
+    <strong>DOC</strong> is a classic Microsoft Word document format widely used before the 2007 Office Open XML update.
+    It’s great for creating and editing text-based files like letters, resumes, and reports, with support for
+    formatted text, tables, and images.
+  </p>
+  <ul>
+    <li>Good compatibility with older Microsoft Office versions</li>
+    <li>Supports rich formatting, tables, and images</li>
+    <li>Easy to edit and share</li>
+    <li>Ideal for professional and personal documents</li>
+  </ul>
+  <p>
+    You can download free DOC files from our website
+    for testing, learning, and sample projects. While largely replaced by DOCX, DOC remains a widely recognized format.
+  </p>`,
+      };
+
     case "docx":
       return {
-        title: "Sample docx Download - Free Sample Files",
+        title: "Sample docx file Download - Free Sample Files",
         description:
           "Download a sample DOCX Word file for testing. Free DOCX file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -434,9 +473,56 @@ You can <strong>download PPTX files free from our website</strong>, making them 
 You can <strong>download DOCX files free from our website</strong>, making them accessible for <strong>testing, learning, and creative projects</strong>. <strong>DOCX remains a widely trusted format</strong> in its category.</p>
 `,
       };
+
+    case "xls":
+      return {
+        title: "Sample xls file Download - Free Sample Files",
+        description:
+          "Download a sample XLS Excel file for testing. Free XLS file available.",
+        keywords: "sample xls, xls download, xls file example, free xls",
+        bodyText: `
+  <p>
+    <strong>XLS</strong> is the legacy Microsoft Excel spreadsheet format based on BIFF (Binary Interchange File Format).
+    It organizes data in rows and columns and supports formulas, basic charts, and simple data analysis.
+  </p>
+  <ul>
+    <li>Easy tabular data organization</li>
+    <li>Supports formulas, functions, and basic charts</li>
+    <li>Backwards compatible with older Excel versions</li>
+    <li>Useful for budgets, reports, and records</li>
+  </ul>
+  <p>
+    You can download free XLS files from our website
+    for testing, analysis, and learning purposes. Though replaced by XLSX, XLS remains reliable for many workflows.
+  </p>`,
+      };
+
+    case "xlsx":
+      return {
+        title: "Sample xlsx file Download - Free Sample Files",
+        description:
+          "Download a sample XLSX Excel file for testing. Free XLSX file available.",
+        keywords: "sample xlsx, xlsx download, xlsx file example, free xlsx",
+        bodyText: `
+  <p>
+    <strong>XLSX</strong> is the modern Excel spreadsheet format introduced with Office Open XML in 2007. It offers
+    better compression, broad compatibility, and support for advanced spreadsheet features.
+  </p>
+  <ul>
+    <li>Smaller file size with efficient compression</li>
+    <li>Enhanced support for formulas, charts, and pivot tables</li>
+    <li>Cross-platform compatibility (desktop, web, mobile)</li>
+    <li>Ideal for business reports, dashboards, and data analysis</li>
+  </ul>
+  <p>
+    You can download free XLSX files from our website,
+    perfect for testing, learning, and professional use. XLSX is today’s most widely used spreadsheet format.
+  </p>`,
+      };
+
     case "txt":
       return {
-        title: "Sample txt Download - Free Sample Files",
+        title: "Sample text file Download - Free Sample Files",
         description:
           "Free sample TXT text file for testing plain text support. Download instantly.",
         keywords: "sample txt, txt download, txt file example, free txt",
@@ -450,7 +536,7 @@ You can <strong>download TXT files free from our website</strong>, making them a
       };
     case "zip":
       return {
-        title: "Sample zip Download - Free Sample Files",
+        title: "Sample zip file Download - Free Sample Files",
         description:
           "Download a free sample ZIP archive file for testing compressed files.",
         keywords:
