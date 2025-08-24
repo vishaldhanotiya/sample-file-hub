@@ -133,7 +133,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {showMenu && (
+        {/* {showMenu && (
           <div
             className="d-md-none mt-3 pb-3"
             style={{
@@ -174,7 +174,7 @@ const Header = () => {
               ))}
             </nav>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   );
