@@ -74,22 +74,19 @@ const SampleDocument = () => {
   // Update activeTab if fileType param changes
   useEffect(() => {
 
-    console.log('fileType===', fileType)
     if (!fileType) return;
     setActiveTab(fileType);
   }, [fileType]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
-
-    console.log('active===', activeTab)
     if (activeTab) fetchFiles(activeTab);
 
     const basePath = getBasePath(activeTab);
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
-      navigate("/sample-images/sample-pdf");
+      navigate("/sample-documents/sample-pdf");
     }
 
     document.title = metaData.title;
@@ -112,7 +109,6 @@ const SampleDocument = () => {
     };
   }, [files, currentPage]);
 
-  console.log('====',currentFiles)
   return (
     <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
       <div

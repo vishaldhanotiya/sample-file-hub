@@ -20,6 +20,7 @@ const AppRoutes = () => {
         <Route path="sample-audios" element={<SampleAudio />} />
         <Route path="sample-audios/:filePath" element={<SampleAudio />} />
         <Route path="sample-documents" element={<SampleDocument />} />
+        <Route path="sample-documents/:filePath" element={<SampleDocument />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
         {/* Add other routes here */}
       </Route>
