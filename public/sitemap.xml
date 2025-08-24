@@ -37,6 +37,43 @@
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
+    <url>
+    <loc>https://www.samplefiles.dev/sample-documents/sample-doc</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-documents/sample-docx</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-documents/sample-ppt</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-documents/sample-pptx</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-documents/sample-xls</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-documents/sample-xlsx</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
 
     <!-- Sample Images -->
     <url>
