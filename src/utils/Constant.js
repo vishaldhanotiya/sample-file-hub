@@ -549,6 +549,15 @@ You can <strong>download TXT files free from our website</strong>, making them a
 You can <strong>download ZIP files free from our website</strong>, making them accessible for <strong>testing, learning, and creative projects</strong>. <strong>ZIP remains a widely trusted format</strong> in its category.</p>
 `,
       };
+    case "converter":
+      return {
+        title: "PNG to JPG Converter – Free Online Image Conversion Tool",
+        description:
+          "Convert PNG to JPG online for free. Fast, easy, and secure image converter that works on all devices and keeps image quality. No signup required!",
+        keywords:
+          "Convert PNG to JPG, PNG to JPG converter, Free PNG to JPG online, Online image converter, PNG image to JPG",
+        bodyText: ``,
+      };
 
     // ----------------- Default -----------------
     default:
@@ -559,7 +568,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
         keywords:
           "sample files, free files download, test files, sample pdf, sample mp4, sample mp3, sample jpg",
         bodyText:
-          "The PDF (Portable Document Format) is the world’s most trusted file format for documents, designed to preserve formatting across all devices and operating systems. Whether you use Windows, Mac, iOS, Android, or Linux, a PDF file displays exactly as intended—unlike Word or PowerPoint files, which often shift layouts between apps. Developed by Adobe and now an open ISO standard, PDFs support interactive elements like hyperlinks, fillable forms, digital signatures, and even embedded videos. Professionals rely on PDFs for resumes, contracts, eBooks, and invoices because they guarantee print-ready quality and secure sharing (with password protection and encryption). Students, businesses, and government agencies use free PDF readers like Adobe Acrobat to view these files without compatibility issues. Key advantages include: cross-platform consistency, smaller file sizes (with compression), and long-term archiving. Unlike JPEGs or DOCs, a PDF document maintains text clarity at any zoom level and embeds fonts so designs appear identical on every device. From editable PDF forms to searchable scanned files, this format remains essential for digital workflows. Download free PDF samples to test its versatility for your projects.",
+          "The PDF (Portable Document Format) is the world most trusted file format for documents, designed to preserve formatting across all devices and operating systems. Whether you use Windows, Mac, iOS, Android, or Linux, a PDF file displays exactly as intended—unlike Word or PowerPoint files, which often shift layouts between apps. Developed by Adobe and now an open ISO standard, PDFs support interactive elements like hyperlinks, fillable forms, digital signatures, and even embedded videos. Professionals rely on PDFs for resumes, contracts, eBooks, and invoices because they guarantee print-ready quality and secure sharing (with password protection and encryption). Students, businesses, and government agencies use free PDF readers like Adobe Acrobat to view these files without compatibility issues. Key advantages include: cross-platform consistency, smaller file sizes (with compression), and long-term archiving. Unlike JPEGs or DOCs, a PDF document maintains text clarity at any zoom level and embeds fonts so designs appear identical on every device. From editable PDF forms to searchable scanned files, this format remains essential for digital workflows. Download free PDF samples to test its versatility for your projects.",
       };
   }
 };

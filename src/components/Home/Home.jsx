@@ -5,7 +5,8 @@ import backgroundImage from "../../assets/img-back.png";
 import AboutUs from "../AboutUs/AboutUs";
 import { trackCardClick } from "../../utils/Analytics";
 import FAQAccordion from "../FAQAccordion/FAQAccordion";
-import './Home.css'
+import "./Home.css";
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -168,8 +169,7 @@ export default function Home() {
                       aria-label={`Go to ${type.name}`}
                       className="hover-arrow"
                     >
-          <div class="btn browse-btn">Browse →</div>
-
+                      <div class="btn browse-btn ">Browse →</div>
                     </div>
                   </div>
                 </div>
@@ -177,10 +177,31 @@ export default function Home() {
             </div>
           </div>
         </main>
-        
+      </div>
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "500px" }}
+      >
+        <div className="p-5 text-center text-dark bg-gradient bg-light w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+          <h2 className="fw-bold mb-3">
+            🚀 Convert Files Instantly & Easily
+            <span className="text-danger"> JPG </span> to
+            <span className="text-danger"> PNG </span> Instantly!
+          </h2>
+          <h3 className="lead mb-4 text-muted">
+            Free & fast tools to convert JPG, PNG, PDF, and more. Simple,
+            secure, and completely online.
+          </h3>
+          <a
+            href="convert-png-to-jpg"
+            className="btn btn-light btn-lg bg-warning fw-bold px-4 mt-4 py-2"
+          >
+            🚀 Try it Now!
+          </a>
+        </div>
       </div>
       <AboutUs />
-      <FAQAccordion/>      
+      <FAQAccordion />
     </>
   );
 }

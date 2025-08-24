@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { trackHeaderNavigation } from "../../utils/Analytics";
 
@@ -90,44 +90,56 @@ const Header = () => {
           <div className="d-none d-md-flex align-items-center gap-3">
             <nav className="d-flex gap-4 me-3">
               {[
-                { path: "sample-images", name: "Sample Images" },
-                { path: "sample-videos", name: "Sample Videos" },
-                { path: "sample-audios", name: "Sample Audio" },
-                { path: "sample-documents", name: "Sample Documents" },
-              ].map((item) => (
-                <a
-                  href={item.path}
-                  key={item.name}
-                  onClick={(e) => {
-                    if (e.ctrlKey || e.metaKey) return; // allow new tab
-                    e.preventDefault();
-                    trackHeaderNavigation(item.path);
-                    navigate(item.path);
-                  }}
-                  className={`${
-                    isHomePage ? "text-white" : "text-black"
-                  } text-decoration-none fw-medium position-relative`}
-                  style={{
-                    padding: "0.5rem 0",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.opacity = "0.8";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.opacity = "1";
-                  }}
-                >
-                  {item.name}
-                  <span
-                    className="position-absolute bottom-0 start-0 bg-white"
-                    style={{
-                      height: "2px",
-                      width: "0%",
-                      transition: "width 0.3s ease",
+                { path: "sample-images", label: "Sample Images" },
+                { path: "sample-videos", label: "Sample Videos" },
+                { path: "sample-audios", label: "Sample Audio" },
+                { path: "sample-documents", label: "Sample Documents" },
+                { path: "convert-png-to-jpg", label: "💡 Convert PNG → JPG 🚀" },
+              ].map((item) => {
+                const isConverter = item.path === "convert-png-to-jpg"; // check for converter button
+                const fullPath = `/${item.path}`;
+
+                return isConverter ? (
+                  <a
+                    key={item.label}
+                    href={fullPath}
+                    className="btn btn-warning fw-bold ms-3"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <a
+                    href={fullPath}
+                    key={item.label}
+                    onClick={(e) => {
+                      if (e.ctrlKey || e.metaKey) return; // allow new tab
+                      e.preventDefault();
+                      trackHeaderNavigation(fullPath);
+                      navigate(fullPath);
                     }}
-                  />
-                </a>
-              ))}
+                    className={`${
+                      isHomePage ? "text-white" : "text-black"
+                    } text-decoration-none fw-medium position-relative`}
+                    style={{ padding: "0.5rem 0" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.opacity = "0.8";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.opacity = "1";
+                    }}
+                  >
+                    {item.label}
+                    <span
+                      className="position-absolute bottom-0 start-0 bg-white"
+                      style={{
+                        height: "2px",
+                        width: "0%",
+                        transition: "width 0.3s ease",
+                      }}
+                    />
+                  </a>
+                );
+              })}
             </nav>
           </div>
         </div>
