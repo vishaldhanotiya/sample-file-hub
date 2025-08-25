@@ -3,31 +3,31 @@
     <!-- Main Pages -->
     <url>
         <loc>https://www.samplefiles.dev/</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-images</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-videos</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-audios</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -78,37 +78,37 @@
     <!-- Sample Images -->
     <url>
         <loc>https://www.samplefiles.dev/sample-images/sample-jpg</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-images/sample-png</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-images/sample-webp</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-images/sample-svg</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-images/sample-gif</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-images/sample-bmp</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -116,37 +116,37 @@
     <!-- Sample Videos -->
     <url>
         <loc>https://www.samplefiles.dev/sample-videos/sample-mp4</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-videos/sample-mkv</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-videos/sample-avi</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-videos/sample-flv</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-videos/sample-mov</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-videos/sample-webm</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -154,25 +154,25 @@
     <!-- Sample Audios -->
     <url>
         <loc>https://www.samplefiles.dev/sample-audios/sample-mp3</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-audios/sample-aac</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-audios/sample-wav</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-audios/sample-ogg</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -180,43 +180,43 @@
     <!-- Sample Documents -->
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-pdf</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-rtf</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-odt</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-docx</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-pptx</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-txt</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://www.samplefiles.dev/sample-documents/sample-zip</loc>
-        <lastmod>2025-08-16T20:27:03+00:00</lastmod>
+        <lastmod>2025-08-26T20:27:03+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
