@@ -152,7 +152,13 @@ body {
   border: none;
   transition: all 0.3s ease;
 }
+.badges {
+  position: static; /* Default */
+  display: inline-flex; /* Keeps icon & text aligned */
+  align-items: center;
+    background: rgba(255, 255, 255, 0.08); /* Transparent white */
 
+}
 .btn-custom-primary:hover {
   background-color: var(--secondary);
   border-color: var(--secondary);
@@ -161,8 +167,8 @@ body {
 
 .btn-custom-outline {
   border: 1px solid var(--foreground);
-  color: var(--foreground);
-  background-color: transparent;
+  color: var(--background);
+  background-color: var(--foreground);
   transition: all 0.3s ease;
 }
 

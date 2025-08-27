@@ -13,7 +13,7 @@ const Column = ({ title, items }) => {
 
   return (
     <div className="col-6 col-md-2 ps-4 pe-4">
-      <div className="fw-bold fs-19 text-white mb-3">{title}</div>
+      <div className="h6 fw-semibold text-white mb-3">{title}</div>
       <ul className="list-unstyled small">
         {items.map((item, index) => (
           <li key={`${item.title}-${index}`} className="pb-1">
@@ -21,7 +21,7 @@ const Column = ({ title, items }) => {
               href={item.path}
               onClick={(e) => handleClick(e, item)}
               className={
-                "text-white text-decoration-none fw-regular position-relative"
+                "text-white-50 text-decoration-none small"
               }
               onMouseEnter={(e) => {
                 e.currentTarget.style.opacity = "0.3";

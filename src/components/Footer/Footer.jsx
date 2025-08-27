@@ -10,7 +10,7 @@ import SocialShare from "../SocialShare/SocialShare";
 import "./Footer.css";
 const Footer = () => {
   return (
-    <footer className="py-5 bg-black">
+    <footer className="bg-dark text-white py-5">
       <div className="container">
         <div className="row">
           {/* Left Section (80%) */}
@@ -24,7 +24,7 @@ const Footer = () => {
                   <span className="fw-light text-white">Sample</span>
                   <span className="fw-bold text-white"> Files</span>
                 </h2>
-                <p className="small text-white">
+                <p className="text-white-50 text-decoration-none small">
                   Safe, Accurate & Always Free Test Files All sample files are
                   virus-free, production-ready, and include correct metadata for
                   real-world scenarios. Free for personal and commercial use,
@@ -34,19 +34,19 @@ const Footer = () => {
 
               {/* Category Columns */}
               <div className="col-6 col-md-4 col-lg-2">
-                <Column title="Test Images" items={imageTabData} />
+                <Column title="Images" items={imageTabData} />
               </div>
 
               <div className="col-6 col-md-4 col-lg-2">
-                <Column title="Video Samples" items={videoTabData} />
+                <Column title="Videos" items={videoTabData} />
               </div>
 
               <div className="col-6 col-md-4 col-lg-2">
-                <Column title="Audio Files" items={audioTabData} />
+                <Column title="Audio" items={audioTabData} />
               </div>
 
               <div className="col-6 col-md-4 col-lg-2">
-                <Column title="Test Documents" items={documentTabData} />
+                <Column title="Documents" items={documentTabData} />
               </div>
             </div>
           </div>
@@ -68,13 +68,14 @@ const Footer = () => {
         </div>
 
         {/* Copyright text - full width below all columns */}
-        <div className="row mt-4">
-          <div className="col-12">
-            <p className="text-center text-white mb-0">
-              ©2025 Sample Files. All rights reserved.
+
+     <div className="border-top border-secondary mt-4 pt-4 text-center">
+            <p className="text-white-50 small mb-0">
+              © 2025 SampleFiles.dev. All rights reserved. Made with <span className="text-white">❤️</span> for developers and creators.
             </p>
           </div>
-        </div>
+
+
         </div>
       </div>
     </footer>

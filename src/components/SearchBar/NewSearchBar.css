@@ -1,0 +1,39 @@
+/* Full background gradient (if needed for the section) */
+body {
+  background: linear-gradient(135deg, #5b6ef5, #7a5df7);
+  min-height: 100vh;
+}
+
+/* Glass wrapper styling */
+.glass-wrapper {
+    border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08); /* Transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Soft white border */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Input styling */
+.form-control {
+  background: #fff !important;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Placeholder color */
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Search button styling */
+.btn-white {
+  background: #fff;
+  color: #2563eb;
+  font-weight: 600;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-white:hover {
+  background: #f1f1f1;
+}

@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 import {
-  Search,
   ImageIcon,
   Video,
   Music,
@@ -10,58 +9,79 @@ import {
   Archive,
   MoreHorizontal,
   Check,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react"
-import "./NewHome.css"
+  ShieldHalf,
+} from "lucide-react";
+import "./NewHome.css";
+import { trackCardClick } from "../../utils/Analytics";
+import NewSearchBar from "../SearchBar/NewSearchBar";
+import { useNavigate } from "react-router-dom";
 export default function NewHome() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [expandedFaq, setExpandedFaq] = useState(null)
-
+  const [searchQuery, setSearchQuery] = useState("");
+  const [expandedFaq, setExpandedFaq] = useState(null);
+  const navigate = useNavigate();
   const categories = [
     {
+      key: "images",
       icon: ImageIcon,
       title: "Images",
-      description: "High-quality sample images in various formats: JPG, PNG, SVG, WebP",
-      downloads: "1.2M+",
-      color: "text-primary",
+      description:
+        "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP",
+      downloads: "250+",
+      color: "text-white",
+      bgDownload: "bg-primary-subtle",
+      textDownload: "text-primary-emphasis",
     },
     {
+      key: "videos",
       icon: Video,
       title: "Videos",
-      description: "Sample video files for testing: MP4, AVI, MOV, WebM formats",
-      downloads: "850K+",
-      color: "text-secondary",
+      description:
+        "Sample video files for testing: MP4, AVI, MKV, FLV, MOV, WebM formats",
+      downloads: "100+",
+      color: "text-white",
+      bgDownload: "bg-info-subtle",
+      textDownload: "text-info-emphasis",
     },
     {
+      key: "audios",
       icon: Music,
       title: "Audio",
-      description: "Audio samples in multiple formats: MP3, WAV, FLAC, OGG",
-      downloads: "640K+",
-      color: "text-success",
+      description: "Audio samples in multiple formats: MP3, WAV, AAC, OGG",
+      downloads: "200+",
+      color: "text-white",
+      bgDownload: "bg-success-subtle",
+      textDownload: "text-success-emphasis",
     },
     {
+      key: "documents",
       icon: FileText,
       title: "Documents",
-      description: "Sample documents: PDF, DOC, TXT, RTF for testing",
-      downloads: "920K+",
-      color: "text-danger",
+      description:
+        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, ZIP for testing",
+      downloads: "520+",
+      color: "text-white",
+      bgDownload: "bg-danger-subtle",
+      textDownload: "text-danger-emphasis",
     },
-    {
-      icon: Archive,
-      title: "Archives",
-      description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
-      downloads: "330K+",
-      color: "text-warning",
-    },
-    {
-      icon: MoreHorizontal,
-      title: "Others",
-      description: "Miscellaneous file formats: CSV, JSON, XML, and more",
-      downloads: "180K+",
-      color: "text-info",
-    },
-  ]
+    // {
+    //   icon: Archive,
+    //   title: "Archives",
+    //   description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
+    //   downloads: "100+",
+    //   color: "text-white",
+    //   bgDownload: "bg-warning-subtle",
+    //   textDownload: "text-warning-emphasis",
+    // },
+    // {
+    //   icon: MoreHorizontal,
+    //   title: "Others",
+    //   description: "Miscellaneous file formats: CSV, JSON, XML, and more",
+    //   downloads: "180+",
+    //   color: "text-white",
+    //   bgDownload: "bg-primary-subtle",
+    //   textDownload: "text-primary-emphasis",
+    // },
+  ];
 
   const faqs = [
     {
@@ -70,20 +90,30 @@ export default function NewHome() {
         "Yes! All sample files on SampleFiles.dev are completely free to download and use. No hidden fees, no registration required.",
     },
     {
-      question: "How do you ensure files are virus-free?",
-      answer:
-        "Every file is scanned with multiple antivirus engines before being made available. We maintain strict security protocols to ensure your safety.",
-    },
-    {
       question: "Can I request specific file formats?",
       answer:
         'Use the "Request File" button to submit requests for specific file types or formats you need for your projects.',
     },
-  ]
+    {
+      question: "Do I need to create an account or sign up?",
+      answer:
+        "No account or signup is required. Simply browse the categories and download the files you need instantly.",
+    },
+    {
+      question: "Is there a limit on how many files I can download?",
+      answer:
+        "No limits! Download as many files as you need, whenever you want.",
+    },
+    {
+      question: "How often are new files added?",
+      answer:
+        "We regularly update our library with new images, videos, audios, and documents to keep our collection fresh and useful.",
+    },
+  ];
 
   const toggleFaq = (index) => {
-    setExpandedFaq(expandedFaq === index ? null : index)
-  }
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
 
   return (
     <div className="min-vh-100">
@@ -91,34 +121,26 @@ export default function NewHome() {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8 text-center text-white">
-              <h1 className="display-4 fw-bold mb-4">Free Sample Files for Every Project</h1>
-              <p className="lead mb-4">
-                Download high-quality sample files instantly. Images, videos, audio, documents, and more - all free and
-                virus-free.
-              </p>
+              <div className="text-center m-2 pt-2 pb-3">
+                <h1 className="text-white fw-bold mb-4 fs-1 fs-md-1">
+                  Download Free Sample & Dummy Files Instantly
+                </h1>
+                <h2 className="text-white fw-semibold mb-3 fs-5 fs-md-4">
+                  Download high-quality sample files instantly. Images, videos,
+                  audio, documents, and more.
+                </h2>
+                <h3 className="text-white fw-normal fs-6 mb-4 fs-md-5">
+                  No login, no tracking, just instant access.
+                </h3>
+              </div>
+              {/* <SearchBar onSearch={(value) => {}} /> */}
 
               {/* Search Bar */}
-              <div className="row g-3 justify-content-center mb-4">
-                <div className="col-md-8">
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Search for any file type..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </div>
-                <div className="col-md-4 col-lg-3">
-                  <button className="btn btn-custom-primary btn-lg w-100 d-flex align-items-center justify-content-center gap-2">
-                    <Search size={20} />
-                    Search
-                  </button>
-                </div>
-              </div>
+              <NewSearchBar onSearch={(value) => setSearchQuery(value)} />
 
               {/* Free Badge */}
-              <div className="d-inline-flex align-items-center gap-2 free-badge px-4 py-2 rounded-pill text-white">
-                <Check size={16} className="text-success" />
+              <div className="d-inline-flex align-items-center gap-2 badges px-4 py-2 rounded-pill text-white">
+                <img width={20} src={require("../../assets/shield.png")} alt="Shield Icon" />
                 Free & Virus-Free Files
               </div>
             </div>
@@ -129,62 +151,99 @@ export default function NewHome() {
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="display-5 fw-bold mb-3">Browse Categories</h2>
-            <p className="text-muted-custom lead">
-              Find the perfect sample files for your projects across different categories
-            </p>
+            <h2 className="display-6 fw-bold mb-3">Browse Categories</h2>
+            <h3 className="text-muted-custom lead">
+              All files are 100% safe, virus-free, and free for personal or
+              commercial use.
+            </h3>
+
+            <div className="text-center text-black my-2 px-3 px-md-5">
+              {/* <h2 className="fs-4 fs-md-3 fw-semibold mb-2">
+                Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
+              </h2> */}
+              <h3 className="text-muted-custom lead">
+                Find the perfect sample files for your projects across different
+                categories. Perfect for developers, testers, educators, and
+                presentations.
+              </h3>
+            </div>
           </div>
 
           {/* Categories Grid */}
           <div className="row g-4">
             {categories.map((category, index) => {
-              const IconComponent = category.icon
+              const IconComponent = category.icon;
               return (
                 <div key={index} className="col-md-6 col-lg-4">
                   <div className="category-card h-100 p-4 text-center rounded">
                     <div
-                      className="d-inline-flex align-items-center justify-content-center bg-light rounded-circle mb-3"
+                      className="hero-gradient d-inline-flex align-items-center  justify-content-center bg-light rounded mb-3"
                       style={{ width: "64px", height: "64px" }}
                     >
                       <IconComponent size={32} className={category.color} />
                     </div>
                     <h3 className="h5 fw-semibold mb-2">{category.title}</h3>
-                    <p className="text-muted-custom small mb-3">{category.description}</p>
-                    <div className="text-primary-custom fw-medium small mb-3">{category.downloads} Downloads</div>
-                    <button className="btn btn-custom-outline w-100">Browse {category.title}</button>
+                    <p className="text-muted-custom small mb-3">
+                      {category.description}
+                    </p>
+                    <div className={`w-50 text-center rounded-pill fw-bold small mb-3 d-inline-flex align-items-center  justify-content-center ${category.bgDownload} ${category.textDownload}`}>
+                      {category.downloads} Downloads
+                    </div>
+                    <button
+                      className={`btn fw-bold btn-custom-outline w-100 `}
+                      onClick={() => {
+                        trackCardClick(category.key);
+                        navigate(`sample-${category.key}`);
+                      }}
+                    >
+                      Browse {category.title}
+                    </button>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </div>
       </section>
 
-      <section className="py-5 bg-muted-custom">
+      <section id={"faq"} className="py-5 bg-muted-custom">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="text-center mb-5">
-                <h2 className="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
-                <p className="text-muted-custom">Everything you need to know about our sample files</p>
+                <h2 className="display-5 fw-bold mb-3">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-muted-custom">
+                  Everything you need to know about our sample files
+                </p>
               </div>
 
               <div className="accordion" id="faqAccordion">
                 {faqs.map((faq, index) => (
-                  <div key={index} className="accordion-item border-custom mb-3 rounded">
+                  <div
+                    key={index}
+                    className="accordion-item border-custom mb-3 rounded"
+                  >
                     <h2 className="accordion-header">
                       <button
-                        className="accordion-button collapsed bg-card-custom"
+                        className="accordion-button p-2 collapsed bg-card-custom"
                         type="button"
                         onClick={() => toggleFaq(index)}
                         aria-expanded={expandedFaq === index}
                       >
                         <span className="fw-medium">{faq.question}</span>
-                        {expandedFaq === index ? (
-                          <ChevronUp size={20} className="ms-auto text-muted-custom" />
+                        {/* {expandedFaq === index ? (
+                          <ChevronUp
+                            size={20}
+                            className="ms-auto text-muted-custom"
+                          />
                         ) : (
-                          <ChevronDown size={20} className="ms-auto text-muted-custom" />
-                        )}
+                          <ChevronDown
+                            size={20}
+                            className="ms-auto text-muted-custom"
+                          />
+                        )} */}
                       </button>
                     </h2>
                     {expandedFaq === index && (
@@ -201,130 +260,6 @@ export default function NewHome() {
           </div>
         </div>
       </section>
-
-      <section className="bg-card-custom border-top border-custom py-3">
-        <div className="container">
-          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3">
-            <div className="d-flex flex-wrap gap-4">
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Home
-              </a>
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Videos
-              </a>
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Audio
-              </a>
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Documents
-              </a>
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Images
-              </a>
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Archives
-              </a>
-              <a href="#" className="text-muted-custom text-decoration-none">
-                Others
-              </a>
-            </div>
-            <button className="btn btn-custom-primary">Request File</button>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-dark text-white py-5">
-        <div className="container">
-          <div className="row g-4">
-            <div className="col-md-3">
-              <h3 className="h5 fw-bold mb-3">SampleFiles.dev</h3>
-              <p className="text-white-50 small">
-                Your trusted source for free, high-quality sample files across all formats.
-              </p>
-            </div>
-            <div className="col-md-3">
-              <h4 className="h6 fw-semibold mb-3">Categories</h4>
-              <ul className="list-unstyled">
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Images
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Videos
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Audio
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Documents
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3">
-              <h4 className="h6 fw-semibold mb-3">Resources</h4>
-              <ul className="list-unstyled">
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    API Documentation
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    File Formats Guide
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Developer Tools
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Integration Help
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3">
-              <h4 className="h6 fw-semibold mb-3">Support</h4>
-              <ul className="list-unstyled">
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Help Center
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Contact Us
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li className="mb-2">
-                  <a href="#" className="text-white-50 text-decoration-none small">
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-top border-secondary mt-4 pt-4 text-center">
-            <p className="text-white-50 small mb-0">
-              © 2024 SampleFiles.dev. All rights reserved. Made with ❤️ for developers and creators.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
-  )
+  );
 }

@@ -10,14 +10,14 @@ const ContactForm=()=> {
 <form onSubmit={handleSubmit} className="container" style={{ maxWidth: '500px' }}>
   {/* Email Field */}
   <div className="mb-3">
-    <label htmlFor="email" className="form-label">
+    <label htmlFor="email" className="form-label text-black">
       Email Address
     </label>
     <input
       id="email"
       type="email"
       name="email"
-      className={`form-control ${state.errors?.email ? 'is-invalid' : ''}`}
+      className={`form-control text-black ${state.errors?.email ? 'is-invalid' : ''}`}
       placeholder="your@email.com"
     />
     <ValidationError
@@ -30,21 +30,21 @@ const ContactForm=()=> {
 
   {/* Message Field */}
   <div className="mb-3">
-    <label htmlFor="message" className="form-label">
+    <label htmlFor="message" className="form-label text-black">
       Message
     </label>
     <textarea
       id="message"
       name="message"
       rows={2}
-      className={`form-control ${state.errors?.message ? 'is-invalid' : ''}`}
+      className={`form-control text-black ${state.errors?.message ? 'is-invalid' : ''}`}
       placeholder="Your message here..."
     />
     <ValidationError
       prefix="Message"
       field="message"
       errors={state.errors}
-      className="invalid-feedback"
+      className="invalid-feedback text-black"
     />
   </div>
 

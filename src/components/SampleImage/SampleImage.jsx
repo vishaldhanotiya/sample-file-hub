@@ -108,7 +108,7 @@ const SampleImage = () => {
   }, [files, currentPage]);
  
   return (
-    <div className="container mt-4 py-5" style={{ maxWidth: "1200px" }}>
+    <div className="container mt-4" style={{ maxWidth: "1200px" }}>
       {/* Tab Bar */}
       <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
       </div>
