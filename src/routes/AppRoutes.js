@@ -6,12 +6,13 @@ import SampleVideo from "../components/SampleVideo/SampleVideo";
 import SampleAudio from "../components/SampleAudio/SampleAudio";
 import SampleDocument from "../components/SampleDocument/SampleDocument";
 import ConvertPngToJpg from "../components/ConvertPngToJpg/ConvertPngToJpg";
+import NewHome from "../components/Home/NewHome";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
+        <Route index element={<NewHome />} />
         <Route path="home" element={<Home />} />
         <Route path="sample-images" element={<SampleImage />} />
         <Route path="/sample-images/:filePath" element={<SampleImage />} />

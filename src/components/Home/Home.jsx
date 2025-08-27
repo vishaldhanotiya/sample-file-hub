@@ -6,6 +6,7 @@ import AboutUs from "../AboutUs/AboutUs";
 import { trackCardClick } from "../../utils/Analytics";
 import FAQAccordion from "../FAQAccordion/FAQAccordion";
 import "./Home.css";
+import NewHome from "./NewHome";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ export default function Home() {
 
   return (
     <>
+
       <div
         style={{
           backgroundImage: `url(${backgroundImage})`,
@@ -54,6 +56,7 @@ export default function Home() {
         }}
         className={"text-dark py-5"}
       >
+          <NewHome/>
         <main className="py-2">
           <div>
             {/* Hero Section with SEO-friendly headings */}

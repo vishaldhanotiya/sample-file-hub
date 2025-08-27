@@ -7,11 +7,11 @@ import Footer from "../Footer/Footer";
 export default function MainLayout({ children }) {
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Header />
+      {/* <Header /> */}
 
       <Outlet />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
