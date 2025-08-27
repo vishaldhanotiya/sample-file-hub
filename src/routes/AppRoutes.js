@@ -7,6 +7,8 @@ import SampleAudio from "../components/SampleAudio/SampleAudio";
 import SampleDocument from "../components/SampleDocument/SampleDocument";
 import ConvertPngToJpg from "../components/ConvertPngToJpg/ConvertPngToJpg";
 import NewHome from "../components/Home/NewHome";
+import SampleArchives from "../components/SampleArchives/SampleArchives";
+import SampleOthers from "../components/SampleOthers/SampleOthers";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +24,10 @@ const AppRoutes = () => {
         <Route path="sample-audios/:filePath" element={<SampleAudio />} />
         <Route path="sample-documents" element={<SampleDocument />} />
         <Route path="sample-documents/:filePath" element={<SampleDocument />} />
+        <Route path="sample-archives/" element={<SampleArchives />} />
+        <Route path="sample-archives/:filePath" element={<SampleArchives />} />
+        <Route path="sample-others/" element={<SampleOthers />} />
+        <Route path="sample-others/:filePath" element={<SampleOthers />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
         {/* Add other routes here */}
       </Route>

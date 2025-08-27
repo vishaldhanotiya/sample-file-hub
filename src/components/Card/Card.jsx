@@ -18,6 +18,12 @@ import OggIcon from "../../assets/ogg.png";
 import AviIcon from "../../assets/avi.png";
 import FlvIcon from "../../assets/flv.png";
 import ZipIcon from "../../assets/zip.png";
+import RarIcon from "../../assets/rar.png";
+import TarIcon from "../../assets/tar.png";
+import JsonIcon from "../../assets/json.png";
+import XmlIcon from "../../assets/xml.png";
+import ZIcon from "../../assets/7z.png";
+import CsvIcon from "../../assets/csv.png";
 import {
   trackDownload,
   trackDownloadError,
@@ -42,6 +48,12 @@ const placeholderMap = {
   avi: AviIcon,
   flv: FlvIcon,
   zip: ZipIcon,
+  rar: RarIcon,
+  "7z": ZIcon,
+  xml: XmlIcon,
+  tar: TarIcon,
+  json: JsonIcon,
+  csv: CsvIcon,
 };
 
 const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }) => {

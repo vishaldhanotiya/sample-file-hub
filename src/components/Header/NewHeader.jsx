@@ -35,10 +35,12 @@ export default function NewHeader() {
                 <nav className="d-flex gap-4 me-3">
                   {[
                     { path: "", label: "Home" },
-                    { path: "sample-images", label: "Sample Images" },
-                    { path: "sample-videos", label: "Sample Videos" },
-                    { path: "sample-audios", label: "Sample Audio" },
-                    { path: "sample-documents", label: "Sample Documents" },
+                    { path: "sample-images", label: "Images" },
+                    { path: "sample-videos", label: "Videos" },
+                    { path: "sample-audios", label: "Audio" },
+                    { path: "sample-documents", label: "Documents" },
+                    { path: "sample-archives", label: "Archives" },
+                    { path: "sample-others", label: "Others" },
                     {
                       path: "convert-png-to-jpg",
                       label: "💡 Convert PNG → JPG 🚀",

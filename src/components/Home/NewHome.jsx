@@ -1,22 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ImageIcon,
-  Video,
-  Music,
-  FileText,
-  Archive,
-  MoreHorizontal,
-  Check,
-  ShieldHalf,
-} from "lucide-react";
+import { ImageIcon, Video, Music, FileText, Archive,MoreHorizontal } from "lucide-react";
 import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
 import NewSearchBar from "../SearchBar/NewSearchBar";
 import { useNavigate } from "react-router-dom";
 export default function NewHome() {
-  const [searchQuery, setSearchQuery] = useState("");
   const [expandedFaq, setExpandedFaq] = useState(null);
   const navigate = useNavigate();
   const categories = [
@@ -63,24 +53,26 @@ export default function NewHome() {
       bgDownload: "bg-danger-subtle",
       textDownload: "text-danger-emphasis",
     },
-    // {
-    //   icon: Archive,
-    //   title: "Archives",
-    //   description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
-    //   downloads: "100+",
-    //   color: "text-white",
-    //   bgDownload: "bg-warning-subtle",
-    //   textDownload: "text-warning-emphasis",
-    // },
-    // {
-    //   icon: MoreHorizontal,
-    //   title: "Others",
-    //   description: "Miscellaneous file formats: CSV, JSON, XML, and more",
-    //   downloads: "180+",
-    //   color: "text-white",
-    //   bgDownload: "bg-primary-subtle",
-    //   textDownload: "text-primary-emphasis",
-    // },
+    {
+      key: "archives",
+      icon: Archive,
+      title: "Archives",
+      description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
+      downloads: "20+",
+      color: "text-white",
+      bgDownload: "bg-warning-subtle",
+      textDownload: "text-warning-emphasis",
+    },
+    {
+      key: "others",
+      icon: MoreHorizontal,
+      title: "Others",
+      description: "Miscellaneous file formats: CSV, JSON, XML, and more",
+      downloads: "10+",
+      color: "text-white",
+      bgDownload: "bg-primary-subtle",
+      textDownload: "text-primary-emphasis",
+    },
   ];
 
   const faqs = [
@@ -136,11 +128,15 @@ export default function NewHome() {
               {/* <SearchBar onSearch={(value) => {}} /> */}
 
               {/* Search Bar */}
-              <NewSearchBar onSearch={(value) => setSearchQuery(value)} />
+              <NewSearchBar onSearch={(value) => {}} />
 
               {/* Free Badge */}
               <div className="d-inline-flex align-items-center gap-2 badges px-4 py-2 rounded-pill text-white">
-                <img width={20} src={require("../../assets/shield.png")} alt="Shield Icon" />
+                <img
+                  width={20}
+                  src={require("../../assets/shield.png")}
+                  alt="Shield Icon"
+                />
                 Free & Virus-Free Files
               </div>
             </div>
@@ -186,7 +182,9 @@ export default function NewHome() {
                     <p className="text-muted-custom small mb-3">
                       {category.description}
                     </p>
-                    <div className={`w-50 text-center rounded-pill fw-bold small mb-3 d-inline-flex align-items-center  justify-content-center ${category.bgDownload} ${category.textDownload}`}>
+                    <div
+                      className={`w-50 text-center rounded-pill fw-bold small mb-3 d-inline-flex align-items-center  justify-content-center ${category.bgDownload} ${category.textDownload}`}
+                    >
                       {category.downloads} Downloads
                     </div>
                     <button
@@ -233,17 +231,6 @@ export default function NewHome() {
                         aria-expanded={expandedFaq === index}
                       >
                         <span className="fw-medium">{faq.question}</span>
-                        {/* {expandedFaq === index ? (
-                          <ChevronUp
-                            size={20}
-                            className="ms-auto text-muted-custom"
-                          />
-                        ) : (
-                          <ChevronDown
-                            size={20}
-                            className="ms-auto text-muted-custom"
-                          />
-                        )} */}
                       </button>
                     </h2>
                     {expandedFaq === index && (

@@ -94,6 +94,8 @@ const Header = () => {
                 { path: "sample-videos", label: "Sample Videos" },
                 { path: "sample-audios", label: "Sample Audio" },
                 { path: "sample-documents", label: "Sample Documents" },
+                { path: "sample-documents", label: "Sample Documents" },
+                { path: "sample-documents", label: "Sample Documents" },
                 { path: "convert-png-to-jpg", label: "💡 Convert PNG → JPG 🚀" },
               ].map((item) => {
                 const isConverter = item.path === "convert-png-to-jpg"; // check for converter button
