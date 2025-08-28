@@ -220,4 +220,54 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+
+
+
+  <!-- Archive Files -->
+  <url>
+    <loc>https://www.samplefiles.dev/sample-archives/sample-zip</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-archives/sample-rar</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-archives/sample-7z</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-archives/sample-tar</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Other Sample Files -->
+  <url>
+    <loc>https://www.samplefiles.dev/sample-others/sample-xml</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-others/sample-csv</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/sample-others/sample-json</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
