@@ -8,7 +8,7 @@ export default function ConvertPngToJpg() {
   const fileInputRef = useRef(null);
   const [items, setItems] = useState([]);
   const [isConverting, setIsConverting] = useState(false);
-  const [globalTarget, setGlobalTarget] = useState("jpg");
+  const [_globalTarget, setGlobalTarget] = useState("jpg");
   const [error, setError] = useState("");
 
   const supportedTargets = useMemo(() => ["jpg", "jpeg", "png", "webp"], []);
@@ -58,7 +58,7 @@ export default function ConvertPngToJpg() {
     }, [metaData]);
 
 
-  const setAllTargets = (target) => {
+  const _setAllTargets = (target) => {
     setGlobalTarget(target);
     setItems((prev) => prev.map((it) => ({ ...it, target })));
   };
