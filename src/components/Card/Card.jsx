@@ -101,10 +101,12 @@ const Card = ({
 
       const blob = new Blob(chunks);
       const blobUrl = URL.createObjectURL(blob);
-
+      const extension = file.format || file.type?.split("/")[1] || "dat";
+      const finalName =
+        `sample-${filename}` || `sample-${file.name}.${extension}`;
       const a = document.createElement("a");
       a.href = blobUrl;
-      a.download = filename;
+      a.download = finalName;
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -222,8 +224,7 @@ const Card = ({
         <p className="card-metadata">{size}</p> */}
       </div>
 
-
-       <div className="card-actions">
+      <div className="card-actions">
         {downloadLink && (
           <button
             className="btn btn-sm d-flex align-items-center justify-content-center gap-1 text-white rounded-pill px-1 py-1"
@@ -235,7 +236,9 @@ const Card = ({
               flex: 1,
               overflow: "hidden",
             }}
-            onClick={() => handleDownload(imageSrc, title.replace(/\s+/g, "-").toLowerCase())}
+            onClick={() =>
+              handleDownload(imageSrc, title.replace(/\s+/g, "-").toLowerCase())
+            }
             disabled={progress !== null}
           >
             {progress !== null ? (
