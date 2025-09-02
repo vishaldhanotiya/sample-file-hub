@@ -1,4 +1,5 @@
 import "./Card.css";
+import { useState } from "react";
 import VideoThumbnailFromURL from "../VideoThumbnailFromURL/VideoThumbnailFromURL";
 
 import PdfIcon from "../../assets/pdf.png";
@@ -56,40 +57,97 @@ const placeholderMap = {
   csv: CsvIcon,
 };
 
-const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }) => {
+const Card = ({
+  file,
+  imageSrc,
+  title,
+  size,
+  dimensions,
+  downloadLink,
+  onClick,
+}) => {
   // Function to trigger download
-  
+  const [progress, setProgress] = useState(null); // store progress (0-100)
   const handleDownload = async (url, filename) => {
-    trackDownload(file.type, file.name, file.format, file.size);
-  const extension = file.format || file.type?.split("/")[1] || "dat";
-    const finalName = `sample-${filename}` || `sample-${file.name}.${extension}`;
-
-    console.log("Downloading:", finalName);
     try {
-         // Clone headers
-    const newHeaders = new Headers();
-    newHeaders.set("Access-Control-Allow-Origin", "*");
-    newHeaders.set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, HEAD");
-    newHeaders.set("Access-Control-Allow-Headers", "*");
+      setProgress(0); // Start progress
+      // Clone headers
+      const newHeaders = new Headers();
+      newHeaders.set("Access-Control-Allow-Origin", "*");
+      newHeaders.set(
+        "Access-Control-Allow-Methods",
+        "GET, PUT, POST, DELETE, HEAD"
+      );
+      newHeaders.set("Access-Control-Allow-Headers", "*");
       const response = await fetch(url, { mode: "cors", headers: newHeaders });
       if (!response.ok) throw new Error("Network response was not ok");
 
-      const blob = await response.blob();
-      const blobUrl = window.URL.createObjectURL(blob);
+      const contentLength = response.headers.get("content-length");
+      if (!contentLength)
+        console.warn("No content-length header, progress won't work well.");
+
+      const total = parseInt(contentLength, 10);
+      let loaded = 0;
+
+      const reader = response.body.getReader();
+      const chunks = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        loaded += value.length;
+        if (total) setProgress(Math.floor((loaded / total) * 100));
+      }
+
+      const blob = new Blob(chunks);
+      const blobUrl = URL.createObjectURL(blob);
 
       const a = document.createElement("a");
       a.href = blobUrl;
-      a.download = finalName || "download";
+      a.download = filename;
       document.body.appendChild(a);
       a.click();
-
       a.remove();
-      window.URL.revokeObjectURL(blobUrl);
+
+      URL.revokeObjectURL(blobUrl);
+      setProgress(null);
     } catch (error) {
       console.error("Download failed", error);
-      trackDownloadError(file.type, error);
+      setProgress(null);
     }
   };
+
+  // const handleDownload = async (url, filename) => {
+  //   trackDownload(file.type, file.name, file.format, file.size);
+  // const extension = file.format || file.type?.split("/")[1] || "dat";
+  //   const finalName = `sample-${filename}` || `sample-${file.name}.${extension}`;
+
+  //   console.log("Downloading:", finalName);
+  //   try {
+  //        // Clone headers
+  //   const newHeaders = new Headers();
+  //   newHeaders.set("Access-Control-Allow-Origin", "*");
+  //   newHeaders.set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, HEAD");
+  //   newHeaders.set("Access-Control-Allow-Headers", "*");
+  //     const response = await fetch(url, { mode: "cors", headers: newHeaders });
+  //     if (!response.ok) throw new Error("Network response was not ok");
+
+  //     const blob = await response.blob();
+  //     const blobUrl = window.URL.createObjectURL(blob);
+
+  //     const a = document.createElement("a");
+  //     a.href = blobUrl;
+  //     a.download = finalName || "download";
+  //     document.body.appendChild(a);
+  //     a.click();
+
+  //     a.remove();
+  //     window.URL.revokeObjectURL(blobUrl);
+  //   } catch (error) {
+  //     console.error("Download failed", error);
+  //     trackDownloadError(file.type, error);
+  //   }
+  // };
 
   const handlePreviewClick = () => {
     trackMediaView(file.type, file.name);
@@ -102,9 +160,14 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
       <div
         className="image-wrapper"
         onClick={handlePreviewClick} // fix: actually call the function, not just a reference
-        style={{ position: "relative", backgroundColor: "#ebf4ff", cursor: "pointer" }}
+        style={{
+          position: "relative",
+          backgroundColor: "#ebf4ff",
+          cursor: "pointer",
+        }}
       >
-        {file.resource_type || file.resourceType === "video" && !placeholderMap[file.format] ? (
+        {file.resource_type ||
+        (file.resourceType === "video" && !placeholderMap[file.format]) ? (
           <VideoThumbnailFromURL videoUrl={file.url} />
         ) : (
           <img
@@ -159,32 +222,54 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
         <p className="card-metadata">{size}</p> */}
       </div>
 
-      <div className="card-actions">
+
+       <div className="card-actions">
         {downloadLink && (
           <button
             className="btn btn-sm d-flex align-items-center justify-content-center gap-1 text-white rounded-pill px-1 py-1"
             style={{
+              position: "relative",
               background: "linear-gradient(90deg, #8d85ff 0%, #5c7fff 100%)",
               fontSize: "0.7rem",
               minWidth: 0,
               flex: 1,
-              whiteSpace: "nowrap",
               overflow: "hidden",
-              textOverflow: "ellipsis",
             }}
             onClick={() => handleDownload(imageSrc, title.replace(/\s+/g, "-").toLowerCase())}
+            disabled={progress !== null}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16px"
-              height="16px"
-              fill="currentColor"
-              viewBox="0 0 256 256"
-              style={{ display: "block" }}
-            >
-              <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,132.69V40a8,8,0,0,0-16,0v92.69L93.66,106.34a8,8,0,0,0-11.32,11.32Z"></path>
-            </svg>
-            <span className="fw-medium">Download</span>
+            {progress !== null ? (
+              <>
+                {/* Progress Bar */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: `${progress}%`,
+                    height: "100%",
+                    backgroundColor: "rgba(255,255,255,0.4)",
+                    transition: "width 0.2s ease",
+                    zIndex: 1,
+                  }}
+                ></div>
+                <span style={{ zIndex: 2 }}>{progress}%</span>
+              </>
+            ) : (
+              <>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16px"
+                  height="16px"
+                  fill="currentColor"
+                  viewBox="0 0 256 256"
+                  style={{ display: "block" }}
+                >
+                  <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,132.69V40a8,8,0,0,0-16,0v92.69L93.66,106.34a8,8,0,0,0-11.32,11.32Z"></path>
+                </svg>
+                <span className="fw-medium">Download</span>
+              </>
+            )}
           </button>
         )}
       </div>
