@@ -81,7 +81,7 @@ const Card = ({
         "GET, PUT, POST, DELETE, HEAD"
       );
       newHeaders.set("Access-Control-Allow-Headers", "*");
-      const response = await fetch(url, { mode: "cors" });
+      const response = await fetch(`https://media-proxy.samplefiles.dev/?url=${url}`, { mode: "cors" });
       if (!response.ok) throw new Error("Network response was not ok");
 
       const contentLength = response.headers.get("content-length");
