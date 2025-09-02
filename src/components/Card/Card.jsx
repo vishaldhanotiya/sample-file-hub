@@ -74,13 +74,13 @@ const Card = ({
     try {
       setProgress(0); // Start progress
       // Clone headers
-      // const newHeaders = new Headers();
-      // newHeaders.set("Access-Control-Allow-Origin", "*");
-      // newHeaders.set(
-      //   "Access-Control-Allow-Methods",
-      //   "GET, PUT, POST, DELETE, HEAD"
-      // );
-      // newHeaders.set("Access-Control-Allow-Headers", "*");
+      const newHeaders = new Headers();
+      newHeaders.set("Access-Control-Allow-Origin", "*");
+      newHeaders.set(
+        "Access-Control-Allow-Methods",
+        "GET, PUT, POST, DELETE, HEAD"
+      );
+      newHeaders.set("Access-Control-Allow-Headers", "*");
       const response = await fetch(url, { mode: "cors" });
       if (!response.ok) throw new Error("Network response was not ok");
 
