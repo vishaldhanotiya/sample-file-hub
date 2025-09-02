@@ -66,7 +66,12 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
 
     console.log("Downloading:", finalName);
     try {
-      const response = await fetch(url, { mode: "cors" });
+         // Clone headers
+    const newHeaders = new Headers();
+    newHeaders.set("Access-Control-Allow-Origin", "*");
+    newHeaders.set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, HEAD");
+    newHeaders.set("Access-Control-Allow-Headers", "*");
+      const response = await fetch(url, { mode: "cors", headers: newHeaders });
       if (!response.ok) throw new Error("Network response was not ok");
 
       const blob = await response.blob();
