@@ -1,4 +1,4 @@
-export const isCloudinaryFiles = true;
+export const isCloudinaryFiles = false;
 export const updatedDatabaseKey = isCloudinaryFiles ? 'files':'r2Files';
 
 export const imageTabData = [
