@@ -61,7 +61,10 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
   
   const handleDownload = async (url, filename) => {
     trackDownload(file.type, file.name, file.format, file.size);
+  const extension = file.format || file.type?.split("/")[1] || "dat";
+    const finalName = `sample-${filename}` || `sample-${file.name}.${extension}`;
 
+    console.log("Downloading:", finalName);
     try {
       const response = await fetch(url, { mode: "cors" });
       if (!response.ok) throw new Error("Network response was not ok");
@@ -71,7 +74,7 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
 
       const a = document.createElement("a");
       a.href = blobUrl;
-      a.download = filename || "download";
+      a.download = finalName || "download";
       document.body.appendChild(a);
       a.click();
 
@@ -96,7 +99,7 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
         onClick={handlePreviewClick} // fix: actually call the function, not just a reference
         style={{ position: "relative", backgroundColor: "#ebf4ff", cursor: "pointer" }}
       >
-        {file.resource_type === "video" && !placeholderMap[file.format] ? (
+        {file.resource_type || file.resourceType === "video" && !placeholderMap[file.format] ? (
           <VideoThumbnailFromURL videoUrl={file.url} />
         ) : (
           <img
@@ -164,7 +167,7 @@ const Card = ({ file, imageSrc, title, size, dimensions, downloadLink, onClick }
               overflow: "hidden",
               textOverflow: "ellipsis",
             }}
-            onClick={() => handleDownload(imageSrc, title)}
+            onClick={() => handleDownload(imageSrc, title.replace(/\s+/g, "-").toLowerCase())}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

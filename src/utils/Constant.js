@@ -1,3 +1,6 @@
+export const isCloudinaryFiles = false;
+export const updatedDatabaseKey = isCloudinaryFiles ? 'files':'r2Files';
+
 export const imageTabData = [
   { key: "jpg", title: "JPG", path: "/sample-images/jpg" },
   { key: "png", title: "PNG", path: "/sample-images/png" },
@@ -27,7 +30,6 @@ export const documentTabData = [
   { key: "ppt", title: "PPT", path: "/sample-documents/ppt" },
   { key: "pptx", title: "PPTX", path: "/sample-documents/pptx" },
   { key: "txt", title: "TXT", path: "/sample-documents/txt" },
-  { key: "zip", title: "ZIP", path: "/sample-documents/zip" },
 ];
 
 export const audioTabData = [

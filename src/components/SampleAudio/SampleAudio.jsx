@@ -13,7 +13,7 @@ import React, { useEffect,useMemo, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
-import { getMetaData, audioTabData as tabData } from "../../utils/Constant";
+import { getMetaData, audioTabData as tabData, updatedDatabaseKey } from "../../utils/Constant";
 
 const filesPerPage = 25;
 
@@ -29,7 +29,7 @@ const SampleAudio = () => {
 
   // Fetch files function with caching and optional type
   const fetchFiles = useCallback(async (type) => {
-    const qBase = collection(db, "files");
+    const qBase = collection(db, updatedDatabaseKey);
     const q =
       type && type !== "All"
         ? query(qBase, where("format", "==", type))
@@ -200,7 +200,7 @@ const SampleAudio = () => {
       {/* File Details Modal */}
       <SampleFileDetails
         isShow={modalOpen}
-        fileName={modalFileDetail.display_name}
+        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
         fileType={modalFileDetail.format}
         fileSize={formatBytes(modalFileDetail.bytes)}
         dimensions={

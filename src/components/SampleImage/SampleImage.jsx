@@ -14,8 +14,8 @@ import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 import {  useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
-import { imageTabData as tabData, getMetaData } from "../../utils/Constant";
-
+import { imageTabData as tabData, getMetaData, updatedDatabaseKey } from "../../utils/Constant";
+console.log("SampleImage component rendered",updatedDatabaseKey);
 const filesPerPage = 25;
 const SampleImage = () => {
   const { filePath } = useParams();
@@ -29,7 +29,7 @@ const SampleImage = () => {
 
   // Fetch files function with caching and optional type
   const fetchFiles = useCallback(async (type) => {
-    const qBase = collection(db, "files");
+    const qBase = collection(db, updatedDatabaseKey);
     const q =
       type && type !== "All"
         ? query(qBase, where("format", "==", type))
@@ -199,7 +199,7 @@ const SampleImage = () => {
       {/* File Details Modal */}
       <SampleFileDetails
         isShow={modalOpen}
-        fileName={modalFileDetail.display_name}
+        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
         fileType={modalFileDetail.format}
         fileSize={formatBytes(modalFileDetail.bytes)}
         dimensions={

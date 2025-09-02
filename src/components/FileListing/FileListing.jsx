@@ -108,7 +108,7 @@ const FileListing = () => {
                   style={{ verticalAlign: "middle" }}
                 >
                   <td className="text-center">
-                    {file.resource_type === "video" &&
+                    {file.resource_type | file.resourceType === "video" &&
                     !placeholderMap[file.format] ? (
                       <VideoThumbnailFromURL videoUrl={file.url} />
                     ) : (

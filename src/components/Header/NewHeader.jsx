@@ -91,13 +91,13 @@ export default function NewHeader() {
 
             {/* Hamburger (Mobile Only) */}
             <div className="d-lg-none ms-auto">
-              <button
+              <div
                 className="btn p-0"
                 style={{ fontSize: "1.8rem", lineHeight: "1" }}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? <FaTimes /> : <FaBars />}
-              </button>
+              </div>
             </div>
           </div>
         </div>
