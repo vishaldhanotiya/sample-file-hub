@@ -119,9 +119,6 @@ const Card = ({
       const finalName =
         `sample-${filename}` || `sample-${file.name}.${extension}`;
       console.log("Downloading 1:", finalName);
-      console.log("Downloading 2:", `sample-${file.name}.${extension}`);
-
-      console.log("Downloading 3:", filename);
 
       const a = document.createElement("a");
       a.href = blobUrl;
@@ -144,7 +141,7 @@ const Card = ({
     //onClick(file);
     window.open(file.url, "_blank");
   };
-  console.log(file.format);
+
   return (
     <div>
       <div

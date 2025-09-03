@@ -15,7 +15,7 @@ import { formatBytes, getBasePath } from "../../utils/Utils";
 import {  useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
 import { imageTabData as tabData, getMetaData, updatedDatabaseKey } from "../../utils/Constant";
-console.log("SampleImage component rendered",updatedDatabaseKey);
+
 const filesPerPage = 25;
 const SampleImage = () => {
   const { filePath } = useParams();

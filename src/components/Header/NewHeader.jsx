@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "../Home/NewHome.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { trackHeaderNavigation } from "../../utils/Analytics";
 import { FaBars, FaTimes } from "react-icons/fa";
+import "../Home/NewHome.css";
 
 export default function NewHeader() {
   const navigate = useNavigate();
@@ -21,11 +21,8 @@ export default function NewHeader() {
     { path: "convert-png-to-jpg", label: "💡Convert PNG → JPG" },
   ];
 
-  const handleNavigation = (e, path) => {
-    if (e.ctrlKey || e.metaKey) return;
-    e.preventDefault();
+  const handleTrack = (path) => {
     trackHeaderNavigation(path);
-    navigate(path);
     setIsMenuOpen(false);
   };
 
@@ -34,8 +31,12 @@ export default function NewHeader() {
       className={`bg-card-custom border-top border-custom sticky-top ${
         isHomePage ? "" : "border-bottom"
       }`}
+      aria-label="Main site header"
     >
-      <section className="bg-card-custom border-top border-custom py-2">
+      <section
+        className="bg-card-custom border-top border-custom py-2"
+        aria-label="Top navigation bar"
+      >
         <div className="container">
           <div className="d-flex align-items-center justify-content-between flex-wrap">
             
@@ -44,11 +45,12 @@ export default function NewHeader() {
               className="logo-container d-flex align-items-center"
               style={{ cursor: "pointer", flexShrink: 0 }}
               onClick={() => navigate("/")}
+              aria-label="Go to homepage"
             >
               <h2
                 className="mb-0 fw-bold site-logo"
                 style={{
-                  fontSize: "clamp(1.2rem, 2vw, 1.6rem)", // responsive text
+                  fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
                   whiteSpace: "nowrap",
                 }}
               >
@@ -58,32 +60,38 @@ export default function NewHeader() {
 
             {/* Desktop Navigation */}
             <div className="d-none d-lg-flex align-items-center gap-3 flex-wrap ms-auto">
-              <nav className="d-flex flex-wrap gap-4 align-items-center p-2">
+              <nav
+                className="d-flex flex-wrap gap-4 align-items-center p-2"
+                aria-label="Primary navigation menu"
+              >
                 {navItems.map((item) => {
                   const isConverter = item.path === "convert-png-to-jpg";
                   const fullPath = `/${item.path}`;
                   return isConverter ? (
-                    <a
+                    <Link
                       key={item.label}
-                      href={fullPath}
+                      to={fullPath}
+                      onClick={() => handleTrack(fullPath)}
                       className="btn btn-warning fw-bold px-3 py-1"
                       style={{ fontSize: "0.85rem", whiteSpace: "nowrap" }}
+                      aria-label={`Navigate to ${item.label}`}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   ) : (
-                    <a
+                    <Link
                       key={item.label}
-                      href={fullPath}
-                      onClick={(e) => handleNavigation(e, fullPath)}
+                      to={fullPath}
+                      onClick={() => handleTrack(fullPath)}
                       className="text-black text-decoration-none fw-medium"
                       style={{
-                        fontSize: "0.9rem",
+                        fontSize: "1rem",
                         whiteSpace: "nowrap",
                       }}
+                      aria-label={`Navigate to ${item.label}`}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   );
                 })}
               </nav>
@@ -91,13 +99,14 @@ export default function NewHeader() {
 
             {/* Hamburger (Mobile Only) */}
             <div className="d-lg-none ms-auto">
-              <div
+              <button
                 className="btn p-0"
                 style={{ fontSize: "1.8rem", lineHeight: "1" }}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMenuOpen ? <FaTimes /> : <FaBars />}
-              </div>
+              </button>
             </div>
           </div>
         </div>
@@ -112,41 +121,46 @@ export default function NewHeader() {
             padding: "2rem",
             overflowY: "auto",
           }}
+          aria-label="Mobile navigation menu"
         >
           <button
             className="btn mb-4"
             style={{ fontSize: "1.5rem" }}
             onClick={() => setIsMenuOpen(false)}
+            aria-label="Close mobile menu"
           >
             <FaTimes />
           </button>
           <nav
             className="d-flex flex-column gap-4 align-items-center text-center"
             style={{ marginTop: "2rem" }}
+            aria-label="Mobile navigation links"
           >
             {navItems.map((item) => {
               const isConverter = item.path === "convert-png-to-jpg";
               const fullPath = `/${item.path}`;
               return isConverter ? (
-                <a
+                <Link
                   key={item.label}
-                  href={fullPath}
+                  to={fullPath}
+                  onClick={() => handleTrack(fullPath)}
                   className="btn bg-warning fw-bold px-3 py-2"
-                  onClick={() => setIsMenuOpen(false)}
                   style={{ fontSize: "1.1rem" }}
+                  aria-label={`Navigate to ${item.label}`}
                 >
                   {item.label}
-                </a>
+                </Link>
               ) : (
-                <a
+                <Link
                   key={item.label}
-                  href={fullPath}
-                  onClick={(e) => handleNavigation(e, fullPath)}
+                  to={fullPath}
+                  onClick={() => handleTrack(fullPath)}
                   className="text-black text-decoration-none fw-medium"
                   style={{ fontSize: "1.2rem" }}
+                  aria-label={`Navigate to ${item.label}`}
                 >
                   {item.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
