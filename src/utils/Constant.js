@@ -166,7 +166,7 @@ They are perfect for <strong>UI/UX designers, web developers, and digital market
       };
     case "gif":
       return {
-        title: "Sample gif Image Download - Free Sample Files",
+        title: "Sample gif image - Download .gif Sample Files",
         description:
           "Free sample GIF image file for testing animations and image rendering. Download instantly.",
         keywords:
@@ -190,7 +190,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
       };
     case "psd":
       return {
-       title: "Sample PSD File Download - Free Photoshop Sample Files",
+       title: "Sample PSD file Download - Free Photoshop Sample Files",
 description:
   "Download a sample PSD file for Adobe Photoshop testing, design projects, and image editing. Free PSD sample.",
 keywords:
@@ -218,7 +218,7 @@ bodyText: `<p><strong>HEIC (High Efficiency Image Coding)</strong> is a modern <
       };
     case "tiff":
       return {
-       title: "Sample TIFF Image Download - Free TIFF Sample Files",
+       title: "Sample TIFF file Download - Free TIFF Sample Files",
 description:
   "Download a sample TIFF image file for high-quality print and archival purposes. Free TIFF sample.",
 keywords:
@@ -232,7 +232,7 @@ bodyText: `<p><strong>TIFF (Tagged Image File Format)</strong> is a professional
       };
     case "ico":
       return {
-      title: "Sample ICO File Download - Free Icon Sample Files",
+      title: "Sample ICO file Download - Free Icon Sample Files",
 description:
   "Download a sample ICO file for app and web icon testing. Free ICO sample.",
 keywords:
@@ -340,7 +340,7 @@ You can <strong>download AAC files free from our website</strong>, making them a
       };
     case "wav":
       return {
-        title: "Sample wav file Download - Free Sample Files",
+        title: "Sample wav audio Download - Free Sample Files",
         description:
           "Download a sample WAV audio file for testing uncompressed audio. Free WAV file available.",
         keywords:
@@ -365,7 +365,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
     // ----------------- Documents -----------------
     case "pdf":
       return {
-        title: "Sample pdf file Download - Free Sample Files",
+        title: "Sample pdf file - Free pdf Files for Testing",
         description:
           "Download a sample PDF document for testing. Free sample PDF file provided instantly.",
         keywords:
@@ -395,7 +395,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
       };
     case "odt":
       return {
-        title: "Sample odt file Download - Free Sample Files",
+        title: "Sample odt file - Free odt Files for Testing",
         description:
           "Free sample ODT (OpenDocument Text) file for testing word processors.",
         keywords: "sample odt, odt file download, odt file example, free odt",
@@ -406,7 +406,7 @@ You can <strong>download ODT files free from our website</strong>, making them a
       };
     case "rtf":
       return {
-        title: "Sample rtf fileDownload - Free Sample Files",
+        title: "Sample rtf file Download - Free Sample Files",
         description:
           "Download a free sample RTF document for testing text editors.",
         keywords: "sample rtf, rtf download, rtf file example, free rtf",
@@ -440,7 +440,7 @@ You can <strong>download PPTX files free from our website</strong>, making them 
       };
     case "doc":
       return {
-        title: "Sample doc fileDownload - Free Sample Files",
+        title: "Sample doc files download - Free .doc Files for Testing",
         description:
           "Download a sample DOC Word file for testing. Free DOC file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -459,7 +459,7 @@ You can <strong>download PPTX files free from our website</strong>, making them 
 
     case "docx":
       return {
-        title: "Sample docx file Download - Free Sample Files",
+        title: "Sample docx file download- Free .docx Files for Testing",
         description:
           "Download a sample DOCX Word file for testing. Free DOCX file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -471,7 +471,7 @@ You can <strong>download DOCX files free from our website</strong>, making them 
 
     case "xls":
       return {
-        title: "Sample xls file Download - Free Sample Files",
+        title: "Sample xls file - Free .xls Files for Testing",
         description:
           "Download a sample XLS Excel file for testing. Free XLS file available.",
         keywords: "sample xls, xls download, xls file example, free xls",
@@ -489,7 +489,7 @@ You can <strong>download DOCX files free from our website</strong>, making them 
 
     case "xlsx":
       return {
-        title: "Sample xlsx file Download - Free Sample Files",
+        title: "Sample xlsx file - Free .xlsx Files for Testing",
         description:
           "Download a sample XLSX Excel file for testing. Free XLSX file available.",
         keywords: "sample xlsx, xlsx download, xlsx file example, free xlsx",
@@ -507,7 +507,7 @@ You can <strong>download DOCX files free from our website</strong>, making them 
 
     case "txt":
       return {
-        title: "Sample text file Download - Free Sample Files",
+        title: "Sample text file Download",
         description:
           "Free sample TXT text file for testing plain text support. Download instantly.",
         keywords: "sample txt, txt download, txt file example, free txt",
@@ -543,7 +543,7 @@ bodyText: `<p><strong>7Z (7-Zip Archive)</strong> is a <strong>compressed file f
       };
     case "tar":
       return {
-      title: "Sample TAR File Download - Free TAR Archive Sample",
+      title: "Sample TAR File  - Download TAR Archive Sample",
 description:
   "Download a sample TAR archive file for Linux, Unix, and backup testing. Free TAR sample.",
 keywords:
@@ -557,7 +557,7 @@ bodyText: `<p><strong>TAR (Tape Archive)</strong> is a standard <strong>archivin
       };
     case "rar":
       return {
-       title: "Sample RAR File Download - Free RAR Sample Archives",
+       title: "Sample RAR File - Free RAR Sample Archives",
 description:
   "Download a sample RAR archive file for testing extraction and compression. Free RAR sample.",
 keywords:
@@ -571,7 +571,7 @@ bodyText: `<p><strong>RAR (Roshal Archive)</strong> is a popular <strong>compres
       };
     case "json":
       return {
-    title: "Sample JSON File Download - Free JSON Sample Data",
+    title: "Sample JSON File - Free JSON Sample Data",
 description:
   "Download a sample JSON file for API testing, software development, and structured data analysis. Free JSON sample.",
 keywords:
@@ -585,7 +585,7 @@ bodyText: `<p><strong>JSON (JavaScript Object Notation)</strong> is a lightweigh
       };
     case "xml":
       return {
-       title: "Sample XML File Download - Free XML Sample Files",
+       title: "Sample XML File - Free XML Sample Files",
 description:
   "Download a sample XML file for testing structured data, parsing, and software integration. Free XML sample.",
 keywords:
@@ -599,7 +599,7 @@ bodyText: `<p><strong>XML (Extensible Markup Language)</strong> is a widely used
       };
     case "csv":
       return {
-      title: "Sample CSV File Download - Free CSV Sample Data",
+      title: "Sample CSV File - Free CSV Sample Data",
 description:
   "Download a sample CSV file for spreadsheet testing, data analysis, and database import. Free CSV sample.",
 keywords:
