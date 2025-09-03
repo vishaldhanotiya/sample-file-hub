@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo,useState, useCallback } from "react";
+import  { useEffect, useMemo,useState, useCallback } from "react";
 import Nav from "react-bootstrap/Nav";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -113,6 +113,7 @@ const SampleImage = () => {
       <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
       </div>
 
+      {/* <div style={{marginBottom:50}}>Image from <a href="https://pixabay.com">Pixabay</a></div> */}
       <Nav
         activeKey={activeTab}
         onSelect={setActiveTab}

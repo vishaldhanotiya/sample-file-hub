@@ -11,7 +11,7 @@ import { db } from "../../App";
 import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import React, { useEffect, useMemo, useState, useCallback } from "react";
+import  { useEffect, useMemo, useState, useCallback } from "react";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
 import { getMetaData, documentTabData as tabData, updatedDatabaseKey } from "../../utils/Constant";

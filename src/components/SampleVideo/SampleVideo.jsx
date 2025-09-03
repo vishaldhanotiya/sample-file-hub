@@ -11,7 +11,7 @@ import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 
-import React, { useEffect,useMemo, useState, useCallback } from "react";
+import { useEffect,useMemo, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";

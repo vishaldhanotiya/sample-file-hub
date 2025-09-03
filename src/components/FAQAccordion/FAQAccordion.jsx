@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import { useState,useRef } from "react";
 import "./FAQAccordion.css"; // optional CSS file for styling
 
 const faqs = [

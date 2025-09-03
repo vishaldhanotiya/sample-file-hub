@@ -25,6 +25,10 @@ import JsonIcon from "../../assets/json.png";
 import XmlIcon from "../../assets/xml.png";
 import ZIcon from "../../assets/7z.png";
 import CsvIcon from "../../assets/csv.png";
+import PsdIcon from "../../assets/psd.png";
+import TiffIcon from "../../assets/tiff.png";
+import HeicIcon from "../../assets/heic.png";
+import IcoIcon from "../../assets/ico.png";
 import {
   trackDownload,
   trackDownloadError,
@@ -55,6 +59,10 @@ const placeholderMap = {
   tar: TarIcon,
   json: JsonIcon,
   csv: CsvIcon,
+  psd: PsdIcon,
+  heic: HeicIcon,
+  tiff: TiffIcon,
+  ico: IcoIcon,
 };
 
 const Card = ({
@@ -69,9 +77,10 @@ const Card = ({
   // Function to trigger download
   const [progress, setProgress] = useState(null); // store progress (0-100)
 
-  
   const handleDownload = async (url, filename) => {
     try {
+      trackDownload(file.type, file.name, file.format, file.size);
+
       setProgress(0); // Start progress
       // Clone headers
       const newHeaders = new Headers();
@@ -81,7 +90,10 @@ const Card = ({
         "GET, PUT, POST, DELETE, HEAD"
       );
       newHeaders.set("Access-Control-Allow-Headers", "*");
-      const response = await fetch(`https://media-proxy.samplefiles.dev?url=${url}`, { mode: "cors" });
+      const response = await fetch(
+        `https://media-proxy.samplefiles.dev?url=${url}`,
+        { mode: "cors" }
+      );
       if (!response.ok) throw new Error("Network response was not ok");
 
       const contentLength = response.headers.get("content-length");
@@ -106,10 +118,10 @@ const Card = ({
       const extension = file.format || file.type?.split("/")[1] || "dat";
       const finalName =
         `sample-${filename}` || `sample-${file.name}.${extension}`;
-        console.log("Downloading 1:", finalName);
-                        console.log("Downloading 2:", `sample-${file.name}.${extension}`);
+      console.log("Downloading 1:", finalName);
+      console.log("Downloading 2:", `sample-${file.name}.${extension}`);
 
-                console.log("Downloading 3:",filename);
+      console.log("Downloading 3:", filename);
 
       const a = document.createElement("a");
       a.href = blobUrl;
@@ -121,49 +133,18 @@ const Card = ({
       URL.revokeObjectURL(blobUrl);
       setProgress(null);
     } catch (error) {
+      trackDownloadError(file.type, error);
       console.error("Download failed", error);
       setProgress(null);
     }
   };
-
-  // const handleDownload = async (url, filename) => {
-  //   trackDownload(file.type, file.name, file.format, file.size);
-  // const extension = file.format || file.type?.split("/")[1] || "dat";
-  //   const finalName = `sample-${filename}` || `sample-${file.name}.${extension}`;
-
-  //   console.log("Downloading:", finalName);
-  //   try {
-  //        // Clone headers
-  //   const newHeaders = new Headers();
-  //   newHeaders.set("Access-Control-Allow-Origin", "*");
-  //   newHeaders.set("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, HEAD");
-  //   newHeaders.set("Access-Control-Allow-Headers", "*");
-  //     const response = await fetch(url, { mode: "cors", headers: newHeaders });
-  //     if (!response.ok) throw new Error("Network response was not ok");
-
-  //     const blob = await response.blob();
-  //     const blobUrl = window.URL.createObjectURL(blob);
-
-  //     const a = document.createElement("a");
-  //     a.href = blobUrl;
-  //     a.download = finalName || "download";
-  //     document.body.appendChild(a);
-  //     a.click();
-
-  //     a.remove();
-  //     window.URL.revokeObjectURL(blobUrl);
-  //   } catch (error) {
-  //     console.error("Download failed", error);
-  //     trackDownloadError(file.type, error);
-  //   }
-  // };
 
   const handlePreviewClick = () => {
     trackMediaView(file.type, file.name);
     //onClick(file);
     window.open(file.url, "_blank");
   };
-
+  console.log(file.format);
   return (
     <div>
       <div
@@ -244,7 +225,10 @@ const Card = ({
               overflow: "hidden",
             }}
             onClick={() =>
-              handleDownload(imageSrc, file.displayName.replace(/\s+/g, "-").toLowerCase())
+              handleDownload(
+                imageSrc,
+                file.displayName.replace(/\s+/g, "-").toLowerCase()
+              )
             }
             disabled={progress !== null}
           >
@@ -263,7 +247,7 @@ const Card = ({
                     zIndex: 1,
                   }}
                 ></div>
-                <span style={{ zIndex: 2 }}>{progress}%</span>
+                <span className="fw-semibold" style={{ zIndex: 2 }}>{progress}%</span>
               </>
             ) : (
               <>
@@ -277,7 +261,7 @@ const Card = ({
                 >
                   <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,132.69V40a8,8,0,0,0-16,0v92.69L93.66,106.34a8,8,0,0,0-11.32,11.32Z"></path>
                 </svg>
-                <span className="fw-medium">Download</span>
+                <span className="fw-semibold">Download</span>
               </>
             )}
           </button>

@@ -6,6 +6,7 @@ import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
 import NewSearchBar from "../SearchBar/NewSearchBar";
 import { useNavigate } from "react-router-dom";
+
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function NewHome() {
       icon: ImageIcon,
       title: "Images",
       description:
-        "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP",
+        "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO",
       downloads: "250+",
       color: "text-white",
       bgDownload: "bg-primary-subtle",
@@ -47,7 +48,7 @@ export default function NewHome() {
       icon: FileText,
       title: "Documents",
       description:
-        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, ZIP for testing",
+        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF for testing",
       downloads: "520+",
       color: "text-white",
       bgDownload: "bg-danger-subtle",

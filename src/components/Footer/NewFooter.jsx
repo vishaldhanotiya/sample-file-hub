@@ -1,4 +1,3 @@
-import React from 'react'
 import "../Home/NewHome.css"
 import ContactForm from '../ContactForm/ContactForm'
 import './Footer.css'
