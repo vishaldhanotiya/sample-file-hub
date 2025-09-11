@@ -7,6 +7,7 @@ import { trackCardClick } from "../../utils/Analytics";
 import FAQAccordion from "../FAQAccordion/FAQAccordion";
 import "./Home.css";
 import NewHome from "./NewHome";
+import PlaceholderGenerator from "../PlaceholderGenerator/PlaceholderGenerator";
 
 export default function Home() {
   const navigate = useNavigate();

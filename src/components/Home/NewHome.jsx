@@ -6,6 +6,7 @@ import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
 import NewSearchBar from "../SearchBar/NewSearchBar";
 import { useNavigate } from "react-router-dom";
+import PlaceholderGenerator from "../PlaceholderGenerator/PlaceholderGenerator";
 
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -144,6 +145,7 @@ export default function NewHome() {
           </div>
         </div>
       </section>
+      {/* <PlaceholderGenerator/> */}
 
       <section className="py-5">
         <div className="container">

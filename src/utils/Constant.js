@@ -155,7 +155,7 @@ Whether building a blog, e-commerce platform, or complex <strong>web application
       };
     case "svg":
       return {
-        title: "Sample svg Image Download - Free Sample Files",
+        title: "Sample svg image Download - Free Sample Files",
         description:
           "Download a sample SVG vector image file for testing in web and design projects. Scalable vector graphic format.",
         keywords: "sample svg, svg download, vector svg file, free svg example",
@@ -178,7 +178,7 @@ They are perfect for <strong>social media, marketing, tutorials, and messaging a
       };
     case "bmp":
       return {
-        title: "Sample bmp Image Download - Free Sample Files",
+        title: "Sample bmp file Download - Free Sample Files",
         description:
           "Download a sample BMP image file for testing legacy formats and applications. Free BMP sample.",
         keywords:
@@ -365,7 +365,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
     // ----------------- Documents -----------------
     case "pdf":
       return {
-        title: "Sample pdf file - Free pdf Files for Testing",
+        title: "Sample pdf document - Free pdf Files for Testing",
         description:
           "Download a sample PDF document for testing. Free sample PDF file provided instantly.",
         keywords:
@@ -440,7 +440,7 @@ You can <strong>download PPTX files free from our website</strong>, making them 
       };
     case "doc":
       return {
-        title: "Sample doc files download - Free .doc Files for Testing",
+        title: "Sample doc file download - Free .doc Files for Testing",
         description:
           "Download a sample DOC Word file for testing. Free DOC file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
