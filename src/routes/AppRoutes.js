@@ -1,23 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../components/Home/Home";
 import SampleImage from "../components/SampleImage/SampleImage";
 import MainLayout from "../components/MainLayout/MainLayout";
 import SampleVideo from "../components/SampleVideo/SampleVideo";
 import SampleAudio from "../components/SampleAudio/SampleAudio";
 import SampleDocument from "../components/SampleDocument/SampleDocument";
 import ConvertPngToJpg from "../components/ConvertPngToJpg/ConvertPngToJpg";
-import NewHome from "../components/Home/NewHome";
+import Home from "../components/Home/Home";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
 import SampleOthers from "../components/SampleOthers/SampleOthers";
+import PlaceholderImageGenerator from "../components/PlaceholderImageGenerator/PlaceholderImageGenerator";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<NewHome />} />
-        <Route path="home" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="sample-images" element={<SampleImage />} />
-        <Route path="/sample-images/:filePath" element={<SampleImage />} />
+        <Route path="sample-images/:filePath" element={<SampleImage />} />
         <Route path="sample-videos" element={<SampleVideo />} />
         <Route path="sample-videos/:filePath" element={<SampleVideo />} />
         <Route path="sample-audios" element={<SampleAudio />} />
@@ -29,6 +28,7 @@ const AppRoutes = () => {
         <Route path="sample-others/" element={<SampleOthers />} />
         <Route path="sample-others/:filePath" element={<SampleOthers />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
+        <Route path="placeholder-image-generator" element={<PlaceholderImageGenerator />} />
         {/* Add other routes here */}
       </Route>
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />

@@ -621,6 +621,16 @@ bodyText: `<p><strong>CSV (Comma-Separated Values)</strong> is a simple <strong>
           "Convert PNG to JPG, PNG to JPG converter, Free PNG to JPG online, Online image converter, PNG image to JPG",
         bodyText: ``,
       };
+    case "placeholder-generator":
+      return {
+        title: "Placeholder Image Generator - SampleFiles.dev",
+        description:
+          "Free online placeholder image generator. Create images with custom size, background, text, color, and format instantly.",
+        keywords:
+          "Placeholder Image Generator",
+        bodyText: ``,
+      };
+      
 
     // ----------------- Default -----------------
     default:

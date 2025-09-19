@@ -1,211 +1,312 @@
 "use client";
+
+import { useState } from "react";
+import { ImageIcon, Video, Music, FileText, Archive,MoreHorizontal } from "lucide-react";
+import "./Home.css";
+import { trackCardClick } from "../../utils/Analytics";
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
-import backgroundImage from "../../assets/img-back.png";
-import AboutUs from "../AboutUs/AboutUs";
-import { trackCardClick } from "../../utils/Analytics";
-import FAQAccordion from "../FAQAccordion/FAQAccordion";
-import "./Home.css";
-import NewHome from "./NewHome";
-import PlaceholderGenerator from "../PlaceholderGenerator/PlaceholderGenerator";
+import PlaceholderImageGenerator from "../PlaceholderImageGenerator/PlaceholderImageGenerator";
+import ToolsSection from "../ToolsSection";
 
 export default function Home() {
+  const [expandedFaq, setExpandedFaq] = useState(null);
   const navigate = useNavigate();
-
-  const fileTypes = [
+  const categories = [
     {
       key: "images",
-      name: "Images",
-      subtitle: "JPG, PNG, WEBP, SVG, GIF, BMP",
-      backgroundColor: "#FF6F61",
-      icon: require("../../assets/image.png"),
+      icon: ImageIcon,
+      title: "Images",
+      description:
+        "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO",
+      downloads: "250+",
+      color: "text-white",
+      bgDownload: "bg-primary-subtle",
+      textDownload: "text-primary-emphasis",
     },
     {
       key: "videos",
-      name: "Videos",
-      subtitle: "MP4, AVI, MKV, FLV, MOV",
-      backgroundColor: "#42A5F5",
-      icon: require("../../assets/videography.png"),
+      icon: Video,
+      title: "Videos",
+      description:
+        "Sample video files for testing: MP4, AVI, MKV, FLV, MOV, WebM formats",
+      downloads: "100+",
+      color: "text-white",
+      bgDownload: "bg-info-subtle",
+      textDownload: "text-info-emphasis",
     },
     {
       key: "audios",
-      name: "Audios",
-      subtitle: "MP3, WAV, AAC, OGG",
-      backgroundColor: "#66BB6A",
-
-      icon: require("../../assets/mic.png"),
+      icon: Music,
+      title: "Audio",
+      description: "Audio samples in multiple formats: MP3, WAV, AAC, OGG",
+      downloads: "200+",
+      color: "text-white",
+      bgDownload: "bg-success-subtle",
+      textDownload: "text-success-emphasis",
     },
     {
       key: "documents",
-      name: "Document",
-      subtitle: "PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, ZIP",
-      backgroundColor: "#AB47BC",
-      icon: require("../../assets/file.png"),
+      icon: FileText,
+      title: "Documents",
+      description:
+        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF for testing",
+      downloads: "520+",
+      color: "text-white",
+      bgDownload: "bg-danger-subtle",
+      textDownload: "text-danger-emphasis",
+    },
+    {
+      key: "archives",
+      icon: Archive,
+      title: "Archives",
+      description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
+      downloads: "20+",
+      color: "text-white",
+      bgDownload: "bg-warning-subtle",
+      textDownload: "text-warning-emphasis",
+    },
+    {
+      key: "others",
+      icon: MoreHorizontal,
+      title: "Others",
+      description: "Miscellaneous file formats: CSV, JSON, XML, and more",
+      downloads: "10+",
+      color: "text-white",
+      bgDownload: "bg-primary-subtle",
+      textDownload: "text-primary-emphasis",
     },
   ];
 
-  return (
-    <>
+   const tools = [
+    {
+      key: "images-converter",
+      icon: ImageIcon,
+      title: "Images Converter",
+      description:
+        "Convert images between different formats like PNG to JPG, WEBP to PNG, and more. Fast, reliable, and maintains quality.",
+      color: "text-white",
+      bgDownload: "bg-primary-subtle",
+      textDownload: "text-primary-emphasis",
+    },
+    {
+      key: "placeholder-generator",
+      icon: Video,
+      title: "Placeholder Generator",
+      description:
+        "Generate custom placeholder images for your projects. Choose dimensions, colors, and text to create perfect mockup images.",
+      color: "text-white",
+      bgDownload: "bg-info-subtle",
+      textDownload: "text-info-emphasis",
+    },
+    {
+      key: "qr-code-generator",
+      icon: Music,
+      title: "QR Code Generator",
+      description: "Generate QR codes for URLs, text, and more. Customize colors and sizes.",
+      color: "text-white",
+      bgDownload: "bg-success-subtle",
+      textDownload: "text-success-emphasis",
+    },
+  ];
 
-      <div
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-        }}
-        className={"text-dark py-5"}
-      >
-          <NewHome/>
-        <main className="py-2">
-          <div>
-            {/* Hero Section with SEO-friendly headings */}
-            <div className="text-center m-2 pt-4 pb-5">
+  const faqs = [
+    {
+      question: "Are all files really free?",
+      answer:
+        "Yes! All sample files on SampleFiles.dev are completely free to download and use. No hidden fees, no registration required.",
+    },
+    {
+      question: "Can I request specific file formats?",
+      answer:
+        'Use the "Request File" button to submit requests for specific file types or formats you need for your projects.',
+    },
+    {
+      question: "Do I need to create an account or sign up?",
+      answer:
+        "No account or signup is required. Simply browse the categories and download the files you need instantly.",
+    },
+    {
+      question: "Is there a limit on how many files I can download?",
+      answer:
+        "No limits! Download as many files as you need, whenever you want.",
+    },
+    {
+      question: "How often are new files added?",
+      answer:
+        "We regularly update our library with new images, videos, audios, and documents to keep our collection fresh and useful.",
+    },
+  ];
+
+  const toggleFaq = (index) => {
+    setExpandedFaq(expandedFaq === index ? null : index);
+  };
+
+  return (
+    <div className="min-vh-100">
+      <section className="hero-gradient py-5">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8 text-center text-white">
               <div className="text-center m-2 pt-2 pb-3">
-                <h1 className="text-white fw-bold mb-3 fs-2 fs-md-1">
+                <h1 className="text-white fw-bold mb-4 fs-1 fs-md-1">
                   Download Free Sample & Dummy Files Instantly
                 </h1>
-                <h2 className="text-white fw-semibold mb-2 fs-5 fs-md-4">
-                  Explore a Vast Collection of Sample Files Across Various Media
-                  Types
+                <h2 className="text-white fw-semibold mb-3 fs-5 fs-md-4">
+                  Download high-quality sample files instantly. Images, videos,
+                  audio, documents, and more.
                 </h2>
-                <h3 className="text-white fw-normal fs-6 fs-md-5">
+                <h3 className="text-white fw-normal fs-6 mb-4 fs-md-5">
                   No login, no tracking, just instant access.
                 </h3>
               </div>
+              {/* <SearchBar onSearch={(value) => {}} /> */}
 
-              <div className="pt-1">
-                <SearchBar onSearch={(value) => {}} />
+              {/* Search Bar */}
+              <SearchBar onSearch={(value) => {}} />
+
+              {/* Free Badge */}
+              <div className="d-inline-flex align-items-center gap-2 badges px-4 py-2 rounded-pill text-white">
+                <img
+                  width={20}
+                  src={require("../../assets/shield.png")}
+                  alt="Shield Icon"
+                />
+                Free & Virus-Free Files
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Benefits Section */}
-            <div className="text-center text-white my-2 px-3 px-md-5">
-              <h2 className="fs-4 fs-md-3 fw-semibold mb-2">
-                Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
-              </h2>
-              <h3 className="fs-6 fs-md-5 fw-normal mb-3">
-                All files are 100% safe, virus-free, and free for personal or
-                commercial use. Perfect for developers, testers, educators, and
+      {/* <PlaceholderGenerator/> */}
+
+      <section className="py-5">
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className="display-6 fw-bold mb-3">Browse Categories</h2>
+            <h3 className="text-muted-custom lead">
+              All files are 100% safe, virus-free, and free for personal or
+              commercial use.
+            </h3>
+
+            <div className="text-center text-black my-2 px-3 px-md-5">
+              
+              <h3 className="text-muted-custom lead">
+                Find the perfect sample files for your projects across different
+                categories. Perfect for developers, testers, educators, and
                 presentations.
               </h3>
             </div>
+          </div>
 
-            {/* File Type Cards */}
-            <div className="row g-3 justify-content-center mx-2 mx-sm-3 mx-md-4 mx-lg-5 px-2 px-sm-3 px-md-4 px-lg-5 my-4 my-md-4">
-              {fileTypes.map((type, index) => (
-                <div key={index} className="col-12 col-sm-6 col-lg-3">
-                  <div
-                    className="p-4 rounded-4 position-relative h-100 d-flex flex-column justify-content-between"
-                    style={{
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                      backdropFilter: "blur(16px)",
-                      backgroundColor: "#d1d7ff",
-                    }}
-                    onClick={() => {
-                      trackCardClick(type.key);
-                      navigate(`sample-${type.key}`);
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = "translateY(-5px)";
-                      e.currentTarget.style.boxShadow =
-                        "0 15px 30px rgba(0, 0, 0, 0.15)";
-                      e.currentTarget.style.backgroundColor =
-                        "rgba(255, 255, 255, 0.6)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow =
-                        "0 4px 30px rgba(0, 0, 0, 0.1)";
-                    }}
-                  >
+          {/* Categories Grid */}
+          <div className="row g-4">
+            {categories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <div key={index} className="col-md-6 col-lg-4">
+                  <div className="category-card h-100 p-4 text-center rounded">
                     <div
-                      className="fs-1 mb-3"
-                      style={{
-                        lineHeight: 0,
+                      className="hero-gradient d-inline-flex align-items-center  justify-content-center bg-light rounded mb-3"
+                      style={{ width: "64px", height: "64px" }}
+                    >
+                      <IconComponent size={32} className={category.color} />
+                    </div>
+                    <h3 className="h5 fw-semibold mb-2">{category.title}</h3>
+                    <p className="text-muted-custom small mb-3">
+                      {category.description}
+                    </p>
+                    <div
+                      className={`w-50 text-center rounded-pill fw-bold small mb-3 d-inline-flex align-items-center  justify-content-center ${category.bgDownload} ${category.textDownload}`}
+                    >
+                      {category.downloads} Downloads
+                    </div>
+                    <button
+                      className={`btn fw-bold btn-custom-outline w-100 `}
+                      onClick={() => {
+                        trackCardClick(category.key);
+                        navigate(`sample-${category.key}`);
                       }}
                     >
-                      <div
-                        className="mb-3 d-flex align-items-center justify-content-center"
-                        style={{
-                          backgroundColor: `${type.backgroundColor}`,
-                          color: "#fff",
-                          borderRadius: "12px",
-                          width: "54px",
-                          height: "54px",
-                          backdropFilter: "blur(10px)",
-                          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                        }}
-                      >
-                        <img
-                          alt={`${type.name} icon`}
-                          src={type.icon}
-                          width={35}
-                          height={35}
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="fw-bold mb-1" style={{ color: "inherit" }}>
-                        {type.name}
-                      </h4>
-                      <p
-                        className="mb-3"
-                        style={{
-                          fontSize: "0.9rem",
-                          color: "rgba(0, 0, 0, 0.6)",
-                        }}
-                      >
-                        {type.subtitle}
-                      </p>
-                    </div>
-                    <div
-                      style={{
-                        alignSelf: "flex-end",
-                        fontSize: "1.5rem",
-                        fontWeight: "bold",
-                        color: "rgba(0, 0, 0, 0.8)",
-                        userSelect: "none",
-                        transition: "transform 0.3s ease",
-                      }}
-                      aria-label={`Go to ${type.name}`}
-                      className="hover-arrow"
-                    >
-                      <div class="btn browse-btn ">Browse →</div>
-                    </div>
+                      Browse {category.title}
+                    </button>
                   </div>
                 </div>
-              ))}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className="display-6 fw-bold mb-3">Developer Tools</h2>
+            <h3 className="text-muted-custom lead">
+           Essential utilities for developers and designers. 
+            </h3>
+            <h3 className="text-muted-custom lead">
+           Convert, compress, generate, and optimize your digital assets with our collection of professional tools.
+            </h3>
+
+            {/* <div className="text-center text-black my-2 px-3 px-md-5">
+            
+              <h3 className="text-muted-custom lead">
+                Find the perfect sample files for your projects across different
+                categories. Perfect for developers, testers, educators, and
+                presentations.
+              </h3>
+            </div> */}
+          </div>
+      <ToolsSection/>
+
+       
+        </div>
+      </section>
+      <section id={"faq"} className="py-5 bg-muted-custom">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-8">
+              <div className="text-center mb-5">
+                <h2 className="display-6 fw-bold mb-3">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-muted-custom">
+                  Everything you need to know about our sample files
+                </p>
+              </div>
+
+              <div className="accordion" id="faqAccordion">
+                {faqs.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="accordion-item border-custom mb-3 rounded"
+                  >
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button p-2 collapsed bg-card-custom"
+                        type="button"
+                        onClick={() => toggleFaq(index)}
+                        aria-expanded={expandedFaq === index}
+                      >
+                        <span className="fw-medium">{faq.question}</span>
+                      </button>
+                    </h2>
+                    {expandedFaq === index && (
+                      <div className="accordion-collapse show">
+                        <div className="accordion-body">
+                          <p className="text-muted-custom mb-0">{faq.answer}</p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </main>
-      </div>
-      <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ height: "500px" }}
-      >
-        <div className="p-5 text-center text-dark bg-gradient bg-light w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-          <h2 className="fw-bold mb-3">
-            🚀 Convert Files Instantly & Easily
-            <span className="text-danger"> JPG </span> to
-            <span className="text-danger"> PNG </span> Instantly!
-          </h2>
-          <h3 className="lead mb-4 text-muted">
-            Free & fast tools to convert JPG, PNG, PDF, and more. Simple,
-            secure, and completely online.
-          </h3>
-          <a
-            href="convert-png-to-jpg"
-            className="btn btn-light btn-lg bg-warning fw-bold px-4 mt-4 py-2"
-          >
-            🚀 Try it Now!
-          </a>
         </div>
-      </div>
-      <AboutUs />
-      <FAQAccordion />
-    </>
+      </section>
+    </div>
   );
 }

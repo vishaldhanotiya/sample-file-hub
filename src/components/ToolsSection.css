@@ -1,0 +1,33 @@
+.tool-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #eee;
+  height: 100%;
+}
+
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.tool-card h5 {
+  margin-bottom: 10px;
+}
+
+.tool-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Custom colored top borders */
+.border-top-primary { border-top: 4px solid #0d6efd; }
+.border-top-purple { border-top: 4px solid #6f42c1; }
+.border-top-danger { border-top: 4px solid #dc3545; }
+.border-top-warning { border-top: 4px solid #fd7e14; }
+.border-top-success { border-top: 4px solid #198754; }
+.border-top-dark { border-top: 4px solid #212529; }
+.border-top-teal { border-top: 4px solid #20c997; }
+.border-top-indigo { border-top: 4px solid #6610f2; }
