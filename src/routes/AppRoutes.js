@@ -9,6 +9,7 @@ import ConvertPngToJpg from "../components/ConvertPngToJpg/ConvertPngToJpg";
 import NewHome from "../components/Home/NewHome";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
 import SampleOthers from "../components/SampleOthers/SampleOthers";
+import PlaceholderGenerator from "../components/PlaceholderGenerator/PlaceholderGenerator";
 
 const AppRoutes = () => {
   return (
@@ -29,6 +30,8 @@ const AppRoutes = () => {
         <Route path="sample-others/" element={<SampleOthers />} />
         <Route path="sample-others/:filePath" element={<SampleOthers />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
+        <Route path="placeholder-generator" element={<PlaceholderGenerator />} />
+
         {/* Add other routes here */}
       </Route>
       <Route path="*" element={<h1>404 - Page Not Found</h1>} />

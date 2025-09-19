@@ -4,9 +4,10 @@ import { useState } from "react";
 import { ImageIcon, Video, Music, FileText, Archive,MoreHorizontal } from "lucide-react";
 import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
-import NewSearchBar from "../SearchBar/NewSearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
-import PlaceholderGenerator from "../PlaceholderGenerator/PlaceholderGenerator";
+import PlaceholderImageGenerator from "../PlaceholderGenerator/PlaceholderGenerator";
+import ToolsSection from "../ToolsSection";
 
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -77,6 +78,38 @@ export default function NewHome() {
     },
   ];
 
+   const tools = [
+    {
+      key: "images-converter",
+      icon: ImageIcon,
+      title: "Images Converter",
+      description:
+        "Convert images between different formats like PNG to JPG, WEBP to PNG, and more. Fast, reliable, and maintains quality.",
+      color: "text-white",
+      bgDownload: "bg-primary-subtle",
+      textDownload: "text-primary-emphasis",
+    },
+    {
+      key: "placeholder-generator",
+      icon: Video,
+      title: "Placeholder Generator",
+      description:
+        "Generate custom placeholder images for your projects. Choose dimensions, colors, and text to create perfect mockup images.",
+      color: "text-white",
+      bgDownload: "bg-info-subtle",
+      textDownload: "text-info-emphasis",
+    },
+    {
+      key: "qr-code-generator",
+      icon: Music,
+      title: "QR Code Generator",
+      description: "Generate QR codes for URLs, text, and more. Customize colors and sizes.",
+      color: "text-white",
+      bgDownload: "bg-success-subtle",
+      textDownload: "text-success-emphasis",
+    },
+  ];
+
   const faqs = [
     {
       question: "Are all files really free?",
@@ -130,7 +163,7 @@ export default function NewHome() {
               {/* <SearchBar onSearch={(value) => {}} /> */}
 
               {/* Search Bar */}
-              <NewSearchBar onSearch={(value) => {}} />
+              <SearchBar onSearch={(value) => {}} />
 
               {/* Free Badge */}
               <div className="d-inline-flex align-items-center gap-2 badges px-4 py-2 rounded-pill text-white">
@@ -145,6 +178,7 @@ export default function NewHome() {
           </div>
         </div>
       </section>
+
       {/* <PlaceholderGenerator/> */}
 
       <section className="py-5">
@@ -157,9 +191,7 @@ export default function NewHome() {
             </h3>
 
             <div className="text-center text-black my-2 px-3 px-md-5">
-              {/* <h2 className="fs-4 fs-md-3 fw-semibold mb-2">
-                Ready-to-Use Dummy Files (PDF, JPG, MP4) — Free to Download
-              </h2> */}
+              
               <h3 className="text-muted-custom lead">
                 Find the perfect sample files for your projects across different
                 categories. Perfect for developers, testers, educators, and
@@ -207,12 +239,37 @@ export default function NewHome() {
         </div>
       </section>
 
+      <section>
+        <div className="container">
+          <div className="text-center mb-5">
+            <h2 className="display-6 fw-bold mb-3">Developer Tools</h2>
+            <h3 className="text-muted-custom lead">
+           Essential utilities for developers and designers. 
+            </h3>
+            <h3 className="text-muted-custom lead">
+           Convert, compress, generate, and optimize your digital assets with our collection of professional tools.
+            </h3>
+
+            {/* <div className="text-center text-black my-2 px-3 px-md-5">
+            
+              <h3 className="text-muted-custom lead">
+                Find the perfect sample files for your projects across different
+                categories. Perfect for developers, testers, educators, and
+                presentations.
+              </h3>
+            </div> */}
+          </div>
+      <ToolsSection/>
+
+       
+        </div>
+      </section>
       <section id={"faq"} className="py-5 bg-muted-custom">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="text-center mb-5">
-                <h2 className="display-5 fw-bold mb-3">
+                <h2 className="display-6 fw-bold mb-3">
                   Frequently Asked Questions
                 </h2>
                 <p className="text-muted-custom">
@@ -253,3 +310,4 @@ export default function NewHome() {
     </div>
   );
 }
+
