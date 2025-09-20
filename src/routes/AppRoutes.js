@@ -30,7 +30,7 @@ const AppRoutes = () => {
         <Route path="sample-others/" element={<SampleOthers />} />
         <Route path="sample-others/:filePath" element={<SampleOthers />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
-      <Route path="placeholder-image-generator" element={<PlaceholderImageGenerator />} />
+        <Route path="placeholder-image-generator" element={<PlaceholderImageGenerator />} />
 
         {/* Add other routes here */}
       </Route>
