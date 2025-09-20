@@ -7,6 +7,7 @@ import { trackCardClick } from "../../utils/Analytics";
 import SearchBar from "../SearchBar/NewSearchBar";
 import { useNavigate } from "react-router-dom";
 import ToolsSection from "../ToolsSection";
+import AboutUs from "../AboutUs/AboutUs";
 
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -263,6 +264,7 @@ export default function NewHome() {
        
         </div>
       </section>
+          <AboutUs />
       <section id={"faq"} className="py-5 bg-muted-custom">
         <div className="container">
           <div className="row justify-content-center">
@@ -275,7 +277,7 @@ export default function NewHome() {
                   Everything you need to know about our sample files
                 </p>
               </div>
-
+  
               <div className="accordion" id="faqAccordion">
                 {faqs.map((faq, index) => (
                   <div

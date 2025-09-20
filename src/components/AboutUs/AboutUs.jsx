@@ -2,7 +2,9 @@ export default function AboutUs() {
   return (
     <div className="bg-gradient bg-white">
       <div className="container my-5 py-4">
-        <h3 className="text-center mb-5 fw-bold py-4">Why Choose Us?</h3>
+        <h3 className="text-center display-6 fw-bold mb-3 py-4">
+          Why Choose Us?
+        </h3>
 
         <div className="row g-4">
           {/* Card 1 */}
