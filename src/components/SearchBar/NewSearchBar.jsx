@@ -32,6 +32,15 @@ const documentArray = [
   { key: "documents", label: "PDF", type: "pdf", icon: require("../../assets/pdf.png") },
   { key: "documents", label: "ODT", type: "odt", icon: require("../../assets/odt.png") },
   { key: "documents", label: "RTF", type: "rtf", icon: require("../../assets/rtf.png") },
+  { key: "archives", label: "ZIP", type: "zip", icon: require("../../assets/zip.png") },
+  { key: "archives", label: "RAR", type: "rar", icon: require("../../assets/rar.png") },
+  { key: "archives", label: "7Z", type: "7z", icon: require("../../assets/7z.png") },
+  { key: "archives", label: "TAR", type: "tar", icon: require("../../assets/tar.png") },
+  { key: "others", label: "JSON", type: "json", icon: require("../../assets/json.png") },
+  { key: "others", label: "XML", type: "xml", icon: require("../../assets/xml.png") },
+  { key: "others", label: "CSV", type: "csv", icon: require("../../assets/csv.png") },
+  
+
 ];
 
 const NewSearchBar = ({ onSearch }) => {
@@ -75,7 +84,7 @@ const NewSearchBar = ({ onSearch }) => {
 
   return (
     <form onSubmit={handleSearch} style={{ position: "relative" }}>
-      <div className="container mt-4">
+      <div className="container">
         <div className="d-flex justify-content-center">
           <div className="position-relative w-100" style={{ maxWidth: "610px" }}>
             <div className="row justify-content-center mb-4 glass-wrapper py-2 text-white">

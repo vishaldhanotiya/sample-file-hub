@@ -14,8 +14,8 @@ const ToolsSection = () => {
       color: "primary",
     },
     {
-      key: "placeholder-generator",
-      title: "Placeholder Generator",
+      key: "placeholder-image-generator",
+      title: "Placeholder Image Generator",
       description:
         "Generate custom placeholder images for your projects. Choose dimensions, colors, and text to create perfect mockup images.",
       icon: require("../assets/default-image.png"),
@@ -66,34 +66,31 @@ const ToolsSection = () => {
   ];
 
   return (
-    <div className="container py-5">
+    <div className="container py-2">
       {/* Header Section */}
 
       {/* Tools Grid */}
       <div className="row g-4">
         {tools.map((tool, index) => (
-          <div className="col-md-6 col-lg-4" key={index}>
-            <div className="card shadow-sm border-0 h-100">
-              <div className="card-body d-flex flex-column">
-                <div
-                  className={`d-flex hero-gradient align-items-center justify-content-center text-white rounded mb-3`}
-                  style={{ width: "60px", height: "60px", fontSize: "1.8rem" }}
-                >
-                  <img alt="tool-icon" width={50} height={50} src={tool.icon} />
-                </div>
-                <h5 className="fw-semibold text-dark mb-2">{tool.title}</h5>
-                <p className="text-muted small flex-grow-1">
-                  {tool.description}
-                </p>
-                <button
-                  onClick={() => {
-                    navigate(tool.key);
-                  }}
-                  className="btn hero-gradient btn-primary mt-3 align-self-start"
-                >
-                  Use Tool →
-                </button>
+          <div key={index} className="col-md-6 col-lg-4">
+            <div className="category-card h-100 p-4 text-center rounded">
+              <div
+                className="hero-gradient d-inline-flex align-items-center  justify-content-center bg-light rounded mb-3"
+                style={{ width: "64px", height: "64px" }}
+              >
+                <img alt="tool-icon" width={50} height={50} src={tool.icon} />
               </div>
+              <h5 className="fw-semibold text-dark mb-2">{tool.title}</h5>
+              <p className="text-muted small flex-grow-1">{tool.description}</p>
+              <button
+                onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                  navigate(tool.key);
+                }}
+                className="btn hero-gradient btn-primary mt-3 align-self-end"
+              >
+                Use Tool →
+              </button>
             </div>
           </div>
         ))}

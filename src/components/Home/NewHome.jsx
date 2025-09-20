@@ -4,9 +4,8 @@ import { useState } from "react";
 import { ImageIcon, Video, Music, FileText, Archive,MoreHorizontal } from "lucide-react";
 import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/NewSearchBar";
 import { useNavigate } from "react-router-dom";
-import PlaceholderImageGenerator from "../PlaceholderGenerator/PlaceholderGenerator";
 import ToolsSection from "../ToolsSection";
 
 export default function NewHome() {
