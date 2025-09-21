@@ -8,7 +8,7 @@ import SampleDocument from "../components/SampleDocument/SampleDocument";
 import ConvertPngToJpg from "../components/ConvertPngToJpg/ConvertPngToJpg";
 import NewHome from "../components/Home/NewHome";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
-import SampleOthers from "../components/SampleOthers/SampleOthers";
+import SampleCode from "../components/SampleCode/SampleCode";
 import PlaceholderImageGenerator from "../components/PlaceholderImageGenerator/PlaceholderImageGenerator";
 
 const AppRoutes = () => {
@@ -27,8 +27,8 @@ const AppRoutes = () => {
         <Route path="sample-documents/:filePath" element={<SampleDocument />} />
         <Route path="sample-archives/" element={<SampleArchives />} />
         <Route path="sample-archives/:filePath" element={<SampleArchives />} />
-        <Route path="sample-others/" element={<SampleOthers />} />
-        <Route path="sample-others/:filePath" element={<SampleOthers />} />
+        <Route path="sample-code/" element={<SampleCode />} />
+        <Route path="sample-code/:filePath" element={<SampleCode />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
         <Route path="placeholder-image-generator" element={<PlaceholderImageGenerator />} />
 

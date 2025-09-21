@@ -11,14 +11,18 @@ import { db } from "../../App";
 import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import  { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMetaData, otherTabData as tabData, updatedDatabaseKey } from "../../utils/Constant";
+import {
+  getMetaData,
+  codeTabData as tabData,
+  updatedDatabaseKey,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 
-const SampleOthers = () => {
+const SampleCode = () => {
   const { filePath } = useParams();
   const fileType = filePath?.split("-").pop() || tabData[0]?.key;
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
@@ -73,20 +77,27 @@ const SampleOthers = () => {
 
   // Update activeTab if fileType param changes
   useEffect(() => {
-
     if (!fileType) return;
-    setActiveTab(fileType);
+
+    if (fileType === "javascript") {
+      setActiveTab("js");
+    } else if (fileType === "ruby") {
+      setActiveTab("rb");
+    } else if (fileType === "python") {
+      setActiveTab("py");
+    } else {
+      setActiveTab(fileType);
+    }
   }, [fileType]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
     if (activeTab) fetchFiles(activeTab);
-
     const basePath = getBasePath(activeTab);
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
-      navigate("/sample-others/sample-xml");
+      navigate("/sample-code/sample-xml");
     }
 
     document.title = metaData.title;
@@ -224,4 +235,4 @@ const SampleOthers = () => {
   );
 };
 
-export default SampleOthers;
+export default SampleCode;

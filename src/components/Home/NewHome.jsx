@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ImageIcon, Video, Music, FileText, Archive,MoreHorizontal } from "lucide-react";
+import {
+  ImageIcon,
+  Video,
+  Music,
+  FileText,
+  Archive,
+  MoreHorizontal,
+} from "lucide-react";
 import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
 import SearchBar from "../SearchBar/NewSearchBar";
@@ -50,7 +57,7 @@ export default function NewHome() {
       icon: FileText,
       title: "Documents",
       description:
-        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF for testing",
+        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, CSV for testing",
       downloads: "520+",
       color: "text-white",
       bgDownload: "bg-danger-subtle",
@@ -67,10 +74,10 @@ export default function NewHome() {
       textDownload: "text-warning-emphasis",
     },
     {
-      key: "others",
+      key: "code",
       icon: MoreHorizontal,
-      title: "Others",
-      description: "Miscellaneous file formats: CSV, JSON, XML, and more",
+      title: "Code",
+      description: "Miscellaneous file formats: HTML, PHP, JSON, C, C++, RUBY, JS, YAML, PYTHON, BAT, JAVA, XML, and more",
       downloads: "10+",
       color: "text-white",
       bgDownload: "bg-primary-subtle",
@@ -78,7 +85,7 @@ export default function NewHome() {
     },
   ];
 
-   const tools = [
+  const tools = [
     {
       key: "images-converter",
       icon: ImageIcon,
@@ -103,7 +110,8 @@ export default function NewHome() {
       key: "qr-code-generator",
       icon: Music,
       title: "QR Code Generator",
-      description: "Generate QR codes for URLs, text, and more. Customize colors and sizes.",
+      description:
+        "Generate QR codes for URLs, text, and more. Customize colors and sizes.",
       color: "text-white",
       bgDownload: "bg-success-subtle",
       textDownload: "text-success-emphasis",
@@ -191,7 +199,6 @@ export default function NewHome() {
             </h3>
 
             <div className="text-center text-black my-2 px-3 px-md-5">
-              
               <h3 className="text-muted-custom lead">
                 Find the perfect sample files for your projects across different
                 categories. Perfect for developers, testers, educators, and
@@ -244,10 +251,11 @@ export default function NewHome() {
           <div className="text-center mb-5">
             <h2 className="display-6 fw-bold mb-3">Developer Tools</h2>
             <h3 className="text-muted-custom lead">
-           Essential utilities for developers and designers. 
+              Essential utilities for developers and designers.
             </h3>
             <h3 className="text-muted-custom lead">
-           Convert, compress, generate, and optimize your digital assets with our collection of professional tools.
+              Convert, compress, generate, and optimize your digital assets with
+              our collection of professional tools.
             </h3>
 
             {/* <div className="text-center text-black my-2 px-3 px-md-5">
@@ -259,12 +267,10 @@ export default function NewHome() {
               </h3>
             </div> */}
           </div>
-      <ToolsSection/>
-
-       
+          <ToolsSection />
         </div>
       </section>
-          <AboutUs />
+      <AboutUs />
       <section id={"faq"} className="py-5 bg-muted-custom">
         <div className="container">
           <div className="row justify-content-center">
@@ -277,7 +283,7 @@ export default function NewHome() {
                   Everything you need to know about our sample files
                 </p>
               </div>
-  
+
               <div className="accordion" id="faqAccordion">
                 {faqs.map((faq, index) => (
                   <div
@@ -311,4 +317,3 @@ export default function NewHome() {
     </div>
   );
 }
-

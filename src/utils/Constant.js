@@ -34,6 +34,7 @@ export const documentTabData = [
   { key: "ppt", title: "PPT" },
   { key: "pptx", title: "PPTX" },
   { key: "txt", title: "TXT" },
+  { key: "csv", title: "CSV" },
 ];
 
 export const audioTabData = [
@@ -50,12 +51,22 @@ export const archiveTabData = [
   { key: "tar", title: "TAR" },
 ];
 
-export const otherTabData = [
+export const codeTabData = [
   { key: "xml", title: "XML" },
   { key: "json", title: "JSON" },
-  { key: "csv", title: "CSV" },
+  { key: "php", title: "PHP" },
+  { key: "js", title: "JAVASCRIPT" },
+  { key: "java", title: "JAVA" },
+  { key: "bat", title: "BAT" },
+  { key: "rb", title: "RUBY" },
+  { key: "c", title: "C" },
+  { key: "cpp", title: "C++" },
+  { key: "html", title: "HTML" },
+  { key: "yaml", title: "YAML" },
+  { key: "py", title: "PYTHON" },
 ];
 
+// Use to navigate on the particular path as per the file type
 export const fileTypeToBasePath = {
   // Images
   jpg: "/sample-images/sample-jpg",
@@ -94,6 +105,7 @@ export const fileTypeToBasePath = {
   ppt: "/sample-documents/sample-ppt",
   pptx: "/sample-documents/sample-pptx",
   txt: "/sample-documents/sample-txt",
+  csv: "/sample-documents/sample-csv",
 
   // Archives
   zip: "/sample-archives/sample-zip",
@@ -101,10 +113,19 @@ export const fileTypeToBasePath = {
   "7z": "/sample-archives/sample-7z",
   tar: "/sample-archives/sample-tar",
 
-  //others
-  xml: "/sample-others/sample-xml",
-  json: "/sample-others/sample-json",
-  csv: "/sample-others/sample-csv",
+  //code
+  xml: "/sample-code/sample-xml",
+  json: "/sample-code/sample-json",
+  java: "/sample-code/sample-java",
+  php: "/sample-code/sample-php",
+  js: "/sample-code/sample-javascript",
+  bat: "/sample-code/sample-bat",
+  rb: "/sample-code/sample-ruby",
+  c: "/sample-code/sample-c",
+  cpp: "/sample-code/sample-cpp",
+  py: "/sample-code/sample-python",
+  html: "/sample-code/sample-html",
+  yaml: "/sample-code/sample-yaml",
 };
 
 export const getMetaData = (fileType) => {
@@ -112,7 +133,7 @@ export const getMetaData = (fileType) => {
     // ----------------- Images -----------------
     case "jpg":
       return {
-        title: "Sample jpg Image Download - Free Sample Files",
+        title: "Sample jpg image download - Free Sample Files",
         description:
           "Download a sample JPG image file for testing and development. High-quality JPEG format image available for free.",
         keywords:
@@ -130,7 +151,7 @@ export const getMetaData = (fileType) => {
       };
     case "png":
       return {
-        title: "Sample png Image Download - Free Sample Files",
+        title: "Sample png image download - Free Sample Files",
         description:
           "Download a sample PNG image file for testing projects, design, and software. Free PNG sample available instantly.",
         keywords:
@@ -144,7 +165,7 @@ export const getMetaData = (fileType) => {
       };
     case "webp":
       return {
-        title: "Sample webp Image Download - Free Sample Files",
+        title: "Sample webp image download - Free Sample Files",
         description:
           "Get a sample WEBP image file for testing and optimization. Free WEBP format download provided.",
         keywords:
@@ -155,7 +176,7 @@ Whether building a blog, e-commerce platform, or complex <strong>web application
       };
     case "svg":
       return {
-        title: "Sample svg image Download - Free Sample Files",
+        title: "Sample svg image download - Free Sample Files",
         description:
           "Download a sample SVG vector image file for testing in web and design projects. Scalable vector graphic format.",
         keywords: "sample svg, svg download, vector svg file, free svg example",
@@ -190,59 +211,55 @@ They are particularly useful for <strong>archiving original graphics</strong> an
       };
     case "psd":
       return {
-       title: "Sample PSD file Download - Free Photoshop Sample Files",
-description:
-  "Download a sample PSD file for Adobe Photoshop testing, design projects, and image editing. Free PSD sample.",
-keywords:
-  "sample psd, psd file download, photoshop file example, layered psd sample, psd test file",
-bodyText: `<p><strong>PSD (Photoshop Document)</strong> is the native <strong>file format</strong> of <strong>Adobe Photoshop</strong>, designed for <strong>graphic design, digital art, and advanced image editing</strong>. A PSD file can store multiple layers, effects, text, and image adjustments, allowing professionals to create and refine projects with flexibility.</p>
+        title: "Sample PSD file Download - Free Photoshop Sample Files",
+        description:
+          "Download a sample PSD file for Adobe Photoshop testing, design projects, and image editing. Free PSD sample.",
+        keywords:
+          "sample psd, psd file download, photoshop file example, layered psd sample, psd test file",
+        bodyText: `<p><strong>PSD (Photoshop Document)</strong> is the native <strong>file format</strong> of <strong>Adobe Photoshop</strong>, designed for <strong>graphic design, digital art, and advanced image editing</strong>. A PSD file can store multiple layers, effects, text, and image adjustments, allowing professionals to create and refine projects with flexibility.</p>
 
 <p>With support for <strong>high-resolution graphics, transparency, and non-destructive editing</strong>, PSD files are essential for <strong>web designers, UI/UX developers, photographers, and artists</strong>. The format also supports integration with other Adobe Creative Cloud tools, making it an industry standard for creative workflows.</p>
 
-<p>Download <strong>free PSD sample files</strong> from our site to test Photoshop features, try new templates, or experiment with design concepts. Perfect for anyone learning or working in <strong>graphic design and digital illustration</strong>.</p>`
-
+<p>Download <strong>free PSD sample files</strong> from our site to test Photoshop features, try new templates, or experiment with design concepts. Perfect for anyone learning or working in <strong>graphic design and digital illustration</strong>.</p>`,
       };
     case "heic":
       return {
-       title: "Sample HEIC Image Download - Free HEIC Sample Files",
-description:
-  "Download a sample HEIC image file for testing modern formats and iOS compatibility. Free HEIC sample.",
-keywords:
-  "sample heic, heic file download, high efficiency image format, apple heic sample file",
-bodyText: `<p><strong>HEIC (High Efficiency Image Coding)</strong> is a modern <strong>image format</strong> designed to store high-quality images in smaller file sizes. Introduced by <strong>Apple in iOS 11</strong> and based on the HEIF standard, <strong>HEIC files</strong> offer advanced compression techniques, allowing images to maintain exceptional detail while using significantly less storage space compared to JPEG or PNG.</p>
+        title: "Sample HEIC image download - Free HEIC Sample Files",
+        description:
+          "Download a sample HEIC image file for testing modern formats and iOS compatibility. Free HEIC sample.",
+        keywords:
+          "sample heic, heic file download, high efficiency image format, apple heic sample file",
+        bodyText: `<p><strong>HEIC (High Efficiency Image Coding)</strong> is a modern <strong>image format</strong> designed to store high-quality images in smaller file sizes. Introduced by <strong>Apple in iOS 11</strong> and based on the HEIF standard, <strong>HEIC files</strong> offer advanced compression techniques, allowing images to maintain exceptional detail while using significantly less storage space compared to JPEG or PNG.</p>
 
 <p>HEIC files are widely used on <strong>iPhones, iPads, and macOS</strong> devices, making them ideal for <strong>mobile photography, digital albums, and high-resolution image sharing</strong>. With support for features like <strong>16-bit color depth, transparency, and live photos</strong>, HEIC is a powerful choice for modern image workflows.</p>
 
-<p>Download <strong>free HEIC sample files</strong> from our website to test compatibility, software performance, and file conversions. This format is perfect for developers, designers, and photographers working with <strong>next-generation image standards</strong>.</p>`
-
+<p>Download <strong>free HEIC sample files</strong> from our website to test compatibility, software performance, and file conversions. This format is perfect for developers, designers, and photographers working with <strong>next-generation image standards</strong>.</p>`,
       };
     case "tiff":
       return {
-       title: "Sample TIFF file Download - Free TIFF Sample Files",
-description:
-  "Download a sample TIFF image file for high-quality print and archival purposes. Free TIFF sample.",
-keywords:
-  "sample tiff, tiff file download, tiff image example, high-quality image format, tiff test file",
-bodyText: `<p><strong>TIFF (Tagged Image File Format)</strong> is a professional-grade <strong>image format</strong> widely used for <strong>high-resolution printing, scanning, and archiving</strong>. Developed in the mid-1980s by Aldus (later Adobe), <strong>TIFF files</strong> are highly versatile, supporting both <strong>lossless compression</strong> and uncompressed storage, ensuring superior image fidelity.</p>
+        title: "Sample TIFF file download - Free TIFF Sample Files",
+        description:
+          "Download a sample TIFF image file for high-quality print and archival purposes. Free TIFF sample.",
+        keywords:
+          "sample tiff, tiff file download, tiff image example, high-quality image format, tiff test file",
+        bodyText: `<p><strong>TIFF (Tagged Image File Format)</strong> is a professional-grade <strong>image format</strong> widely used for <strong>high-resolution printing, scanning, and archiving</strong>. Developed in the mid-1980s by Aldus (later Adobe), <strong>TIFF files</strong> are highly versatile, supporting both <strong>lossless compression</strong> and uncompressed storage, ensuring superior image fidelity.</p>
 
 <p>TIFF is a standard format for <strong>graphic designers, photographers, and publishers</strong> because it retains exact image details, making it ideal for <strong>image editing, document scanning, and pre-press workflows</strong>.</p>
 
-<p>You can <strong>download free TIFF sample files</strong> from our site for software testing, quality checks, and professional use. This format is essential for those working with <strong>high-quality digital imaging</strong>.</p>`
-
+<p>You can <strong>download free TIFF sample files</strong> from our site for software testing, quality checks, and professional use. This format is essential for those working with <strong>high-quality digital imaging</strong>.</p>`,
       };
     case "ico":
       return {
-      title: "Sample ICO file Download - Free Icon Sample Files",
-description:
-  "Download a sample ICO file for app and web icon testing. Free ICO sample.",
-keywords:
-  "sample ico, ico file download, icon file example, windows icon sample, favicon test file",
-bodyText: `<p><strong>ICO (Icon File)</strong> is a lightweight <strong>image format</strong> used to store <strong>icons for software, applications, and websites</strong>. Originally introduced for <strong>Microsoft Windows</strong>, ICO files can contain multiple image sizes and color depths within a single file, making them perfect for scalable icons.</p>
+        title: "Sample ICO file download - Free Icon Sample Files",
+        description:
+          "Download a sample ICO file for app and web icon testing. Free ICO sample.",
+        keywords:
+          "sample ico, ico file download, icon file example, windows icon sample, favicon test file",
+        bodyText: `<p><strong>ICO (Icon File)</strong> is a lightweight <strong>image format</strong> used to store <strong>icons for software, applications, and websites</strong>. Originally introduced for <strong>Microsoft Windows</strong>, ICO files can contain multiple image sizes and color depths within a single file, making them perfect for scalable icons.</p>
 
 <p>This format is widely used for <strong>favicons, desktop shortcuts, and app branding</strong>, ensuring a professional and consistent appearance across devices. ICO files are small yet versatile, supporting resolutions from 16x16 to 256x256 pixels or more.</p>
 
-<p>Download <strong>free ICO sample files</strong> from our website to test web design, software development, or icon rendering in different environments. Ideal for <strong>developers, designers, and branding professionals</strong>.</p>`
-
+<p>Download <strong>free ICO sample files</strong> from our website to test web design, software development, or icon rendering in different environments. Ideal for <strong>developers, designers, and branding professionals</strong>.</p>`,
       };
 
     // ----------------- Videos -----------------
@@ -365,7 +382,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
     // ----------------- Documents -----------------
     case "pdf":
       return {
-        title: "Sample pdf document - Free pdf Files for Testing",
+        title: "Sample pdf file - Free pdf Files for Testing",
         description:
           "Download a sample PDF document for testing. Free sample PDF file provided instantly.",
         keywords:
@@ -440,7 +457,7 @@ You can <strong>download PPTX files free from our website</strong>, making them 
       };
     case "doc":
       return {
-        title: "Sample doc file download - Free .doc Files for Testing",
+        title: "Sample doc file  - Free .doc Files for Testing",
         description:
           "Download a sample DOC Word file for testing. Free DOC file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -459,7 +476,7 @@ You can <strong>download PPTX files free from our website</strong>, making them 
 
     case "docx":
       return {
-        title: "Sample docx file download- Free .docx Files for Testing",
+        title: "Sample docx file - Free .docx Files for Testing",
         description:
           "Download a sample DOCX Word file for testing. Free DOCX file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -507,7 +524,7 @@ You can <strong>download DOCX files free from our website</strong>, making them 
 
     case "txt":
       return {
-        title: "Sample text file Download",
+        title: "Sample text file",
         description:
           "Free sample TXT text file for testing plain text support. Download instantly.",
         keywords: "sample txt, txt download, txt file example, free txt",
@@ -530,86 +547,211 @@ You can <strong>download ZIP files free from our website</strong>, making them a
       };
     case "7z":
       return {
-    title: "Sample 7Z File Download - Free 7-Zip Sample Files",
-description:
-  "Download a sample 7Z compressed archive for testing extraction, compression tools, and file handling. Free 7Z sample.",
-keywords:
-  "sample 7z, 7z file download, 7-zip archive example, compressed 7z sample file, test 7z format",
-bodyText: `<p><strong>7Z (7-Zip Archive)</strong> is a <strong>compressed file format</strong> developed by Igor Pavlov for the <strong>7-Zip utility</strong>. Known for its <strong>high compression ratio</strong> and support for large files, <strong>7Z files</strong> are widely used for packaging and transferring data efficiently.</p>
+        title: "Sample 7Z File Download - Free 7-Zip Sample Files",
+        description:
+          "Download a sample 7Z compressed archive for testing extraction, compression tools, and file handling. Free 7Z sample.",
+        keywords:
+          "sample 7z, 7z file download, 7-zip archive example, compressed 7z sample file, test 7z format",
+        bodyText: `<p><strong>7Z (7-Zip Archive)</strong> is a <strong>compressed file format</strong> developed by Igor Pavlov for the <strong>7-Zip utility</strong>. Known for its <strong>high compression ratio</strong> and support for large files, <strong>7Z files</strong> are widely used for packaging and transferring data efficiently.</p>
 
 <p>7Z supports advanced compression methods, <strong>AES-256 encryption</strong>, and multi-volume archives, making it a reliable choice for <strong>secure data storage and distribution</strong>. Compared to ZIP or RAR, 7Z files often achieve smaller sizes without sacrificing data integrity.</p>
 
-<p>You can <strong>download free 7Z sample files</strong> from our site to test extraction tools, verify software compatibility, or evaluate performance. Ideal for <strong>developers, QA testers, and IT professionals</strong>.</p>`
+<p>You can <strong>download free 7Z sample files</strong> from our site to test extraction tools, verify software compatibility, or evaluate performance. Ideal for <strong>developers, QA testers, and IT professionals</strong>.</p>`,
       };
     case "tar":
       return {
-      title: "Sample TAR File  - Download TAR Archive Sample",
-description:
-  "Download a sample TAR archive file for Linux, Unix, and backup testing. Free TAR sample.",
-keywords:
-  "sample tar, tar file download, unix tar archive, linux tarball example, tar test file",
-bodyText: `<p><strong>TAR (Tape Archive)</strong> is a standard <strong>archiving format</strong> commonly used in <strong>Linux and Unix</strong> systems. TAR files (also called <strong>tarballs</strong>) are designed to package multiple files into a single archive without applying compression.</p>
+        title: "Sample TAR File - Download TAR Archive Sample",
+        description:
+          "Download a sample TAR archive file for Linux, Unix, and backup testing. Free TAR sample.",
+        keywords:
+          "sample tar, tar file download, unix tar archive, linux tarball example, tar test file",
+        bodyText: `<p><strong>TAR (Tape Archive)</strong> is a standard <strong>archiving format</strong> commonly used in <strong>Linux and Unix</strong> systems. TAR files (also called <strong>tarballs</strong>) are designed to package multiple files into a single archive without applying compression.</p>
 
 <p>Often combined with <strong>Gzip (tar.gz) or Bzip2 (tar.bz2)</strong>, TAR is essential for <strong>backups, software distribution, and source code packaging</strong>. It preserves file system attributes like permissions and directory structures, making it highly reliable for system administration.</p>
 
-<p>You can <strong>download free TAR sample files</strong> from our site to test extraction commands, evaluate backup tools, or check software compatibility. A must-have for <strong>developers, DevOps engineers, and system admins</strong>.</p>`
-
+<p>You can <strong>download free TAR sample files</strong> from our site to test extraction commands, evaluate backup tools, or check software compatibility. A must-have for <strong>developers, DevOps engineers, and system admins</strong>.</p>`,
       };
     case "rar":
       return {
-       title: "Sample RAR File - Free RAR Sample Archives",
-description:
-  "Download a sample RAR archive file for testing extraction and compression. Free RAR sample.",
-keywords:
-  "sample rar, rar file download, rar archive example, winrar sample file, test rar compression",
-bodyText: `<p><strong>RAR (Roshal Archive)</strong> is a popular <strong>compressed file format</strong> created by Eugene Roshal and commonly used with <strong>WinRAR</strong>. Known for <strong>strong compression</strong> and advanced features like <strong>error recovery</strong> and <strong>password protection</strong>, RAR files are widely used for packaging large datasets, software, and media files.</p>
+        title: "Sample RAR File - Free RAR Sample Archives",
+        description:
+          "Download a sample RAR archive file for testing extraction and compression. Free RAR sample.",
+        keywords:
+          "sample rar, rar file download, rar archive example, winrar sample file, test rar compression",
+        bodyText: `<p><strong>RAR (Roshal Archive)</strong> is a popular <strong>compressed file format</strong> created by Eugene Roshal and commonly used with <strong>WinRAR</strong>. Known for <strong>strong compression</strong> and advanced features like <strong>error recovery</strong> and <strong>password protection</strong>, RAR files are widely used for packaging large datasets, software, and media files.</p>
 
 <p>Unlike standard ZIP files, <strong>RAR archives</strong> often provide better compression ratios, making them ideal for efficient file sharing. They also support <strong>multi-part splitting</strong>, which helps in distributing large files across multiple volumes.</p>
 
-<p>Download <strong>free RAR sample files</strong> from our website to test extraction, compatibility, and software handling. Perfect for <strong>developers, IT professionals, and students</strong> working with compressed archives.</p>`
-
+<p>Download <strong>free RAR sample files</strong> from our website to test extraction, compatibility, and software handling. Perfect for <strong>developers, IT professionals, and students</strong> working with compressed archives.</p>`,
       };
     case "json":
       return {
-    title: "Sample JSON File - Free JSON Sample Data",
-description:
-  "Download a sample JSON file for API testing, software development, and structured data analysis. Free JSON sample.",
-keywords:
-  "sample json, json file download, json data example, api json test file, structured json format",
-bodyText: `<p><strong>JSON (JavaScript Object Notation)</strong> is a lightweight <strong>data format</strong> used to represent structured information in a simple, text-based form. It has become the most popular choice for <strong>APIs, web applications, and modern software development</strong>.</p>
+        title: "Sample JSON File - Free JSON Sample Data",
+        description:
+          "Download a sample JSON file for API testing, software development, and structured data analysis. Free JSON sample.",
+        keywords:
+          "sample json, json file download, json data example, api json test file, structured json format",
+        bodyText: `<p><strong>JSON (JavaScript Object Notation)</strong> is a lightweight <strong>data format</strong> used to represent structured information in a simple, text-based form. It has become the most popular choice for <strong>APIs, web applications, and modern software development</strong>.</p>
 
 <p>JSON is easy to read and write, with a <strong>key-value pair structure</strong> that makes it ideal for <strong>configuration files, API requests/responses, and database storage</strong>. It is supported across virtually all programming languages, making it highly versatile.</p>
 
-<p>You can <strong>download free JSON sample files</strong> from our site to test data handling, simulate API responses, or practice coding with structured data. Perfect for <strong>developers, QA testers, and learners</strong>.</p>`
-
+<p>You can <strong>download free JSON sample files</strong> from our site to test data handling, simulate API responses, or practice coding with structured data. Perfect for <strong>developers, QA testers, and learners</strong>.</p>`,
       };
     case "xml":
       return {
-       title: "Sample XML File - Free XML Sample Files",
-description:
-  "Download a sample XML file for testing structured data, parsing, and software integration. Free XML sample.",
-keywords:
-  "sample xml, xml file download, xml data example, structured data xml, test xml format",
-bodyText: `<p><strong>XML (Extensible Markup Language)</strong> is a widely used <strong>data format</strong> for representing structured information. It uses <strong>tag-based syntax</strong> to describe data in a way that is both <strong>human-readable and machine-readable</strong>.</p>
+        title: "Sample XML File - Free XML Sample Files",
+        description:
+          "Download a sample XML file for testing structured data, parsing, and software integration. Free XML sample.",
+        keywords:
+          "sample xml, xml file download, xml data example, structured data xml, test xml format",
+        bodyText: `<p><strong>XML (Extensible Markup Language)</strong> is a widely used <strong>data format</strong> for representing structured information. It uses <strong>tag-based syntax</strong> to describe data in a way that is both <strong>human-readable and machine-readable</strong>.</p>
 
 <p>XML is commonly applied in <strong>web services, configuration files, document storage, and data exchange</strong> between applications. Its flexibility makes it a cornerstone in industries like finance, healthcare, and enterprise software systems.</p>
 
-<p>Download <strong>free XML sample files</strong> from our website to test parsing, API responses, or software compatibility. Perfect for <strong>developers, students, and testers</strong> working with structured data.</p>`
-
+<p>Download <strong>free XML sample files</strong> from our website to test parsing, API responses, or software compatibility. Perfect for <strong>developers, students, and testers</strong> working with structured data.</p>`,
       };
     case "csv":
       return {
-      title: "Sample CSV File - Free CSV Sample Data",
-description:
-  "Download a sample CSV file for spreadsheet testing, data analysis, and database import. Free CSV sample.",
-keywords:
-  "sample csv, csv file download, csv data example, excel csv test file, comma separated values sample",
-bodyText: `<p><strong>CSV (Comma-Separated Values)</strong> is a simple <strong>data format</strong> used for storing <strong>tabular data</strong> in plain text. Each line in a CSV file represents a row, with values separated by commas, making it compatible with <strong>spreadsheets, databases, and programming languages</strong>.</p>
+        title: "Sample CSV File - Free CSV Sample Data",
+        description:
+          "Download a sample CSV file for spreadsheet testing, data analysis, and database import. Free CSV sample.",
+        keywords:
+          "sample csv, csv file download, csv data example, excel csv test file, comma separated values sample",
+        bodyText: `<p><strong>CSV (Comma-Separated Values)</strong> is a simple <strong>data format</strong> used for storing <strong>tabular data</strong> in plain text. Each line in a CSV file represents a row, with values separated by commas, making it compatible with <strong>spreadsheets, databases, and programming languages</strong>.</p>
 
 <p>CSV is widely used for <strong>data analysis, machine learning, reporting, and data migration</strong>. It is supported by applications like <strong>Microsoft Excel, Google Sheets, Python, and SQL databases</strong>, making it a universal choice for structured data exchange.</p>
 
-<p>Download <strong>free CSV sample files</strong> from our website to test imports, verify data processing scripts, or practice analysis. A go-to format for <strong>students, analysts, and developers</strong>.</p>`
+<p>Download <strong>free CSV sample files</strong> from our website to test imports, verify data processing scripts, or practice analysis. A go-to format for <strong>students, analysts, and developers</strong>.</p>`,
+      };
+    case "html":
+      return {
+        title: "Sample HTML File  - Free HTML Example Code",
+        description:
+          "Download a sample HTML file for web development practice and browser testing. Free HTML sample.",
+        keywords:
+          "sample html, html file download, html example code, web development sample, test html file",
+        bodyText: `<p><strong>HTML (HyperText Markup Language)</strong> is the core <strong>markup language</strong> for creating and structuring web pages. Every website relies on HTML to define headings, paragraphs, links, images, and other page elements.</p>
 
+<p>HTML files are essential for <strong>web developers, students, and testers</strong> learning how to build websites. Combined with CSS and JavaScript, it powers modern web experiences across all devices and browsers.</p>
+
+<p>Download <strong>free HTML sample files</strong> from our site to practice coding, test browser rendering, or experiment with design layouts. Perfect for anyone learning <strong>web design and development</strong>.</p>`,
+      };
+    case "bat":
+      return {
+        title: "Sample BAT File Download - Free Windows Batch Script",
+        description:
+          "Download a sample BAT batch file for Windows scripting and automation testing. Free BAT sample.",
+        keywords:
+          "sample bat, bat file download, windows batch script example, command line bat file, test bat automation",
+        bodyText: `<p><strong>BAT (Batch File)</strong> is a <strong>script file</strong> for Windows operating systems, containing a series of commands executed by the <strong>Command Prompt (CMD)</strong>. BAT files are commonly used for <strong>automation, task scheduling, and system configuration</strong>.</p>
+
+<p>Developers and IT administrators rely on BAT files to streamline processes such as <strong>file backups, software installations, and command execution</strong>. They provide a fast and efficient way to handle repetitive tasks.</p>
+
+<p>You can <strong>download free BAT sample files</strong> from our website to test scripts, learn Windows automation, or build your own workflows. Ideal for <strong>system admins, QA testers, and learners</strong>.</p>`,
+      };
+    case "c":
+      return {
+        title: "Sample C File  - Free C Program Example",
+        description:
+          "Download a sample C file with source code for learning programming and compiler testing. Free C sample.",
+        keywords:
+          "sample c, c file download, c program example, c source code sample, test c language",
+        bodyText: `<p><strong>C Language</strong> is a powerful, general-purpose <strong>programming language</strong> developed in the early 1970s by Dennis Ritchie. It is widely used for <strong>system programming, embedded systems, and operating systems</strong>.</p>
+
+<p>C source code files use the <strong>.c extension</strong> and are compiled into machine code for execution. Its simplicity, efficiency, and portability have made C a foundation for many modern programming languages.</p>
+
+<p>Download <strong>free C sample files</strong> from our site to practice coding, test compilers, or learn low-level programming concepts. Perfect for <strong>students, developers, and software engineers</strong>.</p>`,
+      };
+    case "cpp":
+      return {
+        title: "Sample C++ File Download - Free C++ Program Example",
+        description:
+          "Download a sample C++ source code file for OOP learning, compiler testing, and coding practice. Free C++ sample.",
+        keywords:
+          "sample cpp, c++ file download, c++ program example, cpp source code sample, test c++ code",
+        bodyText: `<p><strong>C++</strong> is a versatile <strong>programming language</strong> developed by Bjarne Stroustrup as an extension of C. It supports <strong>object-oriented programming (OOP)</strong>, making it suitable for <strong>software development, game engines, and system-level applications</strong>.</p>
+
+<p>C++ source code files typically use the <strong>.cpp extension</strong> and allow developers to work with classes, inheritance, and polymorphism. Its speed and flexibility have made it a favorite for high-performance applications.</p>
+
+<p>You can <strong>download free C++ sample files</strong> from our website to test compilers, practice coding, or explore advanced programming techniques. Ideal for <strong>students, developers, and programmers</strong>.</p>`,
+      };
+    case "py":
+      return {
+        title: "Sample Python File  - Free Python Script Example",
+        description:
+          "Download a sample Python script file for coding practice, automation, and software testing. Free Python sample.",
+        keywords:
+          "sample python, python file download, python script example, py file sample, test python code",
+        bodyText: `<p><strong>Python</strong> is a high-level <strong>programming language</strong> known for its readability and versatility. Created by Guido van Rossum, it is widely used for <strong>web development, automation, data science, AI, and scripting</strong>.</p>
+
+<p>Python files use the <strong>.py extension</strong> and can run on multiple platforms with ease. Its simplicity makes it a top choice for both beginners and experienced developers.</p>
+
+<p>Download <strong>free Python sample files</strong> from our site to test code execution, practice programming, or build automation workflows. Perfect for <strong>learners, developers, and data analysts</strong>.</p>`,
+      };
+    case "rb":
+      return {
+        title: "Sample Ruby File  - Free Ruby Script Example",
+        description:
+          "Download a sample Ruby script file for coding practice and software testing. Free Ruby sample.",
+        keywords:
+          "sample ruby, ruby file download, ruby script example, rb file sample, test ruby code",
+        bodyText: `<p><strong>Ruby</strong> is a dynamic, object-oriented <strong>programming language</strong> designed for simplicity and productivity. Created by Yukihiro Matsumoto, Ruby emphasizes human-friendly syntax and is widely used in <strong>web development</strong>, especially with the <strong>Ruby on Rails framework</strong>.</p>
+
+<p>Ruby files typically use the <strong>.rb extension</strong> and are great for <strong>automation, web apps, and scripting</strong>. Its elegant syntax makes it easy for beginners while offering powerful features for experts.</p>
+
+<p>You can <strong>download free Ruby sample files</strong> from our site to test scripts, learn coding basics, or explore web application development. Ideal for <strong>students, developers, and Ruby enthusiasts</strong>.</p>`,
+      };
+    case "js":
+      return {
+        title: "Sample JavaScript File Download - Free JS Script Example",
+        description:
+          "Download a sample JavaScript file for web development, testing, and learning. Free JS sample.",
+        keywords:
+          "sample javascript, js file download, javascript example code, script sample file, test js file",
+        bodyText: `<p><strong>JavaScript</strong> is the most widely used <strong>programming language</strong> for building interactive websites and web applications. It runs directly in the browser, making it essential for <strong>frontend development</strong> and increasingly popular in <strong>backend development</strong> with Node.js.</p>
+
+<p>JavaScript files use the <strong>.js extension</strong> and control dynamic behavior such as animations, form validation, and API interactions. It is the backbone of modern web development.</p>
+
+<p>Download <strong>free JavaScript sample files</strong> from our website to test code snippets, experiment with web projects, or practice programming. Perfect for <strong>students, developers, and web designers</strong>.</p>`,
+      };
+    case "yaml":
+      return {
+        title: "Sample YAML File Download - Free YAML Example",
+        description:
+          "Download a sample YAML configuration file for testing and software development. Free YAML sample.",
+        keywords:
+          "sample yaml, yaml file download, yaml config example, yml sample file, test yaml format",
+        bodyText: `<p><strong>YAML (YAML Ain’t Markup Language)</strong> is a <strong>human-readable data format</strong> often used for <strong>configuration files, DevOps tools, and cloud deployments</strong>. Its simple structure makes it easy to write and understand compared to XML or JSON.</p>
+
+<p>YAML files, with extensions <strong>.yaml</strong> or <strong>.yml</strong>, are widely used in <strong>Kubernetes, Docker, CI/CD pipelines, and application settings</strong>. Its indentation-based structure ensures clean and readable data representation.</p>
+
+<p>You can <strong>download free YAML sample files</strong> from our site to test configurations, validate parsers, or practice DevOps workflows. Perfect for <strong>developers, sysadmins, and cloud engineers</strong>.</p>`,
+      };
+    case "php":
+      return {
+        title: "Sample PHP File Download - Free PHP Script Example",
+        description:
+          "Download a sample PHP file for web development, server-side scripting, and testing. Free PHP sample.",
+        keywords:
+          "sample php, php file download, php script example, php source code sample, test php file",
+        bodyText: `<p><strong>PHP (Hypertext Preprocessor)</strong> is a server-side <strong>scripting language</strong> widely used for <strong>web development</strong>. It powers millions of websites, including popular CMS platforms like <strong>WordPress, Joomla, and Drupal</strong>.</p>
+
+<p>PHP files use the <strong>.php extension</strong> and can generate dynamic web content, connect to databases, and handle server logic. Its flexibility makes it one of the most widely adopted programming languages on the web.</p>
+
+<p>Download <strong>free PHP sample files</strong> from our website to test scripts, practice coding, or experiment with backend development. Great for <strong>students, web developers, and server administrators</strong>.</p>`,
+      };
+    case "java":
+      return {
+        title: "Sample Java File Download - Free Java Program Example",
+        description:
+          "Download a sample Java source code file for learning, compiler testing, and coding practice. Free Java sample.",
+        keywords:
+          "sample java, java file download, java program example, java source code sample, test java file",
+        bodyText: `<p><strong>Java</strong> is a powerful, object-oriented <strong>programming language</strong> developed by Sun Microsystems in the mid-1990s (now owned by Oracle). It is designed with the principle of <strong>“write once, run anywhere”</strong>, thanks to its platform-independent <strong>Java Virtual Machine (JVM)</strong>.</p>
+
+<p>Java files use the <strong>.java extension</strong> and are compiled into bytecode, which can run on any system with a JVM. It is widely used in <strong>enterprise applications, Android development, web applications, and backend services</strong>.</p>
+
+<p>Download <strong>free Java sample files</strong> from our site to test compilers, practice coding, or experiment with object-oriented programming. Perfect for <strong>students, developers, and software engineers</strong> learning Java.</p>`,
       };
 
     case "converter":

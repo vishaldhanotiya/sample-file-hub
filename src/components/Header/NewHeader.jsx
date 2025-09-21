@@ -17,7 +17,7 @@ export default function NewHeader() {
     { path: "sample-audios", label: "Audio" },
     { path: "sample-documents", label: "Documents" },
     { path: "sample-archives", label: "Archives" },
-    { path: "sample-others", label: "Others" },
+    { path: "sample-code", label: "Code" },
     { path: "convert-png-to-jpg", label: "💡Convert PNG → JPG" },
   ];
 

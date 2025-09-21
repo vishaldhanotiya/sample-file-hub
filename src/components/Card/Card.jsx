@@ -29,6 +29,16 @@ import PsdIcon from "../../assets/psd.png";
 import TiffIcon from "../../assets/tiff.png";
 import HeicIcon from "../../assets/heic.png";
 import IcoIcon from "../../assets/ico.png";
+import PyIcon from "../../assets/py.png";
+import JavaIcon from "../../assets/java.png";
+import BatIcon from "../../assets/bat.png";
+import PhpIcon from "../../assets/php.png";
+import JSIcon from "../../assets/js.png";
+import RubyIcon from "../../assets/ruby.png";
+import HtmlIcon from "../../assets/html.png";
+import CIcon from "../../assets/c.png";
+import CppIcon from "../../assets/cpp.png";
+import YamlIcon from "../../assets/yaml.png";
 import {
   trackDownload,
   trackDownloadError,
@@ -63,6 +73,16 @@ const placeholderMap = {
   heic: HeicIcon,
   tiff: TiffIcon,
   ico: IcoIcon,
+  py: PyIcon,
+  java: JavaIcon,
+  php: PhpIcon,
+  bat: BatIcon,
+  html: HtmlIcon,
+  js: JSIcon,
+  rb: RubyIcon,
+  c: CIcon,
+  cpp: CppIcon,
+  yaml: YamlIcon,
 };
 
 const Card = ({
@@ -141,7 +161,7 @@ const Card = ({
     //onClick(file);
     window.open(file.url, "_blank");
   };
-
+  
   return (
     <div>
       <div
