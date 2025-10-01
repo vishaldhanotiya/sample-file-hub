@@ -73,24 +73,29 @@ function VideoThumbnailFromURL({ videoUrl }) {
     };
   }, [videoUrl]);
 
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-    const preview = previewRef.current;
-    if (preview) {
-      preview.currentTime = 0;
-      preview.play().catch(err => {
+ const handleMouseEnter = () => {
+  setIsHovering(true);
+  const preview = previewRef.current;
+  if (preview) {
+    preview.currentTime = 0;
+    preview.play()
+      .then(() => {
+        console.log("Preview is playing");
+      })
+      .catch(err => {
         console.error("Error playing preview:", err);
       });
-    }
-  };
+  }
+};
 
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-    const preview = previewRef.current;
-    if (preview) {
-      preview.pause();
-    }
-  };
+const handleMouseLeave = () => {
+  setIsHovering(false);
+  const preview = previewRef.current;
+  if (preview && !preview.paused) {
+    preview.pause();
+  }
+};
+
 
   if (error) {
     return (
