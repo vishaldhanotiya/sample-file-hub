@@ -1,6 +1,8 @@
 import "./Card.css";
 import { useState } from "react";
 import VideoThumbnailFromURL from "../VideoThumbnailFromURL/VideoThumbnailFromURL";
+import { doc, setDoc, increment } from "@firebase/firestore";
+import { db } from "../../App";
 
 import PdfIcon from "../../assets/pdf.png";
 import PptIcon from "../../assets/ppt.png";
@@ -44,6 +46,14 @@ import {
   trackDownloadError,
   trackMediaView,
 } from "../../utils/Analytics";
+import {
+  allFileType,
+  audioTabData,
+  codeTabData,
+  documentTabData,
+  imageTabData,
+  videoTabData,
+} from "../../utils/Constant";
 
 const placeholderMap = {
   pdf: PdfIcon,
@@ -99,7 +109,13 @@ const Card = ({
 
   const handleDownload = async (url, filename) => {
     try {
-      trackDownload(file.type, file.name, file.format, file.size);
+      trackDownload(
+        file.resourceType,
+        file.displayName,
+        file.format,
+        file.bytes
+      );
+      updateDownloadCount(file);
 
       setProgress(0); // Start progress
       // Clone headers
@@ -161,7 +177,30 @@ const Card = ({
     //onClick(file);
     window.open(file.url, "_blank");
   };
-  
+
+  const updateDownloadCount = async (file) => {
+    const { format } = file;
+    const { resourceType } = allFileType.find((item) => item.key === format);
+
+    if (!format || !resourceType) return;
+    const docRef = doc(db, "downloadCount", "allCategories");
+
+    try {
+      await setDoc(
+        docRef,
+        {
+          totals: { [resourceType]: increment(1) },
+          types: { [format]: increment(1) },
+        },
+        { merge: true }
+      );
+
+      console.log(`${format} download count updated for ${resourceType}`);
+    } catch (err) {
+      console.error("Error updating download count:", err);
+    }
+  };
+
   return (
     <div>
       <div
@@ -264,7 +303,9 @@ const Card = ({
                     zIndex: 1,
                   }}
                 ></div>
-                <span className="fw-semibold" style={{ zIndex: 2 }}>{progress}%</span>
+                <span className="fw-semibold" style={{ zIndex: 2 }}>
+                  {progress}%
+                </span>
               </>
             ) : (
               <>

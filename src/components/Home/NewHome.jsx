@@ -1,150 +1,63 @@
-"use client";
-
-import { useState } from "react";
-import {
-  ImageIcon,
-  Video,
-  Music,
-  FileText,
-  Archive,
-  MoreHorizontal,
-} from "lucide-react";
+import { useState, useEffect } from "react";
 import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
 import SearchBar from "../SearchBar/NewSearchBar";
 import { useNavigate } from "react-router-dom";
 import ToolsSection from "../ToolsSection";
 import AboutUs from "../AboutUs/AboutUs";
+import { collection, getDocs } from "@firebase/firestore";
+import { db } from "../../App";
+import { categories, faqs } from "../../utils/Constant";
 
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
   const navigate = useNavigate();
-  const categories = [
-    {
-      key: "images",
-      icon: ImageIcon,
-      title: "Images",
-      description:
-        "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO",
-      downloads: "250+",
-      color: "text-white",
-      bgDownload: "bg-primary-subtle",
-      textDownload: "text-primary-emphasis",
-    },
-    {
-      key: "videos",
-      icon: Video,
-      title: "Videos",
-      description:
-        "Sample video files for testing: MP4, AVI, MKV, FLV, MOV, WebM formats",
-      downloads: "100+",
-      color: "text-white",
-      bgDownload: "bg-info-subtle",
-      textDownload: "text-info-emphasis",
-    },
-    {
-      key: "audios",
-      icon: Music,
-      title: "Audio",
-      description: "Audio samples in multiple formats: MP3, WAV, AAC, OGG",
-      downloads: "200+",
-      color: "text-white",
-      bgDownload: "bg-success-subtle",
-      textDownload: "text-success-emphasis",
-    },
-    {
-      key: "documents",
-      icon: FileText,
-      title: "Documents",
-      description:
-        "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, CSV for testing",
-      downloads: "520+",
-      color: "text-white",
-      bgDownload: "bg-danger-subtle",
-      textDownload: "text-danger-emphasis",
-    },
-    {
-      key: "archives",
-      icon: Archive,
-      title: "Archives",
-      description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
-      downloads: "20+",
-      color: "text-white",
-      bgDownload: "bg-warning-subtle",
-      textDownload: "text-warning-emphasis",
-    },
-    {
-      key: "code",
-      icon: MoreHorizontal,
-      title: "Code",
-      description: "Miscellaneous file formats: HTML, PHP, JSON, C, C++, RUBY, JS, YAML, PYTHON, BAT, JAVA, XML, and more",
-      downloads: "10+",
-      color: "text-white",
-      bgDownload: "bg-primary-subtle",
-      textDownload: "text-primary-emphasis",
-    },
-  ];
 
-  const tools = [
-    {
-      key: "images-converter",
-      icon: ImageIcon,
-      title: "Images Converter",
-      description:
-        "Convert images between different formats like PNG to JPG, WEBP to PNG, and more. Fast, reliable, and maintains quality.",
-      color: "text-white",
-      bgDownload: "bg-primary-subtle",
-      textDownload: "text-primary-emphasis",
-    },
-    {
-      key: "placeholder-generator",
-      icon: Video,
-      title: "Placeholder Generator",
-      description:
-        "Generate custom placeholder images for your projects. Choose dimensions, colors, and text to create perfect mockup images.",
-      color: "text-white",
-      bgDownload: "bg-info-subtle",
-      textDownload: "text-info-emphasis",
-    },
-    {
-      key: "qr-code-generator",
-      icon: Music,
-      title: "QR Code Generator",
-      description:
-        "Generate QR codes for URLs, text, and more. Customize colors and sizes.",
-      color: "text-white",
-      bgDownload: "bg-success-subtle",
-      textDownload: "text-success-emphasis",
-    },
-  ];
+  const [categoriesData, setCategoriesData] = useState(categories);
+  useEffect(() => {
+    const fetchDownloads = async () => {
+      try {
+        const qBase = collection(db, "downloadCount");
+        const snapshot = await getDocs(qBase);
 
-  const faqs = [
-    {
-      question: "Are all files really free?",
-      answer:
-        "Yes! All sample files on SampleFiles.dev are completely free to download and use. No hidden fees, no registration required.",
-    },
-    {
-      question: "Can I request specific file formats?",
-      answer:
-        'Use the "Request File" button to submit requests for specific file types or formats you need for your projects.',
-    },
-    {
-      question: "Do I need to create an account or sign up?",
-      answer:
-        "No account or signup is required. Simply browse the categories and download the files you need instantly.",
-    },
-    {
-      question: "Is there a limit on how many files I can download?",
-      answer:
-        "No limits! Download as many files as you need, whenever you want.",
-    },
-    {
-      question: "How often are new files added?",
-      answer:
-        "We regularly update our library with new images, videos, audios, and documents to keep our collection fresh and useful.",
-    },
-  ];
+        if (snapshot.empty) return;
+
+        // Initialize category totals
+        const categoryTotals = {
+          images: 0,
+          videos: 0,
+          audios: 0,
+          documents: 0,
+          archives: 0,
+          code: 0,
+        };
+
+        // Loop through all documents and add their totals
+        snapshot.forEach((docSnap) => {
+          const data = docSnap.data();
+
+          const totals = data.totals || {};
+
+          Object.keys(totals).forEach((key) => {
+            if (categoryTotals.hasOwnProperty(key)) {
+              categoryTotals[key] += totals[key];
+            }
+          });
+        });
+        // Map totals back to UI categories
+        const updated = categories.map((cat) => ({
+          ...cat,
+          downloads: categoryTotals[cat.key] || cat.downloads,
+        }));
+
+        setCategoriesData(updated);
+      } catch (err) {
+        console.error("Error fetching category downloads:", err);
+      }
+    };
+
+    fetchDownloads();
+  }, []);
 
   const toggleFaq = (index) => {
     setExpandedFaq(expandedFaq === index ? null : index);
@@ -209,7 +122,7 @@ export default function NewHome() {
 
           {/* Categories Grid */}
           <div className="row g-4">
-            {categories.map((category, index) => {
+            {categoriesData.map((category, index) => {
               const IconComponent = category.icon;
               return (
                 <div key={index} className="col-md-6 col-lg-4">
@@ -227,7 +140,7 @@ export default function NewHome() {
                     <div
                       className={`w-50 text-center rounded-pill fw-bold small mb-3 d-inline-flex align-items-center  justify-content-center ${category.bgDownload} ${category.textDownload}`}
                     >
-                      {category.downloads} Downloads
+                      {category.downloads}+ Downloads
                     </div>
                     <button
                       className={`btn fw-bold btn-custom-outline w-100 `}

@@ -1,69 +1,87 @@
+import {
+  ImageIcon,
+  Video,
+  Music,
+  FileText,
+  Archive,
+  MoreHorizontal,
+} from "lucide-react";
+
 export const isCloudinaryFiles = false;
 export const updatedDatabaseKey = isCloudinaryFiles ? "files" : "r2Files";
 
 export const imageTabData = [
-  { key: "jpg", title: "JPG" },
-  { key: "png", title: "PNG" },
-  { key: "webp", title: "WEBP" },
-  { key: "svg", title: "SVG" },
-  { key: "gif", title: "GIF" },
-  { key: "bmp", title: "BMP" },
-  { key: "psd", title: "PSD" },
-  { key: "tiff", title: "TIFF" },
-  { key: "heic", title: "HEIC" },
-  { key: "ico", title: "ICO" },
+  { key: "jpg", title: "JPG", resourceType: "images" },
+  { key: "png", title: "PNG", resourceType: "images" },
+  { key: "webp", title: "WEBP", resourceType: "images" },
+  { key: "svg", title: "SVG", resourceType: "images" },
+  { key: "gif", title: "GIF", resourceType: "images" },
+  { key: "bmp", title: "BMP", resourceType: "images" },
+  { key: "psd", title: "PSD", resourceType: "images" },
+  { key: "tiff", title: "TIFF", resourceType: "images" },
+  { key: "heic", title: "HEIC", resourceType: "images" },
+  { key: "ico", title: "ICO", resourceType: "images" },
 ];
 
 export const videoTabData = [
-  { key: "mp4", title: "MP4" },
-  { key: "mkv", title: "MKV" },
-  { key: "avi", title: "AVI" },
-  { key: "flv", title: "FLV" },
-  { key: "mov", title: "MOV" },
-  { key: "webm", title: "WEBM" },
+  { key: "mp4", title: "MP4", resourceType: "videos" },
+  { key: "mkv", title: "MKV", resourceType: "videos" },
+  { key: "avi", title: "AVI", resourceType: "videos" },
+  { key: "flv", title: "FLV", resourceType: "videos" },
+  { key: "mov", title: "MOV", resourceType: "videos" },
+  { key: "webm", title: "WEBM", resourceType: "videos" },
 ];
 
 export const documentTabData = [
-  { key: "pdf", title: "PDF" },
-  { key: "doc", title: "DOC" },
-  { key: "docx", title: "DOCX" },
-  { key: "xls", title: "XLS" },
-  { key: "xlsx", title: "XLSX" },
-  { key: "odt", title: "ODT" },
-  { key: "rtf", title: "RTF" },
-  { key: "ppt", title: "PPT" },
-  { key: "pptx", title: "PPTX" },
-  { key: "txt", title: "TXT" },
-  { key: "csv", title: "CSV" },
+  { key: "pdf", title: "PDF", resourceType: "documents" },
+  { key: "doc", title: "DOC", resourceType: "documents" },
+  { key: "docx", title: "DOCX", resourceType: "documents" },
+  { key: "xls", title: "XLS", resourceType: "documents" },
+  { key: "xlsx", title: "XLSX", resourceType: "documents" },
+  { key: "odt", title: "ODT", resourceType: "documents" },
+  { key: "rtf", title: "RTF", resourceType: "documents" },
+  { key: "ppt", title: "PPT", resourceType: "documents" },
+  { key: "pptx", title: "PPTX", resourceType: "documents" },
+  { key: "txt", title: "TXT", resourceType: "documents" },
+  { key: "csv", title: "CSV", resourceType: "documents" },
 ];
 
 export const audioTabData = [
-  { key: "mp3", title: "MP3" },
-  { key: "aac", title: "AAC" },
-  { key: "wav", title: "WAV" },
-  { key: "ogg", title: "OGG" },
+  { key: "mp3", title: "MP3", resourceType: "audios" },
+  { key: "aac", title: "AAC", resourceType: "audios" },
+  { key: "wav", title: "WAV", resourceType: "audios" },
+  { key: "ogg", title: "OGG", resourceType: "audios" },
 ];
 
 export const archiveTabData = [
-  { key: "zip", title: "ZIP" },
-  { key: "rar", title: "RAR" },
-  { key: "7z", title: "7Z" },
-  { key: "tar", title: "TAR" },
+  { key: "zip", title: "ZIP", resourceType: "archives" },
+  { key: "rar", title: "RAR", resourceType: "archives" },
+  { key: "7z", title: "7Z", resourceType: "archives" },
+  { key: "tar", title: "TAR", resourceType: "archives" },
 ];
 
 export const codeTabData = [
-  { key: "xml", title: "XML" },
-  { key: "json", title: "JSON" },
-  { key: "php", title: "PHP" },
-  { key: "js", title: "JAVASCRIPT" },
-  { key: "java", title: "JAVA" },
-  { key: "bat", title: "BAT" },
-  { key: "rb", title: "RUBY" },
-  { key: "c", title: "C" },
-  { key: "cpp", title: "C++" },
-  { key: "html", title: "HTML" },
-  { key: "yaml", title: "YAML" },
-  { key: "py", title: "PYTHON" },
+  { key: "xml", title: "XML", resourceType: "code" },
+  { key: "json", title: "JSON", resourceType: "code" },
+  { key: "php", title: "PHP", resourceType: "code" },
+  { key: "js", title: "JAVASCRIPT", resourceType: "code" },
+  { key: "java", title: "JAVA", resourceType: "code" },
+  { key: "bat", title: "BAT", resourceType: "code" },
+  { key: "rb", title: "RUBY", resourceType: "code" },
+  { key: "c", title: "C", resourceType: "code" },
+  { key: "cpp", title: "C++", resourceType: "code" },
+  { key: "html", title: "HTML", resourceType: "code" },
+  { key: "yaml", title: "YAML", resourceType: "code" },
+  { key: "py", title: "PYTHON", resourceType: "code" },
+];
+
+export const allFileType = [
+  ...imageTabData,
+  ...videoTabData,
+  ...audioTabData,
+  ...documentTabData,
+  ...archiveTabData,
+  ...codeTabData,
 ];
 
 // Use to navigate on the particular path as per the file type
@@ -127,6 +145,100 @@ export const fileTypeToBasePath = {
   html: "/sample-code/sample-html",
   yaml: "/sample-code/sample-yaml",
 };
+
+export const categories = [
+  {
+    key: "images",
+    icon: ImageIcon,
+    title: "Images",
+    description:
+      "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO",
+    downloads: "250+",
+    color: "text-white",
+    bgDownload: "bg-primary-subtle",
+    textDownload: "text-primary-emphasis",
+  },
+  {
+    key: "videos",
+    icon: Video,
+    title: "Videos",
+    description:
+      "Sample video files for testing: MP4, AVI, MKV, FLV, MOV, WebM formats",
+    downloads: "100+",
+    color: "text-white",
+    bgDownload: "bg-info-subtle",
+    textDownload: "text-info-emphasis",
+  },
+  {
+    key: "audios",
+    icon: Music,
+    title: "Audio",
+    description: "Audio samples in multiple formats: MP3, WAV, AAC, OGG",
+    downloads: "200+",
+    color: "text-white",
+    bgDownload: "bg-success-subtle",
+    textDownload: "text-success-emphasis",
+  },
+  {
+    key: "documents",
+    icon: FileText,
+    title: "Documents",
+    description:
+      "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, CSV for testing",
+    downloads: "520+",
+    color: "text-white",
+    bgDownload: "bg-danger-subtle",
+    textDownload: "text-danger-emphasis",
+  },
+  {
+    key: "archives",
+    icon: Archive,
+    title: "Archives",
+    description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
+    downloads: "20+",
+    color: "text-white",
+    bgDownload: "bg-warning-subtle",
+    textDownload: "text-warning-emphasis",
+  },
+  {
+    key: "code",
+    icon: MoreHorizontal,
+    title: "Code",
+    description:
+      "Miscellaneous file formats: HTML, PHP, JSON, C, C++, RUBY, JS, YAML, PYTHON, BAT, JAVA, XML, and more",
+    downloads: "10+",
+    color: "text-white",
+    bgDownload: "bg-primary-subtle",
+    textDownload: "text-primary-emphasis",
+  },
+];
+
+export const faqs = [
+  {
+    question: "Are all files really free?",
+    answer:
+      "Yes! All sample files on SampleFiles.dev are completely free to download and use. No hidden fees, no registration required.",
+  },
+  {
+    question: "Can I request specific file formats?",
+    answer:
+      'Use the "Request File" button to submit requests for specific file types or formats you need for your projects.',
+  },
+  {
+    question: "Do I need to create an account or sign up?",
+    answer:
+      "No account or signup is required. Simply browse the categories and download the files you need instantly.",
+  },
+  {
+    question: "Is there a limit on how many files I can download?",
+    answer: "No limits! Download as many files as you need, whenever you want.",
+  },
+  {
+    question: "How often are new files added?",
+    answer:
+      "We regularly update our library with new images, videos, audios, and documents to keep our collection fresh and useful.",
+  },
+];
 
 export const getMetaData = (fileType) => {
   switch (fileType) {
