@@ -199,7 +199,7 @@ export default function NewHome() {
                 {faqs.map((faq, index) => (
                   <div
                     key={index}
-                    className="accordion-item border-custom mb-3 rounded"
+                    className="accordion-item border-custom mb-3 rounded p-2"
                   >
                     <h2 className="accordion-header">
                       <button
