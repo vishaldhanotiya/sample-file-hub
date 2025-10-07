@@ -19,11 +19,7 @@ const termsOfService = `<!DOCTYPE html>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">For purposes of these Terms, the following definitions apply:</p>
             <ul style="margin: 15px 0; padding-left: 30px;">
                 <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"Platform"</strong> means the website, mobile application, services, features, tools, content and functionality made available by samplefiles.dev via its web domains and mobile applications.</li>
-                <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"User"</strong> or <strong style="color: #2c3e50; font-weight: 600;">"you"</strong> means any individual or entity that accesses, browses, registers for, or uses the Platform.</li>
-                <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"Account"</strong> means a user account registered on the Platform when account creation is required to access certain features.</li>
-                <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"User Content"</strong> means any content, materials, information, data, text, images, audio, video, feedback or other materials that Users submit, post, upload, or otherwise make available through the Platform ("upload_content").</li>
-                <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"Subscription Plan"</strong> means any recurring paid plan, membership, or tier offered through the Platform ("subscription_plan").</li>
-                <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"Purchase"</strong> means any one-time paid transaction or sale conducted on the Platform ("user_buy").</li>
+                <li style="margin-bottom: 8px; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">"User"</strong> or <strong style="color: #2c3e50; font-weight: 600;">"you"</strong> means any individual that accesses or uses the Platform.</li>
             </ul>
 
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">2. Eligibility</h2>
@@ -33,7 +29,6 @@ const termsOfService = `<!DOCTYPE html>
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">3. Use of the Platform and Acceptable Conduct</h2>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">You agree to use the Platform only for lawful, authorized, and proper purposes. You will not use the Platform to engage in deceptive, malicious, or illegal conduct, and you will not attempt to disrupt, interfere with, or compromise the security, integrity, or performance of the Platform or its underlying infrastructure. Prohibited activities include, but are not limited to: unauthorized access or data scraping, distribution of malware, distribution of unsolicited promotional materials, spoofing or impersonation, and any activity that violates the privacy or intellectual property rights of others.</p>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We expressly prohibit any attempt to gain unauthorized access to restricted areas, systems, or data connected to the Platform. You must not attempt to probe, scan, or test the vulnerability of the Platform or circumvent authentication or security measures. If we determine, in our sole discretion, that you have engaged in prohibited activities, we may immediately suspend or terminate your access and take appropriate legal action.</p>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">The Platform may provide features that enable interactions between Users. You are solely responsible for your interactions with other Users. We do not endorse any User Content and do not assume responsibility for User-to-User communications or transactions. You agree to exercise caution when interacting with others, and you should never share sensitive personal or financial information with other Users.</p>
 
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">4. Ownership of Platform Content (Own Content)</h2>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">All intellectual property rights in and to the Platform, including but not limited to software, designs, text, graphics, logos, images, audio, video, data compilations and the selection and arrangement thereof (collectively, "Platform Content"), are the exclusive property of samplefiles.dev or its licensors, and are protected by copyright, trademark, patent and other intellectual property and unfair competition laws. Nothing in these Terms transfers ownership of Platform Content to you.</p>
@@ -51,6 +46,7 @@ const termsOfService = `<!DOCTYPE html>
                 <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">Your privacy is important. Our Privacy Policy describes how we collect, use, share and protect personal information collected via the Platform. By using the Platform you consent to such processing and acknowledge that we may use service providers and subprocessors in different jurisdictions; appropriate safeguards will be implemented in accordance with applicable law. You should read the Privacy Policy carefully to understand how your personal information is handled.</p>
                 <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">Where you have rights under applicable privacy laws (such as rights to access, correct, delete, or port your data), we will provide mechanisms to exercise those rights as described in the Privacy Policy. Requests may require identity verification and may be subject to legal exceptions or retention obligations.</p>
             </div>
+      
 
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">7. Warranties and Disclaimers</h2>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">THE PLATFORM IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE. TO THE MAXIMUM EXTENT PERMITTED BY LAW, samplefiles.dev DISCLAIMS ALL WARRANTIES, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, QUIET ENJOYMENT, AND NON-INFRINGEMENT. samplefiles.dev DOES NOT WARRANT THAT THE PLATFORM WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE FROM HARMFUL COMPONENTS.</p>
@@ -82,9 +78,40 @@ const termsOfService = `<!DOCTYPE html>
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">15. Miscellaneous</h2>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">If any provision of these Terms is held to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and effect and enforceable. No waiver of any provision will be deemed a further or continuing waiver of such provision or any other provision.</p>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">These Terms, together with our Privacy Policy and any other legal notices published by us on the Platform, constitute the entire agreement between you and samplefiles.dev concerning the Platform, and supersede all prior or contemporaneous agreements, representations, warranties and understandings, whether written or oral.</p>
+        
+            <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">16. Copyright and Content Removal</h2>
+            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We respect the intellectual property rights of others and comply with the Digital Millennium Copyright Act (DMCA) and other applicable copyright laws</p>
+<h5>Reporting Copyright Infringement</h5>
+<p style="margin-bottom: 16px; font-size: 1rem; color: #555;">If you believe that any content on our Platform infringes your copyright, please send a written notice containing the following information to our designated agent at <strong>samplefiles.dev@gmail.com</strong>:</p>
 
+<ul>
+    <li style="margin-bottom: 8px; color: #555;">Your contact information (name, address, phone number, email)</li>
+    <li style="margin-bottom: 8px; color: #555;">Identification of the copyrighted work you claim is infringed</li>
+    <li style="margin-bottom: 8px; color: #555;">Identification of the allegedly infringing content with specific URL(s)</li>
+    <li style="margin-bottom: 8px; color: #555;">A statement that you have a good faith belief the use is not authorized</li>
+    <li style="margin-bottom: 8px; color: #555;">A statement under penalty of perjury that the information is accurate</li>
+    <li style="margin-bottom: 8px; color: #555;">Your physical or electronic signature</li>
+</ul>
+
+<h5>Counter-Notification</h5>
+<p style="margin-bottom: 16px; font-size: 1rem; color: #555;">If you believe your content was removed in error, you may submit a counter-notification with similar requirements.</p>
+
+<h5>Other Content Objections</h5>
+<p style="margin-bottom: 16px; font-size: 1rem; color: #555;">For non-copyright concerns about content (privacy, trademark, etc.), please contact us at <strong>samplefiles.dev@gmail.com</strong> with detailed information about your concern.</p>
+   
+<p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We will promptly review and respond to all legitimate complaints in accordance with applicable laws.</p>
+
+ <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">17. File Downloads and Usage</h5>
+<p>All sample files provided on SampleFiles.dev are free for personal and commercial use. You may download, use, and distribute these files for testing, development, and educational purposes. Files are provided "as-is" without any warranties.</p>
+
+<p>You may not:</p>
+<ul>
+    <li style="margin-bottom: 8px; color: #555;"> Redistribute files as part of a paid product or service</li>
+    <li style="margin-bottom: 8px; color: #555;"> Claim ownership or authorship of the sample files</li>
+    <li style="margin-bottom: 8px; color: #555;"> Use files for illegal or malicious purposes</li>
+</ul>
             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #667eea;">
-                <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 0 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">16. Contact Information</h2>
+                <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 0 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">18. Contact Information</h2>
                 <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">For questions about these Terms, to report violations, or to contact our legal department, please email: <strong style="color: #2c3e50; font-weight: 600;">samplefiles.dev@gmail.com</strong>.</p>
             </div>
         </div>

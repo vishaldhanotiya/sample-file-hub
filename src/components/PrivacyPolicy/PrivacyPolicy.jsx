@@ -18,8 +18,8 @@ const privacyPolicy = `<!DOCTYPE html>
 
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">Entity and Contact Information</h2>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">This Privacy Policy is published on behalf of our business entity operating in MP, india.</p>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">Business Name:</strong> Sample Files</p>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">Registered Address:</strong> Sample Files</p>
+            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">Business Name:</strong> SampleFiles.dev</p>
+            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;"><strong style="color: #2c3e50; font-weight: 600;">Registered Address:</strong> India </p>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">All references to "we", "us", or "our" refer to the business entity identified above.</p>
 
             <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #667eea;">
@@ -31,16 +31,10 @@ const privacyPolicy = `<!DOCTYPE html>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We collect multiple types of information to operate effectively and provide you the best experience. The categories of information we collect include:</p>
 
             <h3 style="color: #34495e; font-size: 1.3rem; margin: 25px 0 12px 0; font-weight: 600;">1.1. Information You Provide Directly</h3>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">When you register, create an account, fill forms, contact us, or otherwise communicate with us, you may provide personal information such as your name, email address, phone number, billing and payment information, profile information, and other identifiers. For businesses, this may include the business contact person, company name, and business address — only when you entered that information and only if entity_type is 'business'. For individual operators, business name and address are intentionally omitted from this Policy output and will not appear in rendered policy text.</p>
+            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">When you fill forms, contact us, or otherwise communicate with us, When you contact us, you may provide personal information such as your name and email address."</p>
 
             <h3 style="color: #34495e; font-size: 1.3rem; margin: 25px 0 12px 0; font-weight: 600;">1.2. Automatically Collected Information</h3>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We automatically collect technical and usage data when you interact with the Platform, which may include IP address, device identifiers, device model and operating system, browser type, language preferences, access times, pages visited, search queries, referring/exit pages, crash logs, and performance metrics.</p>
-
-            <h3 style="color: #34495e; font-size: 1.3rem; margin: 25px 0 12px 0; font-weight: 600;">1.3. Location Data</h3>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We may collect approximate or precise location data from your device if you grant location permissions. Location data may be used to provide location-sensitive functionality, improve service relevance, or for fraud prevention. You can control location access in your device settings.</p>
-
-            <h3 style="color: #34495e; font-size: 1.3rem; margin: 25px 0 12px 0; font-weight: 600;">1.4. Payment and Transaction Data</h3>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">When you make purchases or use paid features, we collect payment data (such as billing name, billing address, and payment card details) which is processed by secure third-party payment processors. We do not store full payment card numbers on our servers unless explicitly required and disclosed.</p>
 
             <h3 style="color: #34495e; font-size: 1.3rem; margin: 25px 0 12px 0; font-weight: 600;">1.5. Communications and Support Data</h3>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We maintain records of communications and support interactions to provide assistance, detect abuse, and improve service quality. These records may include email content, chat transcripts, telephone logs, and attachments you send.</p>
@@ -52,8 +46,6 @@ const privacyPolicy = `<!DOCTYPE html>
             <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We use collected information for the following purposes:</p>
             <ul style="margin: 15px 0; padding-left: 30px;">
                 <li style="margin-bottom: 8px; color: #555;">To provide, operate, maintain, and improve the Platform and related services.</li>
-                <li style="margin-bottom: 8px; color: #555;">To authenticate users, manage accounts, provide customer support, and communicate important updates.</li>
-                <li style="margin-bottom: 8px; color: #555;">To process payments, prevent fraud, and enforce our Terms of Service.</li>
                 <li style="margin-bottom: 8px; color: #555;">To personalize content, recommendations, and advertising where allowed.</li>
                 <li style="margin-bottom: 8px; color: #555;">To perform analytics, monitor service health, and produce aggregated statistics for internal use.</li>
                 <li style="margin-bottom: 8px; color: #555;">To comply with legal obligations, respond to lawful requests from government or law enforcement, and protect rights and safety.</li>
@@ -72,10 +64,10 @@ const privacyPolicy = `<!DOCTYPE html>
             </div>
 
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">4. Cookies and Tracking Technologies</h2>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We do not use cookies for tracking beyond essential technical cookies required to operate the service.</p>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We classify cookies into categories including essential cookies, preference cookies, analytics cookies, and advertising cookies. Essential cookies enable core functionality. Preference and analytics cookies support personalization and performance. Advertising cookies enable targeted ads (only used if we operate ads or use ad networks).</p>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">To manage cookies, you may use your browser settings or device controls. For mobile apps, permission prompts and in-app settings may allow you to opt out of certain tracking.</p>
-
+            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We use cookies and similar tracking technologies to operate our service and display advertisements through Google AdSense.</p>
+                <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">You can manage cookies through your browser settings. To opt out of personalized advertising from Google, visit <a href="https://adssettings.google.com">Google Ads Settings</a>.</p>
+<p><strong>Essential Cookies:</strong> Required for basic site functionality</p>
+<p><strong>Advertising Cookies:</strong> We use Google AdSense which uses cookies to serve relevant ads based on user interests, measure ad performance, and prevent fraud. These cookies allow Google to show ads based on your visits to our site and other sites on the internet.</p>
             <div style="background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 10px; margin: 20px 0; border: 1px solid #e9ecef;">
                 <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px;">
                     <h2 style="display:inline; margin:0; color: #2c3e50; font-size: 1.8rem; font-weight: 600;">5. Advertising and Analytics</h2>
@@ -94,7 +86,7 @@ const privacyPolicy = `<!DOCTYPE html>
                 <li style="margin-bottom: 8px; color: #555;">To comply with legal processes, such as court orders, subpoenas, or government investigations.</li>
                 <li style="margin-bottom: 8px; color: #555;">To protect our rights, property, or safety, or the rights, property, or safety of others.</li>
             </ul>
-            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We may share data with the following categories of third parties: ["Firebase","Google Ads"]. These service providers assist with hosting, payment processing, customer support, analytics, communication, and other necessary operations.</p>
+            <p style="margin-bottom: 16px; font-size: 1rem; color: #555;">We may share data with the following categories of third parties: ["Firebase","Google Ads"]. These service providers assist with hosting, analytics, advertising, and other necessary operations.</p>
 
             <!-- Continuing with the remaining sections in the same pattern -->
             <h2 style="color: #2c3e50; font-size: 1.8rem; margin: 30px 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid #e9ecef; font-weight: 600;">7. International Data Transfers</h2>
