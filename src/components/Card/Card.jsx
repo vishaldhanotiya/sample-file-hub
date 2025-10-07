@@ -48,11 +48,6 @@ import {
 } from "../../utils/Analytics";
 import {
   allFileType,
-  audioTabData,
-  codeTabData,
-  documentTabData,
-  imageTabData,
-  videoTabData,
 } from "../../utils/Constant";
 
 const placeholderMap = {
@@ -151,7 +146,7 @@ const Card = ({
 
       const blob = new Blob(chunks);
       const blobUrl = URL.createObjectURL(blob);
-      const extension = file.format || file.type?.split("/")[1] || "dat";
+      const extension = file.format || file.contentType?.split("/")[1] || "dat";
       const finalName =
         `sample-${filename}` || `sample-${file.name}.${extension}`;
       console.log("Downloading 1:", finalName);
@@ -166,14 +161,14 @@ const Card = ({
       URL.revokeObjectURL(blobUrl);
       setProgress(null);
     } catch (error) {
-      trackDownloadError(file.type, error);
+      trackDownloadError(file.format, error);
       console.error("Download failed", error);
       setProgress(null);
     }
   };
 
   const handlePreviewClick = () => {
-    trackMediaView(file.type, file.name);
+    trackMediaView(file.format, file.name);
     //onClick(file);
     window.open(file.url, "_blank");
   };

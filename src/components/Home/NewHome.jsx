@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./NewHome.css";
 import { trackCardClick } from "../../utils/Analytics";
-import SearchBar from "../SearchBar/NewSearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import ToolsSection from "../ToolsSection";
 import AboutUs from "../AboutUs/AboutUs";
@@ -99,9 +99,7 @@ export default function NewHome() {
           </div>
         </div>
       </section>
-
-      {/* <PlaceholderGenerator/> */}
-
+      
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">

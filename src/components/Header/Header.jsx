@@ -1,197 +1,171 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { trackHeaderNavigation } from "../../utils/Analytics";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "../Home/NewHome.css";
 
-const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setShowMenu(!showMenu);
   const isHomePage = location.pathname === "/";
+  const navItems = [
+    { path: "", label: "Home" },
+    { path: "sample-images", label: "Images" },
+    { path: "sample-videos", label: "Videos" },
+    { path: "sample-audios", label: "Audio" },
+    { path: "sample-documents", label: "Documents" },
+    { path: "sample-archives", label: "Archives" },
+    { path: "sample-code", label: "Code" },
+    { path: "convert-png-to-jpg", label: "💡Convert PNG → JPG" },
+  ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Determine header position based on page and scroll state
-  const getHeaderPosition = () => {
-    if (!isHomePage) return "fixed"; // Fixed on all non-home pages
-    return isScrolled ? "fixed" : "absolute"; // Absolute only on homepage when not scrolled
+  const handleTrack = (path) => {
+    trackHeaderNavigation(path);
+    setIsMenuOpen(false);
   };
 
   return (
     <header
-      className={`px-3 py-2 ${isScrolled ? "scrolled" : ""}    ${
+      className={`bg-card-custom border-top border-custom sticky-top ${
         isHomePage ? "" : "border-bottom"
       }`}
-      style={{
-        position: getHeaderPosition(),
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        transition: "all 0.3s ease",
-        backgroundColor: !isScrolled
-          ? "transparent"
-          : isHomePage
-          ? "none"
-          : "white",
-        backdropFilter: isHomePage && !isScrolled ? "none" : "blur(12px)",
-        borderBottom:
-          isHomePage && !isScrolled
-            ? "none"
-            : "1px solid rgba(255, 255, 255, 0.1)",
-      }}
+      aria-label="Main site header"
     >
-      <div className="container ">
-        <div className="d-flex justify-content-between align-items-center">
-          {/* Left side: Logo and Title */}
-          <div className="d-flex align-items-center gap-2">
-            <h2
+      <section
+        className="bg-card-custom border-top border-custom py-2"
+        aria-label="Top navigation bar"
+      >
+        <div className="container">
+          <div className="d-flex align-items-center justify-content-between flex-wrap">
+            
+            {/* Logo */}
+            <div
+              className="logo-container d-flex align-items-center"
+              style={{ cursor: "pointer", flexShrink: 0 }}
               onClick={() => navigate("/")}
-              className="mb-0 fw-bold fs-4"
-              style={{
-                color: isHomePage ? "white" : "black",
-                cursor: "pointer",
-                textShadow: "0 2px 4px rgba(0,0,0,0.2)",
-              }}
+              aria-label="Go to homepage"
             >
-              Sample Files
-            </h2>
-          </div>
+              <h2
+                className="mb-0 fw-bold site-logo"
+                style={{
+                  fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Sample Files
+              </h2>
+            </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            className={`d-md-none btn btn-link ${
-              isHomePage ? "text-white" : "text-black"
-            } p-0`}
-            onClick={toggleMenu}
-            aria-label="Toggle navigation"
-            style={{
-              transition: "transform 0.2s ease",
-              transform: showMenu ? "rotate(90deg)" : "none",
-            }}
-          >
-            <i className="bi bi-list" style={{ fontSize: "1.8rem" }}></i>
-          </button>
-
-          {/* Desktop Navigation */}
-          <div className="d-none d-md-flex align-items-center gap-3">
-            <nav className="d-flex gap-4 me-3">
-              {[
-                { path: "sample-images", label: "Sample Images" },
-                { path: "sample-videos", label: "Sample Videos" },
-                { path: "sample-audios", label: "Sample Audio" },
-                { path: "sample-documents", label: "Sample Documents" },
-                { path: "sample-documents", label: "Sample Documents" },
-                { path: "sample-documents", label: "Sample Documents" },
-                { path: "convert-png-to-jpg", label: "💡 Convert PNG → JPG 🚀" },
-              ].map((item) => {
-                const isConverter = item.path === "convert-png-to-jpg"; // check for converter button
-                const fullPath = `/${item.path}`;
-
-                return isConverter ? (
-                  <a
-                    key={item.label}
-                    href={fullPath}
-                    className="btn btn-warning fw-bold ms-3"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <a
-                    href={fullPath}
-                    key={item.label}
-                    onClick={(e) => {
-                      if (e.ctrlKey || e.metaKey) return; // allow new tab
-                      e.preventDefault();
-                      trackHeaderNavigation(fullPath);
-                      navigate(fullPath);
-                    }}
-                    className={`${
-                      isHomePage ? "text-white" : "text-black"
-                    } text-decoration-none fw-medium position-relative`}
-                    style={{ padding: "0.5rem 0" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.opacity = "0.8";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.opacity = "1";
-                    }}
-                  >
-                    {item.label}
-                    <span
-                      className="position-absolute bottom-0 start-0 bg-white"
+            {/* Desktop Navigation */}
+            <div className="d-none d-lg-flex align-items-center gap-3 flex-wrap ms-auto">
+              <nav
+                className="d-flex flex-wrap gap-4 align-items-center p-2"
+                aria-label="Primary navigation menu"
+              >
+                {navItems.map((item) => {
+                  const isConverter = item.path === "convert-png-to-jpg";
+                  const fullPath = `/${item.path}`;
+                  return isConverter ? (
+                    <Link
+                      key={item.label}
+                      to={fullPath}
+                      onClick={() => handleTrack(fullPath)}
+                      className="btn btn-warning fw-bold px-3 py-1"
+                      style={{ fontSize: "0.85rem", whiteSpace: "nowrap" }}
+                      aria-label={`Navigate to ${item.label}`}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <Link
+                      key={item.label}
+                      to={fullPath}
+                      onClick={() => handleTrack(fullPath)}
+                      className="text-black text-decoration-none fw-medium"
                       style={{
-                        height: "2px",
-                        width: "0%",
-                        transition: "width 0.3s ease",
+                        fontSize: "1rem",
+                        whiteSpace: "nowrap",
                       }}
-                    />
-                  </a>
-                );
-              })}
-            </nav>
+                      aria-label={`Navigate to ${item.label}`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+
+            {/* Hamburger (Mobile Only) */}
+            <div className="d-lg-none ms-auto">
+              <button
+                className="btn p-0"
+                style={{ fontSize: "1.8rem", lineHeight: "1" }}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {isMenuOpen ? <FaTimes /> : <FaBars />}
+              </button>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Mobile Menu */}
-        {/* {showMenu && (
-          <div
-            className="d-md-none mt-3 pb-3"
-            style={{
-              animation: "fadeIn 0.3s ease-out",
-            }}
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div
+          className="d-lg-none position-fixed top-0 start-0 w-100 h-100 bg-white"
+          style={{
+            zIndex: 1050,
+            padding: "2rem",
+            overflowY: "auto",
+          }}
+          aria-label="Mobile navigation menu"
+        >
+          <button
+            className="btn mb-4"
+            style={{ fontSize: "1.5rem" }}
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close mobile menu"
           >
-            <nav className="d-flex flex-column gap-3">
-              {[
-                { path: "sample-images", name: "Sample Images" },
-                { path: "sample-videos", name: "Sample Videos" },
-                { path: "sample-audios", name: "Sample Audio" },
-                { path: "sample-documents", name: "Sample Documents" },
-              ].map((item) => (
-                <a
-                  href={item.path}
-                  key={item.name}
-                  onClick={() => {
-                    navigate(item.path);
-                    setShowMenu(false);
-                  }}
-                  className="text-white text-decoration-none fw-medium py-2 px-3 rounded"
-                  style={{
-                    cursor: "pointer",
-                    backgroundColor: "rgba(255,255,255,0.1)",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor =
-                      "rgba(255,255,255,0.2)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor =
-                      "rgba(255,255,255,0.1)";
-                  }}
+            <FaTimes />
+          </button>
+          <nav
+            className="d-flex flex-column gap-4 align-items-center text-center"
+            style={{ marginTop: "2rem" }}
+            aria-label="Mobile navigation links"
+          >
+            {navItems.map((item) => {
+              const isConverter = item.path === "convert-png-to-jpg";
+              const fullPath = `/${item.path}`;
+              return isConverter ? (
+                <Link
+                  key={item.label}
+                  to={fullPath}
+                  onClick={() => handleTrack(fullPath)}
+                  className="btn bg-warning fw-bold px-3 py-2"
+                  style={{ fontSize: "1.1rem" }}
+                  aria-label={`Navigate to ${item.label}`}
                 >
-                  {item.name}
-                </a>
-              ))}
-            </nav>
-          </div>
-        )} */}
-      </div>
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={fullPath}
+                  onClick={() => handleTrack(fullPath)}
+                  className="text-black text-decoration-none fw-medium"
+                  style={{ fontSize: "1.2rem" }}
+                  aria-label={`Navigate to ${item.label}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
     </header>
   );
-};
-
-export default Header;
+}

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   audioTabData,
   documentTabData,
@@ -9,13 +10,14 @@ import ContactForm from "../ContactForm/ContactForm";
 import SocialShare from "../SocialShare/SocialShare";
 import "./Footer.css";
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-dark text-white py-5">
       <div className="container">
         <div className="row">
           {/* Left Section (80%) */}
           <div className="col-12 col-lg-9 pe-lg-4">
-            {" "}
             {/* 80% width */}
             <div className="row">
               {/* Logo and Description */}
@@ -55,27 +57,47 @@ const Footer = () => {
           <div className="col-12 col-lg-3">
             {/* 20% width */}
             <div className="bg-light p-3 rounded border">
-              <div className="mb-3 fs-5 fw-medium">Contact Us</div>
+              <div className="mb-3 fs-5 text-black fw-medium">Contact Us</div>
               <ContactForm />
             </div>
           </div>
         </div>
         <div className="mt-5">
-        <div className="share-container justify-content-center text-center align-item-center">
-     
-      
-          <SocialShare/>
-        </div>
-
-        {/* Copyright text - full width below all columns */}
-
-     <div className="border-top border-secondary mt-4 pt-4 text-center">
-            <p className="text-white-50 small mb-0">
-              © 2025 SampleFiles.dev. All rights reserved. Made with <span className="text-white">❤️</span> for developers and creators.
-            </p>
+          <div className="share-container justify-content-center text-center align-item-center">
+            <SocialShare />
           </div>
 
+          {/* Copyright text - full width below all columns */}
 
+          <div className="border-top border-secondary mt-4 pt-4 text-center">
+            <p className="text-white-50 small mb-0">
+              © 2025 SampleFiles.dev. All rights reserved. Made with{" "}
+              <span className="text-white">❤️</span> for developers and
+              creators.
+            </p>
+          </div>
+        </div>
+        <div className="row justify-content-center mt-2">
+          <ul className="list-unstyled d-flex justify-content-center text-center mb-0">
+            <li className="mx-3">
+              <a
+                onClick={() => navigate("privacy-policy")}
+                href="#"
+                className="text-white-50 text-decoration-none small"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li className="mx-3">
+              <a
+                onClick={() => navigate("terms-of-service")}
+                href="#"
+                className="text-white-50 text-decoration-none small"
+              >
+                Terms of Service
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

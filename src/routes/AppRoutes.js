@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "../components/Home/Home";
 import SampleImage from "../components/SampleImage/SampleImage";
 import MainLayout from "../components/MainLayout/MainLayout";
 import SampleVideo from "../components/SampleVideo/SampleVideo";
@@ -10,13 +9,15 @@ import NewHome from "../components/Home/NewHome";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
 import SampleCode from "../components/SampleCode/SampleCode";
 import PlaceholderImageGenerator from "../components/PlaceholderImageGenerator/PlaceholderImageGenerator";
+import PrivacyPolicy from "../components/PrivacyPolicy/PrivacyPolicy";
+import TermsOfService from "../components/TermsOfService/TermsOfService";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<NewHome />} />
-        <Route path="home" element={<Home />} />
+        {/* <Route path="home" element={<Home />} /> */}
         <Route path="sample-images" element={<SampleImage />} />
         <Route path="sample-images/:filePath" element={<SampleImage />} />
         <Route path="sample-videos" element={<SampleVideo />} />
@@ -31,6 +32,8 @@ const AppRoutes = () => {
         <Route path="sample-code/:filePath" element={<SampleCode />} />
         <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
         <Route path="placeholder-image-generator" element={<PlaceholderImageGenerator />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-of-service" element={<TermsOfService />} />
 
         {/* Add other routes here */}
       </Route>

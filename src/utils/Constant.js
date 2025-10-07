@@ -153,7 +153,7 @@ export const categories = [
     title: "Images",
     description:
       "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO",
-    downloads: "250+",
+    downloads: "",
     color: "text-white",
     bgDownload: "bg-primary-subtle",
     textDownload: "text-primary-emphasis",
@@ -164,7 +164,7 @@ export const categories = [
     title: "Videos",
     description:
       "Sample video files for testing: MP4, AVI, MKV, FLV, MOV, WebM formats",
-    downloads: "100+",
+    downloads: "-",
     color: "text-white",
     bgDownload: "bg-info-subtle",
     textDownload: "text-info-emphasis",
@@ -174,7 +174,7 @@ export const categories = [
     icon: Music,
     title: "Audio",
     description: "Audio samples in multiple formats: MP3, WAV, AAC, OGG",
-    downloads: "200+",
+    downloads: "-",
     color: "text-white",
     bgDownload: "bg-success-subtle",
     textDownload: "text-success-emphasis",
@@ -185,7 +185,7 @@ export const categories = [
     title: "Documents",
     description:
       "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, CSV for testing",
-    downloads: "520+",
+    downloads: "-",
     color: "text-white",
     bgDownload: "bg-danger-subtle",
     textDownload: "text-danger-emphasis",
@@ -195,7 +195,7 @@ export const categories = [
     icon: Archive,
     title: "Archives",
     description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
-    downloads: "20+",
+    downloads: "-",
     color: "text-white",
     bgDownload: "bg-warning-subtle",
     textDownload: "text-warning-emphasis",
@@ -206,7 +206,7 @@ export const categories = [
     title: "Code",
     description:
       "Miscellaneous file formats: HTML, PHP, JSON, C, C++, RUBY, JS, YAML, PYTHON, BAT, JAVA, XML, and more",
-    downloads: "10+",
+    downloads: "-",
     color: "text-white",
     bgDownload: "bg-primary-subtle",
     textDownload: "text-primary-emphasis",
