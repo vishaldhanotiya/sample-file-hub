@@ -19,9 +19,7 @@ const Column = ({ title, items }) => {
             <a
               href={item.path}
               onClick={(e) => handleClick(e, item)}
-              className={
-                "text-white-50 text-decoration-none small"
-              }
+              className={"text-white-50 text-decoration-none small"}
               onMouseEnter={(e) => {
                 e.currentTarget.style.opacity = "0.3";
               }}

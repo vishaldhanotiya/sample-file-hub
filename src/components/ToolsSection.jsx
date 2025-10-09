@@ -6,7 +6,7 @@ const ToolsSection = () => {
 
   const tools = [
     {
-      key: "/convert-png-to-jpg",
+      key: "/convert-jpg-to-png",
       title: "Image Converter",
       description:
         "Convert images between different formats like PNG to JPG, WEBP to PNG, and more. Fast, reliable, and maintains quality.",
@@ -80,7 +80,7 @@ const ToolsSection = () => {
               >
                 <img alt="tool-icon" width={50} height={50} src={tool.icon} />
               </div>
-              <h5 className="fw-semibold text-dark mb-2">{tool.title}</h5>
+                   <h3 className="fw-bold fs-5">{tool.title}</h3>
               <p className="text-muted small flex-grow-1">{tool.description}</p>
               <button
                 onClick={() => {

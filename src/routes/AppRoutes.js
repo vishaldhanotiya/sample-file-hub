@@ -4,13 +4,16 @@ import MainLayout from "../components/MainLayout/MainLayout";
 import SampleVideo from "../components/SampleVideo/SampleVideo";
 import SampleAudio from "../components/SampleAudio/SampleAudio";
 import SampleDocument from "../components/SampleDocument/SampleDocument";
-import ConvertPngToJpg from "../components/ConvertPngToJpg/ConvertPngToJpg";
+import ConvertJpgToPng from "../components/ConvertJpgToPng/ConvertJpgToPng";
 import NewHome from "../components/Home/NewHome";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
 import SampleCode from "../components/SampleCode/SampleCode";
 import PlaceholderImageGenerator from "../components/PlaceholderImageGenerator/PlaceholderImageGenerator";
 import PrivacyPolicy from "../components/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "../components/TermsOfService/TermsOfService";
+import ConvertJpgToPngBlog from "../components/BlogSection/ConvertJpgToPngBlog/ConvertJpgToPngBlog";
+import SampleFilesGuide from "../components/BlogSection/SampleFilesGuide/SampleFilesGuide";
+import ImageFormatComparison from "../components/BlogSection/ImageFormatComparison/ImageFormatComparison";
 
 const AppRoutes = () => {
   return (
@@ -30,10 +33,25 @@ const AppRoutes = () => {
         <Route path="sample-archives/:filePath" element={<SampleArchives />} />
         <Route path="sample-code/" element={<SampleCode />} />
         <Route path="sample-code/:filePath" element={<SampleCode />} />
-        <Route path="convert-png-to-jpg" element={<ConvertPngToJpg />} />
-        <Route path="placeholder-image-generator" element={<PlaceholderImageGenerator />} />
+        <Route path="convert-jpg-to-png" element={<ConvertJpgToPng />} />
+        <Route
+          path="placeholder-image-generator"
+          element={<PlaceholderImageGenerator />}
+        />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-service" element={<TermsOfService />} />
+        <Route
+          path="blog/how-to-convert-jpg-to-png"
+          element={<ConvertJpgToPngBlog />}
+        />
+        <Route
+          path="blog/how-to-use-sample-files-for-testing"
+          element={<SampleFilesGuide />}
+        />
+        <Route
+          path="blog/compare-png-webp-and9-patch-images"
+          element={<ImageFormatComparison />}
+        />
 
         {/* Add other routes here */}
       </Route>

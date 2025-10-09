@@ -156,6 +156,8 @@ const privacyPolicy = `<!DOCTYPE html>
 // create a component
 export default function PrivacyPolicy() {
   return (
+     <div className="container">
+      <article className="bg-white rounded-4 shadow-lg border-0 mt-5 mb-5 overflow-hidden">
     <div
       style={{
         flex: 1,
@@ -165,6 +167,9 @@ export default function PrivacyPolicy() {
       }}
     >
       <div dangerouslySetInnerHTML={{ __html: privacyPolicy }}></div>
+         </div>
+      </article>
+   
     </div>
   );
 }

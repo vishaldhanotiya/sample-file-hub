@@ -122,15 +122,19 @@ const termsOfService = `<!DOCTYPE html>
 // create a component
 export default function TermsOfService() {
   return (
-    <div
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#2c3e50",
-      }}
-    >
-      <div dangerouslySetInnerHTML={{ __html: termsOfService }}></div>
+    <div className="container">
+      <article className="bg-white rounded-4 shadow-lg border-0 mt-5 mb-5 overflow-hidden">
+        <div
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#2c3e50",
+          }}
+        >
+          <div dangerouslySetInnerHTML={{ __html: termsOfService }}></div>
+        </div>
+      </article>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import AboutUs from "../AboutUs/AboutUs";
 import { collection, getDocs } from "@firebase/firestore";
 import { db } from "../../App";
 import { categories, faqs } from "../../utils/Constant";
+import Blog from "../BlogSection/BlogSection";
 
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
@@ -131,7 +132,7 @@ export default function NewHome() {
                     >
                       <IconComponent size={32} className={category.color} />
                     </div>
-                    <h3 className="h5 fw-semibold mb-2">{category.title}</h3>
+                         <h3 className="fw-bold fs-5">{category.title}</h3>
                     <p className="text-muted-custom small mb-3">
                       {category.description}
                     </p>
@@ -181,6 +182,9 @@ export default function NewHome() {
           <ToolsSection />
         </div>
       </section>
+
+      
+      <Blog />
       <AboutUs />
       <section id={"faq"} className="py-5 bg-muted-custom">
         <div className="container">
@@ -190,7 +194,7 @@ export default function NewHome() {
                 <h2 className="display-6 fw-bold mb-3">
                   Frequently Asked Questions
                 </h2>
-                <p className="text-muted-custom">
+                <p className="lead text-muted-custom">
                   Everything you need to know about our sample files
                 </p>
               </div>

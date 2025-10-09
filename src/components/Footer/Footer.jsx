@@ -81,7 +81,10 @@ const Footer = () => {
           <ul className="list-unstyled d-flex justify-content-center text-center mb-0">
             <li className="mx-3">
               <a
-                onClick={() => navigate("privacy-policy")}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  navigate("privacy-policy");
+                }}
                 href="#"
                 className="text-white-50 text-decoration-none small"
               >
@@ -89,8 +92,11 @@ const Footer = () => {
               </a>
             </li>
             <li className="mx-3">
-              <a
-                onClick={() => navigate("terms-of-service")}
+              <a 
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  navigate("terms-of-service");
+                }}
                 href="#"
                 className="text-white-50 text-decoration-none small"
               >

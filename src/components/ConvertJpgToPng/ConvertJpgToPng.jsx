@@ -1,4 +1,4 @@
-import  { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { FiX, FiUpload, FiDownload } from "react-icons/fi";
@@ -30,7 +30,8 @@ export default function ConvertPngToJpg() {
     setError("");
   };
 
-  const removeItem = (idx) => setItems((prev) => prev.filter((_, i) => i !== idx));
+  const removeItem = (idx) =>
+    setItems((prev) => prev.filter((_, i) => i !== idx));
 
   const formatSize = (bytes) => {
     if (bytes < 1024) return `${bytes} B`;
@@ -39,24 +40,24 @@ export default function ConvertPngToJpg() {
   };
 
   const updateItemTarget = (idx, target) => {
-    setItems((prev) => prev.map((it, i) => (i === idx ? { ...it, target } : it)));
+    setItems((prev) =>
+      prev.map((it, i) => (i === idx ? { ...it, target } : it))
+    );
   };
 
-    const metaData = useMemo(() => getMetaData('converter'), []);
+  const metaData = useMemo(() => getMetaData("converter"), []);
 
-    // Fetch files when activeTab changes
-    useEffect(() => {
-  
-      document.title = metaData.title;
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement("meta");
-        metaDesc.name = "description";
-        document.head.appendChild(metaDesc);
-      }
-      metaDesc.content = metaData.description;
-    }, [metaData]);
-
+  // Fetch files when activeTab changes
+  useEffect(() => {
+    document.title = metaData.title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = metaData.description;
+  }, [metaData]);
 
   const _setAllTargets = (target) => {
     setGlobalTarget(target);
@@ -123,7 +124,11 @@ export default function ConvertPngToJpg() {
       }
 
       try {
-        const dataUrl = await convertFileTo(out[i].file, target, updateProgress);
+        const dataUrl = await convertFileTo(
+          out[i].file,
+          target,
+          updateProgress
+        );
         out[i].urlConverted = dataUrl;
         out[i].status = "done";
       } catch {
@@ -164,10 +169,16 @@ export default function ConvertPngToJpg() {
 
   return (
     <div style={styles.page} className="py-5">
-      <header className="py-5" style={{ textAlign: "center", marginBottom: 12 }}>
+      <header
+        className="py-5"
+        style={{ textAlign: "center", marginBottom: 12 }}
+      >
         <h1 style={styles.title}>Image Converter</h1>
-        <p style={styles.subtitle}>  Free & fast tools to convert <strong>JPG, PNG, JPEG, WEBP</strong>, and more.
-          No signup, no hassle – just quick, secure conversions.</p>
+        <p style={styles.subtitle}>
+          {" "}
+          Free & fast tools to convert <strong>JPG, PNG, JPEG, WEBP</strong>,
+          and more. No signup, no hassle – just quick, secure conversions.
+        </p>
       </header>
 
       {!items.length && (
@@ -231,7 +242,10 @@ export default function ConvertPngToJpg() {
                 </select>
 
                 {it.status === "done" && (
-                  <button style={styles.iconBtn} onClick={() => downloadFile(it)}>
+                  <button
+                    style={styles.iconBtn}
+                    onClick={() => downloadFile(it)}
+                  >
                     <FiDownload />
                   </button>
                 )}
@@ -257,7 +271,11 @@ export default function ConvertPngToJpg() {
                 ))}
               </select> */}
             </div>
-            <button style={styles.convertBtn} onClick={startConvertAll} disabled={isConverting}>
+            <button
+              style={styles.convertBtn}
+              onClick={startConvertAll}
+              disabled={isConverting}
+            >
               Convert →
             </button>
           </div>

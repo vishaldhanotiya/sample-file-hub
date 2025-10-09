@@ -18,7 +18,8 @@ export default function Header() {
     { path: "sample-documents", label: "Documents" },
     { path: "sample-archives", label: "Archives" },
     { path: "sample-code", label: "Code" },
-    { path: "convert-png-to-jpg", label: "💡Convert PNG → JPG" },
+    // { path: "convert-jpg-to-png", label: "💡Convert PNG → JPG" },
+    // { path: "blog/blog/sample-file-guide", label: "Blogs" },
   ];
 
   const handleTrack = (path) => {
@@ -39,7 +40,7 @@ export default function Header() {
       >
         <div className="container">
           <div className="d-flex align-items-center justify-content-between flex-wrap">
-            
+
             {/* Logo */}
             <div
               className="logo-container d-flex align-items-center"
@@ -65,25 +66,13 @@ export default function Header() {
                 aria-label="Primary navigation menu"
               >
                 {navItems.map((item) => {
-                  const isConverter = item.path === "convert-png-to-jpg";
                   const fullPath = `/${item.path}`;
-                  return isConverter ? (
+                  return (
                     <Link
                       key={item.label}
                       to={fullPath}
                       onClick={() => handleTrack(fullPath)}
-                      className="btn btn-warning fw-bold px-3 py-1"
-                      style={{ fontSize: "0.85rem", whiteSpace: "nowrap" }}
-                      aria-label={`Navigate to ${item.label}`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <Link
-                      key={item.label}
-                      to={fullPath}
-                      onClick={() => handleTrack(fullPath)}
-                      className="text-black text-decoration-none fw-medium"
+                      className="text-black text-decoration-none fw-medium px-2 py-1"
                       style={{
                         fontSize: "1rem",
                         whiteSpace: "nowrap",
@@ -137,20 +126,8 @@ export default function Header() {
             aria-label="Mobile navigation links"
           >
             {navItems.map((item) => {
-              const isConverter = item.path === "convert-png-to-jpg";
               const fullPath = `/${item.path}`;
-              return isConverter ? (
-                <Link
-                  key={item.label}
-                  to={fullPath}
-                  onClick={() => handleTrack(fullPath)}
-                  className="btn bg-warning fw-bold px-3 py-2"
-                  style={{ fontSize: "1.1rem" }}
-                  aria-label={`Navigate to ${item.label}`}
-                >
-                  {item.label}
-                </Link>
-              ) : (
+              return (
                 <Link
                   key={item.label}
                   to={fullPath}
