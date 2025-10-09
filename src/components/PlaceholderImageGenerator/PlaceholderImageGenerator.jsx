@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import { getMetaData } from "../../utils/Constant";
 
 // Bootstrap-based single-page placeholder generator with full feature set
