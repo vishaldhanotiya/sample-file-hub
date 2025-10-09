@@ -135,7 +135,7 @@ export default function Blog() {
               }}
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
-                navigate("blog/compare-png-webp-and9-patch-image");
+                navigate("blog/compare-png-webp-and-nine-patch-image");
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-3px)";

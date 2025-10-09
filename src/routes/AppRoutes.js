@@ -49,7 +49,7 @@ const AppRoutes = () => {
           element={<SampleFilesGuide />}
         />
         <Route
-          path="blog/compare-png-webp-and9-patch-images"
+          path="blog/compare-png-webp-and-nine-patch-images"
           element={<ImageFormatComparison />}
         />
 
