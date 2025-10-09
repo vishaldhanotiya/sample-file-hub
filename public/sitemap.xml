@@ -141,13 +141,13 @@
 
  <!--Privacy Policy and Terms of Service-->
    <url>
-    <loc>https://samplefiles.dev/privacy-policy</loc>
+    <loc>https://www.samplefiles.dev/privacy-policy</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>https://samplefiles.dev/terms-of-service</loc>
+    <loc>https://www.samplefiles.dev/terms-of-service</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
