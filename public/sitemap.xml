@@ -120,20 +120,20 @@
 
   <!--Blog-->
    <url>
-    <loc>  https://www.samplefiles.dev/blog/how-to-use-sample-files-for-testing</loc>
-    <lastmod>2025-10-8</lastmod>
+    <loc>https://www.samplefiles.dev/blog/how-to-use-sample-files-for-testing</loc>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>  https://www.samplefiles.dev/blog/how-to-convert-jpg-to-png</loc>
-    <lastmod>2025-10-8</lastmod>
+    <loc>https://www.samplefiles.dev/blog/how-to-convert-jpg-to-png</loc>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>  https://www.samplefiles.dev/blog/compare-png-webp-and-nine-patch-images</loc>
-    <lastmod>2025-10-8</lastmod>
+    <loc>https://www.samplefiles.dev/blog/compare-png-webp-and-nine-patch-images</loc>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -142,13 +142,13 @@
  <!--Privacy Policy and Terms of Service-->
    <url>
     <loc>https://samplefiles.dev/privacy-policy</loc>
-    <lastmod>2025-10-8</lastmod>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
     <loc>https://samplefiles.dev/terms-of-service</loc>
-    <lastmod>2025-10-8</lastmod>
+    <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
