@@ -14,6 +14,10 @@ import TermsOfService from "../components/TermsOfService/TermsOfService";
 import ConvertJpgToPngBlog from "../components/BlogSection/ConvertJpgToPngBlog/ConvertJpgToPngBlog";
 import SampleFilesGuide from "../components/BlogSection/SampleFilesGuide/SampleFilesGuide";
 import ImageFormatComparison from "../components/BlogSection/ImageFormatComparison/ImageFormatComparison";
+import AboutUs from "../components/AboutUs/AboutUs";
+import ContactUs from "../components/ContactUs/ContactUs";
+import NotFound from "../components/NotFound/NotFound";
+import BlogList from "../components/BlogList/BlogList";
 
 const AppRoutes = () => {
   return (
@@ -34,6 +38,9 @@ const AppRoutes = () => {
         <Route path="sample-code/" element={<SampleCode />} />
         <Route path="sample-code/:filePath" element={<SampleCode />} />
         <Route path="convert-jpg-to-png" element={<ConvertJpgToPng />} />
+        <Route path="about-us" element={<AboutUs />} />
+        <Route path="contact-us" element={<ContactUs />} />
+        <Route path="blog-list" element={<BlogList />} />
         <Route
           path="placeholder-image-generator"
           element={<PlaceholderImageGenerator />}
@@ -41,21 +48,21 @@ const AppRoutes = () => {
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-service" element={<TermsOfService />} />
         <Route
-          path="blog/how-to-convert-jpg-to-png"
+          path="how-to-convert-jpg-to-png"
           element={<ConvertJpgToPngBlog />}
         />
         <Route
-          path="blog/how-to-use-sample-files-for-testing"
+          path="how-to-use-sample-files-for-testing"
           element={<SampleFilesGuide />}
         />
         <Route
-          path="blog/compare-png-webp-and-nine-patch-images"
+          path="compare-png-webp-and-nine-patch-images"
           element={<ImageFormatComparison />}
         />
 
         {/* Add other routes here */}
       </Route>
-      <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 };

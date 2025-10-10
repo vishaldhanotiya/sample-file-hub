@@ -4,7 +4,7 @@ import { trackCardClick } from "../../utils/Analytics";
 import SearchBar from "../SearchBar/SearchBar";
 import { useNavigate } from "react-router-dom";
 import ToolsSection from "../ToolsSection";
-import AboutUs from "../AboutUs/AboutUs";
+import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 import { collection, getDocs } from "@firebase/firestore";
 import { db } from "../../App";
 import { categories, faqs } from "../../utils/Constant";
@@ -13,6 +13,7 @@ import Blog from "../BlogSection/BlogSection";
 export default function NewHome() {
   const [expandedFaq, setExpandedFaq] = useState(null);
   const navigate = useNavigate();
+
 
   const [categoriesData, setCategoriesData] = useState(categories);
   useEffect(() => {
@@ -100,7 +101,7 @@ export default function NewHome() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
@@ -132,7 +133,7 @@ export default function NewHome() {
                     >
                       <IconComponent size={32} className={category.color} />
                     </div>
-                         <h3 className="fw-bold fs-5">{category.title}</h3>
+                    <h3 className="fw-bold fs-5">{category.title}</h3>
                     <p className="text-muted-custom small mb-3">
                       {category.description}
                     </p>
@@ -144,6 +145,9 @@ export default function NewHome() {
                     <button
                       className={`btn fw-bold btn-custom-outline w-100 `}
                       onClick={() => {
+                        setTimeout(() => {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }, 100);
                         trackCardClick(category.key);
                         navigate(`sample-${category.key}`);
                       }}
@@ -183,9 +187,9 @@ export default function NewHome() {
         </div>
       </section>
 
-      
       <Blog />
-      <AboutUs />
+     
+      <WhyChooseUs />
       <section id={"faq"} className="py-5 bg-muted-custom">
         <div className="container">
           <div className="row justify-content-center">

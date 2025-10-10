@@ -1,159 +1,113 @@
-export default function AboutUs() {
+import React from "react";
+
+const AboutUs = () => {
   return (
-    <div className="bg-gradient bg-white">
-      <div className="container my-5 py-2">
-        <h3 className="text-center display-6 fw-bold mb-3 py-4">
-          Why Choose Us?
-        </h3>
+        <div className="container">
+      <div className="bg-white rounded-4 shadow-lg p-5 border-0 mt-5 mb-5 overflow-hidden">
+      <section className="text-center mb-5 ">
+        <h1 className="fw-bold mb-3">About Us</h1>
+        <p className="text-muted fs-5">
+          Welcome to <strong>SampleFiles.dev</strong> — a free and reliable
+          resource built for developers, testers, designers, and educators who
+          need ready-to-use sample files for software testing and demo purposes.
+        </p>
+      </section>
 
-        <div className="row g-4">
-          {/* Card 1 */}
-          <div className="col-md-4">
-            <div
-              className="p-4 h-100 d-flex flex-column align-items-start"
-              style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid #eaeaea",
-                borderRadius: "20px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = "0 6px 14px rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
-              }}
-            >
-              <div
-                className="mb-3 d-flex align-items-center justify-content-center"
-                style={{
-                  backgroundColor: "#0d6efd",
-                  color: "#fff",
-                  borderRadius: "12px",
-                  width: "54px",
-                  height: "54px",
-                }}
-              >
-                {/* Download Icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M.5 9.9v4.6a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5V9.9a.5.5 0 0 0-1 0v4.1H1V9.9a.5.5 0 0 0-.5-.5z" />
-                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-                </svg>
-              </div>
-              <h2 className="fw-bold fs-5">Download in Seconds</h2>
-              <p className={"text-muted fs-6"}>
-                Grab any test file instantly — no account, no delays, no fuss.
-              </p>
-            </div>
-          </div>
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">Who We Are</h2>
+        <p>
+          We created <strong>SampleFiles.dev</strong> to make your work faster,
+          easier, and safer. Whether you’re building a file upload feature,
+          testing APIs, designing UI layouts, or demonstrating a product, our
+          sample files save you time and effort — no need to create dummy
+          content manually.
+        </p>
+      </section>
 
-          {/* Card 2 */}
-          <div className="col-md-4">
-            <div
-              className="p-4 h-100 d-flex flex-column align-items-start"
-              style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid #eaeaea",
-                borderRadius: "20px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = "0 6px 14px rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
-              }}
-            >
-              <div
-                className="mb-3 d-flex align-items-center justify-content-center"
-                style={{
-                  backgroundColor: "#20c997",
-                  color: "#fff",
-                  borderRadius: "12px",
-                  width: "48px",
-                  height: "48px",
-                }}
-              >
-                {/* Folder Icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M9.828 4a3 3 0 0 0-2.121-.879H2.5A1.5 1.5 0 0 0 1 4.621v6.758A1.5 1.5 0 0 0 2.5 12.9h11a1.5 1.5 0 0 0 1.5-1.5V5.621A1.5 1.5 0 0 0 13.5 4.12H9.828z" />
-                </svg>
-              </div>
-              <h2 className="fw-bold fs-5">All Formats Covered</h2>
-              <p className={"text-muted fs-6"}>
-                From PNG to MP4 to DOCX — <strong>20+ file types</strong> ready
-                to download.
-              </p>
-            </div>
-          </div>
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">Our Mission</h2>
+        <blockquote className="blockquote border-start border-4 ps-3">
+          <p className="mb-0">
+            To provide high-quality, virus-free, and easily accessible sample
+            files that empower developers and testers to build better products.
+          </p>
+        </blockquote>
+        <p className="mt-3">
+          We believe testing should be effortless and secure. That’s why every
+          file hosted on our platform is verified, properly formatted, and
+          categorized by type and size for your convenience.
+        </p>
+      </section>
 
-          {/* Card 3 */}
-          <div className="col-md-4">
-            <div
-              className="p-4 h-100 d-flex flex-column align-items-start"
-              style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid #eaeaea",
-                borderRadius: "20px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                transition: "transform 0.2s ease, box-shadow 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = "0 6px 14px rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)";
-              }}
-            >
-              <div
-                className="mb-3 d-flex align-items-center justify-content-center"
-                style={{
-                  backgroundColor: "#fd7e14",
-                  color: "#fff",
-                  borderRadius: "12px",
-                  width: "48px",
-                  height: "48px",
-                }}
-              >
-                {/* Gift Icon */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M3 1a2 2 0 1 1 4 0v2H3V1zm6 0a2 2 0 1 1 4 0v2h-4V1zM2 5v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5H2zm5 9V5h2v9H7z" />
-                </svg>
-              </div>
-              <h2 className="fw-bold fs-5">Always Free</h2>
-              <p className={"fs-6 text-muted"}>
-                Test files shouldn’t cost money — and they never will here.
-              </p>
-            </div>
-          </div>
-        </div>
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">What We Offer</h2>
+        <ul className="list-unstyled">
+          <li>🖼️ <strong>Sample Images</strong> – JPG, PNG, SVG, GIF, WEBP, TIFF, and more.</li>
+          <li>🎵 <strong>Sample Audio Files</strong> – MP3, WAV, OGG, M4A for media player testing.</li>
+          <li>🎬 <strong>Sample Video Files</strong> – MP4, MOV, WEBM, AVI in different resolutions.</li>
+          <li>📄 <strong>Sample Documents</strong> – PDF, DOCX, XLSX, CSV, TXT for upload & export testing.</li>
+          <li>🗂️ <strong>Sample Archives</strong> – ZIP, RAR, TAR, and other compressed formats.</li>
+        </ul>
+        <p>
+          Each file is <strong>safe for educational and development use</strong>,
+          hosted on reliable servers, and easy to download without any login or subscription.
+        </p>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">Why Developers Choose Us</h2>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">✅ 100% Free & No Signup Required</li>
+          <li className="list-group-item">✅ Clean and Fast User Experience</li>
+          <li className="list-group-item">✅ Safe, Tested, and Lightweight Files</li>
+          <li className="list-group-item">✅ Regularly Updated Content</li>
+          <li className="list-group-item">✅ Developer-Friendly Interface</li>
+        </ul>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">Our Vision</h2>
+        <p>
+          We aim to become the <strong>most trusted open resource for sample files worldwide</strong>,
+          supporting developers across web, mobile, and data-driven platforms. Our long-term goal
+          is to expand into <strong>API-based file generation</strong>, allowing developers to fetch
+          test files directly into their projects.
+        </p>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">Transparency & File Safety</h2>
+        <ul>
+          <li>Free from personal, copyrighted, or sensitive content.</li>
+          <li>Virus-free and safe to use in test or demo environments.</li>
+          <li>Compliant with fair-use and educational purposes.</li>
+        </ul>
+        <p>
+          If you ever find a broken link or unsafe file, please report it — we’ll fix it immediately.
+        </p>
+      </section>
+
+      <section className="mb-5">
+        <h2 className="fw-semibold mb-3">Contact Us</h2>
+        <p>
+          Have feedback, partnership ideas, or need a custom sample file format? We’d love to hear from you!
+        </p>
+        <p className="fw-bold">📧 samplefiles.dev@gmail.com</p>
+      </section>
+
+      <section className="text-center border-top pt-4">
+        <p className="text-muted">
+          SampleFiles.dev is built for the community — by developers, for developers.
+          Your feedback helps us grow and keep the platform useful for everyone.
+        </p>
+        <p>
+          If you find our site helpful, consider sharing it with your peers or linking to it
+          in your tutorials and documentation.
+        </p>
+      </section>
       </div>
     </div>
   );
-}
+};
+
+export default AboutUs;

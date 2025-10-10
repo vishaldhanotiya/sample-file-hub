@@ -6,6 +6,7 @@ const Column = ({ title, items }) => {
   const handleClick = (e, item) => {
     if (e.ctrlKey || e.metaKey) return; // allow new tab
     e.preventDefault();
+    console.log(item.path)
     navigate(item.path);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

@@ -84,7 +84,9 @@ const ToolsSection = () => {
               <p className="text-muted small flex-grow-1">{tool.description}</p>
               <button
                 onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    setTimeout(() => {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }, 100);
                   navigate(tool.key);
                 }}
                 className="btn hero-gradient btn-primary mt-3 align-self-end"

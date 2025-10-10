@@ -17,7 +17,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           {/* Left Section (80%) */}
-          <div className="col-12 col-lg-9 pe-lg-4">
+          <div className="col-12 pe-lg-4">
             {/* 80% width */}
             <div className="row">
               {/* Logo and Description */}
@@ -54,13 +54,13 @@ const Footer = () => {
           </div>
 
           {/* Right Section (20%) - Contact Form */}
-          <div className="col-12 col-lg-3">
-            {/* 20% width */}
-            <div className="bg-light p-3 rounded border">
+          {/* <div className="col-12 col-lg-3"> */}
+          {/* 20% width */}
+          {/* <div className="bg-light p-3 rounded border">
               <div className="mb-3 fs-5 text-black fw-medium">Contact Us</div>
               <ContactForm />
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
         <div className="mt-5">
           <div className="share-container justify-content-center text-center align-item-center">
@@ -83,6 +83,18 @@ const Footer = () => {
               <a
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
+                  navigate("about-us");
+                }}
+                href="#"
+                className="text-white-50 text-decoration-none small"
+              >
+                About Us
+              </a>
+            </li>
+            <li className="mx-3">
+              <a
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
                   navigate("privacy-policy");
                 }}
                 href="#"
@@ -92,7 +104,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="mx-3">
-              <a 
+              <a
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                   navigate("terms-of-service");
@@ -101,6 +113,20 @@ const Footer = () => {
                 className="text-white-50 text-decoration-none small"
               >
                 Terms of Service
+              </a>
+            </li>
+            <li className="mx-3">
+              <a
+                onClick={() => {
+                  navigate("contact-us");
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }, 100);
+                }}
+                href="#"
+                className="text-white-50 text-decoration-none small"
+              >
+                Contact Us
               </a>
             </li>
           </ul>

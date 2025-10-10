@@ -18,11 +18,14 @@ export default function Header() {
     { path: "sample-documents", label: "Documents" },
     { path: "sample-archives", label: "Archives" },
     { path: "sample-code", label: "Code" },
+    { path: "blog-list", label: "Blogs" },
+    // { path: "about-us", label: "About Us" },
+    // { path: "contact-us", label: "Contact Us" },
     // { path: "convert-jpg-to-png", label: "💡Convert PNG → JPG" },
-    // { path: "blog/blog/sample-file-guide", label: "Blogs" },
   ];
 
   const handleTrack = (path) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     trackHeaderNavigation(path);
     setIsMenuOpen(false);
   };
@@ -40,12 +43,14 @@ export default function Header() {
       >
         <div className="container">
           <div className="d-flex align-items-center justify-content-between flex-wrap">
-
             {/* Logo */}
             <div
               className="logo-container d-flex align-items-center"
               style={{ cursor: "pointer", flexShrink: 0 }}
-              onClick={() => navigate("/")}
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                navigate("/");
+              }}
               aria-label="Go to homepage"
             >
               <h2
