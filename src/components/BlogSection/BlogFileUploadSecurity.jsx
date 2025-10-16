@@ -322,7 +322,7 @@ export default function BlogFileUploadSecurity() {
               </div>
               <div className="card-body p-0">
                 <pre className="p-3 mb-0 bg-dark text-light border-0">
-                  <code className="text-light">
+                  <code className="text-black">
                     {`function verifyFileType(filePath) {
   const magicNumbers = {
     jpg: "\\xFF\\xD8\\xFF",

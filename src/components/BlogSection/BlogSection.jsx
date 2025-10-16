@@ -4,6 +4,7 @@ import blog2 from "../../assets/blog-2.jpg";
 import blog3 from "../../assets/blog-3.jpg";
 import blog4 from "../../assets/blog-4.jpg";
 import blog5 from "../../assets/blog-5.jpg";
+import blog6 from "../../assets/blog-6.jpg";
 import "../BlogList/BlogList";
 
 const blogs = [
@@ -16,7 +17,7 @@ const blogs = [
     date: "October 8, 2025",
     image: blog1,
     category: "Development",
-    path: "/how-to-convert-jpg-to-png",
+    path: "/how-to-convert-image-from-jpg-to-png",
   },
   {
     id: 2,
@@ -50,18 +51,29 @@ const blogs = [
     date: "Oct 15, 2025",
     image: blog4,
     category: "Security",
-    path: "/blog-image-optimization",
+    path: "/image-optimization-best-practices-for-web-performance",
   },
   {
     id: 5,
-    title: " File Upload Security: A Complete Guide for Developers",
+    title: "File Upload Security: A Complete Guide for Developers",
     description:
       " Learn secure file upload best practices for web applications. Covers client-side & server-side validation, allowed file types, and scanning uploaded files",
     author: "Vishal Dhanotiya",
     date: "Oct 15, 2025",
     image: blog5,
     category: "Security",
-    path: "/blog-file-upload-security",
+    path: "/file-upload-security-a-complete-guide-for-developers",
+  },
+  {
+    id: 6,
+    title: "The PNG Paradox: Fixing Common Transparency, File Size, and Quality Mistakes",
+    description:
+      "PNGs are powerful but often misunderstood. From transparency glitches to oversized files, most “solutions” online miss the real cause.",
+    author: "Vishal Dhanotiya",
+    date: "Oct 15, 2025",
+    image: blog6,
+    category: "Security",
+    path: "/the-png-paradox-fixing-common-transparency-file-size-and-quality-mistakes",
   },
 ];
 

@@ -124,21 +124,40 @@
   </url>
 
   <!--Blog-->
+    <url>
+    <loc>https://www.samplefiles.dev/how-to-convert-image-from-jpg-to-png</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
    <url>
     <loc>https://www.samplefiles.dev/how-to-use-sample-files-for-testing</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+ 
    <url>
-    <loc>https://www.samplefiles.dev/how-to-convert-jpg-to-png</loc>
+    <loc>https://www.samplefiles.dev/compare-png-webp-and-nine-patch-images</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/image-optimization-best-practices-for-web-performance</loc>
+    <lastmod>2025-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.samplefiles.dev/file-upload-security-a-complete-guide-for-developers</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
    <url>
-    <loc>https://www.samplefiles.dev/compare-png-webp-and-nine-patch-images</loc>
-    <lastmod>2025-10-09</lastmod>
+    <loc>https://www.samplefiles.dev/the-png-paradox-fixing-common-transparency-file-size-and-quality-mistakes</loc>
+    <lastmod>2025-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

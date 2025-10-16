@@ -7,7 +7,7 @@ export default function FAQ() {
   const toggleFaq = (index) => {
     setExpandedFaq(expandedFaq === index ? null : index);
   };
-  
+
   return (
     <div>
       <section id={"faq"} className="py-5 bg-muted-custom">
@@ -29,7 +29,7 @@ export default function FAQ() {
                     key={index}
                     className="accordion-item border-custom mb-3 rounded p-2"
                   >
-                    <h2 className="accordion-header">
+                    <p className="accordion-header">
                       <button
                         className="accordion-button p-2 collapsed bg-card-custom"
                         type="button"
@@ -40,7 +40,7 @@ export default function FAQ() {
                           {faq.question}
                         </span>
                       </button>
-                    </h2>
+                    </p>
                     {expandedFaq === index && (
                       <div className="accordion-collapse show">
                         <div className="accordion-body">

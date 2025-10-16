@@ -20,6 +20,7 @@ import NotFound from "../components/NotFound/NotFound";
 import BlogList from "../components/BlogList/BlogList";
 import BlogImageOptimization from "../components/BlogSection/BlogImageOptimization";
 import BlogFileUploadSecurity from "../components/BlogSection/BlogFileUploadSecurity";
+import PNGTroubleshooter from "../components/BlogSection/PNGTroubleshooter/PNGTroubleshooter";
 
 const AppRoutes = () => {
   return (
@@ -42,34 +43,41 @@ const AppRoutes = () => {
         <Route path="convert-jpg-to-png" element={<ConvertJpgToPng />} />
         <Route path="about-us" element={<AboutUs />} />
         <Route path="contact-us" element={<ContactUs />} />
-        <Route path="blog-list" element={<BlogList />} />
-        <Route
-          path="blog-image-optimization"
-          element={<BlogImageOptimization />}
-        />
-        <Route
-          path="blog-file-upload-security"
-          element={<BlogFileUploadSecurity />}
-        />
         <Route
           path="placeholder-image-generator"
           element={<PlaceholderImageGenerator />}
         />
-        <Route path="privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="terms-of-service" element={<TermsOfService />} />
+        <Route path="blog-list" element={<BlogList />} />
+
         <Route
-          path="how-to-convert-jpg-to-png"
+          path="how-to-convert-image-from-jpg-to-png"
           element={<ConvertJpgToPngBlog />}
         />
-        <Route
+         <Route
           path="how-to-use-sample-files-for-testing"
           element={<SampleFilesGuide />}
         />
-        <Route
+         <Route
           path="compare-png-webp-and-nine-patch-images"
           element={<ImageFormatComparison />}
         />
+        <Route
+          path="image-optimization-best-practices-for-web-performance"
+          element={<BlogImageOptimization />}
+        />
+        <Route
+          path="file-upload-security-a-complete-guide-for-developers"
+          element={<BlogFileUploadSecurity />}
+        />
+        <Route
+          path="the-png-paradox-fixing-common-transparency-file-size-and-quality-mistakes"
+          element={<PNGTroubleshooter />}
+        />
 
+       
+       
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-of-service" element={<TermsOfService />} />
         {/* Add other routes here */}
       </Route>
       <Route path="*" element={<NotFound />} />
