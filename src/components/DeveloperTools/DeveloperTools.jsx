@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const ToolsSection = () => {
+const DeveloperTools = () => {
   const navigate = useNavigate();
 
   const tools = [
@@ -9,7 +9,7 @@ const ToolsSection = () => {
       title: "Image Converter",
       description:
         "Convert images between different formats like PNG to JPG, WEBP to PNG, and more. Fast, reliable, and maintains quality.",
-      icon: require("../assets/conversion.png"),
+      icon: require("../../assets/conversion.png"),
       color: "primary",
     },
     {
@@ -17,7 +17,7 @@ const ToolsSection = () => {
       title: "Placeholder Image Generator",
       description:
         "Generate custom placeholder images for your projects. Choose dimensions, colors, and text to create perfect mockup images.",
-      icon: require("../assets/default-image.png"),
+      icon: require("../../assets/default-image.png"),
       color: "primary",
     },
     // {
@@ -65,39 +65,58 @@ const ToolsSection = () => {
   ];
 
   return (
-    <div className="container py-2">
-      {/* Header Section */}
-
-      {/* Tools Grid */}
-      <div className="row g-4">
-        {tools.map((tool, index) => (
-          <div key={index} className="col-md-6 col-lg-4">
-            <div className="category-card h-100 p-4 text-center rounded">
-              <div
-                className="hero-gradient d-inline-flex align-items-center  justify-content-center bg-light rounded mb-3"
-                style={{ width: "64px", height: "64px" }}
-              >
-                <img alt="tool-icon" width={50} height={50} src={tool.icon} />
+    <section>
+      <div className="container">
+        <div className="text-center mb-5">
+          <h2 className="display-6 fw-bold mb-3">Developer Tools</h2>
+          <h3 className="text-body-secondary fw-normal fs-4">
+            Essential utilities for developers and designers.
+          </h3>
+          <h3 className="text-body-secondary fw-normal fs-4">
+            Convert, compress, generate, and optimize your digital assets with
+            our collection of professional tools.
+          </h3>
+        </div>
+        <div className="container py-2">
+          {/* Tools Grid */}
+          <div className="row g-4">
+            {tools.map((tool, index) => (
+              <div key={index} className="col-md-6 col-lg-4">
+                <div className="category-card h-100 p-4 text-center rounded">
+                  <div
+                    className="hero-gradient d-inline-flex align-items-center  justify-content-center bg-light rounded mb-3"
+                    style={{ width: "64px", height: "64px" }}
+                  >
+                    <img
+                      alt="tool-icon"
+                      width={50}
+                      height={50}
+                      src={tool.icon}
+                    />
+                  </div>
+                  <h3 className="fw-bold fs-4">{tool.title}</h3>
+                  <p className="text-body-secondary fw-medium flex-grow-1">
+                    {tool.description}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }, 100);
+                      navigate(tool.key);
+                    }}
+                    className="btn hero-gradient fw-bold btn-primary mt-3 align-self-end"
+                  >
+                    Use Tool →
+                  </button>
+                </div>
               </div>
-                   <h3 className="fw-bold fs-4">{tool.title}</h3>
-              <p className="text-body-secondary fw-medium flex-grow-1">{tool.description}</p>
-              <button
-                onClick={() => {
-                    setTimeout(() => {
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }, 100);
-                  navigate(tool.key);
-                }}
-                className="btn hero-gradient fw-bold btn-primary mt-3 align-self-end"
-              >
-                Use Tool →
-              </button>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ToolsSection;
+export default DeveloperTools;

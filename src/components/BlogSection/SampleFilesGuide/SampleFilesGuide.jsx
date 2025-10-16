@@ -10,11 +10,6 @@ const SampleFilesGuide = () => {
             color: "#fff",
           }}
         >
-          {/* <div className="position-absolute top-0 start-0 w-100 h-100 opacity-10">
-            <div className="position-absolute" style={{top: '20%', left: '10%'}}>📄</div>
-            <div className="position-absolute" style={{top: '60%', right: '15%'}}>🎵</div>
-            <div className="position-absolute" style={{bottom: '30%', left: '20%'}}>🎥</div>
-          </div> */}
           <h1 className="display-5 fw-bold mb-3 position-relative">
             How to Use Sample Files for Testing Software
           </h1>
@@ -351,42 +346,6 @@ const SampleFilesGuide = () => {
               </div>
             </div>
           </div>
-
-          {/* Section 5 */}
-          {/* <div id="section-5" className="mb-5">
-            <h2 className="h3 fw-bold mb-4 text-primary border-bottom pb-2">
-              <span
-                className="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center me-2"
-                style={{ width: "40px", height: "40px" }}
-              >
-                5
-              </span>
-              How to Create Sample Files
-            </h2>
-            <div className="card border-0 bg-dark text-light">
-              <div className="card-header bg-secondary py-2">
-                <small className="fw-bold">Terminal Commands</small>
-              </div>
-              <div className="card-body p-0">
-                <pre className="p-3 mb-0 bg-dark text-white border-0">
-                  <code className="text-light">
-                    {`# Create 10MB dummy file
-fallocate -l 10M sample.bin
-
-# Create CSV file
-echo "id,name,email" > users.csv
-echo "1,John,john@example.com" >> users.csv
-
-# Create sample JSON
-echo '{"users": [{"id": 1, "name": "John"}]}' > data.json
-
-# Generate sample image (requires ImageMagick)
-convert -size 800x600 xc:white sample.jpg`}
-                  </code>
-                </pre>
-              </div>
-            </div>
-          </div> */}
 
           {/* Section 6 */}
           <div id="section-6" className="mb-5">

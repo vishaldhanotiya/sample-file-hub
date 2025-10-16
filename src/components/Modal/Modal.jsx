@@ -1,5 +1,3 @@
-import React from "react";
-
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
@@ -9,7 +7,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       <div
         className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
         onClick={onClose}
-      ></div>
+      />
 
       {/* Modal content container */}
       <div className="fixed inset-0 flex items-center justify-center z-50 p-4">

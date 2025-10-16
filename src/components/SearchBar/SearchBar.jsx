@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { trackUserSearchMetaData } from "../../utils/Analytics";
 
-import "../Home/NewHome.css";
+import "../Home/Home.css";
 import "./SearchBar.css";
 
 const documentArray = [

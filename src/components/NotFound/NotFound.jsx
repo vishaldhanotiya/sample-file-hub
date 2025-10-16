@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
@@ -25,7 +24,8 @@ const NotFound = () => {
         </h1>
         <h3 className="fw-semibold text-dark mb-2">Page Not Found</h3>
         <p className="text-body-secondary fw-medium mb-4">
-          Oops! The page you’re looking for doesn’t exist or may have been moved.
+          Oops! The page you’re looking for doesn’t exist or may have been
+          moved.
         </p>
 
         <button

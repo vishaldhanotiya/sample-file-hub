@@ -1,6 +1,5 @@
 import  { useEffect, useMemo,useState, useCallback } from "react";
 import Nav from "react-bootstrap/Nav";
-import "bootstrap/dist/css/bootstrap.min.css";
 import {
   collection,
   getDocs,

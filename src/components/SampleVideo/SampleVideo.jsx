@@ -12,7 +12,6 @@ import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate, useParams } from "react-router-dom";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import {

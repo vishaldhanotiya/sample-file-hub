@@ -5,7 +5,7 @@ import SampleVideo from "../components/SampleVideo/SampleVideo";
 import SampleAudio from "../components/SampleAudio/SampleAudio";
 import SampleDocument from "../components/SampleDocument/SampleDocument";
 import ConvertJpgToPng from "../components/ConvertJpgToPng/ConvertJpgToPng";
-import NewHome from "../components/Home/NewHome";
+import Home from "../components/Home/Home";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
 import SampleCode from "../components/SampleCode/SampleCode";
 import PlaceholderImageGenerator from "../components/PlaceholderImageGenerator/PlaceholderImageGenerator";
@@ -25,7 +25,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<NewHome />} />
+        <Route index element={<Home />} />
         {/* <Route path="home" element={<Home />} /> */}
         <Route path="sample-images" element={<SampleImage />} />
         <Route path="sample-images/:filePath" element={<SampleImage />} />

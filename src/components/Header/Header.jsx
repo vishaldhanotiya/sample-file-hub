@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { trackHeaderNavigation } from "../../utils/Analytics";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "../Home/NewHome.css";
+import "../Home/Home.css";
 
 export default function Header() {
   const navigate = useNavigate();

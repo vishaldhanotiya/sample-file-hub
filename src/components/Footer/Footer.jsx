@@ -6,7 +6,6 @@ import {
   videoTabData,
 } from "../../utils/Constant";
 import Column from "../Column/Column";
-import ContactForm from "../ContactForm/ContactForm";
 import SocialShare from "../SocialShare/SocialShare";
 import "./Footer.css";
 const Footer = () => {
@@ -52,15 +51,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Section (20%) - Contact Form */}
-          {/* <div className="col-12 col-lg-3"> */}
-          {/* 20% width */}
-          {/* <div className="bg-light p-3 rounded border">
-              <div className="mb-3 fs-5 text-black fw-medium">Contact Us</div>
-              <ContactForm />
-            </div> */}
-          {/* </div> */}
         </div>
         <div className="mt-5">
           <div className="share-container justify-content-center text-center align-item-center">

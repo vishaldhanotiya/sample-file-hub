@@ -1112,56 +1112,52 @@ export default function PlaceholderImageGenerator() {
         </div>
 
         {/* Right: preview */}
-        
+
         <div className="col-lg-8">
-        
           <div
             className={`card p-3 ${darkMode ? "bg-secondary text-light" : ""}`}
           >
-          
             <div className="d-flex justify-content-between align-items-center mb-2">
-            
               <h5 className="mb-0">Live Preview</h5>
-              
+
               <div className="small text-body-secondary fw-medium">
                 {generatedBytes
                   ? `${(generatedBytes / (1024 * 1024)).toFixed(2)} MB`
                   : "not generated"}
               </div>
-              
             </div>
 
-                <div className="d-flex gap-2 mt-3 mb-3">
-                  <div className="container-fluid">
-                    <div className="d-flex gap-2 align-items-center">
-                      <button
-                        className="btn btn-primary btn-sm"
-                        onClick={handleDownload}
-                      >
-                        Generate & Download
-                      </button>
+            <div className="d-flex gap-2 mt-3 mb-3">
+              <div className="container-fluid">
+                <div className="d-flex gap-2 align-items-center">
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={handleDownload}
+                  >
+                    Generate & Download
+                  </button>
 
-                      <button
-                        className="btn btn-outline-secondary btn-sm"
-                        onClick={handleCopyBase64}
-                      >
-                        Copy Base64
-                      </button>
-                      <button
-                        className="btn btn-outline-secondary btn-sm"
-                        onClick={randomize}
-                      >
-                        Random
-                      </button>
-                      <button
-                        className="btn btn-primary btn-sm"
-                        onClick={() => {
-                          /* trigger immediate download */ handleDownload();
-                        }}
-                      >
-                        Generate & Download
-                      </button>
-                      {/* <div className="form-check form-switch ms-3">
+                  <button
+                    className="btn btn-outline-secondary btn-sm"
+                    onClick={handleCopyBase64}
+                  >
+                    Copy Base64
+                  </button>
+                  <button
+                    className="btn btn-outline-secondary btn-sm"
+                    onClick={randomize}
+                  >
+                    Random
+                  </button>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={() => {
+                      /* trigger immediate download */ handleDownload();
+                    }}
+                  >
+                    Generate & Download
+                  </button>
+                  {/* <div className="form-check form-switch ms-3">
                         <input
                           className="form-check-input"
                           type="checkbox"
@@ -1173,9 +1169,9 @@ export default function PlaceholderImageGenerator() {
                 Dark
               </label>
                       </div> */}
-                    </div>
-                  </div>
                 </div>
+              </div>
+            </div>
             <div
               className="d-flex justify-content-center align-items-center"
               style={{ minHeight: 280 }}
@@ -1213,11 +1209,12 @@ export default function PlaceholderImageGenerator() {
                         }}
                       />
                     ) : (
-                      <div className="text-body-secondary fw-medium">Preview will appear here</div>
+                      <div className="text-body-secondary fw-medium">
+                        Preview will appear here
+                      </div>
                     )}
                   </div>
                 </div>
-
 
                 {error && <div className="mt-2 text-danger">{error}</div>}
               </div>

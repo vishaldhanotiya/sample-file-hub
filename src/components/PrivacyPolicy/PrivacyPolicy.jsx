@@ -1,4 +1,3 @@
-import React from "react";
 const privacyPolicy = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,20 +155,19 @@ const privacyPolicy = `<!DOCTYPE html>
 // create a component
 export default function PrivacyPolicy() {
   return (
-     <div className="container">
+    <div className="container">
       <article className="bg-white rounded-4 shadow-lg border-0 mt-5 mb-5 overflow-hidden">
-    <div
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#2c3e50",
-      }}
-    >
-      <div dangerouslySetInnerHTML={{ __html: privacyPolicy }}></div>
-         </div>
+        <div
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#2c3e50",
+          }}
+        >
+          <div dangerouslySetInnerHTML={{ __html: privacyPolicy }}></div>
+        </div>
       </article>
-   
     </div>
   );
 }
