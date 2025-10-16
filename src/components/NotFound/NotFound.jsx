@@ -24,7 +24,7 @@ const NotFound = () => {
           404
         </h1>
         <h3 className="fw-semibold text-dark mb-2">Page Not Found</h3>
-        <p className="text-muted mb-4">
+        <p className="text-body-secondary fw-medium mb-4">
           Oops! The page you’re looking for doesn’t exist or may have been moved.
         </p>
 

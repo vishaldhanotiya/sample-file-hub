@@ -80,8 +80,8 @@ const ToolsSection = () => {
               >
                 <img alt="tool-icon" width={50} height={50} src={tool.icon} />
               </div>
-                   <h3 className="fw-bold fs-5">{tool.title}</h3>
-              <p className="text-muted small flex-grow-1">{tool.description}</p>
+                   <h3 className="fw-bold fs-4">{tool.title}</h3>
+              <p className="text-body-secondary fw-medium flex-grow-1">{tool.description}</p>
               <button
                 onClick={() => {
                     setTimeout(() => {
@@ -89,7 +89,7 @@ const ToolsSection = () => {
                         }, 100);
                   navigate(tool.key);
                 }}
-                className="btn hero-gradient btn-primary mt-3 align-self-end"
+                className="btn hero-gradient fw-bold btn-primary mt-3 align-self-end"
               >
                 Use Tool →
               </button>

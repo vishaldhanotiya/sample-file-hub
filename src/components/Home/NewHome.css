@@ -177,10 +177,6 @@ body {
   color: var(--background);
 }
 
-.text-muted-custom {
-  color: var(--muted-foreground);
-}
-
 .bg-muted-custom {
   background-color: var(--muted);
 }

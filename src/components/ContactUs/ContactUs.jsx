@@ -8,7 +8,7 @@ const ContactUs = () => {
       <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-center bg-light px-3">
         <div className="p-5 rounded-4 shadow-sm bg-white" style={{ maxWidth: "450px" }}>
           <h2 className="fw-bold text-success mb-3">🎉 Thank You!</h2>
-          <p className="text-muted mb-4">
+          <p className="text-body-secondary fw-medium mb-4">
             Your message has been successfully sent. We'll get back to you soon.
           </p>
           <a href="/" className="btn btn-success px-4">Go Home</a>

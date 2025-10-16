@@ -394,7 +394,7 @@ export const categories = [
     icon: ImageIcon,
     title: "Images",
     description:
-      "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO, AVIF, DNG, TGA ",
+      "Download high-quality sample images in 13+ formats, including JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO, AVIF, DNG, and TGA. Instantly access diverse resolutions and sizes for testing UI layouts, validating uploads, or experimenting with compression. No registration required — perfect for developers, designers, and QA testers",
     downloads: "",
     color: "text-white",
     bgDownload: "bg-primary-subtle",
@@ -405,7 +405,7 @@ export const categories = [
     icon: Video,
     title: "Videos",
     description:
-      "Sample video files for testing: MP4, AVI, MKV, FLV, 3GP, MOV, WebM formats",
+      "Get free sample videos in 6+ popular formats like MP4, AVI, MKV, MOV, WebM, FLV, and 3GP. Available in multiple resolutions and frame rates, these files are ideal for testing playback, streaming performance, compression, or editing workflows. Instantly download and use in your projects.",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-info-subtle",
@@ -416,7 +416,7 @@ export const categories = [
     icon: Music,
     title: "Audio",
     description:
-      "Audio samples in multiple formats: MP3, WAV, AAC, OGG, AIFF, FLAC",
+      "Access 50+ sample audio files, including MP3, WAV, AAC, OGG, AIFF, FLAC, and M4A. Explore royalty-free music, sound effects, and clips to test playback, compression, or audio editing. Perfect for developers, sound engineers, and content creators.",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-success-subtle",
@@ -427,7 +427,7 @@ export const categories = [
     icon: FileText,
     title: "Documents",
     description:
-      "Sample documents:PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, CSV for testing",
+      "Download sample files in PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX, TXT, ODT, RTF, and CSV formats. Test file uploads, formatting, parsing, and compatibility with various applications. Ideal for students, professionals, and developers working with reports, contracts, presentations, and more.",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-danger-subtle",
@@ -437,7 +437,7 @@ export const categories = [
     key: "archives",
     icon: Archive,
     title: "Archives",
-    description: "Compressed files for testing: ZIP, RAR, 7Z, TAR formats",
+    description:"Access free test archives in ZIP, RAR, 7Z, and TAR formats. Explore different compression levels, file structures, and security settings to validate extraction algorithms, uploads, or system compatibility. Perfect for developers, QA engineers, and IT professionals",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-warning-subtle",
@@ -448,7 +448,7 @@ export const categories = [
     icon: MoreHorizontal,
     title: "Code",
     description:
-      "Miscellaneous file formats: HTML, PHP, JSON, C, C++, RUBY, JS, YAML, PYTHON, BAT, JAVA, XML, and more",
+      "Get sample files in HTML, PHP, JSON, JavaScript, Python, Java, XML, YAML, and C++. Test code editors, syntax highlighting, API responses, and security tools using professionally created test cases. Suitable for developers, students, and QA engineers.",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-primary-subtle",

@@ -6,7 +6,7 @@ const AboutUs = () => {
       <div className="bg-white rounded-4 shadow-lg p-5 border-0 mt-5 mb-5 overflow-hidden">
       <section className="text-center mb-5 ">
         <h1 className="fw-bold mb-3">About Us</h1>
-        <p className="text-muted fs-5">
+        <p className="text-body-secondary fw-medium fs-5">
           Welcome to <strong>SampleFiles.dev</strong> — a free and reliable
           resource built for developers, testers, designers, and educators who
           need ready-to-use sample files for software testing and demo purposes.
@@ -96,7 +96,7 @@ const AboutUs = () => {
       </section>
 
       <section className="text-center border-top pt-4">
-        <p className="text-muted">
+        <p className="text-body-secondary fw-medium">
           SampleFiles.dev is built for the community — by developers, for developers.
           Your feedback helps us grow and keep the platform useful for everyone.
         </p>

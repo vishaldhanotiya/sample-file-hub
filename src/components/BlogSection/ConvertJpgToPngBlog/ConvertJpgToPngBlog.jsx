@@ -109,7 +109,7 @@ const ConvertJpgToPngBlog = () => {
                   <strong>Why use our tool?</strong> Free, no registration, and
                   works locally for privacy.
                 </p>
-                <div className="fst-italic text-muted border-top pt-2 mt-3">
+                <div className="fst-italic text-body-secondary fw-medium border-top pt-2 mt-3">
                   <strong>Best for:</strong> Quick, secure, and hassle-free
                   conversions.
                 </div>
@@ -135,7 +135,7 @@ const ConvertJpgToPngBlog = () => {
                   <li className="mb-2">Select PNG as the output format.</li>
                   <li>Convert and download the PNG file.</li>
                 </ol>
-                <div className="fst-italic text-muted border-top pt-2 mt-3">
+                <div className="fst-italic text-body-secondary fw-medium border-top pt-2 mt-3">
                   <strong>Best for:</strong> One-off conversions or exploring
                   multiple tools.
                 </div>
@@ -169,7 +169,7 @@ const ConvertJpgToPngBlog = () => {
                   </li>
                   <li>Click Save.</li>
                 </ol>
-                <div className="fst-italic text-muted border-top pt-2 mt-3">
+                <div className="fst-italic text-body-secondary fw-medium border-top pt-2 mt-3">
                   <strong>Best for:</strong> Quick conversions without uploading
                   files.
                 </div>

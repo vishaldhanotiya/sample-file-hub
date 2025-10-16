@@ -79,7 +79,7 @@ export default function NewHome() {
                   Download high-quality sample files instantly. Images, videos,
                   audio, documents, and more.
                 </h2>
-                <h3 className="text-white fw-normal fs-6 mb-4 fs-md-5">
+                <h3 className="text-white fw-medium fs-6 mb-4 fs-md-5">
                   No login, no tracking, just instant access.
                 </h3>
               </div>
@@ -106,13 +106,13 @@ export default function NewHome() {
         <div className="container">
           <div className="text-center mb-5">
             <h2 className="display-6 fw-bold mb-3">Browse Categories</h2>
-            <h3 className="text-muted-custom lead">
+            <h3 className="text-body-secondary fw-normal fs-4">
               All files are 100% safe, virus-free, and free for personal or
               commercial use.
             </h3>
 
             <div className="text-center text-black my-2 px-3 px-md-5">
-              <h3 className="text-muted-custom lead">
+            <h3 className="text-body-secondary fw-normal fs-4">
                 Find the perfect sample files for your projects across different
                 categories. Perfect for developers, testers, educators, and
                 presentations.
@@ -133,8 +133,8 @@ export default function NewHome() {
                     >
                       <IconComponent size={32} className={category.color} />
                     </div>
-                    <h3 className="fw-bold fs-5">{category.title}</h3>
-                    <p className="text-muted-custom small mb-3">
+                    <h3 className="fw-bold fs-4">{category.title}</h3>
+                    <p className="text-body-secondary fw-medium mb-3">
                       {category.description}
                     </p>
                     <div
@@ -166,22 +166,13 @@ export default function NewHome() {
         <div className="container">
           <div className="text-center mb-5">
             <h2 className="display-6 fw-bold mb-3">Developer Tools</h2>
-            <h3 className="text-muted-custom lead">
+            <h3 className="text-body-secondary fw-normal fs-4">
               Essential utilities for developers and designers.
             </h3>
-            <h3 className="text-muted-custom lead">
+            <h3 className="text-body-secondary fw-normal fs-4">
               Convert, compress, generate, and optimize your digital assets with
               our collection of professional tools.
             </h3>
-
-            {/* <div className="text-center text-black my-2 px-3 px-md-5">
-            
-              <h3 className="text-muted-custom lead">
-                Find the perfect sample files for your projects across different
-                categories. Perfect for developers, testers, educators, and
-                presentations.
-              </h3>
-            </div> */}
           </div>
           <ToolsSection />
         </div>
@@ -198,7 +189,7 @@ export default function NewHome() {
                 <h2 className="display-6 fw-bold mb-3">
                   Frequently Asked Questions
                 </h2>
-                <p className="lead text-muted-custom">
+                <p className="text-body-secondary fw-normal fs-4">
                   Everything you need to know about our sample files
                 </p>
               </div>
@@ -216,13 +207,13 @@ export default function NewHome() {
                         onClick={() => toggleFaq(index)}
                         aria-expanded={expandedFaq === index}
                       >
-                        <span className="fw-medium">{faq.question}</span>
+                        <span className="text-black fw-medium">{faq.question}</span>
                       </button>
                     </h2>
                     {expandedFaq === index && (
                       <div className="accordion-collapse show">
                         <div className="accordion-body">
-                          <p className="text-muted-custom mb-0">{faq.answer}</p>
+                          <p className="text-body-secondary fw-medium mb-0">{faq.answer}</p>
                         </div>
                       </div>
                     )}

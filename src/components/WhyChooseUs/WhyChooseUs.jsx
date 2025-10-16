@@ -2,9 +2,9 @@ export default function WhyChooseUs() {
   return (
     <div className="bg-gradient bg-white">
       <div className="container my-5 py-2">
-        <h3 className="text-center display-6 fw-bold mb-3 py-4">
+        <h2 className=" text-center display-6 fw-bold mb-3 pb-4">
           Why Choose Us?
-        </h3>
+        </h2>
 
         <div className="row g-4">
           {/* Card 1 */}
@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
                 </svg>
               </div>
               <h2 className="fw-bold fs-5">Download in Seconds</h2>
-              <p className={"text-muted fs-6"}>
+              <p className={"text-body-secondary fw-medium fs-6"}>
                 Grab any test file instantly — no account, no delays, no fuss.
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function WhyChooseUs() {
                 </svg>
               </div>
               <h2 className="fw-bold fs-5">All Formats Covered</h2>
-              <p className={"text-muted fs-6"}>
+              <p className={"text-body-secondary fw-medium fs-6"}>
                 From PNG to MP4 to DOCX — <strong>20+ file types</strong> ready
                 to download.
               </p>
@@ -144,7 +144,7 @@ export default function WhyChooseUs() {
                 </svg>
               </div>
               <h2 className="fw-bold fs-5">Always Free</h2>
-              <p className={"fs-6 text-muted"}>
+              <p className={"fs-6 text-body-secondary fw-medium"}>
                 Test files shouldn’t cost money — and they never will here.
               </p>
             </div>

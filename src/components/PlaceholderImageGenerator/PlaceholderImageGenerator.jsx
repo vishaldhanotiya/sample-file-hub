@@ -1123,7 +1123,7 @@ export default function PlaceholderImageGenerator() {
             
               <h5 className="mb-0">Live Preview</h5>
               
-              <div className="small text-muted">
+              <div className="small text-body-secondary fw-medium">
                 {generatedBytes
                   ? `${(generatedBytes / (1024 * 1024)).toFixed(2)} MB`
                   : "not generated"}
@@ -1213,7 +1213,7 @@ export default function PlaceholderImageGenerator() {
                         }}
                       />
                     ) : (
-                      <div className="text-muted">Preview will appear here</div>
+                      <div className="text-body-secondary fw-medium">Preview will appear here</div>
                     )}
                   </div>
                 </div>

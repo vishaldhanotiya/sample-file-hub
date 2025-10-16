@@ -38,7 +38,7 @@ const FAQAccordion = () => {
   return (
     <section id="faq" className="faq-section py-5">
       <div>
-        <h3 className="text-center mb-5 fw-bold">Frequently Asked Questions</h3>
+        <h2 className="text-center mb-5 fw-bold">Frequently Asked Questions</h2>
         <div className="accordion">
           {faqs.map((faq, index) => (
             <div
@@ -53,7 +53,7 @@ const FAQAccordion = () => {
                 }`}
                 onClick={() => toggleAccordion(index)}
               >
-                <span>{faq.question}</span>
+                <span >{faq.question}</span>
                 <span
                   className={`accordion-icon ${
                     activeIndex === index ? "rotate" : ""

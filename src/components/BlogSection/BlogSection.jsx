@@ -43,8 +43,7 @@ const blogs = [
   },
   {
     id: 4,
-    title:
-      " Image Optimization: Best Practices for Web Performance",
+    title: " Image Optimization: Best Practices for Web Performance",
     description:
       " Learn how to optimize images for faster loading websites. A practical guide to WebP/AVIF formats, compression, responsive images, and Core Web Vitals",
     author: "Vishal Dhanotiya",
@@ -55,8 +54,7 @@ const blogs = [
   },
   {
     id: 5,
-    title:
-      " File Upload Security: A Complete Guide for Developers",
+    title: " File Upload Security: A Complete Guide for Developers",
     description:
       " Learn secure file upload best practices for web applications. Covers client-side & server-side validation, allowed file types, and scanning uploaded files",
     author: "Vishal Dhanotiya",
@@ -76,10 +74,11 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blogs" className="bg-white py-5">
+    <section id="blogs" className="bg-white pt-5 pb-3">
       <div className="container">
-        <h3 className="text-center display-6 fw-bold mb-3">Blogs</h3>
-        <p className="text-muted lead text-center mb-5">
+        <h2 className="text-center display-6 fw-bold mb-3">Blogs</h2>
+
+        <p className="text-body-secondary fw-normal fs-4 text-center mb-5">
           Explore engaging articles covering tech, development tips, and digital
           insights. Stay updated with the latest trends, tutorials, and guides
           to boost your knowledge and creativity.
@@ -100,8 +99,8 @@ export default function BlogSection() {
                   />
                 </div>
 
-                <h5 className="fw-bold">{blog.title}</h5>
-                <p className="text-muted small flex-grow-1">
+                <h3 className="fw-bold fs-4">{blog.title}</h3>
+                <p className="text-body-secondary fw-medium flex-grow-1">
                   {blog.description}
                 </p>
 
@@ -113,7 +112,7 @@ export default function BlogSection() {
                     }}
                     className="btn btn-outline-primary btn-sm fw-semibold px-3 rounded-3"
                   >
-                   <div style={{color:'#5169ED'}}>Read More →</div> 
+                    <div style={{ color: "#5169ED" }}>Read More →</div>
                   </button>
                 </div>
               </div>
@@ -124,4 +123,3 @@ export default function BlogSection() {
     </section>
   );
 }
-
