@@ -113,7 +113,7 @@ export default function BlogSection() {
                     }}
                     className="btn btn-outline-primary btn-sm fw-semibold px-3 rounded-3"
                   >
-                    Read More →
+                   <div style={{color:'#5169ED'}}>Read More →</div> 
                   </button>
                 </div>
               </div>

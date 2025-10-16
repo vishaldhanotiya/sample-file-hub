@@ -28,9 +28,8 @@ export default function WhyChooseUs() {
               }}
             >
               <div
-                className="mb-3 d-flex align-items-center justify-content-center"
+                className="mb-3 hero-gradient d-flex align-items-center justify-content-center"
                 style={{
-                  backgroundColor: "#0d6efd",
                   color: "#fff",
                   borderRadius: "12px",
                   width: "54px",
@@ -77,9 +76,8 @@ export default function WhyChooseUs() {
               }}
             >
               <div
-                className="mb-3 d-flex align-items-center justify-content-center"
+                className="mb-3 hero-gradient d-flex align-items-center justify-content-center"
                 style={{
-                  backgroundColor: "#20c997",
                   color: "#fff",
                   borderRadius: "12px",
                   width: "48px",
@@ -126,9 +124,8 @@ export default function WhyChooseUs() {
               }}
             >
               <div
-                className="mb-3 d-flex align-items-center justify-content-center"
+                className="mb-3 hero-gradient d-flex align-items-center justify-content-center"
                 style={{
-                  backgroundColor: "#fd7e14",
                   color: "#fff",
                   borderRadius: "12px",
                   width: "48px",

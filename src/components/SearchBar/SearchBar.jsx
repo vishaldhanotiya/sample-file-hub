@@ -109,10 +109,11 @@ const SearchBar = ({ onSearch }) => {
       <div className="container">
         <div className="d-flex justify-content-center">
           <div className="position-relative w-100" style={{ maxWidth: "610px" }}>
-            <div className="row justify-content-center mb-4 glass-wrapper py-2 text-white">
+            <div className="row justify-content-center mb-4 py-2 text-white">
               <div className="col-md-15 position-relative">
                 <input
                   style={{
+                    height:54,
                     borderRadius: showSuggestions ? "10px 10px 0 0" : "10px",
                     border: "1px solid #ddd",
                   }}

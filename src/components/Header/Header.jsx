@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { trackHeaderNavigation } from "../../utils/Analytics";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../Home/NewHome.css";
@@ -28,6 +28,32 @@ export default function Header() {
     window.scrollTo({ top: 0, behavior: "smooth" });
     trackHeaderNavigation(path);
     setIsMenuOpen(false);
+  };
+
+  const getNavLinkStyle = (isActive, isMobile) => ({
+    fontSize: isMobile ? "1.05rem" : "1rem",
+    whiteSpace: "nowrap",
+    color: isActive ? "#5169ED" : "#000",
+    borderBottom: isActive ? "3px solid #5169ED" : "3px solid transparent",
+    paddingBottom: 0,
+    display: "inline-block",
+  });
+
+  const renderNavLink = (item, isMobile = false) => {
+    const fullPath = `/${item.path}`;
+    return (
+      <NavLink
+        key={item.label}
+        to={fullPath}
+        end={item.path === ""}
+        onClick={() => handleTrack(fullPath)}
+        className={`text-decoration-none fw-medium ${isMobile ? "px-3 py-2" : "px-2 py-1"}`}
+        style={({ isActive }) => getNavLinkStyle(isActive, isMobile)}
+        aria-label={`Navigate to ${item.label}`}
+      >
+        {item.label}
+      </NavLink>
+    );
   };
 
   return (
@@ -65,29 +91,12 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="d-none d-lg-flex align-items-center gap-3 flex-wrap ms-auto">
+            <div className="d-none d-lg-flex align-items-center gap-4 flex-wrap ms-auto">
               <nav
-                className="d-flex flex-wrap gap-4 align-items-center p-2"
+                className="d-flex flex-wrap gap-4 align-items-center"
                 aria-label="Primary navigation menu"
               >
-                {navItems.map((item) => {
-                  const fullPath = `/${item.path}`;
-                  return (
-                    <Link
-                      key={item.label}
-                      to={fullPath}
-                      onClick={() => handleTrack(fullPath)}
-                      className="text-black text-decoration-none fw-medium px-2 py-1"
-                      style={{
-                        fontSize: "1rem",
-                        whiteSpace: "nowrap",
-                      }}
-                      aria-label={`Navigate to ${item.label}`}
-                    >
-                      {item.label}
-                    </Link>
-                  );
-                })}
+                {navItems.map((item) => renderNavLink(item, false))}
               </nav>
             </div>
 
@@ -127,24 +136,10 @@ export default function Header() {
           </button>
           <nav
             className="d-flex flex-column gap-4 align-items-center text-center"
-            style={{ marginTop: "2rem" }}
+            style={{ marginTop: "1.25rem" }}
             aria-label="Mobile navigation links"
           >
-            {navItems.map((item) => {
-              const fullPath = `/${item.path}`;
-              return (
-                <Link
-                  key={item.label}
-                  to={fullPath}
-                  onClick={() => handleTrack(fullPath)}
-                  className="text-black text-decoration-none fw-medium"
-                  style={{ fontSize: "1.2rem" }}
-                  aria-label={`Navigate to ${item.label}`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
+            {navItems.map((item) => renderNavLink(item, true))}
           </nav>
         </div>
       )}
