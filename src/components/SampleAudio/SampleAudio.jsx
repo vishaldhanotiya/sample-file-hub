@@ -9,11 +9,15 @@ import {
 import { db } from "../../App";
 import Card from "../Card/Card";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import { useEffect,useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
-import { getMetaData, audioTabData as tabData, updatedDatabaseKey } from "../../utils/Constant";
+import {
+  getMetaData,
+  audioTabData as tabData,
+  updatedDatabaseKey,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 
@@ -68,34 +72,34 @@ const SampleAudio = () => {
     setCurrentPage(1);
   }, []);
 
-    const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
-  
+  const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
+
   // Update activeTab if fileType param changes
   useEffect(() => {
     if (!fileType) return;
 
     setActiveTab(fileType);
-
   }, [fileType]);
 
   // Fetch files when activeTab changes
   useEffect(() => {
-    if (activeTab) fetchFiles(activeTab)
-   
-      const basePath = getBasePath(fileType);    
-      if (basePath) {
-        navigate(basePath, { replace: true });
-      } else {
-        navigate("/sample-audios/sample-mp3");
-      }
-      document.title = metaData.title;
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta');
-        metaDesc.name = "description";
-        document.head.appendChild(metaDesc);
-      }
-      metaDesc.content = metaData.description; // Use .content instead of setAttribute
+    if (activeTab) fetchFiles(activeTab);
+
+    const basePath = getBasePath(fileType);
+    //console.log("=====",basePath,fileType,activeTab)
+    if (basePath) {
+      navigate(basePath, { replace: true });
+    } else {
+      navigate("/sample-audios/sample-mp3");
+    }
+    document.title = metaData.title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = metaData.description; // Use .content instead of setAttribute
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
@@ -104,15 +108,21 @@ const SampleAudio = () => {
     const indexOfFirstFile = indexOfLastFile - filesPerPage;
     return {
       currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
-      totalPages: Math.ceil(files.length / filesPerPage)
+      totalPages: Math.ceil(files.length / filesPerPage),
     };
   }, [files, currentPage]);
 
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
-        <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
-        </div>
+      <div
+        className="pt-2 pb-2 text-black"
+        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
+      />
 
+      <div style={{ marginBottom: 50 }}>
+        Audio from{" "}
+        <a href="https://www.chosic.com">Chosic</a>
+      </div>
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

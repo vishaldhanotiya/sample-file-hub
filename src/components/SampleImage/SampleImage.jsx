@@ -113,7 +113,7 @@ const SampleImage = () => {
       <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
       </div>
 
-      {/* <div style={{marginBottom:50}}>Image from <a href="https://pixabay.com">Pixabay</a></div> */}
+      <div style={{marginBottom:50}}>Image from <a href="https://pixabay.com">Pixabay</a></div>
       <Nav
         activeKey={activeTab}
         onSelect={setActiveTab}

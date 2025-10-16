@@ -18,6 +18,8 @@ import AboutUs from "../components/AboutUs/AboutUs";
 import ContactUs from "../components/ContactUs/ContactUs";
 import NotFound from "../components/NotFound/NotFound";
 import BlogList from "../components/BlogList/BlogList";
+import BlogImageOptimization from "../components/BlogSection/BlogImageOptimization";
+import BlogFileUploadSecurity from "../components/BlogSection/BlogFileUploadSecurity";
 
 const AppRoutes = () => {
   return (
@@ -42,6 +44,14 @@ const AppRoutes = () => {
         <Route path="contact-us" element={<ContactUs />} />
         <Route path="blog-list" element={<BlogList />} />
         <Route
+          path="blog-image-optimization"
+          element={<BlogImageOptimization />}
+        />
+        <Route
+          path="blog-file-upload-security"
+          element={<BlogFileUploadSecurity />}
+        />
+        <Route
           path="placeholder-image-generator"
           element={<PlaceholderImageGenerator />}
         />
@@ -62,7 +72,7 @@ const AppRoutes = () => {
 
         {/* Add other routes here */}
       </Route>
-      <Route path="*" element={<NotFound/>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

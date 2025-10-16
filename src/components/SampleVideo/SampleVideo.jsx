@@ -11,7 +11,7 @@ import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 
-import { useEffect,useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate, useParams } from "react-router-dom";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
@@ -82,6 +82,7 @@ const SampleVideo = () => {
 
     setActiveTab(fileType);
     const basePath = getBasePath(fileType);
+    console.log("basePath"+basePath)
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
@@ -89,11 +90,13 @@ const SampleVideo = () => {
     }
   }, [fileType, navigate]);
 
+  console.log("=====", fileType)
+
   // Fetch files when activeTab changes
   useEffect(() => {
     if (activeTab) fetchFiles(activeTab);
 
-   const basePath = getBasePath(activeTab);
+    const basePath = getBasePath(activeTab);
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
@@ -107,7 +110,7 @@ const SampleVideo = () => {
       metaDesc.name = "description";
       document.head.appendChild(metaDesc);
     }
-    metaDesc.content = metaData.description; 
+    metaDesc.content = metaData.description;
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
@@ -116,14 +119,22 @@ const SampleVideo = () => {
     const indexOfFirstFile = indexOfLastFile - filesPerPage;
     return {
       currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
-      totalPages: Math.ceil(files.length / filesPerPage)
+      totalPages: Math.ceil(files.length / filesPerPage),
     };
   }, [files, currentPage]);
 
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
-       <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
-       </div>
+      <div
+        className="pt-2 pb-2 text-black"
+        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
+      />
+      <div style={{ marginBottom: 50 }}>
+        Video from{" "}
+        <a href="https://pixabay.com/videos/search/video/">Pixabay{" "}</a>and{" "}
+        <a href="https://www.pexels.com/videos/">Pexels</a>{" "}
+      </div>
+
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

@@ -41,6 +41,10 @@ import HtmlIcon from "../../assets/html.png";
 import CIcon from "../../assets/c.png";
 import CppIcon from "../../assets/cpp.png";
 import YamlIcon from "../../assets/yaml.png";
+import TgaIcon from "../../assets/tga.png";
+import DngIcon from "../../assets/dng.png";
+import FlacIcon from "../../assets/flac.png";
+import AiffIcon from "../../assets/aiff.png";
 import {
   trackDownload,
   trackDownloadError,
@@ -88,6 +92,10 @@ const placeholderMap = {
   c: CIcon,
   cpp: CppIcon,
   yaml: YamlIcon,
+  dng: DngIcon,
+  tga: TgaIcon,
+  aiff: AiffIcon,
+  flac: FlacIcon,
 };
 
 const Card = ({

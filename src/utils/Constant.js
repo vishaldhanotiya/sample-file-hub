@@ -11,68 +11,304 @@ export const isCloudinaryFiles = false;
 export const updatedDatabaseKey = isCloudinaryFiles ? "files" : "r2Files";
 
 export const imageTabData = [
-  { key: "jpg", title: "JPG", resourceType: "images", path: "/sample-images/jpg" },
-  { key: "png", title: "PNG", resourceType: "images" , path: "/sample-images/png"},
-  { key: "webp", title: "WEBP", resourceType: "images", path: "/sample-images/webp" },
-  { key: "svg", title: "SVG", resourceType: "images", path: "/sample-images/svg" },
-  { key: "gif", title: "GIF", resourceType: "images", path: "/sample-images/gif" },
-  { key: "bmp", title: "BMP", resourceType: "images", path: "/sample-images/bmp" },
-  { key: "psd", title: "PSD", resourceType: "images" , path: "/sample-images/psd"},
-  { key: "tiff", title: "TIFF", resourceType: "images" , path: "/sample-images/tiff"},
-  { key: "heic", title: "HEIC", resourceType: "images" , path: "/sample-images/heic"},
-  { key: "ico", title: "ICO", resourceType: "images" , path: "/sample-images/ico"},
+  {
+    key: "jpg",
+    title: "JPG",
+    resourceType: "images",
+    path: "/sample-images/jpg",
+  },
+  {
+    key: "png",
+    title: "PNG",
+    resourceType: "images",
+    path: "/sample-images/png",
+  },
+  {
+    key: "webp",
+    title: "WEBP",
+    resourceType: "images",
+    path: "/sample-images/webp",
+  },
+  {
+    key: "svg",
+    title: "SVG",
+    resourceType: "images",
+    path: "/sample-images/svg",
+  },
+  {
+    key: "gif",
+    title: "GIF",
+    resourceType: "images",
+    path: "/sample-images/gif",
+  },
+  {
+    key: "bmp",
+    title: "BMP",
+    resourceType: "images",
+    path: "/sample-images/bmp",
+  },
+  {
+    key: "psd",
+    title: "PSD",
+    resourceType: "images",
+    path: "/sample-images/psd",
+  },
+  {
+    key: "tiff",
+    title: "TIFF",
+    resourceType: "images",
+    path: "/sample-images/tiff",
+  },
+  {
+    key: "heic",
+    title: "HEIC",
+    resourceType: "images",
+    path: "/sample-images/heic",
+  },
+  {
+    key: "ico",
+    title: "ICO",
+    resourceType: "images",
+    path: "/sample-images/ico",
+  },
+  {
+    key: "avif",
+    title: "AVIF",
+    resourceType: "images",
+    path: "/sample-images/avif",
+  },
+  {
+    key: "dng",
+    title: "DNG",
+    resourceType: "images",
+    path: "/sample-images/dng",
+  },
+  {
+    key: "tga",
+    title: "TGA",
+    resourceType: "images",
+    path: "/sample-images/tga",
+  },
 ];
 
 export const videoTabData = [
-  { key: "mp4", title: "MP4", resourceType: "videos",path: "/sample-videos/mp4"  },
-  { key: "mkv", title: "MKV", resourceType: "videos" ,path: "/sample-videos/mkv" },
-  { key: "avi", title: "AVI", resourceType: "videos",path: "/sample-videos/avi"  },
-  { key: "flv", title: "FLV", resourceType: "videos" ,path: "/sample-videos/flv" },
-  { key: "mov", title: "MOV", resourceType: "videos" ,path: "/sample-videos/mov" },
-  { key: "webm", title: "WEBM", resourceType: "videos",path: "/sample-videos/webm"  },
+  {
+    key: "3gp",
+    title: "3GP",
+    resourceType: "videos",
+    path: "/sample-videos/3gp",
+  },
+  {
+    key: "mp4",
+    title: "MP4",
+    resourceType: "videos",
+    path: "/sample-videos/mp4",
+  },
+  {
+    key: "mkv",
+    title: "MKV",
+    resourceType: "videos",
+    path: "/sample-videos/mkv",
+  },
+  {
+    key: "avi",
+    title: "AVI",
+    resourceType: "videos",
+    path: "/sample-videos/avi",
+  },
+  {
+    key: "flv",
+    title: "FLV",
+    resourceType: "videos",
+    path: "/sample-videos/flv",
+  },
+  {
+    key: "mov",
+    title: "MOV",
+    resourceType: "videos",
+    path: "/sample-videos/mov",
+  },
+  {
+    key: "webm",
+    title: "WEBM",
+    resourceType: "videos",
+    path: "/sample-videos/webm",
+  },
 ];
 
 export const documentTabData = [
-  { key: "pdf", title: "PDF", resourceType: "documents",path: "/sample-documents/pdf"  },
-  { key: "doc", title: "DOC", resourceType: "documents",path: "/sample-documents/doc"  },
-  { key: "docx", title: "DOCX", resourceType: "documents" ,path: "/sample-documents/docx" },
-  { key: "xls", title: "XLS", resourceType: "documents",path: "/sample-documents/xls"  },
-  { key: "xlsx", title: "XLSX", resourceType: "documents" ,path: "/sample-documents/xlsx" },
-  { key: "odt", title: "ODT", resourceType: "documents" ,path: "/sample-documents/odt" },
-  { key: "rtf", title: "RTF", resourceType: "documents",path: "/sample-documents/rtf"  },
-  { key: "ppt", title: "PPT", resourceType: "documents" ,path: "/sample-documents/ppt" },
-  { key: "pptx", title: "PPTX", resourceType: "documents",path: "/sample-documents/pptx"  },
-  { key: "txt", title: "TXT", resourceType: "documents" ,path: "/sample-documents/txt" },
-  { key: "csv", title: "CSV", resourceType: "documents",path: "/sample-documents/csv"  },
+  {
+    key: "pdf",
+    title: "PDF",
+    resourceType: "documents",
+    path: "/sample-documents/pdf",
+  },
+  {
+    key: "doc",
+    title: "DOC",
+    resourceType: "documents",
+    path: "/sample-documents/doc",
+  },
+  {
+    key: "docx",
+    title: "DOCX",
+    resourceType: "documents",
+    path: "/sample-documents/docx",
+  },
+  {
+    key: "xls",
+    title: "XLS",
+    resourceType: "documents",
+    path: "/sample-documents/xls",
+  },
+  {
+    key: "xlsx",
+    title: "XLSX",
+    resourceType: "documents",
+    path: "/sample-documents/xlsx",
+  },
+  {
+    key: "odt",
+    title: "ODT",
+    resourceType: "documents",
+    path: "/sample-documents/odt",
+  },
+  {
+    key: "rtf",
+    title: "RTF",
+    resourceType: "documents",
+    path: "/sample-documents/rtf",
+  },
+  {
+    key: "ppt",
+    title: "PPT",
+    resourceType: "documents",
+    path: "/sample-documents/ppt",
+  },
+  {
+    key: "pptx",
+    title: "PPTX",
+    resourceType: "documents",
+    path: "/sample-documents/pptx",
+  },
+  {
+    key: "txt",
+    title: "TXT",
+    resourceType: "documents",
+    path: "/sample-documents/txt",
+  },
+  {
+    key: "csv",
+    title: "CSV",
+    resourceType: "documents",
+    path: "/sample-documents/csv",
+  },
 ];
 
 export const audioTabData = [
-  { key: "mp3", title: "MP3", resourceType: "audios",path: "/sample-audios/mp3"  },
-  { key: "aac", title: "AAC", resourceType: "audios" ,path: "/sample-audios/aac" },
-  { key: "wav", title: "WAV", resourceType: "audios" ,path: "/sample-audios/wav" },
-  { key: "ogg", title: "OGG", resourceType: "audios" ,path: "/sample-audios/ogg" },
+  {
+    key: "mp3",
+    title: "MP3",
+    resourceType: "audios",
+    path: "/sample-audios/mp3",
+  },
+  {
+    key: "aac",
+    title: "AAC",
+    resourceType: "audios",
+    path: "/sample-audios/aac",
+  },
+  {
+    key: "wav",
+    title: "WAV",
+    resourceType: "audios",
+    path: "/sample-audios/wav",
+  },
+  {
+    key: "ogg",
+    title: "OGG",
+    resourceType: "audios",
+    path: "/sample-audios/ogg",
+  },
+  {
+    key: "aiff",
+    title: "AIFF",
+    resourceType: "audios",
+    path: "/sample-audios/aiff",
+  },
+  {
+    key: "flac",
+    title: "FLAC",
+    resourceType: "audios",
+    path: "/sample-audios/flac",
+  },
 ];
 
 export const archiveTabData = [
-  { key: "zip", title: "ZIP", resourceType: "archives" ,path: "/sample-archives/zip" },
-  { key: "rar", title: "RAR", resourceType: "archives" ,path: "/sample-archives/rar" },
-  { key: "7z", title: "7Z", resourceType: "archives" ,path: "/sample-archives/7z" },
-  { key: "tar", title: "TAR", resourceType: "archives" ,path: "/sample-archives/tar" },
+  {
+    key: "zip",
+    title: "ZIP",
+    resourceType: "archives",
+    path: "/sample-archives/zip",
+  },
+  {
+    key: "rar",
+    title: "RAR",
+    resourceType: "archives",
+    path: "/sample-archives/rar",
+  },
+  {
+    key: "7z",
+    title: "7Z",
+    resourceType: "archives",
+    path: "/sample-archives/7z",
+  },
+  {
+    key: "tar",
+    title: "TAR",
+    resourceType: "archives",
+    path: "/sample-archives/tar",
+  },
 ];
 
 export const codeTabData = [
-  { key: "xml", title: "XML", resourceType: "code",path: "/sample-code/xml"  },
-  { key: "json", title: "JSON", resourceType: "code",path: "/sample-code/json"  },
-  { key: "php", title: "PHP", resourceType: "code",path: "/sample-code/php"  },
-  { key: "js", title: "JAVASCRIPT", resourceType: "code" ,path: "/sample-code/js" },
-  { key: "java", title: "JAVA", resourceType: "code" ,path: "/sample-code/java" },
-  { key: "bat", title: "BAT", resourceType: "code" ,path: "/sample-code/bat" },
-  { key: "rb", title: "RUBY", resourceType: "code" ,path: "/sample-code/rb" },
-  { key: "c", title: "C", resourceType: "code" ,path: "/sample-code/c" },
-  { key: "cpp", title: "C++", resourceType: "code" ,path: "/sample-code/cpp" },
-  { key: "html", title: "HTML", resourceType: "code" ,path: "/sample-code/html" },
-  { key: "yaml", title: "YAML", resourceType: "code" ,path: "/sample-code/yaml" },
-  { key: "py", title: "PYTHON", resourceType: "code" ,path: "/sample-code/py" },
+  { key: "xml", title: "XML", resourceType: "code", path: "/sample-code/xml" },
+  {
+    key: "json",
+    title: "JSON",
+    resourceType: "code",
+    path: "/sample-code/json",
+  },
+  { key: "php", title: "PHP", resourceType: "code", path: "/sample-code/php" },
+  {
+    key: "js",
+    title: "JAVASCRIPT",
+    resourceType: "code",
+    path: "/sample-code/js",
+  },
+  {
+    key: "java",
+    title: "JAVA",
+    resourceType: "code",
+    path: "/sample-code/java",
+  },
+  { key: "bat", title: "BAT", resourceType: "code", path: "/sample-code/bat" },
+  { key: "rb", title: "RUBY", resourceType: "code", path: "/sample-code/rb" },
+  { key: "c", title: "C", resourceType: "code", path: "/sample-code/c" },
+  { key: "cpp", title: "C++", resourceType: "code", path: "/sample-code/cpp" },
+  {
+    key: "html",
+    title: "HTML",
+    resourceType: "code",
+    path: "/sample-code/html",
+  },
+  {
+    key: "yaml",
+    title: "YAML",
+    resourceType: "code",
+    path: "/sample-code/yaml",
+  },
+  { key: "py", title: "PYTHON", resourceType: "code", path: "/sample-code/py" },
 ];
 
 export const allFileType = [
@@ -97,6 +333,9 @@ export const fileTypeToBasePath = {
   tiff: "/sample-images/sample-tiff",
   ico: "/sample-images/sample-ico",
   heic: "/sample-images/sample-heic",
+  avif: "/sample-images/sample-avif",
+  dng: "/sample-images/sample-dng",
+  tga: "/sample-images/sample-tga",
 
   // Video
   mp4: "/sample-videos/sample-mp4",
@@ -105,12 +344,15 @@ export const fileTypeToBasePath = {
   mov: "/sample-videos/sample-mov",
   mkv: "/sample-videos/sample-mkv",
   webm: "/sample-videos/sample-webm",
+  "3gp": "/sample-videos/sample-3gp",
 
   // Audio
   mp3: "/sample-audios/sample-mp3",
   wav: "/sample-audios/sample-wav",
   aac: "/sample-audios/sample-aac",
   ogg: "/sample-audios/sample-ogg",
+  aiff: "/sample-audios/sample-aiff",
+  flac: "/sample-audios/sample-flac",
 
   // Documents
   pdf: "/sample-documents/sample-pdf",
@@ -152,7 +394,7 @@ export const categories = [
     icon: ImageIcon,
     title: "Images",
     description:
-      "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO",
+      "High-quality sample images in various formats: JPG, PNG, WEBP, SVG, GIF, BMP, PSD, TIFF, HEIC, ICO, AVIF, DNG, TGA ",
     downloads: "",
     color: "text-white",
     bgDownload: "bg-primary-subtle",
@@ -163,7 +405,7 @@ export const categories = [
     icon: Video,
     title: "Videos",
     description:
-      "Sample video files for testing: MP4, AVI, MKV, FLV, MOV, WebM formats",
+      "Sample video files for testing: MP4, AVI, MKV, FLV, 3GP, MOV, WebM formats",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-info-subtle",
@@ -173,7 +415,8 @@ export const categories = [
     key: "audios",
     icon: Music,
     title: "Audio",
-    description: "Audio samples in multiple formats: MP3, WAV, AAC, OGG",
+    description:
+      "Audio samples in multiple formats: MP3, WAV, AAC, OGG, AIFF, FLAC",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-success-subtle",
@@ -347,6 +590,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
 
 <p>Download <strong>free HEIC sample files</strong> from our website to test compatibility, software performance, and file conversions. This format is perfect for developers, designers, and photographers working with <strong>next-generation image standards</strong>.</p>`,
       };
+
     case "tiff":
       return {
         title: "Sample TIFF file download - Free TIFF Sample Files",
@@ -360,6 +604,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
 
 <p>You can <strong>download free TIFF sample files</strong> from our site for software testing, quality checks, and professional use. This format is essential for those working with <strong>high-quality digital imaging</strong>.</p>`,
       };
+
     case "ico":
       return {
         title: "Sample ICO file download - Free Icon Sample Files",
@@ -374,7 +619,54 @@ They are particularly useful for <strong>archiving original graphics</strong> an
 <p>Download <strong>free ICO sample files</strong> from our website to test web design, software development, or icon rendering in different environments. Ideal for <strong>developers, designers, and branding professionals</strong>.</p>`,
       };
 
+    case "avif":
+      return {
+        title: "Sample AVIF file download - Free Image Sample Files",
+        description:
+          "Download a sample AVIF file for testing next-gen image compression. Free AVIF sample.",
+        keywords:
+          "sample avif, avif file download, avif image example, modern image format, high efficiency image",
+        bodyText: `<p><strong>AVIF (AV1 Image File Format)</strong> is a modern, <strong>high-performance image format</strong> offering superior compression. Based on the open-source AV1 video codec, it delivers <strong>significantly smaller file sizes</strong> at equivalent or better quality compared to JPEG and PNG.</p>
+
+<p>This format is ideal for <strong>web images, photography, and graphic design</strong> where fast loading and bandwidth savings are critical. AVIF supports advanced features like HDR, wide color gamut, and transparency, making it a future-proof choice for the web.</p><p>Download <strong>free AVIF sample files</strong> from our website to test compatibility, evaluate quality, and integrate into your development or design workflow. Essential for <strong>web developers, photographers, and content creators</strong>.</p>`,
+      };
+
+    case "dng":
+      return {
+        title: "Sample DNG file download - Free Raw Photo Sample Files",
+        description:
+          "Download a sample DNG file for testing raw photo editing. Free DNG sample.",
+        keywords:
+          "sample dng, dng file download, digital negative example, raw photo sample, camera raw file",
+        bodyText: `<p><strong>DNG (Digital Negative)</strong> is an open, non-proprietary <strong>raw image format</strong> developed by Adobe. It serves as a universal standard for <strong>digital camera raw files</strong>, preserving all the original data captured by the sensor without quality loss.</p>
+
+<p>This format is essential for <strong>professional photography and post-processing</strong>, providing greater flexibility in adjusting exposure, white balance, and detail. Using DNG ensures that your raw images remain accessible and editable in the future, avoiding format obsolescence.</p><p>Download <strong>free DNG sample files</strong> from our website to test raw processing software, practice photo editing techniques, or verify software compatibility. A vital resource for <strong>photographers, photo editors, and software testers</strong>.</p>`,
+      };
+
+    case "tga":
+      return {
+        title: "Sample TGA file download - Free Raster Graphic Sample Files",
+        description:
+          "Download a sample TGA file for testing images with transparency. Free TGA sample.",
+        keywords:
+          "sample tga, tga file download, targa image example, truevision tga, image with alpha channel",
+        bodyText: `<p><strong>TGA (Truevision TGA)</strong>, also known as Targa, is a <strong>raster graphics file format</strong> known for its early support for high-color and <strong>alpha channel transparency</strong>. It was historically a premier format for professional video and animation work.</p>
+
+<p>This format is commonly used in <strong>game development, video editing, and 3D rendering</strong> for storing high-quality textures and sprites with transparency. While less common on the web today, TGA remains a reliable format for many digital content creation pipelines.</p><p>Download <strong>free TGA sample files</strong> from our website to test texture loading in game engines, check alpha channel support in software, or for use in legacy applications. Ideal for <strong>game developers, 3D artists, and graphic designers</strong>.</p>`,
+      };
+
     // ----------------- Videos -----------------
+    case "3gp":
+      return {
+        title: "Sample 3GP file download - Free Mobile Video Sample Files",
+        description:
+          "Download a sample 3GP file for testing mobile video playback. Free 3GP sample.",
+        keywords:
+          "sample 3gp, 3gp file download, 3gpp video example, mobile video format, multimedia container",
+        bodyText: `<p><strong>3GP (3GPP file format)</strong> is a <strong>multimedia container format</strong> designed to reduce storage and bandwidth requirements, making it ideal for <strong>mobile phones and 3G networks</strong>. It is a simplified version of the MP4 format.</p>
+
+<p>This format was historically the standard for <strong>recording and sharing video on feature phones</strong> and is still used for MMS messaging. While largely superseded by MP4 on modern smartphones, 3GP remains relevant for testing legacy mobile device compatibility.</p><p>Download <strong>free 3GP sample files</strong> from our website to test video playback on older mobile devices, verify compatibility with media players, or for use in application testing. A useful resource for <strong>mobile developers, QA testers, and multimedia archivists</strong>.</p>`,
+      };
     case "mp4":
       return {
         title: "Sample mp4 Video Download - Free Sample Files",
@@ -455,6 +747,29 @@ You can <strong>download WEBM files free from our website</strong>, making them 
 
 You can <strong>download MP3 files free from our website</strong>, making them accessible for <strong>testing, learning, and creative projects</strong>. <strong>MP3 remains a widely trusted format</strong> in its category.</p>
 `,
+      };
+    case "flac":
+      return {
+        title: "Sample FLAC file download - Free Lossless Audio Sample Files",
+        description:
+          "Download a sample FLAC file for testing high-fidelity audio. Free FLAC sample.",
+        keywords:
+          "sample flac, flac file download, lossless audio example, free flac sample, high resolution audio",
+        bodyText: `<p><strong>FLAC (Free Lossless Audio Codec)</strong> is a <strong>lossless audio compression format</strong> that reduces file size without sacrificing any audio quality. Unlike lossy formats like MP3, FLAC preserves the original sound data perfectly.</p>
+
+<p>This format is the preferred choice for <strong>audiophiles, music archivists, and audio professionals</strong> who require pristine sound quality. FLAC files provide a perfect copy of the source material, making them ideal for critical listening and long-term preservation of music collections.</p><p>Download <strong>free FLAC sample files</strong> from our website to test media player compatibility, evaluate audio equipment, or experience true lossless sound. A must-have for <strong>audiophiles, sound engineers, and music enthusiasts</strong>.</p>`,
+      };
+    case "aiff":
+      return {
+        title:
+          "Sample AIFF file download - Free Uncompressed Audio Sample Files",
+        description:
+          "Download a sample AIFF file for testing CD-quality audio. Free AIFF sample.",
+        keywords:
+          "sample aiff, aiff file download, audio interchange file format, uncompressed audio example, mac audio sample",
+        bodyText: `<p><strong>AIFF (Audio Interchange File Format)</strong> is an <strong>uncompressed, high-quality audio format</strong> developed by Apple. It stores CD-quality audio (44.1 kHz, 16-bit) without any data loss, similar to a WAV file but primarily used within the Apple ecosystem.</p>
+
+<p>This format is widely used in <strong>professional audio production, music mastering, and on Mac systems</strong> where fidelity is paramount. AIFF files deliver pristine audio reproduction, making them a standard for recording and archiving original audio tracks.</p><p>Download <strong>free AIFF sample files</strong> from our website to test audio software on macOS, verify playback on professional systems, or for use in digital audio workstations. Essential for <strong>music producers, audio engineers, and Mac users</strong>.</p>`,
       };
     case "aac":
       return {
@@ -868,11 +1183,11 @@ You can <strong>download ZIP files free from our website</strong>, making them a
 
     case "converter":
       return {
-        title: "PNG to JPG Converter – Free Online Image Conversion Tool",
+        title: "JPG to PNG Converter – Free Online Image Conversion Tool",
         description:
-          "Convert PNG to JPG online for free. Fast, easy, and secure image converter that works on all devices and keeps image quality. No signup required!",
+          "Convert JPG to PNG online for free. Fast, easy, and secure image converter that works on all devices and keeps image quality. No signup required!",
         keywords:
-          "Convert PNG to JPG, PNG to JPG converter, Free PNG to JPG online, Online image converter, PNG image to JPG",
+          "Convert JPF to PNG, JPG to PNG converter, Free JPG to PNG online, Online image converter, JPG image to PNG",
         bodyText: ``,
       };
 

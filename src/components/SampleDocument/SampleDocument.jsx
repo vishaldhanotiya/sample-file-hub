@@ -11,10 +11,14 @@ import { db } from "../../App";
 import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import  { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMetaData, documentTabData as tabData, updatedDatabaseKey } from "../../utils/Constant";
+import {
+  getMetaData,
+  documentTabData as tabData,
+  updatedDatabaseKey,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 
@@ -73,7 +77,6 @@ const SampleDocument = () => {
 
   // Update activeTab if fileType param changes
   useEffect(() => {
-
     if (!fileType) return;
     setActiveTab(fileType);
   }, [fileType]);
@@ -108,13 +111,20 @@ const SampleDocument = () => {
       totalPages: Math.ceil(files.length / filesPerPage),
     };
   }, [files, currentPage]);
-
+console.log(fileType)
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
       <div
         className="pt-2 pb-2 text-black"
         dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
-      ></div>
+      />
+
+      {fileType === "csv" && (
+        <div style={{ marginBottom: 50 }}>
+          CSV from{" "}
+          <a href="https://www.mockaroo.com">mockaroo</a>
+        </div>
+      )}
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}
