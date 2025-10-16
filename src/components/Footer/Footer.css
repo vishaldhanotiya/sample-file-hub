@@ -29,13 +29,12 @@
     background-color: #3b5998;
   }
   
-  .twitter {
-    background-color: #1da1f2;
-  }
-  
   .linkedin {
     background-color: #0077b5;
   }
+  .instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+}
   
   .sr-only {
     position: absolute;
