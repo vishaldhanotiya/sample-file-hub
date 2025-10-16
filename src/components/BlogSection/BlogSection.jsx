@@ -5,7 +5,7 @@ import blog3 from "../../assets/blog-3.jpg";
 import blog4 from "../../assets/blog-4.jpg";
 import blog5 from "../../assets/blog-5.jpg";
 import blog6 from "../../assets/blog-6.jpg";
-import "../BlogList/BlogList";
+import "../Blogs/Blogs";
 
 const blogs = [
   {

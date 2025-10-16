@@ -1,7 +1,7 @@
-import "./BlogList.css";
+import "./Blogs.css";
 import BlogSection from "../BlogSection/BlogSection";
 
-const BlogList = () => {
+const Blogs = () => {
   return (
     <div className="bg-white min-vh-100 py-5">
       <BlogSection />
@@ -9,4 +9,4 @@ const BlogList = () => {
   );
 };
 
-export default BlogList;
+export default Blogs;

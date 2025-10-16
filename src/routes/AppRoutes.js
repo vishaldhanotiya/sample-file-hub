@@ -17,7 +17,7 @@ import ImageFormatComparison from "../components/BlogSection/ImageFormatComparis
 import AboutUs from "../components/AboutUs/AboutUs";
 import ContactUs from "../components/ContactUs/ContactUs";
 import NotFound from "../components/NotFound/NotFound";
-import BlogList from "../components/BlogList/BlogList";
+import Blogs from "../components/Blogs/Blogs";
 import BlogImageOptimization from "../components/BlogSection/BlogImageOptimization";
 import BlogFileUploadSecurity from "../components/BlogSection/BlogFileUploadSecurity";
 import PNGTroubleshooter from "../components/BlogSection/PNGTroubleshooter/PNGTroubleshooter";
@@ -47,7 +47,7 @@ const AppRoutes = () => {
           path="placeholder-image-generator"
           element={<PlaceholderImageGenerator />}
         />
-        <Route path="blog-list" element={<BlogList />} />
+        <Route path="blogs" element={<Blogs />} />
 
         <Route
           path="how-to-convert-image-from-jpg-to-png"

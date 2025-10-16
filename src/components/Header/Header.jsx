@@ -18,7 +18,7 @@ export default function Header() {
     { path: "sample-documents", label: "Documents" },
     { path: "sample-archives", label: "Archives" },
     { path: "sample-code", label: "Code" },
-    { path: "blog-list", label: "Blogs" },
+    { path: "blogs", label: "Blogs" },
     // { path: "about-us", label: "About Us" },
     // { path: "contact-us", label: "Contact Us" },
     // { path: "convert-jpg-to-png", label: "💡Convert PNG → JPG" },
