@@ -8,6 +8,7 @@ function VideoThumbnailFromURL({ videoUrl }) {
   const [thumbnail, setThumbnail] = useState(null);
   const [duration, setDuration] = useState(null);
   const [isHovering, setIsHovering] = useState(false);
+  const [isPreviewReady, setIsPreviewReady] = useState(false);
   const [error, setError] = useState(null);
 
   const formatDuration = (seconds) => {
@@ -77,14 +78,20 @@ function VideoThumbnailFromURL({ videoUrl }) {
   setIsHovering(true);
   const preview = previewRef.current;
   if (preview) {
-    preview.currentTime = 0;
-    preview.play()
-      .then(() => {
-        console.log("Preview is playing");
-      })
-      .catch(err => {
-        console.error("Error playing preview:", err);
-      });
+    // ensure we start from the beginning and only fade in when we can play
+    try { preview.currentTime = 0; } catch (_) {}
+    const tryPlay = () => {
+      preview.play().catch(() => {/* ignore autoplay/abort errors */});
+    };
+    if (isPreviewReady) {
+      tryPlay();
+    } else {
+      const onCanPlay = () => {
+        setIsPreviewReady(true);
+        tryPlay();
+      };
+      preview.addEventListener('canplay', onCanPlay, { once: true });
+    }
   }
 };
 
@@ -105,7 +112,7 @@ const handleMouseLeave = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#000",
         borderRadius: "8px",
         color: "#666",
         padding: "16px"
@@ -136,38 +143,46 @@ const handleMouseLeave = () => {
           borderRadius: "8px",
           width: "100%",
           height: "100%",
-          backgroundColor: "#f0f0f0" // Fallback background
+          backgroundColor: "#000" // Fallback background to avoid white flash
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {thumbnail ? (
           <>
-            {!isHovering ? (
-              <img
-                src={thumbnail}
-                alt="Video Thumbnail"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
-            ) : (
-              <video
-                ref={previewRef}
-                src={videoUrl}
-                muted
-                playsInline
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                }}
-              />
-            )}
+            {/* Always render the image as the base layer */}
+            <img
+              src={thumbnail}
+              alt="Video Thumbnail"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                backgroundColor: "#000"
+              }}
+            />
+            {/* Video overlay fades in only when it can play to avoid white flicker */}
+            <video
+              ref={previewRef}
+              src={videoUrl}
+              muted
+              playsInline
+              preload="metadata"
+              poster={thumbnail}
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+                backgroundColor: "#000",
+                opacity: isHovering && isPreviewReady ? 1 : 0,
+                transition: "opacity 120ms ease-in"
+              }}
+              onCanPlay={() => setIsPreviewReady(true)}
+            />
 
             {/* Play Icon */}
             {!isHovering && (
@@ -220,7 +235,8 @@ const handleMouseLeave = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#666"
+            color: "#999",
+            backgroundColor: "#000"
           }}>
             Loading...
           </div>

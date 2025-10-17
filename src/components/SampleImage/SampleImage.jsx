@@ -1,4 +1,4 @@
-import  { useEffect, useMemo,useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import Nav from "react-bootstrap/Nav";
 import {
   collection,
@@ -9,11 +9,14 @@ import {
 } from "@firebase/firestore";
 import { db } from "../../App";
 import Card from "../Card/Card";
-import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { formatBytes, getBasePath } from "../../utils/Utils";
-import {  useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
-import { imageTabData as tabData, getMetaData, updatedDatabaseKey } from "../../utils/Constant";
+import {
+  imageTabData as tabData,
+  getMetaData,
+  updatedDatabaseKey,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 const SampleImage = () => {
@@ -22,8 +25,6 @@ const SampleImage = () => {
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalFileDetail, setModalFileDetail] = useState({});
   const navigate = useNavigate();
 
   // Fetch files function with caching and optional type
@@ -69,7 +70,6 @@ const SampleImage = () => {
 
   const metaData = useMemo(() => getMetaData(activeTab), [activeTab]);
 
-
   // Update activeTab if fileType param changes
   useEffect(() => {
     if (!fileType) return;
@@ -78,22 +78,22 @@ const SampleImage = () => {
 
   // Fetch files when activeTab changes
   useEffect(() => {
-    if (activeTab) fetchFiles(activeTab)
+    if (activeTab) fetchFiles(activeTab);
 
-      const basePath = getBasePath(activeTab);
-      if (basePath) {
-        navigate(basePath, { replace: true });
-      } else {
-        navigate("/sample-images/sample-jpg");
-      }
-      document.title = metaData.title;
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta');
-        metaDesc.name = "description";
-        document.head.appendChild(metaDesc);
-      }
-      metaDesc.content = metaData.description; 
+    const basePath = getBasePath(activeTab);
+    if (basePath) {
+      navigate(basePath, { replace: true });
+    } else {
+      navigate("/sample-images/sample-jpg");
+    }
+    document.title = metaData.title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement("meta");
+      metaDesc.name = "description";
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.content = metaData.description;
   }, [activeTab, fetchFiles]);
 
   // Pagination logic
@@ -102,17 +102,21 @@ const SampleImage = () => {
     const indexOfFirstFile = indexOfLastFile - filesPerPage;
     return {
       currentFiles: files.slice(indexOfFirstFile, indexOfLastFile),
-      totalPages: Math.ceil(files.length / filesPerPage)
+      totalPages: Math.ceil(files.length / filesPerPage),
     };
   }, [files, currentPage]);
- 
+
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
       {/* Tab Bar */}
-      <div className="pt-2 pb-2 text-black" dangerouslySetInnerHTML={{ __html: metaData.bodyText }}>
-      </div>
+      <div
+        className="pt-2 pb-2 text-black"
+        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
+      />
 
-      <div style={{marginBottom:50}}>Image from <a href="https://pixabay.com">Pixabay</a></div>
+      <div style={{ marginBottom: 50 }}>
+        Image from <a href="https://pixabay.com">Pixabay</a>
+      </div>
       <Nav
         activeKey={activeTab}
         onSelect={setActiveTab}
@@ -147,8 +151,27 @@ const SampleImage = () => {
               dimensions={file.width ? `${file.width}x${file.height}` : null}
               downloadLink="#"
               onClick={() => {
-                setModalFileDetail(file);
-                setModalOpen(true);
+                console.log(file)
+                navigate("/file-details", {
+                  state: {
+                    fileData:file,
+                    name: file.displayName || file.display_name,
+                    type: file.format,
+                    size: formatBytes(file.bytes),
+                    modified: file.createdAt,
+                    tags: [
+                      "Sample Image",
+                      `${fileType} Image for Testing`,
+                      "Free Image Download",
+                      "High Quality Sample Image",
+                      "Test Image File",
+                    ],
+                    url: file.url,
+                    dimensions: file.width
+                      ? `${file.width}x${file.height}`
+                      : null,
+                  },
+                });
               }}
             />
           </div>
@@ -195,28 +218,6 @@ const SampleImage = () => {
           </nav>
         </div>
       )}
-
-      {/* File Details Modal */}
-      <SampleFileDetails
-        isShow={modalOpen}
-        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
-        fileType={modalFileDetail.format}
-        fileSize={formatBytes(modalFileDetail.bytes)}
-        dimensions={
-          modalFileDetail.width
-            ? `${modalFileDetail.width}x${modalFileDetail.height}`
-            : null
-        }
-        onClose={() => setModalOpen(false)}
-        imageUrl={modalFileDetail.url}
-        onDownload={() => alert("Download clicked")}
-        onCopyUrl={() => alert("Copy URL clicked")}
-        shareLinks={{
-          facebook: "https://facebook.com/sharer/sharer.php?u=YOUR_URL",
-          twitter: "https://twitter.com/share?url=YOUR_URL",
-          linkedin: "https://linkedin.com/shareArticle?url=YOUR_URL",
-        }}
-      />
     </div>
   );
 };

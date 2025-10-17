@@ -11,7 +11,6 @@ import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 import { useEffect, useMemo, useState, useCallback } from "react";
-import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   getMetaData,
@@ -27,8 +26,6 @@ const SampleDocument = () => {
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalFileDetail, setModalFileDetail] = useState({});
   const navigate = useNavigate();
 
   // Fetch files function with caching and optional type
@@ -110,7 +107,6 @@ const SampleDocument = () => {
       totalPages: Math.ceil(files.length / filesPerPage),
     };
   }, [files, currentPage]);
-console.log(fileType)
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
       <div
@@ -120,8 +116,7 @@ console.log(fileType)
 
       {fileType === "csv" && (
         <div style={{ marginBottom: 50 }}>
-          CSV from{" "}
-          <a href="https://www.mockaroo.com">mockaroo</a>
+          CSV from <a href="https://www.mockaroo.com">mockaroo</a>
         </div>
       )}
       {/* Tab Bar */}
@@ -159,8 +154,26 @@ console.log(fileType)
               dimensions={file.width ? `${file.width}x${file.height}` : null}
               downloadLink="#"
               onClick={() => {
-                setModalFileDetail(file);
-                setModalOpen(true);
+                navigate("/file-details", {
+                  state: {
+                    fileData:file,
+                    name: file.displayName || file.display_name,
+                    type: file.format,
+                    size: formatBytes(file.bytes),
+                    modified: file.createdAt,
+                    tags: [
+                      "Sample Document",
+                      `${fileType} File Example`,
+                      "Document File for Testing",
+                      "Free Sample Document Download",
+                      "Office File Sample",
+                    ],
+                    url: file.url,
+                    dimensions: file.width
+                      ? `${file.width}x${file.height}`
+                      : null,
+                  },
+                });
               }}
             />
           </div>
@@ -208,27 +221,6 @@ console.log(fileType)
         </div>
       )}
 
-      {/* File Details Modal */}
-      <SampleFileDetails
-        isShow={modalOpen}
-        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
-        fileType={modalFileDetail.format}
-        fileSize={formatBytes(modalFileDetail.bytes)}
-        dimensions={
-          modalFileDetail.width
-            ? `${modalFileDetail.width}x${modalFileDetail.height}`
-            : null
-        }
-        onClose={() => setModalOpen(false)}
-        imageUrl={modalFileDetail.url}
-        onDownload={() => alert("Download clicked")}
-        onCopyUrl={() => alert("Copy URL clicked")}
-        shareLinks={{
-          facebook: "https://facebook.com/sharer/sharer.php?u=YOUR_URL",
-          twitter: "https://twitter.com/share?url=YOUR_URL",
-          linkedin: "https://linkedin.com/shareArticle?url=YOUR_URL",
-        }}
-      />
     </div>
   );
 };

@@ -11,9 +11,12 @@ import Card from "../Card/Card";
 import "../TabBar/TabBar.css";
 import { formatBytes, getBasePath } from "../../utils/Utils";
 import { useEffect, useMemo, useState, useCallback } from "react";
-import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMetaData, archiveTabData as tabData, updatedDatabaseKey } from "../../utils/Constant";
+import {
+  getMetaData,
+  archiveTabData as tabData,
+  updatedDatabaseKey,
+} from "../../utils/Constant";
 
 const filesPerPage = 25;
 
@@ -23,8 +26,6 @@ const SampleArchives = () => {
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalFileDetail, setModalFileDetail] = useState({});
   const navigate = useNavigate();
 
   // Fetch files function with caching and optional type
@@ -73,7 +74,6 @@ const SampleArchives = () => {
 
   // Update activeTab if fileType param changes
   useEffect(() => {
-
     if (!fileType) return;
     setActiveTab(fileType);
   }, [fileType]);
@@ -114,7 +114,7 @@ const SampleArchives = () => {
       <div
         className="pt-2 pb-2 text-black"
         dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
-      ></div>
+      />
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}
@@ -150,8 +150,20 @@ const SampleArchives = () => {
               dimensions={file.width ? `${file.width}x${file.height}` : null}
               downloadLink="#"
               onClick={() => {
-                setModalFileDetail(file);
-                setModalOpen(true);
+                navigate("/file-details", {
+                  state: {
+                    fileData: file,
+                    name: file.displayName || file.display_name,
+                    type: file.type,
+                    size: formatBytes(file.bytes),
+                    modified: "2025-10-17T08:00:00Z",
+                    tags: ["image", "png", "sample"],
+                    url: file.url,
+                    dimensions: file.width
+                      ? `${file.width}x${file.height}`
+                      : null,
+                  },
+                });
               }}
             />
           </div>
@@ -198,28 +210,6 @@ const SampleArchives = () => {
           </nav>
         </div>
       )}
-
-      {/* File Details Modal */}
-      <SampleFileDetails
-        isShow={modalOpen}
-        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
-        fileType={modalFileDetail.format}
-        fileSize={formatBytes(modalFileDetail.bytes)}
-        dimensions={
-          modalFileDetail.width
-            ? `${modalFileDetail.width}x${modalFileDetail.height}`
-            : null
-        }
-        onClose={() => setModalOpen(false)}
-        imageUrl={modalFileDetail.url}
-        onDownload={() => alert("Download clicked")}
-        onCopyUrl={() => alert("Copy URL clicked")}
-        shareLinks={{
-          facebook: "https://facebook.com/sharer/sharer.php?u=YOUR_URL",
-          twitter: "https://twitter.com/share?url=YOUR_URL",
-          linkedin: "https://linkedin.com/shareArticle?url=YOUR_URL",
-        }}
-      />
     </div>
   );
 };

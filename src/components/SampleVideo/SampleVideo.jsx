@@ -13,7 +13,6 @@ import { formatBytes, getBasePath } from "../../utils/Utils";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import {
   getMetaData,
   videoTabData as tabData,
@@ -28,8 +27,6 @@ const SampleVideo = () => {
   const [activeTab, setActiveTab] = useState(fileType || tabData[0]?.key);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalFileDetail, setModalFileDetail] = useState({});
   const navigate = useNavigate();
 
   // Fetch files function with caching and optional type
@@ -81,15 +78,12 @@ const SampleVideo = () => {
 
     setActiveTab(fileType);
     const basePath = getBasePath(fileType);
-    console.log("basePath"+basePath)
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
       navigate("/sample-videos/sample-mp4");
     }
   }, [fileType, navigate]);
-
-  console.log("=====", fileType)
 
   // Fetch files when activeTab changes
   useEffect(() => {
@@ -130,7 +124,7 @@ const SampleVideo = () => {
       />
       <div style={{ marginBottom: 50 }}>
         Video from{" "}
-        <a href="https://pixabay.com/videos/search/video/">Pixabay{" "}</a>and{" "}
+        <a href="https://pixabay.com/videos/search/video/">Pixabay </a>and{" "}
         <a href="https://www.pexels.com/videos/">Pexels</a>{" "}
       </div>
 
@@ -169,8 +163,26 @@ const SampleVideo = () => {
               dimensions={file.width ? `${file.width}x${file.height}` : null}
               downloadLink="#"
               onClick={() => {
-                setModalFileDetail(file);
-                setModalOpen(true);
+                navigate("/file-details", {
+                  state: {
+                    fileData: file,
+                    name: file.displayName || file.display_name,
+                    type: file.format,
+                    size: formatBytes(file.bytes),
+                    modified: file.createdAt,
+                    tags: [
+                      "Sample Video File",
+                      `${fileType} Video for Testing`,
+                      "Free Video Download",
+                      "Test Video Clip",
+                      "Video File Sample",
+                    ],
+                    url: file.url,
+                    dimensions: file.width
+                      ? `${file.width}x${file.height}`
+                      : null,
+                  },
+                });
               }}
             />
           </div>
@@ -217,28 +229,6 @@ const SampleVideo = () => {
           </nav>
         </div>
       )}
-
-      {/* File Details Modal */}
-      <SampleFileDetails
-        isShow={modalOpen}
-        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
-        fileType={modalFileDetail.format}
-        fileSize={formatBytes(modalFileDetail.bytes)}
-        dimensions={
-          modalFileDetail.width
-            ? `${modalFileDetail.width}x${modalFileDetail.height}`
-            : null
-        }
-        onClose={() => setModalOpen(false)}
-        imageUrl={modalFileDetail.url}
-        onDownload={() => alert("Download clicked")}
-        onCopyUrl={() => alert("Copy URL clicked")}
-        shareLinks={{
-          facebook: "https://facebook.com/sharer/sharer.php?u=YOUR_URL",
-          twitter: "https://twitter.com/share?url=YOUR_URL",
-          linkedin: "https://linkedin.com/shareArticle?url=YOUR_URL",
-        }}
-      />
     </div>
   );
 };

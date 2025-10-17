@@ -15,7 +15,6 @@ const SocialShare = () => {
   };
 
   const shareLinks = generateShareLinks();
-  // console.log('Share Links:', shareLinks);
 
   // Alternative: Direct share API (for mobile devices)
   const handleNativeShare = async () => {

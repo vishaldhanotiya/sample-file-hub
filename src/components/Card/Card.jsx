@@ -177,8 +177,8 @@ const Card = ({
 
   const handlePreviewClick = () => {
     trackMediaView(file.format, file.name);
-    //onClick(file);
-    window.open(file.url, "_blank");
+    onClick(file);
+   // window.open(file.url, "_blank");
   };
 
   const updateDownloadCount = async (file) => {

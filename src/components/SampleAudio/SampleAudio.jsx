@@ -12,7 +12,6 @@ import { formatBytes, getBasePath } from "../../utils/Utils";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../TabBar/TabBar.css";
-import SampleFileDetails from "../SampleFileDetails/SampleFileDetails";
 import {
   getMetaData,
   audioTabData as tabData,
@@ -27,8 +26,6 @@ const SampleAudio = () => {
   const [activeTab, setActiveTab] = useState(fileType);
   const [files, setFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalFileDetail, setModalFileDetail] = useState({});
   const navigate = useNavigate();
 
   // Fetch files function with caching and optional type
@@ -86,7 +83,6 @@ const SampleAudio = () => {
     if (activeTab) fetchFiles(activeTab);
 
     const basePath = getBasePath(fileType);
-    //console.log("=====",basePath,fileType,activeTab)
     if (basePath) {
       navigate(basePath, { replace: true });
     } else {
@@ -120,8 +116,7 @@ const SampleAudio = () => {
       />
 
       <div style={{ marginBottom: 50 }}>
-        Audio from{" "}
-        <a href="https://www.chosic.com">Chosic</a>
+        Audio from <a href="https://www.chosic.com">Chosic</a>
       </div>
       {/* Tab Bar */}
       <Nav
@@ -158,8 +153,26 @@ const SampleAudio = () => {
               dimensions={file.width ? `${file.width}x${file.height}` : null}
               downloadLink="#"
               onClick={() => {
-                setModalFileDetail(file);
-                setModalOpen(true);
+                navigate("/file-details", {
+                  state: {
+                    fileData: file,
+                    name: file.displayName || file.display_name,
+                    type: file.format,
+                    size: formatBytes(file.bytes),
+                    modified: file.createdAt,
+                    tags: [
+                      "Sample Audio File",
+                      `${fileType} Audio for Testing`,
+                      "Free Sound File Download",
+                      "Audio Sample File",
+                      "Test Audio Clip",
+                    ],
+                    url: file.url,
+                    dimensions: file.width
+                      ? `${file.width}x${file.height}`
+                      : null,
+                  },
+                });
               }}
             />
           </div>
@@ -206,28 +219,6 @@ const SampleAudio = () => {
           </nav>
         </div>
       )}
-
-      {/* File Details Modal */}
-      <SampleFileDetails
-        isShow={modalOpen}
-        fileName={modalFileDetail.display_name || modalFileDetail.displayName}
-        fileType={modalFileDetail.format}
-        fileSize={formatBytes(modalFileDetail.bytes)}
-        dimensions={
-          modalFileDetail.width
-            ? `${modalFileDetail.width}x${modalFileDetail.height}`
-            : null
-        }
-        onClose={() => setModalOpen(false)}
-        imageUrl={modalFileDetail.url}
-        onDownload={() => alert("Download clicked")}
-        onCopyUrl={() => alert("Copy URL clicked")}
-        shareLinks={{
-          facebook: "https://facebook.com/sharer/sharer.php?u=YOUR_URL",
-          twitter: "https://twitter.com/share?url=YOUR_URL",
-          linkedin: "https://linkedin.com/shareArticle?url=YOUR_URL",
-        }}
-      />
     </div>
   );
 };

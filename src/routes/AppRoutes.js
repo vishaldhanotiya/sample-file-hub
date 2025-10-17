@@ -9,6 +9,7 @@ import Home from "../components/Home/Home";
 import SampleArchives from "../components/SampleArchives/SampleArchives";
 import SampleCode from "../components/SampleCode/SampleCode";
 import PlaceholderImageGenerator from "../components/PlaceholderImageGenerator/PlaceholderImageGenerator";
+import FileDetails from "../components/FileDetails/FileDetails";
 import PrivacyPolicy from "../components/PrivacyPolicy/PrivacyPolicy";
 import TermsOfService from "../components/TermsOfService/TermsOfService";
 import ConvertJpgToPngBlog from "../components/BlogSection/ConvertJpgToPngBlog/ConvertJpgToPngBlog";
@@ -78,6 +79,7 @@ const AppRoutes = () => {
        
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-service" element={<TermsOfService />} />
+        <Route path="file-details" element={<FileDetails />} />
         {/* Add other routes here */}
       </Route>
       <Route path="*" element={<NotFound />} />
