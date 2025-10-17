@@ -487,6 +487,18 @@ export const faqs = [
 export const getMetaData = (fileType) => {
   switch (fileType) {
     // ----------------- Images -----------------
+case "home":
+      return {
+        title: "Download Free Sample Files – Images, Videos, PDFs & More",
+        screenTitle: "",
+        description:
+          "Get free sample images, videos, PDFs, and documents instantly. Perfect for testing, demos, and learning.",
+        keywords:
+          "sample jpg, file",
+        bodyText: ``,
+      };
+    
+
     case "jpg":
       return {
         title: "Sample JPG image download - Free Sample Files",
@@ -755,7 +767,7 @@ You can <strong>download WEBM files free from our website</strong>, making them 
     case "mp3":
       return {
         title: "Sample mp3 audio file Download - Free Sample Files",
-        screenTitle: "Sample 3gp audio download",
+        screenTitle: "Sample mp3 audio download",
         description:
           "Download a sample MP3 audio file for playback and audio testing. Free MP3 sample provided.",
         keywords:

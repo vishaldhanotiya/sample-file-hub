@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 import { collection, getDocs } from "@firebase/firestore";
 import { db } from "../../App";
-import { categories } from "../../utils/Constant";
+import { categories, getMetaData } from "../../utils/Constant";
 import Blog from "../BlogSection/BlogSection";
 import BrowseCategories from "../BrowseCategories/BrowseCategories";
 import DeveloperTools from "../DeveloperTools/DeveloperTools";
@@ -12,6 +12,21 @@ import FAQ from "../FAQ/FAQ";
 
 export default function Home() {
   const [categoriesData, setCategoriesData] = useState(categories);
+
+     // Set title and metadata
+      useEffect(() => {
+        const metaData = getMetaData("home");
+    
+        document.title = metaData.title;
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement("meta");
+          metaDesc.name = "description";
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = metaData.description; // Use .content instead of setAttribute
+      }, []);
+
   useEffect(() => {
     const fetchDownloads = async () => {
       try {
