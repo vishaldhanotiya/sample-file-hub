@@ -63,10 +63,11 @@ export default function PlaceholderImageGenerator() {
       if (prevUrlRef.current) URL.revokeObjectURL(prevUrlRef.current);
     };
   }, []);
-  const metaData = useMemo(() => getMetaData("placeholder-generator"), []);
 
   // Fetch files when activeTab changes
   useEffect(() => {
+    const metaData = getMetaData("placeholder-image-generator");
+
     document.title = metaData.title;
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
@@ -75,7 +76,7 @@ export default function PlaceholderImageGenerator() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.content = metaData.description;
-  }, [metaData]);
+  }, []);
 
   // Update icon position when alignment changes
   useEffect(() => {

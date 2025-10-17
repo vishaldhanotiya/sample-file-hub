@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
+import { getMetaData } from "../../../utils/Constant";
 
 const PNGTroubleshooter = () => {
   const [selectedIssue, setSelectedIssue] = useState("");
@@ -160,6 +161,20 @@ const PNGTroubleshooter = () => {
     "Use modern formats (WebP/AVIF) with PNG fallbacks",
   ];
 
+
+     // Set title and metadata
+      useEffect(() => {
+        const metaData = getMetaData("blog-6");
+    
+        document.title = metaData.title;
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement("meta");
+          metaDesc.name = "description";
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = metaData.description; // Use .content instead of setAttribute
+      }, []);
   const selectedIssueData = issues.find((issue) => issue.id === selectedIssue);
 
   return (

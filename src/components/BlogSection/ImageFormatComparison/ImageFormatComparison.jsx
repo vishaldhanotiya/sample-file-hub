@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { getMetaData } from "../../../utils/Constant";
+
 const ImageFormatComparison = () => {
   const formatData = {
     png: {
@@ -110,6 +113,20 @@ const ImageFormatComparison = () => {
       reason: "PNG-quality with much smaller file size",
     },
   ];
+
+     // Set title and metadata
+    useEffect(() => {
+      const metaData = getMetaData("blog-3");
+  
+      document.title = metaData.title;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement("meta");
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = metaData.description; // Use .content instead of setAttribute
+    }, []);
 
   return (
     <div className="container my-3">

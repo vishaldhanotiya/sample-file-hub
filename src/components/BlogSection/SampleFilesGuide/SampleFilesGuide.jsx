@@ -1,4 +1,23 @@
+import { useEffect } from "react";
+import { getMetaData } from "../../../utils/Constant";
+
 const SampleFilesGuide = () => {
+
+
+   // Set title and metadata
+    useEffect(() => {
+      const metaData = getMetaData("blog-2");
+  
+      document.title = metaData.title;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement("meta");
+        metaDesc.name = "description";
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = metaData.description; // Use .content instead of setAttribute
+    }, []);
+
   return (
     <div className="container mt-5 mb-5">
       <article className="bg-white rounded-4 shadow-lg border-0 overflow-hidden">
@@ -109,7 +128,7 @@ const SampleFilesGuide = () => {
                 className="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center me-2"
                 style={{ width: "40px", height: "40px" }}
               >
-                1
+                1 
               </span>
               What Are Sample Files?
             </h2>

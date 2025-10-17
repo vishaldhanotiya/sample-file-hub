@@ -1,4 +1,22 @@
+import { useEffect } from "react";
+import { getMetaData } from "../../utils/Constant";
+
 export default function BlogImageOptimization() {
+
+     // Set title and metadata
+      useEffect(() => {
+        const metaData = getMetaData("blog-4");
+    
+        document.title = metaData.title;
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement("meta");
+          metaDesc.name = "description";
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = metaData.description; // Use .content instead of setAttribute
+      }, []);
+
   return (
     <div className="container mt-5 mb-5">
       <article className="bg-white rounded-4 shadow-lg border-0 overflow-hidden">
