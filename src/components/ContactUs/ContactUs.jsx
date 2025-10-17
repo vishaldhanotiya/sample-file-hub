@@ -28,9 +28,9 @@ const ContactUs = () => {
         className="p-4 p-md-5 bg-white rounded-4 shadow-lg w-100"
         style={{ maxWidth: "480px" }}
       >
-        <h2 className="text-center mb-3 fw-bold text-primary">
+        <h1 className="text-center mb-3 fw-bold text-primary">
           Contact <span className="text-dark">Us</span>
-        </h2>
+        </h1>
         <p className="text-center text-muted mb-4">
           Have a question or feedback? We’d love to hear from you.
         </p>

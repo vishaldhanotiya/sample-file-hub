@@ -437,7 +437,8 @@ export const categories = [
     key: "archives",
     icon: Archive,
     title: "Archives",
-    description:"Access free test archives in ZIP, RAR, 7Z, and TAR formats. Explore different compression levels, file structures, and security settings to validate extraction algorithms, uploads, or system compatibility. Perfect for developers, QA engineers, and IT professionals",
+    description:
+      "Access free test archives in ZIP, RAR, 7Z, and TAR formats. Explore different compression levels, file structures, and security settings to validate extraction algorithms, uploads, or system compatibility. Perfect for developers, QA engineers, and IT professionals",
     downloads: "-",
     color: "text-white",
     bgDownload: "bg-warning-subtle",
@@ -489,6 +490,7 @@ export const getMetaData = (fileType) => {
     case "jpg":
       return {
         title: "Sample JPG image download - Free Sample Files",
+        screenTitle: "Sample jpg download",
         description:
           "Download a sample JPG image file for testing and development. High-quality JPEG format image available for free.",
         keywords:
@@ -507,6 +509,7 @@ export const getMetaData = (fileType) => {
     case "png":
       return {
         title: "Sample png image download - Free Sample Files",
+        screenTitle: "Sample png download",
         description:
           "Download a sample PNG image file for testing projects, design, and software. Free PNG sample available instantly.",
         keywords:
@@ -521,6 +524,7 @@ export const getMetaData = (fileType) => {
     case "webp":
       return {
         title: "Sample WEBP image download - Free Sample Files",
+        screenTitle: "Sample webp download",
         description:
           "Get a sample WEBP image file for testing and optimization. Free WEBP format download provided.",
         keywords:
@@ -532,6 +536,7 @@ Whether building a blog, e-commerce platform, or complex <strong>web application
     case "svg":
       return {
         title: "Sample SVG image download - Free Sample Files",
+        screenTitle: "Sample SVG download",
         description:
           "Download a sample SVG vector image file for testing in web and design projects. Scalable vector graphic format.",
         keywords: "sample svg, svg download, vector svg file, free svg example",
@@ -543,6 +548,7 @@ They are perfect for <strong>UI/UX designers, web developers, and digital market
     case "gif":
       return {
         title: "Sample GIF image - Download .gif Sample Files",
+        screenTitle: "Sample GIF download",
         description:
           "Free sample GIF image file for testing animations and image rendering. Download instantly.",
         keywords:
@@ -555,6 +561,7 @@ They are perfect for <strong>social media, marketing, tutorials, and messaging a
     case "bmp":
       return {
         title: "Sample BMP image Download - Free Sample Files",
+        screenTitle: "Sample BMP download",
         description:
           "Download a sample BMP image file for testing legacy formats and applications. Free BMP sample.",
         keywords:
@@ -567,6 +574,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "psd":
       return {
         title: "Sample PSD file Download - Free Photoshop Sample Files",
+        screenTitle: "Sample PSD download",
         description:
           "Download a sample PSD file for Adobe Photoshop testing, design projects, and image editing. Free PSD sample.",
         keywords:
@@ -580,6 +588,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "heic":
       return {
         title: "Sample HEIC image download - Free HEIC Sample Files",
+        screenTitle: "Sample heic download",
         description:
           "Download a sample HEIC image file for testing modern formats and iOS compatibility. Free HEIC sample.",
         keywords:
@@ -593,6 +602,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "tiff":
       return {
         title: "Sample TIFF image download - Free TIFF Sample Files",
+        screenTitle: "Sample tiff download",
         description:
           "Download a sample TIFF image file for high-quality print and archival purposes. Free TIFF sample.",
         keywords:
@@ -606,6 +616,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "ico":
       return {
         title: "Sample ICO icon download - Free Icon Sample Files",
+        screenTitle: "Sample ICO download",
         description:
           "Download a sample ICO file for app and web icon testing. Free ICO sample.",
         keywords:
@@ -619,6 +630,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "avif":
       return {
         title: "Sample AVIF image file download - Free Image Sample Files",
+        screenTitle: "Sample AVIF download",
         description:
           "Download a sample AVIF file for testing next-gen image compression. Free AVIF sample.",
         keywords:
@@ -630,6 +642,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "dng":
       return {
         title: "Sample DNG file download - Free Raw Photo Sample Files",
+        screenTitle: "Sample DNG download",
         description:
           "Download a sample DNG file for testing raw photo editing. Free DNG sample.",
         keywords:
@@ -641,6 +654,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "tga":
       return {
         title: "Sample TGA file download - Free Raster Graphic Sample Files",
+        screenTitle: "Sample TGA download",
         description:
           "Download a sample TGA file for testing images with transparency. Free TGA sample.",
         keywords:
@@ -654,6 +668,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "3gp":
       return {
         title: "Sample 3GP video download - Free Mobile Video Sample Files",
+        screenTitle: "Sample 3gp video download",
         description:
           "Download a sample 3GP file for testing mobile video playback. Free 3GP sample.",
         keywords:
@@ -665,6 +680,7 @@ They are particularly useful for <strong>archiving original graphics</strong> an
     case "mp4":
       return {
         title: "Sample mp4 Video Download - Free Sample Files",
+        screenTitle: "Sample mp4 video download",
         description:
           "Download a sample MP4 video file for playback and testing. Free MP4 example available.",
         keywords:
@@ -677,6 +693,7 @@ Content creators, educators, and marketers rely on <strong>MP4 files</strong> fo
     case "mkv":
       return {
         title: "Sample mkv Video Download - Free Sample Files",
+        screenTitle: "Sample mkv video download",
         description:
           "Free sample MKV video file available for testing video players and formats.",
         keywords: "sample mkv, mkv video download, mkv file example, free mkv",
@@ -687,6 +704,7 @@ Content creators, educators, and marketers rely on <strong>MP4 files</strong> fo
     case "avi":
       return {
         title: "Sample AVI Video Download - Free Sample Files",
+        screenTitle: "Sample avi video download",
         description:
           "Download a sample AVI video file for testing playback compatibility. Free AVI sample.",
         keywords:
@@ -699,6 +717,7 @@ You can <strong>download AVI files free from our website</strong>, making them a
     case "flv":
       return {
         title: "Sample flv Video Download - Free Sample Files",
+        screenTitle: "Sample flv video download",
         description:
           "Free sample FLV video file for testing Flash Video compatibility. Download instantly.",
         keywords: "sample flv, flv video download, flv file example, free flv",
@@ -710,6 +729,7 @@ You can <strong>download FLV files free from our website</strong>, making them a
     case "mov":
       return {
         title: "Sample mov Video Download - Free Sample Files",
+        screenTitle: "Sample mov video download",
         description:
           "Download a sample MOV video file for playback testing. Free MOV example file.",
         keywords: "sample mov, mov video download, mov file example, free mov",
@@ -720,6 +740,7 @@ You can <strong>download MOV files free from our website</strong>, making them a
     case "webm":
       return {
         title: "Sample webm Video Download - Free Sample Files",
+        screenTitle: "Sample webm video download",
         description:
           "Get a free sample WEBM video file for testing HTML5 playback and browsers.",
         keywords:
@@ -734,6 +755,7 @@ You can <strong>download WEBM files free from our website</strong>, making them 
     case "mp3":
       return {
         title: "Sample mp3 audio file Download - Free Sample Files",
+        screenTitle: "Sample 3gp audio download",
         description:
           "Download a sample MP3 audio file for playback and audio testing. Free MP3 sample provided.",
         keywords:
@@ -745,7 +767,9 @@ You can <strong>download MP3 files free from our website</strong>, making them a
       };
     case "flac":
       return {
-        title: "Sample flac audio file download - Free Lossless Audio Sample Files",
+        title:
+          "Sample flac audio file download - Free Lossless Audio Sample Files",
+        screenTitle: "Sample flac audio download",
         description:
           "Download a sample FLAC file for testing high-fidelity audio. Free FLAC sample.",
         keywords:
@@ -758,6 +782,7 @@ You can <strong>download MP3 files free from our website</strong>, making them a
       return {
         title:
           "Sample AIFF audio file download - Free Uncompressed Audio Sample Files",
+        screenTitle: "Sample aiff download",
         description:
           "Download a sample AIFF file for testing CD-quality audio. Free AIFF sample.",
         keywords:
@@ -769,6 +794,7 @@ You can <strong>download MP3 files free from our website</strong>, making them a
     case "aac":
       return {
         title: "Sample aac audio file Download - Free Sample Files",
+        screenTitle: "Sample aac audio download",
         description:
           "Free sample AAC audio file for testing playback on different devices.",
         keywords: "sample aac, aac audio download, aac file example, free aac",
@@ -780,6 +806,7 @@ You can <strong>download AAC files free from our website</strong>, making them a
     case "wav":
       return {
         title: "Sample wav audio file Download - Free Sample Files",
+        screenTitle: "Sample wav audio download",
         description:
           "Download a sample WAV audio file for testing uncompressed audio. Free WAV file available.",
         keywords:
@@ -792,6 +819,7 @@ You can <strong>download WAV files free from our website</strong>, making them a
     case "ogg":
       return {
         title: "Sample ogg Audio file Download - Free Sample Files",
+        screenTitle: "Sample ogg audio download",
         description:
           "Free sample OGG audio file for testing compatibility with media players.",
         keywords: "sample ogg, ogg audio download, ogg file example, free ogg",
@@ -805,6 +833,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
     case "pdf":
       return {
         title: "Sample pdf file - Free pdf Files for Testing",
+        screenTitle: "Sample pdf download",
         description:
           "Download a sample PDF document for testing. Free sample PDF file provided instantly.",
         keywords:
@@ -835,6 +864,7 @@ You can <strong>download OGG files free from our website</strong>, making them a
     case "odt":
       return {
         title: "Sample odt file - Free odt Files for Testing",
+        screenTitle: "Sample odt file",
         description:
           "Free sample ODT (OpenDocument Text) file for testing word processors.",
         keywords: "sample odt, odt file download, odt file example, free odt",
@@ -846,6 +876,8 @@ You can <strong>download ODT files free from our website</strong>, making them a
     case "rtf":
       return {
         title: "Sample rtf file Download - Free Sample Files",
+        screenTitle: "Sample rtf download",
+
         description:
           "Download a free sample RTF document for testing text editors.",
         keywords: "sample rtf, rtf download, rtf file example, free rtf",
@@ -858,6 +890,7 @@ You can <strong>download RTF files free from our website</strong>, making them a
     case "ppt":
       return {
         title: "Sample ppt file Download - Free Sample Files",
+        screenTitle: "Sample ppt download",
         description:
           "Free sample PPT presentation file for testing slides and office software.",
         keywords: "sample ppt, ppt download, ppt file example, free ppt",
@@ -869,6 +902,7 @@ You can <strong>download PPT files free from our website</strong>, making them a
     case "pptx":
       return {
         title: "Sample pptx file Download - Free Sample Files",
+        screenTitle: "Sample pptx download",
         description:
           "Free sample PPTX presentation file for testing slides and office software.",
         keywords: "sample pptx, pptx download, pptx file example, free ppt",
@@ -880,6 +914,7 @@ You can <strong>download PPTX files free from our website</strong>, making them 
     case "doc":
       return {
         title: "Sample doc file  - Free .doc Files for Testing",
+        screenTitle: "Sample doc download",
         description:
           "Download a sample DOC Word file for testing. Free DOC file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -898,6 +933,8 @@ You can <strong>download PPTX files free from our website</strong>, making them 
     case "docx":
       return {
         title: "Sample docx file - Free .docx Files for Testing",
+        screenTitle: "Sample docx download",
+
         description:
           "Download a sample DOCX Word file for testing. Free DOCX file available.",
         keywords: "sample docx, docx download, docx file example, free docx",
@@ -909,6 +946,7 @@ You can <strong>download DOCX files free from our website</strong>, making them 
     case "xls":
       return {
         title: "Sample xls file - Free .xls Files for Testing",
+        screenTitle: "Sample xls download",
         description:
           "Download a sample XLS Excel file for testing. Free XLS file available.",
         keywords: "sample xls, xls download, xls file example, free xls",
@@ -926,6 +964,8 @@ You can <strong>download DOCX files free from our website</strong>, making them 
     case "xlsx":
       return {
         title: "Sample xlsx file - Free .xlsx Files for Testing",
+        screenTitle: "Sample xlsx download",
+
         description:
           "Download a sample XLSX Excel file for testing. Free XLSX file available.",
         keywords: "sample xlsx, xlsx download, xlsx file example, free xlsx",
@@ -944,6 +984,8 @@ You can <strong>download DOCX files free from our website</strong>, making them 
     case "txt":
       return {
         title: "Sample text file",
+        screenTitle: "Sample text download",
+
         description:
           "Free sample TXT text file for testing plain text support. Download instantly.",
         keywords: "sample txt, txt download, txt file example, free txt",
@@ -955,6 +997,7 @@ You can <strong>download TXT files free from our website</strong>, making them a
     case "zip":
       return {
         title: "Sample zip file Download - Free Sample Files",
+        screenTitle: "Sample zip download",
         description:
           "Download a free sample ZIP archive file for testing compressed files.",
         keywords:
@@ -967,6 +1010,8 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "7z":
       return {
         title: "Sample 7Z File Download - Free 7-Zip Sample Files",
+        screenTitle: "Sample 7z download",
+
         description:
           "Download a sample 7Z compressed archive for testing extraction, compression tools, and file handling. Free 7Z sample.",
         keywords:
@@ -980,6 +1025,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "tar":
       return {
         title: "Sample TAR File - Download TAR Archive Sample",
+        screenTitle: "Sample TAR download",
         description:
           "Download a sample TAR archive file for Linux, Unix, and backup testing. Free TAR sample.",
         keywords:
@@ -993,6 +1039,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "rar":
       return {
         title: "Sample RAR File - Free RAR Sample Archives",
+        screenTitle: "Sample RAR download",
         description:
           "Download a sample RAR archive file for testing extraction and compression. Free RAR sample.",
         keywords:
@@ -1003,10 +1050,11 @@ You can <strong>download ZIP files free from our website</strong>, making them a
 
 <p>Download <strong>free RAR sample files</strong> from our website to test extraction, compatibility, and software handling. Perfect for <strong>developers, IT professionals, and students</strong> working with compressed archives.</p>`,
       };
-  
+
     case "json":
       return {
         title: "Sample JSON File - Free JSON Sample Data",
+        screenTitle: "Sample JSON download",
         description:
           "Download a sample JSON file for API testing, software development, and structured data analysis. Free JSON sample.",
         keywords:
@@ -1020,6 +1068,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "xml":
       return {
         title: "Sample XML File - Free XML Sample Files",
+        screenTitle: "Sample XML download",
         description:
           "Download a sample XML file for testing structured data, parsing, and software integration. Free XML sample.",
         keywords:
@@ -1033,6 +1082,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "csv":
       return {
         title: "Sample CSV File - Free CSV Sample Data",
+        screenTitle: "Sample CSV download",
         description:
           "Download a sample CSV file for spreadsheet testing, data analysis, and database import. Free CSV sample.",
         keywords:
@@ -1046,6 +1096,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "html":
       return {
         title: "Sample HTML File  - Free HTML Example Code",
+        screenTitle: "Sample HTML download",
         description:
           "Download a sample HTML file for web development practice and browser testing. Free HTML sample.",
         keywords:
@@ -1059,6 +1110,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "bat":
       return {
         title: "Sample BAT File Download - Free Windows Batch Script",
+        screenTitle: "Sample BAT download",
         description:
           "Download a sample BAT batch file for Windows scripting and automation testing. Free BAT sample.",
         keywords:
@@ -1072,6 +1124,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "c":
       return {
         title: "Sample C File  - Free C Program Example",
+        screenTitle: "Sample C download",
         description:
           "Download a sample C file with source code for learning programming and compiler testing. Free C sample.",
         keywords:
@@ -1085,6 +1138,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "cpp":
       return {
         title: "Sample C++ File Download - Free C++ Program Example",
+        screenTitle: "Sample C++ download",
         description:
           "Download a sample C++ source code file for OOP learning, compiler testing, and coding practice. Free C++ sample.",
         keywords:
@@ -1098,6 +1152,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "py":
       return {
         title: "Sample Python File  - Free Python Script Example",
+        screenTitle: "Sample Python download",
         description:
           "Download a sample Python script file for coding practice, automation, and software testing. Free Python sample.",
         keywords:
@@ -1111,6 +1166,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "rb":
       return {
         title: "Sample Ruby File  - Free Ruby Script Example",
+        screenTitle: "Sample Ruby download",
         description:
           "Download a sample Ruby script file for coding practice and software testing. Free Ruby sample.",
         keywords:
@@ -1124,6 +1180,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "js":
       return {
         title: "Sample JavaScript File Download - Free JS Script Example",
+        screenTitle: "Sample JavaScript download",
         description:
           "Download a sample JavaScript file for web development, testing, and learning. Free JS sample.",
         keywords:
@@ -1137,6 +1194,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "yaml":
       return {
         title: "Sample YAML File Download - Free YAML Example",
+        screenTitle: "Sample YAML download",
         description:
           "Download a sample YAML configuration file for testing and software development. Free YAML sample.",
         keywords:
@@ -1150,6 +1208,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "php":
       return {
         title: "Sample PHP File Download - Free PHP Script Example",
+        screenTitle: "Sample PHP download",
         description:
           "Download a sample PHP file for web development, server-side scripting, and testing. Free PHP sample.",
         keywords:
@@ -1163,6 +1222,7 @@ You can <strong>download ZIP files free from our website</strong>, making them a
     case "java":
       return {
         title: "Sample Java File Download - Free Java Program Example",
+        screenTitle: "Sample Java download",
         description:
           "Download a sample Java source code file for learning, compiler testing, and coding practice. Free Java sample.",
         keywords:
@@ -1174,100 +1234,129 @@ You can <strong>download ZIP files free from our website</strong>, making them a
 <p>Download <strong>free Java sample files</strong> from our site to test compilers, practice coding, or experiment with object-oriented programming. Perfect for <strong>students, developers, and software engineers</strong> learning Java.</p>`,
       };
 
+    case "converter":
+      return {
+        title: "Free JPG to PNG Converter - Convert Image Files Online",
+        description:
+          "Instantly convert your JPG images to PNG format online for free. Preserve transparency and get lossless quality for web and design projects.",
+        keywords:
+          "jpg to png, convert jpg to png, image converter, online file converter, jpg png conversion, free image tool",
+      };
+    case "placeholder-image-generator":
+      return {
+        title:
+          "Free Placeholder Image Generator - Custom Dummy Images for Mockups",
+        description:
+          "Generate free placeholder images in any size or color. Create custom dummy images for website mockups, design layouts, and testing.",
+        keywords:
+          "placeholder image, dummy image, image generator, mockup image, test image, design placeholder",
+      };
 
+    //Blogs pages
 
-  case "converter":
-  return {
-    title: "Free JPG to PNG Converter - Convert Image Files Online",
-    description: "Instantly convert your JPG images to PNG format online for free. Preserve transparency and get lossless quality for web and design projects.",
-    keywords: "jpg to png, convert jpg to png, image converter, online file converter, jpg png conversion, free image tool",
-  };
-  case "placeholder-image-generator":
-  return {
-    title: "Free Placeholder Image Generator - Custom Dummy Images for Mockups",
-    description: "Generate free placeholder images in any size or color. Create custom dummy images for website mockups, design layouts, and testing.",
-    keywords: "placeholder image, dummy image, image generator, mockup image, test image, design placeholder",
-  };
-
-  //Blogs pages
-
-  case "blogs":
-  return {
-    title: "Developer Blogs & Tutorials - SampleFiles.dev",
-    description: "Explore our collection of articles, guides, and tutorials on file formats, conversion tools, software testing, and web development best practices.",
-    keywords: "developer blogs, programming tutorials, file format guides, software testing tips, web development blog, tech articles",
-    bodyText: `<p>Welcome to the <strong>SampleFiles.dev Blog</strong>, your resource for insightful articles and practical guides for <strong>developers, testers, and designers</strong>. Our content is designed to help you navigate the complexities of file formats, optimize your workflow, and implement best practices in your projects.</p>
+    case "blogs":
+      return {
+        title: "Developer Blogs & Tutorials - SampleFiles.dev",
+        description:
+          "Explore our collection of articles, guides, and tutorials on file formats, conversion tools, software testing, and web development best practices.",
+        keywords:
+          "developer blogs, programming tutorials, file format guides, software testing tips, web development blog, tech articles",
+        bodyText: `<p>Welcome to the <strong>SampleFiles.dev Blog</strong>, your resource for insightful articles and practical guides for <strong>developers, testers, and designers</strong>. Our content is designed to help you navigate the complexities of file formats, optimize your workflow, and implement best practices in your projects.</p>
 
 <p>Explore in-depth tutorials on topics like <strong>image conversion, file compression, and security</strong>, alongside comparisons of different technologies and formats. Whether you're looking to solve a specific problem or deepen your understanding, our blogs provide the actionable knowledge you need.</p>
 
-<p>Browse our latest posts to stay updated on <strong>industry trends, tool recommendations, and expert tips</strong> for working with sample files and beyond.</p>`
-  };
-  case "blog-1":
-  return {
-    title: "How to Convert JPG to PNG - A Complete Step-by-Step Guide",
-    description: "Learn how to convert JPG to PNG correctly. Our guide covers online tools, software, and best practices for preserving image quality and transparency.",
-    keywords: "how to convert jpg to png, jpg png tutorial, image conversion guide, preserve transparency, change image format",
-  };
-  case "blog-2":
-  return {
-    title: "How to Use Sample Files for Software Testing - A Developer's Guide",
-    description: "Learn best practices for using sample files to test your applications, from checking upload features to validating formats and stress-testing systems.",
-    keywords: "use sample files, software testing, test files, developer testing, file upload test, qa testing with files",
-  };
-  case "blog-3":
-  return {
-    title: "PNG vs WebP vs 9-Patch Images - A Developer Comparison Guide",
-    description: "Compare PNG, WebP, and 9-Patch image formats. Understand the differences in quality, file size, transparency, and use cases for web and mobile development.",
-    keywords: "png vs webp, nine patch images, image format comparison, webp transparency, android 9-patch, image quality comparison",
-  };
-  case "blog-4":
-  return {
-    title: "Image Optimization Best Practices - Boost Web Performance Guide",
-    description: "Master image optimization for faster websites. Learn best practices for compression, format selection, and responsive images to improve page speed and SEO.",
-    keywords: "image optimization, web performance, page speed, image compression, best practices, core web vitals, seo images",
-  };
-  case "blog-5":
-  return {
-    title: "File Upload Security - A Complete Guide for Developers",
-    description: "Secure your application's file upload feature. A comprehensive guide to preventing common vulnerabilities, validating files, and protecting against malicious uploads.",
-    keywords: "file upload security, secure file upload, developer security, web application security, prevent malicious uploads, file validation",
-  };
-  case "blog-6":
-  return {
-    title: "The PNG Paradox - Fix Transparency, File Size & Quality Mistakes",
-    description: "Solve the PNG paradox. Learn how to fix common issues with transparency, reduce bloated file sizes, and maintain optimal image quality for the web.",
-    keywords: "png paradox, png transparency, reduce png file size, png optimization, png quality, fix png issues",
-  };
+<p>Browse our latest posts to stay updated on <strong>industry trends, tool recommendations, and expert tips</strong> for working with sample files and beyond.</p>`,
+      };
+    case "blog-1":
+      return {
+        title: "How to Convert JPG to PNG - A Complete Step-by-Step Guide",
+        description:
+          "Learn how to convert JPG to PNG correctly. Our guide covers online tools, software, and best practices for preserving image quality and transparency.",
+        keywords:
+          "how to convert jpg to png, jpg png tutorial, image conversion guide, preserve transparency, change image format",
+      };
+    case "blog-2":
+      return {
+        title:
+          "How to Use Sample Files for Software Testing - A Developer's Guide",
+        description:
+          "Learn best practices for using sample files to test your applications, from checking upload features to validating formats and stress-testing systems.",
+        keywords:
+          "use sample files, software testing, test files, developer testing, file upload test, qa testing with files",
+      };
+    case "blog-3":
+      return {
+        title: "PNG vs WebP vs 9-Patch Images - A Developer Comparison Guide",
+        description:
+          "Compare PNG, WebP, and 9-Patch image formats. Understand the differences in quality, file size, transparency, and use cases for web and mobile development.",
+        keywords:
+          "png vs webp, nine patch images, image format comparison, webp transparency, android 9-patch, image quality comparison",
+      };
+    case "blog-4":
+      return {
+        title:
+          "Image Optimization Best Practices - Boost Web Performance Guide",
+        description:
+          "Master image optimization for faster websites. Learn best practices for compression, format selection, and responsive images to improve page speed and SEO.",
+        keywords:
+          "image optimization, web performance, page speed, image compression, best practices, core web vitals, seo images",
+      };
+    case "blog-5":
+      return {
+        title: "File Upload Security - A Complete Guide for Developers",
+        description:
+          "Secure your application's file upload feature. A comprehensive guide to preventing common vulnerabilities, validating files, and protecting against malicious uploads.",
+        keywords:
+          "file upload security, secure file upload, developer security, web application security, prevent malicious uploads, file validation",
+      };
+    case "blog-6":
+      return {
+        title:
+          "The PNG Paradox - Fix Transparency, File Size & Quality Mistakes",
+        description:
+          "Solve the PNG paradox. Learn how to fix common issues with transparency, reduce bloated file sizes, and maintain optimal image quality for the web.",
+        keywords:
+          "png paradox, png transparency, reduce png file size, png optimization, png quality, fix png issues",
+      };
 
-  // For Legal & Standard Pages
+    // For Legal & Standard Pages
 
-  case "privacy-policy":
-  return {
-    title: "Privacy Policy - SampleFiles.dev | Your Data Security",
-    description: "Read the SampleFiles.dev privacy policy. Learn how we collect, use, and protect your data and information when you use our free file services.",
-    keywords: "privacy policy, samplefiles privacy, data security, information collection, website privacy",
-  };
-  case "terms-of-service":
-  return {
-    title: "Terms of Service - SampleFiles.dev | User Agreement",
-    description: "Review the Terms of Service for SampleFiles.dev. Understand the rules and guidelines for using our free sample files and online conversion tools.",
-    keywords: "terms of service, user agreement, website terms, terms and conditions, legal agreement",
-  };
+    case "privacy-policy":
+      return {
+        title: "Privacy Policy - SampleFiles.dev | Your Data Security",
+        description:
+          "Read the SampleFiles.dev privacy policy. Learn how we collect, use, and protect your data and information when you use our free file services.",
+        keywords:
+          "privacy policy, samplefiles privacy, data security, information collection, website privacy",
+      };
+    case "terms-of-service":
+      return {
+        title: "Terms of Service - SampleFiles.dev | User Agreement",
+        description:
+          "Review the Terms of Service for SampleFiles.dev. Understand the rules and guidelines for using our free sample files and online conversion tools.",
+        keywords:
+          "terms of service, user agreement, website terms, terms and conditions, legal agreement",
+      };
 
-  // For Company & Contact Pages
+    // For Company & Contact Pages
 
-  case "about-us":
-  return {
-    title: "About Us - SampleFiles.dev | Free Sample Files & Tools for Developers",
-    description: "Learn about SampleFiles.dev, our mission to provide free sample files and tools for developers, testers, and designers worldwide.",
-    keywords: "about us, about samplefiles, our mission, free tools for developers, who we are",
-  };
-  case "contact-us":
-  return {
-    title: "Contact Us - SampleFiles.dev | Get in Touch",
-    description: "Have questions or feedback? Contact the SampleFiles.dev team. We're here to help you with your sample file and development tool needs.",
-    keywords: "contact us, get in touch, customer support, feedback, questions",
-  };
+    case "about-us":
+      return {
+        title:
+          "About Us - SampleFiles.dev | Free Sample Files & Tools for Developers",
+        description:
+          "Learn about SampleFiles.dev, our mission to provide free sample files and tools for developers, testers, and designers worldwide.",
+        keywords:
+          "about us, about samplefiles, our mission, free tools for developers, who we are",
+      };
+    case "contact-us":
+      return {
+        title: "Contact Us - SampleFiles.dev | Get in Touch",
+        description:
+          "Have questions or feedback? Contact the SampleFiles.dev team. We're here to help you with your sample file and development tool needs.",
+        keywords:
+          "contact us, get in touch, customer support, feedback, questions",
+      };
 
     // ----------------- Default -----------------
     default:
