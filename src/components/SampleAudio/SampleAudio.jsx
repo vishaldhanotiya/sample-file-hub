@@ -113,7 +113,7 @@ const SampleAudio = () => {
       <h1 className="text-black text-center mt-2 mb-4 fs-1">
         {metaData.screenTitle}
       </h1>
-      {metaData.bodyText}
+      <div className="pt-2 pb-2 text-black">{metaData.bodyText}</div>
 
       <div style={{ marginBottom: 20 }}>
         Audio from <a href="https://www.chosic.com">Chosic</a>

@@ -113,7 +113,7 @@ const SampleDocument = () => {
         {metaData.screenTitle}
       </h1>
 
-      {metaData.bodyText}
+      <div className="pt-2 pb-2 text-black">{metaData.bodyText}</div>
 
       {fileType === "csv" && (
         <div style={{ marginBottom: 20 }}>

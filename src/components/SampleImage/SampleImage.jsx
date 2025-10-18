@@ -113,7 +113,7 @@ const SampleImage = () => {
         {metaData.screenTitle}
       </h1>
 
-      {metaData.bodyText}
+      <div className="pt-2 pb-2 text-black">{metaData.bodyText}</div>
 
       <div style={{ marginBottom: 20 }}>
         Image from <a href="https://pixabay.com">Pixabay</a>
