@@ -45,6 +45,8 @@ import TgaIcon from "../../assets/tga.png";
 import DngIcon from "../../assets/dng.png";
 import FlacIcon from "../../assets/flac.png";
 import AiffIcon from "../../assets/aiff.png";
+import MKVIcon from "../../assets/mkv.png";
+import WebMIcon from "../../assets/webm.png";
 import {
   trackDownload,
   trackDownloadError,
@@ -96,6 +98,8 @@ const placeholderMap = {
   tga: TgaIcon,
   aiff: AiffIcon,
   flac: FlacIcon,
+  mkv: MKVIcon,
+  webm: WebMIcon,
 };
 
 const Card = ({

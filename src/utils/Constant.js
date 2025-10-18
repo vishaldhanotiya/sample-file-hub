@@ -105,10 +105,10 @@ export const videoTabData = [
     path: "/sample-videos/mp4",
   },
   {
-    key: "mkv",
-    title: "MKV",
+    key: "mov",
+    title: "MOV",
     resourceType: "videos",
-    path: "/sample-videos/mkv",
+    path: "/sample-videos/mov",
   },
   {
     key: "avi",
@@ -123,16 +123,16 @@ export const videoTabData = [
     path: "/sample-videos/flv",
   },
   {
-    key: "mov",
-    title: "MOV",
-    resourceType: "videos",
-    path: "/sample-videos/mov",
-  },
-  {
     key: "webm",
     title: "WEBM",
     resourceType: "videos",
     path: "/sample-videos/webm",
+  },
+  {
+    key: "mkv",
+    title: "MKV",
+    resourceType: "videos",
+    path: "/sample-videos/mkv",
   },
 ];
 
