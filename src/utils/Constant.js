@@ -1941,7 +1941,6 @@ export const getMetaData = (fileType) => {
               for <strong>developers, students, and testers</strong> working
               with structured data.
             </p>
-            `,
           </article>
         ),
       };
