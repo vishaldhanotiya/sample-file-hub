@@ -121,10 +121,7 @@ const SampleCode = () => {
         <h1 className="text-black text-center mt-2 mb-4 fs-1">
         {metaData.screenTitle}
       </h1>
-      <div
-        className="pt-2 pb-2 text-black"
-        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
-      />
+       {metaData.bodyText}
       {/* Tab Bar */}
       <Nav
         activeKey={activeTab}

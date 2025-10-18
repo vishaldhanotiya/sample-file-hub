@@ -121,11 +121,8 @@ const SampleVideo = () => {
         <h1 className="text-black text-center mt-2 mb-4 fs-1">
         {metaData.screenTitle}
       </h1>
-      <div
-        className="pt-2 pb-2 text-black"
-        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
-      />
-      <div style={{ marginBottom: 50 }}>
+       {metaData.bodyText}
+      <div style={{ marginBottom: 20 }}>
         Video from{" "}
         <a href="https://pixabay.com/videos/search/video/">Pixabay </a>and{" "}
         <a href="https://www.pexels.com/videos/">Pexels</a>{" "}

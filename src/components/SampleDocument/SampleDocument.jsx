@@ -109,16 +109,14 @@ const SampleDocument = () => {
   }, [files, currentPage]);
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
-        <h1 className="text-black text-center mt-2 mb-4 fs-1">
+      <h1 className="text-black text-center mt-2 mb-4 fs-1">
         {metaData.screenTitle}
       </h1>
-      <div
-        className="pt-2 pb-2 text-black"
-        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
-      />
+
+      {metaData.bodyText}
 
       {fileType === "csv" && (
-        <div style={{ marginBottom: 50 }}>
+        <div style={{ marginBottom: 20 }}>
           CSV from <a href="https://www.mockaroo.com">mockaroo</a>
         </div>
       )}
@@ -159,7 +157,7 @@ const SampleDocument = () => {
               onClick={() => {
                 navigate("/file-details", {
                   state: {
-                    fileData:file,
+                    fileData: file,
                     name: file.displayName || file.display_name,
                     type: file.format,
                     size: formatBytes(file.bytes),
@@ -223,7 +221,6 @@ const SampleDocument = () => {
           </nav>
         </div>
       )}
-
     </div>
   );
 };

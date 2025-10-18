@@ -110,15 +110,12 @@ const SampleAudio = () => {
 
   return (
     <div className="container mt-4" style={{ maxWidth: "1200px" }}>
-        <h1 className="text-black text-center mt-2 mb-4 fs-1">
+      <h1 className="text-black text-center mt-2 mb-4 fs-1">
         {metaData.screenTitle}
       </h1>
-      <div
-        className="pt-2 pb-2 text-black"
-        dangerouslySetInnerHTML={{ __html: metaData.bodyText }}
-      />
+      {metaData.bodyText}
 
-      <div style={{ marginBottom: 50 }}>
+      <div style={{ marginBottom: 20 }}>
         Audio from <a href="https://www.chosic.com">Chosic</a>
       </div>
       {/* Tab Bar */}
