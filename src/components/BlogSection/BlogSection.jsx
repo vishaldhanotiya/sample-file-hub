@@ -5,6 +5,7 @@ import blog3 from "../../assets/blog-3.jpg";
 import blog4 from "../../assets/blog-4.jpg";
 import blog5 from "../../assets/blog-5.jpg";
 import blog6 from "../../assets/blog-6.jpg";
+import blog7 from "../../assets/blog-7.jpg";
 import "../Blogs/Blogs";
 
 const blogs = [
@@ -74,6 +75,17 @@ const blogs = [
     image: blog6,
     category: "Security",
     path: "/the-png-paradox-fixing-common-transparency-file-size-and-quality-mistakes",
+  },
+  {
+    id: 7,
+    title: "AVIF: The Next-Generation Image Format",
+    description:
+      "An in-depth technical analysis of AVIF's capabilities, adoption challenges, and strategic implementation for modern web development.",
+    author: "Vishal Dhanotiya",
+    date: "Oct 15, 2025",
+    image: blog7,
+    category: "Security",
+    path: "/avif-the-next-generation-image-format-revolutionizing-web-performance",
   },
 ];
 

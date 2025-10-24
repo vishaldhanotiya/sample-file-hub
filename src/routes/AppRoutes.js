@@ -22,6 +22,7 @@ import Blogs from "../components/Blogs/Blogs";
 import BlogImageOptimization from "../components/BlogSection/BlogImageOptimization";
 import BlogFileUploadSecurity from "../components/BlogSection/BlogFileUploadSecurity";
 import PNGTroubleshooter from "../components/BlogSection/PNGTroubleshooter/PNGTroubleshooter";
+import BlogAvif from "../components/BlogSection/BlogAVIFNextGenImage";
 
 const AppRoutes = () => {
   return (
@@ -80,6 +81,7 @@ const AppRoutes = () => {
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="terms-of-service" element={<TermsOfService />} />
         <Route path="file-details" element={<FileDetails />} />
+        <Route path="avif-the-next-generation-image-format-revolutionizing-web-performance" element={<BlogAvif />} />
         {/* Add other routes here */}
       </Route>
       <Route path="*" element={<NotFound />} />
